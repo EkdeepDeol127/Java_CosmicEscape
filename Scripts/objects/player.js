@@ -67,22 +67,22 @@ var objects;
         Player.prototype.KeyDown = function (event) {
             switch (event.keyCode) {
                 case 38: /*up arrow*/
-                case 87:
+                case 87:/* W Key */ 
                     this.moveUp = true;
                     break;
                 case 37: /*left arrow*/
-                case 65:
+                case 65:/* A Key */ 
                     this.moveLeft = true;
                     break;
                 case 40: /*down arrow*/
-                case 83:
+                case 83:/* S Key */ 
                     this.moveDown = true;
                     break;
                 case 39: /*right arrow*/
-                case 68:
+                case 68:/* D Key */ 
                     this.moveRight = true;
                     break;
-                case 81:
+                case 81:/* pause */ 
                     console.log("paused");
                     //add paused/suiside
                     break;
@@ -91,22 +91,22 @@ var objects;
         Player.prototype.KeyUp = function (event) {
             switch (event.keyCode) {
                 case 38: /*up arrow*/
-                case 87:
+                case 87:/* W Key */ 
                     this.moveUp = false;
                     break;
                 case 37: /*left arrow*/
-                case 65:
+                case 65:/* A Key */ 
                     this.moveLeft = false;
                     break;
                 case 40: /*down arrow*/
-                case 83:
+                case 83:/* S Key */ 
                     this.moveDown = false;
                     break;
                 case 39: /*right arrow*/
-                case 68:
+                case 68:/* D Key */ 
                     this.moveRight = false;
                     break;
-                case 81:
+                case 81:/* pause */ 
                     console.log("unpaused");
                     //add paused/suiside
                     break;
