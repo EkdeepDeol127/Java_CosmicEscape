@@ -1,71 +1,82 @@
-// IIFE - Immediately Invoked Function Expression
-(function () {
-    var canvas = document.getElementById("canvas"); // hook into the canvas element
-    var stage;
-    var player;
-    var bullet;
-    var asteroid;
-    function Start() {
-        stage = new createjs.Stage(canvas); // create a stage container
+/// <reference path="_reference.ts"/>
+var core;
+(function (core) {
+    var canvas = document.getElementById("canvas");
+    //scene variables
+    var currentScene;
+    var menu;
+    // let over: scenes.Over;
+    var play;
+    //asset manifest
+    var assetData = [
+        { id: "player ", src: "../../Assets/images/player.png " },
+        { id: "background ", src: " ../../Assets/images/background.png" },
+        { id: "bullet ", src: " ../../Assets/images/laserRed.png" },
+        { id: "atlas", src: "../../Assets/images/atlas.png" }
+    ];
+    function preload() {
+        core.assets = new createjs.LoadQueue();
+        core.assets.on("complete", init, this);
+        core.assets.loadManifest(assetData);
+    }
+    function init() {
+        core.stage = new createjs.Stage(canvas);
+        core.stage.enableMouseOver(20);
         createjs.Ticker.framerate = 60;
-        createjs.Ticker.on("tick", Update); // call Update every frame
-        /*data = {
-          images: ["./Assets/Sprites/TexturePackerV.png"],
-          frames: [
-            [1, 1, 151, 118, 0, 0, 0],
-            [154, 1, 99, 75, 0, 0, 0],
-            [1, 121, 136, 111, 0, 0, 0],
-            [154, 78, 99, 75, 0, 0, 0],
-            [1, 234, 91, 91, 0, 0, 0],
-            [139, 155, 90, 77, 0, 0, 0],
-            [94, 234, 90, 77, 0, 0, 0],
-            [94, 313, 98, 50, 0, 0, 0],
-            [186, 234, 56, 54, 0, 0, 0],
-            [1, 327, 44, 42, 0, 0, 0],
-            [194, 290, 56, 54, 0, 0, 0],
-            [231, 155, 9, 33, 0, 0, 0],
-            [47, 327, 9, 33, 0, 0, 0]
-          ],
-    
-          animations: {
-            shield: { frames: [0] },
-            player: { frames: [1] },
-            meteorBig: { frames: [2] },
-            playerDamaged: { frames: [3] },
-            enemyUFO: { frames: [4] },
-            playerLeft: { frames: [5] },
-            playerRight: { frames: [6] },
-            enemyShip: { frames: [7] },
-            laserGreenShot: { frames: [8] },
-            meteorSmall: { frames: [9] },
-            laserRedShot: { frames: [10] },
-            laserGreen: { frames: [11] },
-            laserRed: { frames: [12] }
-          },
+        createjs.Ticker.on("tick", gameLoop);
+        var atlasData = {
+            "images": [
+                core.assets.getResult("atlas")
+            ],
+            "frames": [
+                [1, 1, 226, 178, 0, 0, 0],
+                [229, 1, 200, 50, 0, 0, 0],
+                [431, 1, 62, 62, 0, 0, 0],
+                [229, 53, 200, 50, 0, 0, 0],
+                [431, 65, 62, 51, 0, -3, -9],
+                [229, 105, 200, 50, 0, 0, 0],
+                [431, 118, 62, 51, 0, -3, -9],
+                [229, 157, 200, 50, 0, 0, 0],
+                [431, 171, 62, 51, 0, -3, -9]
+            ],
+            "animations": {
+                "cloud": [0],
+                "exitButton": [1],
+                "island": [2],
+                "nextButton": [3],
+                "restartButton": [5],
+                "startButton": [7],
+                "plane": {
+                    "frames": [4, 6, 8],
+                    "speed": 0.5
+                }
+            }
+        };
+        core.textureAtlas = new createjs.SpriteSheet(atlasData);
+        core.scene = config.Scene.MENU;
+        changeScene();
+    }
+    function gameLoop(event) {
+        currentScene.Update();
+        core.stage.update();
+    }
+    function changeScene() {
+        //launch the scenes
+        switch (core.scene) {
+            case config.Scene.MENU:
+                core.stage.removeAllChildren();
+                menu = new scenes.Menu();
+                currentScene = menu;
+                break;
+            // Show the PLAY Scene
+            case config.Scene.PLAY:
+                core.stage.removeAllChildren();
+                play = new scenes.Play();
+                currentScene = play;
+                break;
         }
-    
-        _Data = new createjs.SpriteSheet(data);
-        player = new createjs.Sprite(_Data, "player");
-        bullet = new createjs.Sprite(_Data, "laserRed");
-        asteroid = new createjs.Sprite(_Data, "meteorSmall");*/
-        Main();
     }
-    // Game Loop - triggers every frame
-    function Update() {
-        bullet.giveData(stage.mouseX, stage.mouseY);
-        player.giveData(stage.mouseX, stage.mouseY);
-        player.Update();
-        bullet.Update();
-        stage.update(); // refresh the stage
-    }
-    function Main() {
-        asteroid = new objects._Asteroid();
-        stage.addChild(asteroid);
-        bullet = new objects._Bullet();
-        stage.addChild(bullet);
-        player = new objects._Player();
-        stage.addChild(player);
-    }
-    window.onload = Start;
-})();
+    core.changeScene = changeScene;
+    window.addEventListener("load", preload);
+})(core || (core = {}));
 //# sourceMappingURL=game.js.map

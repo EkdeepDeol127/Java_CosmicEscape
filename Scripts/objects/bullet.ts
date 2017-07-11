@@ -1,8 +1,8 @@
-module objects {
-    export class _Bullet extends createjs.Bitmap {
+/* module objects {
+    export class Bullet extends objects.GameObject {
 
-        player: objects._Player = new objects._Player();
-        asteroid: objects._Asteroid = new objects._Asteroid();
+        player: objects.Player; 
+       //  asteroid: objects._Asteroid = new objects._Asteroid()
         width: number = 33;
         height: number = 9;
         speed: number = 3;
@@ -81,4 +81,4 @@ module objects {
             this.MY = SY;
         }
     }
-}
+} */

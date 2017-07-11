@@ -1,53 +1,30 @@
+module objects{
+export class Button extends createjs.Sprite{
 
-module objects {  //MODULE == namespace
+constructor(imageString: string, x:number, y:number, isCentered:boolean) {
+            super(core.textureAtlas, imageString);
 
-export class Button extends createjs.Bitmap { //blueprint  //export allows you to get a handle through other files
+// Check if user wants to change regX and regY values to the center 
+            if(isCentered) {
+                this.regX = this.getBounds().width * 0.5;
+                this.regY = this.getBounds().height * 0.5;
+            }
+
+            this.x = x;
+            this.y = y;
+
+            // binds the mouseover and mouseout events to the button object
+            this.on("mouseover", this._mouseOver, this);
+            this.on("mouseout", this._mouseOut, this)
+        }
+
+        private _mouseOver(event:createjs.MouseEvent):void {
+            this.alpha = 0.7;
+        }
 
 
-constructor(){ //function initializes
-  super ("../../Assets/Sprites/enemyUFO.png")    //asking path for bitmap
-  this.drawButton();
-  this.initialize();
-
+        private _mouseOut(event:createjs.MouseEvent):void {
+            this.alpha = 1.0;
+        }
+    }
 }
-
-public drawButton(): void{
-
-    let label: string;
-    let width;
-    let height;
-    let background;
-    let labelTxt;
-    let fontSize: string;
-    let borderColor = '#000';
-    let buttonColor = '#ccc';
-    let but;
-
-    
-
-}
-
-private initialize():void {
-this.drawButton() ; // this.setButtonListeners();
-this.setButtonListeners(event);
-
-}
-
-private  setButtonListeners(event) {
-this.cursor = 'pointer';
-this.on('click', this.playGame)
-
-}
-
- playGame(event){
-console.log('game play')
-  //this.dispatchEvent(game.GameStateEvents.GAME);
-}
-
-
-
-public Update():void {
- //this.x = stage;
-}
-
-}} 

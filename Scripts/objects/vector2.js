@@ -8,18 +8,22 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var utility;
-(function (utility) {
+var objects;
+(function (objects) {
+    // This class extends the CreateJS Point class
     var Vector2 = (function (_super) {
         __extends(Vector2, _super);
         function Vector2(x, y) {
+            if (x === void 0) { x = 0; }
+            if (y === void 0) { y = 0; }
             return _super.call(this, x, y) || this;
         }
-        Vector2.Distance = function (P1, P2) {
-            return Math.sqrt(Math.pow(P2.x - P1.x, 2) + Math.pow(P2.y - P1.y, 2));
+        // This method returns the distance between two Vector2 objects (a and b)
+        Vector2.distance = function (a, b) {
+            return Math.floor(Math.sqrt(Math.pow((b.x - a.x), 2) + Math.pow((b.y - a.y), 2)));
         };
         return Vector2;
     }(createjs.Point));
-    utility.Vector2 = Vector2;
-})(utility || (utility = {}));
-//# sourceMappingURL=utility.js.map
+    objects.Vector2 = Vector2;
+})(objects || (objects = {}));
+//# sourceMappingURL=vector2.js.map

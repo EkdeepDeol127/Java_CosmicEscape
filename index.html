@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale =1">
-  <title>CreateJS Demo</title>
+  <title>Cosmic Escape</title>
   <!-- CSS Section -->
   <link rel="stylesheet" href="./Content/game.css">
+    <link rel="stylesheet" href="./Content/reset.css">
 </head>
 <body>
+  <div class="container">
   <canvas id="canvas" width="640" height="480"></canvas>
+</div>
 
 
   <!-- Script Section -->
@@ -17,19 +20,25 @@
   <script src="./Scripts/lib/SoundJS/lib/soundjs-0.6.2.min.js"></script>
   <script src="./Scripts/lib/PreloadJS/lib/preloadjs-0.6.2.min.js"></script>
 
-<script src = "./Scripts/UI/mainMenu.js"> </script> 
-<script src = "./Scripts/objects/button.js"> </script>
-
 
 
 <!--Game Scripts-->
+ <script src ="Scripts/config/scene.js"></script>
+  <script src="Scripts/objects/asset.js"></script>
+  <script src ="Scripts/objects/button.js"> </script> 
 
-  <script src="./Scripts/objects/bullet.js"></script>
-  <script src="./Scripts/objects/player.js"></script>
-  <script src="./Scripts/objects/asteroid.js"></script>
-  <script src="./utility/utility.js"></script>
-  <script src="./Scripts/core/game.js"></script>
+  <script src ="Scripts/objects/scene.js"> </script>
+  <script src="Scripts/objects/vector2.js"></script>
+  <script src="Scripts/objects/gameObject.js"></script>
+  
+  <script src ="Scripts/objects/player.js"> </script>
 
+  <script src ="Scripts/managers/collision.js"> </script> 
+  
+    <script src ="Scripts/scenes/play.js"> </script>
+  <script src ="Scripts/scenes/mainMenu.js"> </script> 
+  <script src="/Scripts/core/game.js"></script>
+  
 
 </body>
 </html>

@@ -12,41 +12,28 @@ var objects;
 (function (objects) {
     var Button = (function (_super) {
         __extends(Button, _super);
-        function Button() {
-            var _this = _super.call(this, "../../Assets/Sprites/enemyUFO.png") //asking path for bitmap
-             || this;
-            _this.drawButton();
-            _this.initialize();
+        function Button(imageString, x, y, isCentered) {
+            var _this = _super.call(this, core.textureAtlas, imageString) || this;
+            // Check if user wants to change regX and regY values to the center 
+            if (isCentered) {
+                _this.regX = _this.getBounds().width * 0.5;
+                _this.regY = _this.getBounds().height * 0.5;
+            }
+            _this.x = x;
+            _this.y = y;
+            // binds the mouseover and mouseout events to the button object
+            _this.on("mouseover", _this._mouseOver, _this);
+            _this.on("mouseout", _this._mouseOut, _this);
             return _this;
         }
-        Button.prototype.drawButton = function () {
-            var label;
-            var width;
-            var height;
-            var background;
-            var labelTxt;
-            var fontSize;
-            var borderColor = '#000';
-            var buttonColor = '#ccc';
-            var but;
+        Button.prototype._mouseOver = function (event) {
+            this.alpha = 0.7;
         };
-        Button.prototype.initialize = function () {
-            this.drawButton(); // this.setButtonListeners();
-            this.setButtonListeners(event);
-        };
-        Button.prototype.setButtonListeners = function (event) {
-            this.cursor = 'pointer';
-            this.on('click', this.playGame);
-        };
-        Button.prototype.playGame = function (event) {
-            console.log('game play');
-            //this.dispatchEvent(game.GameStateEvents.GAME);
-        };
-        Button.prototype.Update = function () {
-
+        Button.prototype._mouseOut = function (event) {
+            this.alpha = 1.0;
         };
         return Button;
-    }(createjs.Bitmap));
+    }(createjs.Sprite));
     objects.Button = Button;
 })(objects || (objects = {}));
 //# sourceMappingURL=button.js.map
