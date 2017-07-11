@@ -2,7 +2,7 @@
   "name": "SpaceEvaders",
   "homepage": "https://github.com/EkdeepDeol127/SpaceEvaders",
   "authors": [
-    "Ekdeep <ekdeep.deol@hotmail.com>"
+    "&& (Ema)"
   ],
   "description": "",
   "main": "",
@@ -12,12 +12,14 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "Scripts/lib"
   ],
   "dependencies": {
     "EaselJS": "^0.8.2",
     "TweenJS": "^0.6.2",
     "SoundJS": "^0.6.2",
     "PreloadJS": "^0.6.2"
-  }
+  },
+  "private": true
 }
