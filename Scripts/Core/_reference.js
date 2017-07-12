@@ -5,7 +5,7 @@
 /// <reference path="../objects/scene.ts"/>
 /// <reference path="../objects/vector2.ts"/>
 /// <reference path="../objects/gameObject.ts"/>
-//background
+/// <reference path="../objects/background.ts"/>
 /// <reference path="../objects/player.ts"/>
 /// <reference path="../objects/bullet.ts"/>
 /// <reference path="../objects/asteroid.ts"/>

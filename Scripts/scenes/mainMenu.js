@@ -12,10 +12,14 @@ var scenes;
 (function (scenes) {
     var Menu = (function (_super) {
         __extends(Menu, _super);
+        //creates an instance of mainMenu
         function Menu() {
             return _super.call(this) || this;
         }
         Menu.prototype.Start = function () {
+            //add background
+            this._backgr = new objects.Background("mainPage");
+            this.addChild(this._backgr);
             //add button
             this._startButton = new objects.Button("playButton", 250, 250, true);
             this.addChild(this._startButton);

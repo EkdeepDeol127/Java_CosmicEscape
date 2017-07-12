@@ -24,11 +24,6 @@ var core;
         core.stage.enableMouseOver(20);
         createjs.Ticker.framerate = 60;
         createjs.Ticker.on("tick", gameLoop);
-        /* let pageImg = {
-        "img": [assets.getResult("mainPage") ],
-        "mag": [assets.getResult ("gameOver") ],
-        }
-        */
         var atlasData = {
             "images": [core.assets.getResult("sheet")],
             "frames": [
