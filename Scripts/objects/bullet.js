@@ -1,85 +1,82 @@
-/* module objects {
-    export class Bullet extends objects.GameObject {
-
-        player: objects.Player;
-       //  asteroid: objects._Asteroid = new objects._Asteroid()
-        width: number = 33;
-        height: number = 9;
-        speed: number = 3;
-        collision: boolean = false;
-        shoot: boolean = false;
-        MX: number;
-        MY: number;
-        HoldMX: number;
-        HoldMY: number;
-
-        constructor() {
-            super("./Assets/Sprites/laserRed.png");
-            window.addEventListener('click', this.bulletFire.bind(this), false);
-            this.regX = this.width * 0.5;
-            this.regY = this.height * 0.5;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var objects;
+(function (objects) {
+    var Bullet = (function (_super) {
+        __extends(Bullet, _super);
+        function Bullet(imageString) {
+            var _this = _super.call(this, imageString) || this;
+            //  asteroid: objects._Asteroid = new objects._Asteroid()
+            _this.width = 33;
+            _this.height = 9;
+            _this.speed = 3;
+            _this.shoot = false;
+            _this.delay = true; //so the first click to start game does not trigger bullet
+            window.addEventListener('click', _this.bulletFire.bind(_this), false);
+            _this.regX = _this.width * 0.5;
+            _this.regY = _this.height * 0.5;
+            _this.Start();
+            return _this;
         }
-
-        private _reset(): void {
-            if(this.shoot == false)
-            {
-                this.x = this.player.x;
-                this.y = this.player.y;
-                this.collision = false;
+        Bullet.prototype._reset = function () {
+            if (this.shoot == false) {
+                this.x = 200;
+                this.y = 200;
             }
-        }
-
-        public Start(): void {
+        };
+        Bullet.prototype.Start = function () {
             this._reset();
-        }
-
-        public Update(): void {
+        };
+        Bullet.prototype.update = function () {
             this._reset();
             this.bulletDespawn();
-            this.bulletCol();
             this.bulletMove(this.HoldMX, this.HoldMY);
-        }
-
-        public bulletDespawn(): void {
-            if (this.x >= 640 || this.x <= 0 || this.y >= 480 || this.y <= 0 || this.collision == true) {
+        };
+        Bullet.prototype.bulletDespawn = function () {
+            if (this.x >= 640 || this.x <= 0 || this.y >= 480 || this.y <= 0) {
                 this.shoot = false;
                 this._reset();
             }
-        }
-
-        public bulletFire():void
-        {
-            if(this.shoot == false)
-            {
-            this.rotation = Math.atan2(this.MY - this.y,this.MX - this.x) * 180 / Math.PI;
-            this.HoldMX = this.MX;
-            this.HoldMY = this.MY;
-            this.shoot = true;
+        };
+        Bullet.prototype.bulletFire = function () {
+            console.log("fire");
+            if (this.shoot == false && this.delay == false) {
+                this.rotation = Math.atan2(this.MY - this.y, this.MX - this.x) * 180 / Math.PI;
+                this.HoldMX = this.MX;
+                this.HoldMY = this.MY;
+                this.shoot = true;
             }
-        }
-
-        public bulletMove(posX:number, posY:number): void {
-            if(this.shoot == true)
-            {
+            this.delay = false;
+        };
+        Bullet.prototype.bulletMove = function (posX, posY) {
+            if (this.shoot == true) {
+                console.log("check");
                 this.x -= this.HoldMX * 0.05;
                 this.y -= this.HoldMY * 0.05;
             }
-        }
-
-        public bulletCol()
+        };
+        /*public bulletCol()
         {
             if (utility.Vector2.Distance(new utility.Vector2(this.x, this.y), new utility.Vector2(this.asteroid.x, this.asteroid.y)) < 77)
             {
                 this.collision = true;
                 console.log("hit!");
             }
-        }
-
-        public giveData(SX:any, SY:any)
-        {
+        }*/
+        Bullet.prototype.giveData = function (SX, SY) {
             this.MX = SX;
             this.MY = SY;
-        }
-    }
-} */ 
+        };
+        return Bullet;
+    }(objects.GameObject));
+    objects.Bullet = Bullet;
+})(objects || (objects = {}));
 //# sourceMappingURL=bullet.js.map

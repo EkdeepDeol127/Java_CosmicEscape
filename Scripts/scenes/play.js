@@ -19,6 +19,8 @@ var scenes;
         Play.prototype.Start = function () {
             this._player = new objects.Player("plane");
             this.addChild(this._player);
+            this._bullet = new objects.Bullet("cloud");
+            this.addChild(this._bullet);
             core.stage.addChild(this);
         };
         Play.prototype.Update = function () {
