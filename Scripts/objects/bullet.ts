@@ -1,8 +1,8 @@
- /*  module objects {
+  module objects {
     export class Bullet extends objects.GameObject {
 
      player: objects.Player; 
-       //  asteroid: objects._Asteroid = new objects._Asteroid()
+       asteroid: objects.Asteroid;
         width: number = 33;
         height: number = 9;
         speed: number = 3;
@@ -15,10 +15,11 @@
    
         constructor(imageString:string) {
             super(imageString)
+
             window.addEventListener('click', this.bulletFire.bind(this), false);
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this.Start();
+            this.start();
         }
 
         private _reset(): void {
@@ -76,11 +77,11 @@
                 console.log("hit!");
             }
         }*/
-/*
+
         public giveData(SX:any, SY:any)
         {
             this.MX = SX;
             this.MY = SY;
         }
     }
-} */
+} 

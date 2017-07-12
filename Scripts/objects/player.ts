@@ -8,6 +8,8 @@ module objects {
         moveRight: boolean = false;
         moveUp: boolean = false;
         moveDown: boolean = false;
+        health: number = 100;
+        sheild: number = 100;
         speed: number = 5;
         MX:number;
         MY:number;
@@ -19,9 +21,10 @@ module objects {
         constructor(imageString:string) {
             super(imageString)
 
-window.addEventListener('keydown', this.KeyDown.bind(this), false);
-window.addEventListener('keyup', this.KeyUp.bind(this), false);
-
+            window.addEventListener('keydown', this.KeyDown.bind(this), false);
+            window.addEventListener('keyup', this.KeyUp.bind(this), false);
+            this.regX = this.width * 0.5;
+            this.regY = this.height * 0.5;
             this.start();
         }
 
@@ -47,7 +50,8 @@ window.addEventListener('keyup', this.KeyUp.bind(this), false);
         // used to initialize public properties 
         
         public start():void {
-            this.y = 430;
+            this.y = 200;
+            this.x = 200;
         }
 
         // updates the object's properties every time it's called
@@ -135,6 +139,31 @@ this.rotation = Math.atan2(this.MY - this.y, this.MX - this.x) * 180 / Math.PI;
                     break;
             }
         }
+
+        public Damage(dam:number)
+        {
+            if(this.sheild > 0)
+            {
+                this.sheild - dam;
+            }
+            else
+            {
+                if(this.health > 0)
+                {
+                    this.health - dam;
+                }
+                else
+                {
+                    //gameover
+                }
+            }
+        }
+ 
+        public col()
+        {
+            
+        }
+
      public giveData(SX:any, SY:any)
         {
             this.MX = SX;

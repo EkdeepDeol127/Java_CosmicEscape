@@ -7,9 +7,9 @@
 /// <reference path="../objects/gameObject.ts"/>
 //background
 /// <reference path="../objects/player.ts"/>
-//bullet
-//asteroid
-//enemy
+/// <reference path="../objects/bullet.ts"/>
+/// <reference path="../objects/asteroid.ts"/>
+/// <reference path="../objects/enemyShip.ts"/>
 /// <reference path="../managers/collision.ts"/>
 //over
 /// <reference path="../scenes/play.ts"/>

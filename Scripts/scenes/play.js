@@ -12,21 +12,33 @@ var scenes;
 (function (scenes) {
     var Play = (function (_super) {
         __extends(Play, _super);
-        //private _bullet: objects.Bullet;
         //creates an instance of Play
         function Play() {
-            return _super.call(this) || this;
+            var _this = _super.call(this) || this;
+            _this.SX = _this._player.x;
+            _this.SY = _this._player.y;
+            return _this;
         }
         Play.prototype.Start = function () {
             this._player = new objects.Player("playerA");
             this.addChild(this._player);
-            //this._bullet = new objects.Bullet("cloud");
-            //this.addChild(this._bullet);
+            this._bullet = new objects.Bullet("bullet");
+            this.addChild(this._bullet);
+            this._asteroid = new objects.Asteroid("asteroidA");
+            this.addChild(this._asteroid);
+            this._enemyShip = new objects.EnemyShip("star1");
+            this.addChild(this._enemyShip);
             core.stage.addChild(this);
         };
         Play.prototype.Update = function () {
             this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();
+            this._bullet.giveData(this.SX, this.SY);
+            this._bullet.update();
+            this._asteroid.giveData(this._player.x, this._player.y);
+            this._asteroid.update();
+            this._enemyShip.giveData(this._player.x, this._player.y);
+            this._enemyShip.update();
             /*   if (core.lives < 1) {
                         this._engineSound.stop();
                         core.scene = config.Scene.OVER;
