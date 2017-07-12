@@ -1,10 +1,11 @@
 /// <reference path="_reference.ts"/>
 
 namespace core {
-
 export let assets: createjs.LoadQueue;
-//declare textureAtlas
+//declare textureatlas && page img
 export let textureAtlas: createjs.SpriteSheet;
+//export let pgImg: createjs.SpriteStage;
+
 let canvas: HTMLElement = document.getElementById("canvas");
 export let stage: createjs.Stage;
 //scene variables
@@ -16,7 +17,9 @@ let play: scenes.Play;
     
     //asset manifest
    let assetData: objects.Asset[] = [
-{ id: "sprites", src: "../../Assets/images/spritesheet1.png"}
+{ id: "sheet", src: "../../Assets/images/spritesheet1.png"},
+{ id: "mainPage", src: "../../Assets/images/mainMenu.png"},
+{ id: "gameOver", src: "../../Assets/images/gameOver.png"}
     ];
 
  function preload():void{
@@ -31,10 +34,13 @@ stage.enableMouseOver(20);
 createjs.Ticker.framerate = 60;
 createjs.Ticker.on("tick", gameLoop);
 
- let atlasData = {
-     
-"images": [ "spritesheet1.png" ],
-
+/* let pageImg = {
+"img": [assets.getResult("mainPage") ],
+"mag": [assets.getResult ("gameOver") ],      
+}
+*/
+ let atlasData = {  
+"images": [ assets.getResult("sheet") ],
 "frames": [
     [1, 1, 370, 42, 0, -147, -259],
     [373, 1, 70, 127, 0, -70, -3],
@@ -53,29 +59,16 @@ createjs.Ticker.on("tick", gameLoop);
 ],
 
 "animations": {
-    "mainButton": { "frames": [0] },
-    "playerb": { "frames": [1] },
-    "playButton": { "frames": [2] },
-    "backButton": { "frames": [3] },
-    "playerc": { "frames": [4] },
-    "playerd": { "frames": [5] },
-    "playerA": { "frames": [6] },
-    "star1": { "frames": [7] },
-    "star2": { "frames": [8] },
-    "bullet": { "frames": [9] },
-    "asteroidA": { "frames": [10] },
-    "asteroidb": { "frames": [11] },
-    "asteroidc": { "frames": [12] },
-    "asteroidd": { "frames": [13] }
-},
-
-"texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:89f23e71238fb897420b7bec0f52b5c3:73faf267d0d6becefab35e615c159ccf:bdd4b1bd95a26fb1dd6c3c9dc46315cb$",
-        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
-]
-
-
-        };
+    "mainButton": [0] ,
+    "playButton": [2] ,
+    "backButton": [3] ,
+    "playerA": { "frames": [6/*,1,4,5 */], "speed": 0.5 },
+    "star1": [7,8],
+    "bullet": [9],
+    "asteroidA": { "frames": [10/*,11,12,13*/],  "speed": 0.3 }
+    
+}
+  };
 
 textureAtlas = new createjs.SpriteSheet(atlasData);
 scene = config.Scene.MENU;
