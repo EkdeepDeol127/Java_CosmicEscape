@@ -12,7 +12,7 @@ export let stage: createjs.Stage;
 let currentScene: objects.Scene;
 export let scene:number;
 let menu: scenes.Menu;
-   // let over: scenes.Over;
+let over: scenes.Over;
 let play: scenes.Play;
     
     //asset manifest
@@ -93,14 +93,14 @@ switch (scene) {
                 currentScene = play;
                 break;
            
-           /*
+           
             // Show the GAME OVER Scene
             case config.Scene.OVER:
                 stage.removeAllChildren();
                 over = new scenes.Over();
                 currentScene = over;
                 break;
-*/
+
 }
 }
  

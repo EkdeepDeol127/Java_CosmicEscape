@@ -6,7 +6,7 @@ var core;
     //scene variables
     var currentScene;
     var menu;
-    // let over: scenes.Over;
+    var over;
     var play;
     //asset manifest
     var assetData = [
@@ -73,6 +73,12 @@ var core;
                 core.stage.removeAllChildren();
                 play = new scenes.Play();
                 currentScene = play;
+                break;
+            // Show the GAME OVER Scene
+            case config.Scene.OVER:
+                core.stage.removeAllChildren();
+                over = new scenes.Over();
+                currentScene = over;
                 break;
         }
     }

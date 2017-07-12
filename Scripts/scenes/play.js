@@ -28,8 +28,20 @@ var scenes;
             this.addChild(this._asteroid);
             this._enemyShip = new objects.EnemyShip("star1");
             this.addChild(this._enemyShip);
+            //checking purposes
+            this._button = new objects.Button("playButton", 250, 250, true);
+            this.addChild(this._button);
+            //listener
+            this._button.on("click", this._buttonClick, this);
+            //
             core.stage.addChild(this);
         };
+        //checking purposes
+        Play.prototype._buttonClick = function (event) {
+            core.scene = config.Scene.OVER;
+            core.changeScene();
+        };
+        // 
         Play.prototype.Update = function () {
             this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();

@@ -6,6 +6,10 @@ private _player: objects.Player;
 private _bullet: objects.Bullet;
 private _asteroid: objects.Asteroid;
 private _enemyShip: objects.EnemyShip;
+
+//button for checking purposes
+private _button: objects.Button;
+
 SX: number = this._player.x;
 SY: number = this._player.y;
 
@@ -26,9 +30,21 @@ this.addChild(this._asteroid);
 this._enemyShip = new objects.EnemyShip("star1");
 this.addChild(this._enemyShip);
 
+//checking purposes
+this._button = new objects.Button("playButton",250,250, true);
+this.addChild(this._button);
+//listener
+this._button.on("click", this._buttonClick,this);
+//
+
 core.stage.addChild(this);
 
 }
+//checking purposes
+ private _buttonClick(event:createjs.MouseEvent):void {
+core.scene = config.Scene.OVER;
+core.changeScene(); }
+// 
 
 public Update():void {
     
