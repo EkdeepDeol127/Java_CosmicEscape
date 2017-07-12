@@ -1,4 +1,4 @@
- module objects {
+ /*  module objects {
     export class Bullet extends objects.GameObject {
 
      player: objects.Player; 
@@ -76,11 +76,11 @@
                 console.log("hit!");
             }
         }*/
-
+/*
         public giveData(SX:any, SY:any)
         {
             this.MX = SX;
             this.MY = SY;
         }
     }
-}
+} */

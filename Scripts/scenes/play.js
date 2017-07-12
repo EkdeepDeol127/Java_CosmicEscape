@@ -12,15 +12,16 @@ var scenes;
 (function (scenes) {
     var Play = (function (_super) {
         __extends(Play, _super);
+        //private _bullet: objects.Bullet;
         //creates an instance of Play
         function Play() {
             return _super.call(this) || this;
         }
         Play.prototype.Start = function () {
-            this._player = new objects.Player("plane");
+            this._player = new objects.Player("playerA");
             this.addChild(this._player);
-            this._bullet = new objects.Bullet("cloud");
-            this.addChild(this._bullet);
+            //this._bullet = new objects.Bullet("cloud");
+            //this.addChild(this._bullet);
             core.stage.addChild(this);
         };
         Play.prototype.Update = function () {

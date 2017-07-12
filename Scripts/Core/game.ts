@@ -16,11 +16,7 @@ let play: scenes.Play;
     
     //asset manifest
    let assetData: objects.Asset[] = [
-{ id: "player ", src: "../../Assets/images/player.png "},
-{ id: "background ", src: " ../../Assets/images/background.png"},
-{ id: "bullet ", src: " ../../Assets/images/laserRed.png"},
-{ id: "atlas", src: "../../Assets/images/atlas.png"}
-
+{ id: "sprites", src: "../../Assets/images/spritesheet1.png"}
     ];
 
  function preload():void{
@@ -36,35 +32,48 @@ createjs.Ticker.framerate = 60;
 createjs.Ticker.on("tick", gameLoop);
 
  let atlasData = {
+     
+"images": [ "spritesheet1.png" ],
 
-            "images": [
-                assets.getResult("atlas")
-            ],
+"frames": [
+    [1, 1, 370, 42, 0, -147, -259],
+    [373, 1, 70, 127, 0, -70, -3],
+    [1, 45, 367, 52, 0, -127, -162],
+    [1, 99, 362, 50, 0, -129, -124],
+    [1, 151, 70, 67, 0, 0, -73],
+    [73, 151, 70, 67, 0, -70, -73],
+    [365, 130, 70, 68, 0, 0, -3],
+    [145, 200, 11, 14, 0, -10, -6],
+    [158, 200, 9, 10, 0, -11, -40],
+    [145, 151, 13, 22, 0, -11, -4],
+    [145, 175, 19, 19, 0, -7, -3],
+    [160, 151, 19, 19, 0, -39, -3],
+    [166, 172, 19, 19, 0, -7, -35],
+    [181, 151, 19, 19, 0, -39, -35]
+],
 
-            "frames": [
-                [1, 1, 226, 178, 0, 0, 0],
-                [229, 1, 200, 50, 0, 0, 0],
-                [431, 1, 62, 62, 0, 0, 0],
-                [229, 53, 200, 50, 0, 0, 0],
-                [431, 65, 62, 51, 0, -3, -9],
-                [229, 105, 200, 50, 0, 0, 0],
-                [431, 118, 62, 51, 0, -3, -9],
-                [229, 157, 200, 50, 0, 0, 0],
-                [431, 171, 62, 51, 0, -3, -9]
-            ],
+"animations": {
+    "mainButton": { "frames": [0] },
+    "playerb": { "frames": [1] },
+    "playButton": { "frames": [2] },
+    "backButton": { "frames": [3] },
+    "playerc": { "frames": [4] },
+    "playerd": { "frames": [5] },
+    "playerA": { "frames": [6] },
+    "star1": { "frames": [7] },
+    "star2": { "frames": [8] },
+    "bullet": { "frames": [9] },
+    "asteroidA": { "frames": [10] },
+    "asteroidb": { "frames": [11] },
+    "asteroidc": { "frames": [12] },
+    "asteroidd": { "frames": [13] }
+},
 
-            "animations": {
-                "cloud": [0],
-                "exitButton": [1],
-                "island": [2],
-                "nextButton": [3],
-                "restartButton": [5],
-                "startButton": [7],
-                "plane": {
-                    "frames":[4,6,8],
-                    "speed": 0.5
-                } 
-            }
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:89f23e71238fb897420b7bec0f52b5c3:73faf267d0d6becefab35e615c159ccf:bdd4b1bd95a26fb1dd6c3c9dc46315cb$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
 
         };
 
