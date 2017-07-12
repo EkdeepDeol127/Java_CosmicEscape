@@ -10,54 +10,48 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Bullet = (function (_super) {
-        __extends(Bullet, _super);
-        function Bullet(imageString) {
+    var EnemyBullet = (function (_super) {
+        __extends(EnemyBullet, _super);
+        function EnemyBullet(imageString) {
             var _this = _super.call(this, imageString) || this;
             _this.width = 33;
             _this.height = 9;
             _this.speed = 3;
             _this.shoot = false;
-            _this.delay = true; //so the first click to start game does not trigger bullet
-            window.addEventListener('click', _this.bulletFire.bind(_this), false);
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
             _this.Start();
             return _this;
         }
-        Bullet.prototype._reset = function () {
+        EnemyBullet.prototype._reset = function () {
             if (this.shoot == false) {
-                this.x = this.playerX;
-                this.y = this.playerY;
+                this.x = this.enemyShipX;
+                this.y = this.enemyShipY;
             }
         };
-        Bullet.prototype.Start = function () {
+        EnemyBullet.prototype.Start = function () {
             this._reset();
         };
-        Bullet.prototype.update = function () {
+        EnemyBullet.prototype.update = function () {
             this._reset();
             this.bulletDespawn();
             this.bulletMove();
         };
-        Bullet.prototype.bulletDespawn = function () {
+        EnemyBullet.prototype.bulletDespawn = function () {
             if (this.x >= 640 || this.x <= 0 || this.y >= 480 || this.y <= 0) {
                 this.shoot = false;
                 this._reset();
             }
         };
-        Bullet.prototype.bulletFire = function () {
-            if (this.shoot == false && this.delay == false) {
-                this.HoldMX = this.MX;
-                this.HoldMY = this.MY;
-                this.rotation = Math.atan2(this.HoldMY - this.y, this.HoldMX - this.x) * 180 / Math.PI;
-                this.shoot = true;
-            }
-            this.delay = false;
+        EnemyBullet.prototype.bulletFire = function () {
+            this.HoldplayerX = this.playerX;
+            this.HoldplayerY = this.playerY;
+            this.rotation = Math.atan2(this.HoldplayerY - this.y, this.HoldplayerX - this.x) * 180 / Math.PI;
         };
-        Bullet.prototype.bulletMove = function () {
+        EnemyBullet.prototype.bulletMove = function () {
             if (this.shoot == true) {
-                this.x -= this.HoldMX * 0.05;
-                this.y -= this.HoldMY * 0.05;
+                this.x -= this.HoldplayerX * 0.05;
+                this.y -= this.HoldplayerY * 0.05;
             }
         };
         /*public bulletCol()
@@ -68,14 +62,14 @@ var objects;
                 console.log("hit!");
             }
         }*/
-        Bullet.prototype.giveData = function (SX, SY, PX, PY) {
-            this.MX = SX;
-            this.MY = SY;
+        EnemyBullet.prototype.giveData = function (PX, PY, EX, EY) {
             this.playerX = PX;
             this.playerY = PY;
+            this.enemyShipX = EX;
+            this.enemyShipY = EY;
         };
-        return Bullet;
+        return EnemyBullet;
     }(objects.GameObject));
-    objects.Bullet = Bullet;
+    objects.EnemyBullet = EnemyBullet;
 })(objects || (objects = {}));
-//# sourceMappingURL=bullet.js.map
+//# sourceMappingURL=enemybullet.js.map

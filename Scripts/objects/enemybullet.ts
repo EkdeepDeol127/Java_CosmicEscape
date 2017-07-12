@@ -1,21 +1,19 @@
 module objects {
-    export class Bullet extends objects.GameObject {
+    export class EnemyBullet extends objects.GameObject {
 
         width: number = 33;
         height: number = 9;
         speed: number = 3;
         shoot: boolean = false;
+        enemyShipX: number;
+        enemyShipY: number;
         playerX: number;
         playerY: number;
-        MX: number;
-        MY: number;
-        HoldMX: number;
-        HoldMY: number;
-        delay: boolean = true;//so the first click to start game does not trigger bullet
+        HoldplayerX: number;
+        HoldplayerY: number;
    
         constructor(imageString:string) {
             super(imageString)
-            window.addEventListener('click', this.bulletFire.bind(this), false);
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this.Start();
@@ -24,8 +22,8 @@ module objects {
         private _reset(): void {
             if(this.shoot == false)
             {
-                this.x = this.playerX;
-                this.y = this.playerY;
+                this.x = this.enemyShipX;
+                this.y = this.enemyShipY;
             }
         }
 
@@ -48,21 +46,16 @@ module objects {
 
         public bulletFire():void
         {
-            if(this.shoot == false && this.delay == false)
-            {
-            this.HoldMX = this.MX;
-            this.HoldMY = this.MY;
-            this.rotation = Math.atan2(this.HoldMY - this.y,this.HoldMX - this.x) * 180 / Math.PI;
-            this.shoot = true;
-            }
-            this.delay = false;
+            this.HoldplayerX = this.playerX;
+            this.HoldplayerY = this.playerY;
+            this.rotation = Math.atan2(this.HoldplayerY - this.y,this.HoldplayerX - this.x) * 180 / Math.PI;
         }
 
         public bulletMove() {
             if(this.shoot == true)
             {
-                this.x -= this.HoldMX * 0.05;
-                this.y -= this.HoldMY * 0.05;
+                this.x -= this.HoldplayerX * 0.05;
+                this.y -= this.HoldplayerY * 0.05;
             }
         }
 
@@ -75,12 +68,12 @@ module objects {
             }
         }*/
 
-        public giveData(SX:any, SY:any, PX:number, PY:number)
+        public giveData(PX:any, PY:any, EX:number, EY:number)
         {
-            this.MX = SX;
-            this.MY = SY;
             this.playerX = PX;
             this.playerY = PY;
+            this.enemyShipX = EX;
+            this.enemyShipY = EY;
         }
     }
 }

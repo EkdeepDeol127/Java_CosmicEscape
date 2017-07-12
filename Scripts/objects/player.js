@@ -22,9 +22,13 @@ var objects;
             _this.moveRight = false;
             _this.moveUp = false;
             _this.moveDown = false;
+            _this.health = 100;
+            _this.sheild = 100;
             _this.speed = 5;
             window.addEventListener('keydown', _this.KeyDown.bind(_this), false);
             window.addEventListener('keyup', _this.KeyUp.bind(_this), false);
+            _this.regX = _this.width * 0.5;
+            _this.regY = _this.height * 0.5;
             _this.start();
             return _this;
         }
@@ -43,7 +47,8 @@ var objects;
         // PUBLIC METHODS
         // used to initialize public properties 
         Player.prototype.start = function () {
-            this.y = 430;
+            this.y = 200;
+            this.x = 200;
         };
         // updates the object's properties every time it's called
         Player.prototype.update = function () {
@@ -111,6 +116,21 @@ var objects;
                     //add paused/suiside
                     break;
             }
+        };
+        Player.prototype.Damage = function (dam) {
+            if (this.sheild > 0) {
+                this.sheild - dam;
+            }
+            else {
+                if (this.health > 0) {
+                    this.health - dam;
+                }
+                else {
+                    //gameover
+                }
+            }
+        };
+        Player.prototype.col = function () {
         };
         Player.prototype.giveData = function (SX, SY) {
             this.MX = SX;
