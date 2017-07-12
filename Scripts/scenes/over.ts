@@ -17,13 +17,13 @@ this._backgr = new objects.Background("gameOver");
 this.addChild(this._backgr);
 
 //add Main Menu button
-this._mainMenu = new objects.Button("mainButton",100,150, true);
+this._mainMenu = new objects.Button("mainButton",155,200, true);
 this.addChild(this._mainMenu);
 //mainMenu button event listener
 this._mainMenu.on("click",this._mainMenuClick,this);
 
 //add Play again Button
-this._playAgain = new objects.Button("playButton",200,200, true);
+this._playAgain = new objects.Button("playButton",155,150, true);
 this.addChild(this._playAgain);
 //mainMenu button event listener
 this._playAgain.on("click",this._playAgainClick,this);
