@@ -6,6 +6,7 @@ module objects {
         HoldplayerX: number;
         HoldplayerY: number;
         check: boolean = false;
+        inRange:boolean = false;
         dead: boolean = false;
         health: number = 20;
         sheild: number = 30;
@@ -19,8 +20,8 @@ module objects {
 
         public _reset()
         {
-            this.x = 200;//(Math.random() * 640); //use this to tell where to spawn 
-            this.y = 200;
+            this.x = 500;//(Math.random() * 640); //use this to tell where to spawn 
+            this.y = 300;
         }
 
         public Start(): void {
@@ -30,12 +31,14 @@ module objects {
         public update()
         {
             this.enemtShipDespawn();
+            this.playerRange();
             this.enemyShipMove();
         }
 
         public enemtShipDespawn(): void {
             if (this.x >= 740 || this.x <= -100 || this.y >= 580 || this.y <= -200 || this.dead == true) {
                 this.check = false;
+                this.inRange = false;
                 this.dead = false;
                 this._reset();
             }
@@ -56,8 +59,23 @@ module objects {
             }
             else
             {
+                if(this.inRange == false)
+                {
                 //this.x -= this.HoldplayerX * 0.05;//change to have radius around player
                 //this.y -= this.HoldplayerY * 0.05;
+                }
+            }
+        }
+
+        public playerRange()
+        {
+            if (this.x <= (this.playerX + 100) && this.y <= (this.playerY + 100))
+            {
+                this.inRange = true;
+            }
+            else
+            {
+                this.inRange = false;
             }
         }
 

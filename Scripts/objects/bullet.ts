@@ -1,16 +1,14 @@
   module objects {
     export class Bullet extends objects.GameObject {
 
-     player: objects.Player; 
-       asteroid: objects.Asteroid;
-        width: number = 33;
-        height: number = 9;
-        speed: number = 3;
+        //speed: number = 3;
         shoot: boolean = false;
         MX: number;
         MY: number;
         HoldMX: number;
         HoldMY: number;
+        playerX: number;
+        playerY: number;
         delay: boolean = true;//so the first click to start game does not trigger bullet
    
         constructor(imageString:string) {
@@ -25,8 +23,8 @@
         private _reset(): void {
             if(this.shoot == false)
             {
-                this.x = 200;
-                this.y = 200;
+                this.x = this.playerX;
+                this.y = this.playerY;
             }
         }
 
@@ -49,12 +47,11 @@
 
         public bulletFire():void
         {
-            console.log("fire");
             if(this.shoot == false && this.delay == false)
             {
-            this.rotation = Math.atan2(this.MY - this.y,this.MX - this.x) * 180 / Math.PI;
             this.HoldMX = this.MX;
             this.HoldMY = this.MY;
+            this.rotation = Math.atan2(this.HoldMY - this.y,this.HoldMX - this.x) * 180 / Math.PI;
             this.shoot = true;
             }
             this.delay = false;
@@ -63,25 +60,22 @@
         public bulletMove(posX:number, posY:number): void {
             if(this.shoot == true)
             {
-                console.log("check");
                 this.x -= this.HoldMX * 0.05;
                 this.y -= this.HoldMY * 0.05;
             }
         }
 
-        /*public bulletCol()
+        public col()
         {
-            if (utility.Vector2.Distance(new utility.Vector2(this.x, this.y), new utility.Vector2(this.asteroid.x, this.asteroid.y)) < 77)
-            {
-                this.collision = true;
-                console.log("hit!");
-            }
-        }*/
+            
+        }
 
-        public giveData(SX:any, SY:any)
+        public giveData(SX:any, SY:any, PX:number, PY:number)
         {
             this.MX = SX;
             this.MY = SY;
+            this.playerX = PX;
+            this.playerY = PY;
         }
     }
 } 
