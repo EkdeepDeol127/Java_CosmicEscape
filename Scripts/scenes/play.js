@@ -25,7 +25,7 @@ var scenes;
         };
         Play.prototype.Start = function () {
             //enemy object
-            this._enemy = new objects.EnemyShip("star1");
+            this._enemy = new objects.EnemyShip("playerA");
             this.addChild(this._enemy);
             this._enemyBullet = new objects.EnemyBullet("bullet");
             this.addChild(this._enemyBullet);
