@@ -10,7 +10,7 @@ module objects {
         playerY: number;
         HoldplayerX: number;
         HoldplayerY: number;
-        timer: number = 3;
+        timer: number = 5;
    
         constructor(imageString:string) {
             super(imageString)
@@ -51,7 +51,7 @@ module objects {
             this.timer -= 0.1;
             if(this.range == true && this.shoot == false && this.timer <= 0)
             {
-                 this.timer = 3;
+                 this.timer = 5;
                  this.shoot = true;
                  this.HoldplayerX = this.playerX;
                  this.HoldplayerY = this.playerY;

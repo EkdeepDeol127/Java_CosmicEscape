@@ -10,6 +10,8 @@ module objects {
         dead: boolean = false;
         health: number = 20;
         sheild: number = 30;
+        xSpeed: number = 0;
+        ySpeed: number = 0;
 
         constructor(imageString: string) {
             super(imageString)
@@ -61,8 +63,10 @@ module objects {
             {
                 if(this.inRange == false)
                 {
-                //this.x -= this.HoldplayerX * 0.05;//change to have radius around player
-                //this.y -= this.HoldplayerY * 0.05;
+                    this.xSpeed = (this.x - this.playerX) / 3;
+                    this.ySpeed = (this.y - this.playerY) / 3;
+                    this.x += this.xSpeed;
+                    this.y += this.ySpeed;
                 }
             }
         }
