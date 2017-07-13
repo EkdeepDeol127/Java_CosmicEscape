@@ -12,30 +12,33 @@ module managers {
         public update() {
 
         }
-/*
-        public check(player: objects.GameObject, other: objects.GameObject) {
+
+        public check(bullet: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
 
-            if (objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) {
+            if (objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) {
                 if (!other.isColliding) {
                     other.isColliding = true;
 
-                    // if plane collides with cloud
-                    if(other.name === "cloud") {
-                        createjs.Sound.play("thunder");
-                        core.lives -= 1;
+                // if bullet collides with asteroid
+                    if(other.name === "asteroid") {
+                       // createjs.Sound.play("yay");
+                        core.score += 100;
                     }
 
                     // if plane collides with island
-                    if(other.name === "island") {
-                        createjs.Sound.play("yay");
+                    if(other.name === "enemy") {
+                       // createjs.Sound.play("yay");
                         core.score += 100;
                     }
+
                 }
             }
             else {
                 other.isColliding = false;
-            }}
-            */
+            }
         }
+
+        
     }
+}

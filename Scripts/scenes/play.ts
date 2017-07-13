@@ -3,10 +3,13 @@ module scenes {
 export class Play extends objects.Scene {
 //PRIVATE INSTANCE VARIABLES
 private _player: objects.Player;
+private _asteroid: objects.Asteroid[];
 private _bullet: objects.Bullet;
-private _asteroid: objects.Asteroid;
-private _enemyShip: objects.EnemyShip;
-private _enemyBullet: objects.EnemyBullet;
+
+private _enemy: objects.EnemyShip;
+private _collision: managers.Collision;
+private _scoreLabel: objects.Label;
+
 
 //button for checking purposes
 private _button: objects.Button;
@@ -20,18 +23,37 @@ constructor(){
 }
 
 
+        private _updateScoreBoard() {
+          //  this._livesLabel.text = "Lives: " + core.lives;
+            this._scoreLabel.text = "Score: " + core.score;
+        }
+
 public Start ():void {
+
+//enemy object
+this._enemy = new objects.EnemyShip("star1");
+this.addChild(this._enemy);
+
+
+this._player = new objects.Player("playerA");
+this.addChild(this._player);
 
 this._bullet = new objects.Bullet("bullet");
 this.addChild(this._bullet);
-this._asteroid = new objects.Asteroid("asteroidA");
-this.addChild(this._asteroid);
-this._enemyBullet = new objects.EnemyBullet("bullet");
-this.addChild(this._enemyBullet);
-this._enemyShip = new objects.EnemyShip("playerA");
-this.addChild(this._enemyShip);
-this._player = new objects.Player("playerA");
-this.addChild(this._player);
+
+//asteroid array
+this._asteroid = new Array<objects.Asteroid>();
+for (let count = 0; count <3; count++){
+this._asteroid.push(new objects.Asteroid("asteroidA"));
+this.addChild(this._asteroid[count]);
+}
+
+this._collision = new managers.Collision();
+
+//score label
+this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "Dock51", "#FFFF00", 350, 5, false);
+this.addChild(this._scoreLabel);
+
 
 //checking purposes
 this._button = new objects.Button("playButton",250,250, true);
@@ -47,9 +69,38 @@ core.stage.addChild(this);
  private _buttonClick(event:createjs.MouseEvent):void {
 core.scene = config.Scene.OVER;
 core.changeScene(); }
-// 
 
-public Update():void {
+
+public Update(): void {
+
+this._bullet.update();
+this._enemy.update();
+this._player.update();
+this._collision.check(this._bullet, this._enemy);
+
+//asteroid update
+this._asteroid.forEach(asteroid => {
+    asteroid.update();
+    this._collision.check(this._bullet, asteroid);
+});
+
+this._updateScoreBoard();
+
+if (core.score > 600){
+    core.scene = config.Scene.OVER;
+    core.changeScene();
+}
+
+}
+}
+}
+
+
+
+
+
+
+/*  public Update():void {
     
     this._player.giveData(core.stage.mouseX, core.stage.mouseY);
     this._player.update();
@@ -67,9 +118,5 @@ public Update():void {
                 this._engineSound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
-            }  */
-}
-
-}
-
-}
+            }  
+} */
