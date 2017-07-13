@@ -14,9 +14,7 @@ var objects;
         __extends(Bullet, _super);
         function Bullet(imageString) {
             var _this = _super.call(this, imageString) || this;
-            _this.width = 33;
-            _this.height = 9;
-            _this.speed = 3;
+            //speed: number = 3;
             _this.shoot = false;
             _this.delay = true; //so the first click to start game does not trigger bullet
             window.addEventListener('click', _this.bulletFire.bind(_this), false);
@@ -27,8 +25,8 @@ var objects;
         }
         Bullet.prototype._reset = function () {
             if (this.shoot == false) {
-                this.x = 200;
-                this.y = 200;
+                this.x = this.playerX;
+                this.y = this.playerY;
             }
         };
         Bullet.prototype.Start = function () {
@@ -46,33 +44,27 @@ var objects;
             }
         };
         Bullet.prototype.bulletFire = function () {
-            console.log("fire");
             if (this.shoot == false && this.delay == false) {
-                this.rotation = Math.atan2(this.MY - this.y, this.MX - this.x) * 180 / Math.PI;
                 this.HoldMX = this.MX;
                 this.HoldMY = this.MY;
+                this.rotation = Math.atan2(this.HoldMY - this.y, this.HoldMX - this.x) * 180 / Math.PI;
                 this.shoot = true;
             }
             this.delay = false;
         };
         Bullet.prototype.bulletMove = function (posX, posY) {
             if (this.shoot == true) {
-                console.log("check");
                 this.x -= this.HoldMX * 0.05;
                 this.y -= this.HoldMY * 0.05;
             }
         };
-        /*public bulletCol()
-        {
-            if (utility.Vector2.Distance(new utility.Vector2(this.x, this.y), new utility.Vector2(this.asteroid.x, this.asteroid.y)) < 77)
-            {
-                this.collision = true;
-                console.log("hit!");
-            }
-        }*/
-        Bullet.prototype.giveData = function (SX, SY) {
+        Bullet.prototype.col = function () {
+        };
+        Bullet.prototype.giveData = function (SX, SY, PX, PY) {
             this.MX = SX;
             this.MY = SY;
+            this.playerX = PX;
+            this.playerY = PY;
         };
         return Bullet;
     }(objects.GameObject));

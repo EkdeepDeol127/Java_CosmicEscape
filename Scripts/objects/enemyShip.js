@@ -15,6 +15,7 @@ var objects;
         function EnemyShip(imageString) {
             var _this = _super.call(this, imageString) || this;
             _this.check = false;
+            _this.inRange = false;
             _this.dead = false;
             _this.health = 20;
             _this.sheild = 30;
@@ -24,19 +25,21 @@ var objects;
             return _this;
         }
         EnemyShip.prototype._reset = function () {
-            this.x = 200; //(Math.random() * 640); //use this to tell where to spawn 
-            this.y = 200;
+            this.x = 500; //(Math.random() * 640); //use this to tell where to spawn 
+            this.y = 300;
         };
         EnemyShip.prototype.Start = function () {
             this._reset();
         };
         EnemyShip.prototype.update = function () {
             this.enemtShipDespawn();
+            this.playerRange();
             this.enemyShipMove();
         };
         EnemyShip.prototype.enemtShipDespawn = function () {
             if (this.x >= 740 || this.x <= -100 || this.y >= 580 || this.y <= -200 || this.dead == true) {
                 this.check = false;
+                this.inRange = false;
                 this.dead = false;
                 this._reset();
             }
@@ -51,8 +54,18 @@ var objects;
                 this.check = true;
             }
             else {
-                //this.x -= this.HoldplayerX * 0.05;//change to have radius around player
-                //this.y -= this.HoldplayerY * 0.05;
+                if (this.inRange == false) {
+                    //this.x -= this.HoldplayerX * 0.05;//change to have radius around player
+                    //this.y -= this.HoldplayerY * 0.05;
+                }
+            }
+        };
+        EnemyShip.prototype.playerRange = function () {
+            if (this.x <= (this.playerX + 100) && this.y <= (this.playerY + 100)) {
+                this.inRange = true;
+            }
+            else {
+                this.inRange = false;
             }
         };
         EnemyShip.prototype.Damage = function (dam) {
