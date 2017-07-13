@@ -12,61 +12,38 @@ var objects;
 (function (objects) {
     var Asteroid = (function (_super) {
         __extends(Asteroid, _super);
+        // CONSTRUCTORS 
+        //Creates an instance of asteroid
         function Asteroid(imageString) {
             var _this = _super.call(this, imageString) || this;
-            _this.check = false;
-            _this.dead = false;
-            _this.health = 20;
-            _this.regX = _this.width * 0.5;
-            _this.regY = _this.height * 0.5;
-            _this.Start();
+            _this.start();
             return _this;
         }
+        // PRIVATE METHODS 
+        //Resets the object outside of the viewport and sets the x and y locations
         Asteroid.prototype._reset = function () {
-            this.x = 200; //(Math.random() * 640); //use this to tell where to spawn 
-            this.y = 200;
+            this._dy = Math.floor((Math.random() * 5) + 5); // vertical speed
+            this._dx = Math.floor((Math.random() * 4) - 2); // horizontal drift
+            this.y = -this.height;
+            // get a random x location
+            this.x = Math.floor((Math.random() * (640 - (this.width * 0.5))) + (this.width * 0.5));
         };
-        Asteroid.prototype.Start = function () {
-            this._reset();
-        };
-        Asteroid.prototype.update = function () {
-            this.asteroidDespawn();
-            this.asteroidMove();
-        };
-        Asteroid.prototype.asteroidDespawn = function () {
-            if (this.x >= 740 || this.x <= -100 || this.y >= 580 || this.y <= -200 || this.dead == true) {
-                this.check = false;
-                this.dead = false;
+        Asteroid.prototype._checkBounds = function () {
+            if (this.y >= (480 + (this.height * 0.5))) {
                 this._reset();
             }
         };
-        Asteroid.prototype.checkPlayerLoc = function () {
-            this.HoldplayerX = this.playerX;
-            this.HoldplayerY = this.playerY;
+        // PUBLIC METHODS 
+        //used to initialize public properties and private instance variables
+        Asteroid.prototype.start = function () {
+            this._reset();
         };
-        Asteroid.prototype.asteroidMove = function () {
-            if (this.check == false) {
-                this.checkPlayerLoc();
-                this.check = true;
-            }
-            else {
-                this.x -= this.HoldplayerX * 0.05;
-                this.y -= this.HoldplayerY * 0.05;
-            }
-        };
-        Asteroid.prototype.Damage = function (dam) {
-            if (this.health > 0) {
-                this.health - dam;
-            }
-            else {
-                this.dead = true;
-            }
-        };
-        Asteroid.prototype.col = function () {
-        };
-        Asteroid.prototype.giveData = function (PX, PY) {
-            this.playerX = PX;
-            this.playerY = PY;
+        //updates the object's properties every time it's called
+        Asteroid.prototype.update = function () {
+            this.position = new objects.Vector2(this.x, this.y);
+            this.y += this._dy;
+            this.x += this._dx;
+            this._checkBounds();
         };
         return Asteroid;
     }(objects.GameObject));

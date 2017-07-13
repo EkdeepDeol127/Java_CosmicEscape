@@ -13,15 +13,6 @@ var objects;
     // This class represents a generic Game Object used in the game
     var GameObject = (function (_super) {
         __extends(GameObject, _super);
-        /*
-                get isColliding():boolean {
-                    return this._isColliding;
-                }
-        
-                set isColliding(newState:boolean) {
-                    this._isColliding = newState;
-                }
-        */
         // CONSTRUCTORS 
         // Creates an instance of the GameObject.
         function GameObject(imageString) {
@@ -31,7 +22,6 @@ var objects;
             return _this;
         }
         Object.defineProperty(GameObject.prototype, "width", {
-            // private _isColliding:boolean;
             // public sound:createjs.AbstractSoundInstance;
             // PUBLIC PROPERTIES 
             get: function () {
@@ -83,6 +73,16 @@ var objects;
             },
             set: function (newPosition) {
                 this._position = newPosition;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(GameObject.prototype, "isColliding", {
+            get: function () {
+                return this._isColliding;
+            },
+            set: function (newState) {
+                this._isColliding = newState;
             },
             enumerable: true,
             configurable: true
