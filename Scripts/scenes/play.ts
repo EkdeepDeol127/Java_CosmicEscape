@@ -5,10 +5,12 @@ export class Play extends objects.Scene {
 private _player: objects.Player;
 private _asteroid: objects.Asteroid[];
 private _bullet: objects.Bullet;
+private _enemyBullet: objects.EnemyBullet;
 
 private _enemy: objects.EnemyShip;
 private _collision: managers.Collision;
 private _scoreLabel: objects.Label;
+private _livesLabel: objects.Label;
 
 
 //button for checking purposes
@@ -24,7 +26,7 @@ constructor(){
 
 
         private _updateScoreBoard() {
-          //  this._livesLabel.text = "Lives: " + core.lives;
+            this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
         }
 
@@ -33,6 +35,8 @@ public Start ():void {
 //enemy object
 this._enemy = new objects.EnemyShip("star1");
 this.addChild(this._enemy);
+this._enemyBullet = new objects.EnemyBullet("bullet");
+this.addChild(this._enemyBullet);
 
 
 this._player = new objects.Player("playerA");
@@ -53,6 +57,9 @@ this._collision = new managers.Collision();
 //score label
 this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "Dock51", "#FFFF00", 350, 5, false);
 this.addChild(this._scoreLabel);
+
+this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "#FFFF00", 10, 5, false);
+this.addChild(this._livesLabel);
 
 
 //checking purposes
@@ -75,18 +82,22 @@ public Update(): void {
 
 this._bullet.update();
 this._enemy.update();
+this._enemyBullet.update();
 this._player.update();
-this._collision.check(this._bullet, this._enemy);
+this._collision.check(this._player, this._enemy);
+this._collision.check(this._player,this._enemyBullet);
+//this._collision.playe(this._player, this._enemy);
 
 //asteroid update
 this._asteroid.forEach(asteroid => {
     asteroid.update();
-    this._collision.check(this._bullet, asteroid);
+    this._collision.check(this._player, asteroid);
+   // this._collision.playe(this._player, asteroid);
 });
 
 this._updateScoreBoard();
 
-if (core.score > 600){
+if (core.lives < 1){
     core.scene = config.Scene.OVER;
     core.changeScene();
 }

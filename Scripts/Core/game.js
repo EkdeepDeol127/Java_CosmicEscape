@@ -3,8 +3,9 @@ var core;
 (function (core) {
     //export let pgImg: createjs.SpriteStage;
     var canvas = document.getElementById("canvas");
-    //score variables
+    //score and lives variables
     core.score = 0;
+    core.lives = 5;
     //scene variables
     var currentScene;
     var menu;

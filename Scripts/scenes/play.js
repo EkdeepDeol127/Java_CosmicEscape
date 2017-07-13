@@ -20,13 +20,15 @@ var scenes;
             return _this;
         }
         Play.prototype._updateScoreBoard = function () {
-            //  this._livesLabel.text = "Lives: " + core.lives;
+            this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
         };
         Play.prototype.Start = function () {
             //enemy object
             this._enemy = new objects.EnemyShip("star1");
             this.addChild(this._enemy);
+            this._enemyBullet = new objects.EnemyBullet("bullet");
+            this.addChild(this._enemyBullet);
             this._player = new objects.Player("playerA");
             this.addChild(this._player);
             this._bullet = new objects.Bullet("bullet");
@@ -41,6 +43,8 @@ var scenes;
             //score label
             this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "Dock51", "#FFFF00", 350, 5, false);
             this.addChild(this._scoreLabel);
+            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "#FFFF00", 10, 5, false);
+            this.addChild(this._livesLabel);
             //checking purposes
             this._button = new objects.Button("playButton", 250, 250, true);
             this.addChild(this._button);
@@ -58,15 +62,19 @@ var scenes;
             var _this = this;
             this._bullet.update();
             this._enemy.update();
+            this._enemyBullet.update();
             this._player.update();
-            this._collision.check(this._bullet, this._enemy);
+            this._collision.check(this._player, this._enemy);
+            this._collision.check(this._player, this._enemyBullet);
+            //this._collision.playe(this._player, this._enemy);
             //asteroid update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.update();
-                _this._collision.check(_this._bullet, asteroid);
+                _this._collision.check(_this._player, asteroid);
+                // this._collision.playe(this._player, asteroid);
             });
             this._updateScoreBoard();
-            if (core.score > 600) {
+            if (core.lives < 1) {
                 core.scene = config.Scene.OVER;
                 core.changeScene();
             }
