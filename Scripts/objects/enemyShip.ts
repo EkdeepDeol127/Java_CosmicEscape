@@ -63,17 +63,20 @@ module objects {
             {
                 if(this.inRange == false)
                 {
+                    this.rotation = Math.atan2(this.HoldplayerY - this.y,this.HoldplayerX - this.x) * 180 / Math.PI;
                     this.xSpeed = (this.x - this.playerX) / 3;
                     this.ySpeed = (this.y - this.playerY) / 3;
-                    this.x += this.xSpeed;
-                    this.y += this.ySpeed;
+                    this.ySpeed =  this.ySpeed *(2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
+                    this.xSpeed = this.xSpeed *(2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
+                    this.x -= this.xSpeed;
+                    this.y -= this.ySpeed;
                 }
             }
         }
 
         public playerRange()
         {
-            if (this.x <= (this.playerX + 100) && this.y <= (this.playerY + 100))
+            if (this.x <= (this.playerX + 150) && this.y <= (this.playerY + 150))
             {
                 this.inRange = true;
             }

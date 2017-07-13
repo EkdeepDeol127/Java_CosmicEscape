@@ -17,7 +17,7 @@ var objects;
             _this.range = false;
             //speed: number = 3;
             _this.shoot = false;
-            _this.timer = 3;
+            _this.timer = 8;
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
             _this.Start();
@@ -47,7 +47,7 @@ var objects;
         EnemyBullet.prototype.bulletFire = function () {
             this.timer -= 0.1;
             if (this.range == true && this.shoot == false && this.timer <= 0) {
-                this.timer = 3;
+                this.timer = 8;
                 this.shoot = true;
                 this.HoldplayerX = this.playerX;
                 this.HoldplayerY = this.playerY;

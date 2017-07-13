@@ -19,6 +19,8 @@ var objects;
             _this.dead = false;
             _this.health = 20;
             _this.sheild = 30;
+            _this.xSpeed = 0;
+            _this.ySpeed = 0;
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
             _this.Start();
@@ -55,13 +57,18 @@ var objects;
             }
             else {
                 if (this.inRange == false) {
-                    //this.x -= this.HoldplayerX * 0.05;//change to have radius around player
-                    //this.y -= this.HoldplayerY * 0.05;
+                    this.rotation = Math.atan2(this.HoldplayerY - this.y, this.HoldplayerX - this.x) * 180 / Math.PI;
+                    this.xSpeed = (this.x - this.playerX) / 3;
+                    this.ySpeed = (this.y - this.playerY) / 3;
+                    this.ySpeed = this.ySpeed * (2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
+                    this.xSpeed = this.xSpeed * (2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
+                    this.x -= this.xSpeed;
+                    this.y -= this.ySpeed;
                 }
             }
         };
         EnemyShip.prototype.playerRange = function () {
-            if (this.x <= (this.playerX + 100) && this.y <= (this.playerY + 100)) {
+            if (this.x <= (this.playerX + 150) && this.y <= (this.playerY + 150)) {
                 this.inRange = true;
             }
             else {
