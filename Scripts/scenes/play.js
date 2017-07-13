@@ -70,13 +70,8 @@ var scenes;
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
-            this._bullet.update();
-            this._enemyShip.update();
-            this._enemyBullet.update();
-            this._player.update();
             this._collision.check(this._player, this._enemyShip);
             this._collision.check(this._player, this._enemyBullet);
-            //this._collision.playe(this._player, this._enemy);
             //asteroid update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.update();
