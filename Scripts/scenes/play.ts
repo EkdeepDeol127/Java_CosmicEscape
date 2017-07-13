@@ -5,9 +5,11 @@ export class Play extends objects.Scene {
 private _player: objects.Player;
 private _asteroid: objects.Asteroid[];
 private _bullet: objects.Bullet;
+
 private _enemy: objects.EnemyShip;
 private _collision: managers.Collision;
 private _scoreLabel: objects.Label;
+
 
 //button for checking purposes
 private _button: objects.Button;
@@ -51,6 +53,7 @@ this._collision = new managers.Collision();
 //score label
 this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "Dock51", "#FFFF00", 350, 5, false);
 this.addChild(this._scoreLabel);
+
 
 //checking purposes
 this._button = new objects.Button("playButton",250,250, true);
@@ -97,17 +100,18 @@ if (core.score > 600){
 
 
 
-
 /*  public Update():void {
     
     this._player.giveData(core.stage.mouseX, core.stage.mouseY);
     this._player.update();
-    this._bullet.giveData(this.SX, this.SY);
-   this._bullet.update();
+    this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
+    this._bullet.update();
     this._asteroid.giveData(this._player.x, this._player.y);
     this._asteroid.update();
     this._enemyShip.giveData(this._player.x, this._player.y);
     this._enemyShip.update();
+    this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
+    this._enemyBullet.update();
 
     
     /*   if (core.lives < 1) {

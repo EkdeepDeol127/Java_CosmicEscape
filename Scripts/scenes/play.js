@@ -24,6 +24,7 @@ var scenes;
             this._scoreLabel.text = "Score: " + core.score;
         };
         Play.prototype.Start = function () {
+
             //enemy object
             this._enemy = new objects.EnemyShip("star1");
             this.addChild(this._enemy);
@@ -41,6 +42,7 @@ var scenes;
             //score label
             this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "Dock51", "#FFFF00", 350, 5, false);
             this.addChild(this._scoreLabel);
+
             //checking purposes
             this._button = new objects.Button("playButton", 250, 250, true);
             this.addChild(this._button);
@@ -55,6 +57,7 @@ var scenes;
             core.changeScene();
         };
         Play.prototype.Update = function () {
+
             var _this = this;
             this._bullet.update();
             this._enemy.update();
@@ -70,6 +73,7 @@ var scenes;
                 core.scene = config.Scene.OVER;
                 core.changeScene();
             }
+
         };
         return Play;
     }(objects.Scene));
