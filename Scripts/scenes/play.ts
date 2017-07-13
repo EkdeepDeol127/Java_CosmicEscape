@@ -7,7 +7,7 @@ private _asteroid: objects.Asteroid[];
 private _bullet: objects.Bullet;
 private _enemyBullet: objects.EnemyBullet;
 
-private _enemy: objects.EnemyShip;
+private _enemyShip: objects.EnemyShip;
 private _collision: managers.Collision;
 private _scoreLabel: objects.Label;
 private _livesLabel: objects.Label;
@@ -24,8 +24,7 @@ constructor(){
     super();
 }
 
-
-        private _updateScoreBoard() {
+private _updateScoreBoard() {
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
         }
@@ -33,17 +32,15 @@ constructor(){
 public Start ():void {
 
 //enemy object
-this._enemy = new objects.EnemyShip("playerA");
-this.addChild(this._enemy);
+
 this._enemyBullet = new objects.EnemyBullet("bullet");
 this.addChild(this._enemyBullet);
-
-
-this._player = new objects.Player("playerA");
-this.addChild(this._player);
-
 this._bullet = new objects.Bullet("bullet");
 this.addChild(this._bullet);
+this._enemyShip = new objects.EnemyShip("playerA");
+this.addChild(this._enemyShip);
+this._player = new objects.Player("playerA");
+this.addChild(this._player);
 
 //asteroid array
 this._asteroid = new Array<objects.Asteroid>();
@@ -80,11 +77,22 @@ core.changeScene(); }
 
 public Update(): void {
 
+    this._player.giveData(core.stage.mouseX, core.stage.mouseY);
+    this._player.update();
+    this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
+    this._bullet.update();
+    //this._asteroid.giveData(this._player.x, this._player.y);
+    //this._asteroid.update();
+    this._enemyShip.giveData(this._player.x, this._player.y);
+    this._enemyShip.update();
+    this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
+    this._enemyBullet.update();
+
 this._bullet.update();
-this._enemy.update();
+this._enemyShip.update();
 this._enemyBullet.update();
 this._player.update();
-this._collision.check(this._player, this._enemy);
+this._collision.check(this._player, this._enemyShip);
 this._collision.check(this._player,this._enemyBullet);
 //this._collision.playe(this._player, this._enemy);
 
@@ -111,20 +119,7 @@ if (core.lives < 1){
 
 
 
-/*  public Update():void {
-    
-    this._player.giveData(core.stage.mouseX, core.stage.mouseY);
-    this._player.update();
-    this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
-    this._bullet.update();
-    this._asteroid.giveData(this._player.x, this._player.y);
-    this._asteroid.update();
-    this._enemyShip.giveData(this._player.x, this._player.y);
-    this._enemyShip.update();
-    this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
-    this._enemyBullet.update();
-
-    
+/*  public Update():void {   
     /*   if (core.lives < 1) {
                 this._engineSound.stop();
                 core.scene = config.Scene.OVER;

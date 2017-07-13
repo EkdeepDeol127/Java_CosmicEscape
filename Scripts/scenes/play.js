@@ -25,14 +25,14 @@ var scenes;
         };
         Play.prototype.Start = function () {
             //enemy object
-            this._enemy = new objects.EnemyShip("playerA");
-            this.addChild(this._enemy);
             this._enemyBullet = new objects.EnemyBullet("bullet");
             this.addChild(this._enemyBullet);
-            this._player = new objects.Player("playerA");
-            this.addChild(this._player);
             this._bullet = new objects.Bullet("bullet");
             this.addChild(this._bullet);
+            this._enemyShip = new objects.EnemyShip("playerA");
+            this.addChild(this._enemyShip);
+            this._player = new objects.Player("playerA");
+            this.addChild(this._player);
             //asteroid array
             this._asteroid = new Array();
             for (var count = 0; count < 3; count++) {
@@ -60,11 +60,21 @@ var scenes;
         };
         Play.prototype.Update = function () {
             var _this = this;
+            this._player.giveData(core.stage.mouseX, core.stage.mouseY);
+            this._player.update();
+            this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
             this._bullet.update();
-            this._enemy.update();
+            //this._asteroid.giveData(this._player.x, this._player.y);
+            //this._asteroid.update();
+            this._enemyShip.giveData(this._player.x, this._player.y);
+            this._enemyShip.update();
+            this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
+            this._enemyBullet.update();
+            this._bullet.update();
+            this._enemyShip.update();
             this._enemyBullet.update();
             this._player.update();
-            this._collision.check(this._player, this._enemy);
+            this._collision.check(this._player, this._enemyShip);
             this._collision.check(this._player, this._enemyBullet);
             //this._collision.playe(this._player, this._enemy);
             //asteroid update
@@ -84,19 +94,6 @@ var scenes;
     scenes.Play = Play;
 })(scenes || (scenes = {}));
 /*  public Update():void {
-    
-    this._player.giveData(core.stage.mouseX, core.stage.mouseY);
-    this._player.update();
-    this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
-    this._bullet.update();
-    this._asteroid.giveData(this._player.x, this._player.y);
-    this._asteroid.update();
-    this._enemyShip.giveData(this._player.x, this._player.y);
-    this._enemyShip.update();
-    this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
-    this._enemyBullet.update();
-
-    
     /*   if (core.lives < 1) {
                 this._engineSound.stop();
                 core.scene = config.Scene.OVER;
