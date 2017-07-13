@@ -9,8 +9,9 @@ export let textureAtlas: createjs.SpriteSheet;
 let canvas: HTMLElement = document.getElementById("canvas");
 export let stage: createjs.Stage;
 
-//score variables
+//score and lives variables
 export let score: number = 0;
+export let lives: number = 5;
 
 //scene variables
 let currentScene: objects.Scene;
