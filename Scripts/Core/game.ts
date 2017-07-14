@@ -11,7 +11,7 @@ export let stage: createjs.Stage;
 
 //score and lives variables
 export let score: number = 0;
-export let lives: number = 5;
+export let lives: number = 200;
 
 //scene variables
 let currentScene: objects.Scene;
@@ -32,10 +32,6 @@ let tutorial: scenes.Tutorial;
 //{ id: "menuButton", src: "../../Assets/images/menuButton.png"},
 { id: "menuTheme", src: "../../Assets/audio/mainTheme.ogg"},
 { id: "hit", src: "../../Assets/audio/explode.ogg"}
-
-
-
-
 
     ];
 

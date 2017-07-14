@@ -4,7 +4,7 @@ var core;
     var canvas = document.getElementById("canvas");
     //score and lives variables
     core.score = 0;
-    core.lives = 5;
+    core.lives = 200;
     //scene variables
     var currentScene;
     var menu;
