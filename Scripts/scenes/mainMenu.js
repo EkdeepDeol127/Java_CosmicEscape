@@ -17,6 +17,9 @@ var scenes;
             return _super.call(this) || this;
         }
         Menu.prototype.Start = function () {
+            //sound
+            this._themeSound = createjs.Sound.play("mainTheme");
+            this._themeSound.loop = -1;
             //add background
             this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);

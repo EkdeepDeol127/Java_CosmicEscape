@@ -19,6 +19,7 @@ export let scene:number;
 let menu: scenes.Menu;
 let over: scenes.Over;
 let play: scenes.Play;
+let tutorial: scenes.Tutorial;
     
     //asset manifest
    let assetData: objects.Asset[] = [
@@ -29,6 +30,10 @@ let play: scenes.Play;
 //{ id: "enemy", src: "../../Assets/images/enemy.png"},
 { id: "gameOver", src: "../../Assets/images/gameOver.png"},
 //{ id: "menuButton", src: "../../Assets/images/menuButton.png"},
+{ id: "menuTheme", src: "../../Assets/audio/mainTheme.ogg"},
+{ id: "hit", src: "../../Assets/audio/explode.ogg"}
+
+
 
 
 
@@ -36,6 +41,7 @@ let play: scenes.Play;
 
  function preload():void{
 assets = new createjs.LoadQueue();
+ assets.installPlugin(createjs.Sound);
 assets.on("complete",init,this);
 assets.loadManifest(assetData);
  }
@@ -101,6 +107,13 @@ switch (scene) {
                 stage.removeAllChildren();
                 play = new scenes.Play();
                 currentScene = play;
+                break;
+
+                // Show the TUTORIAL Scene
+            case config.Scene.TUTORIAL:
+                stage.removeAllChildren();
+                tutorial = new scenes.Tutorial();
+                currentScene = tutorial;
                 break;
            
            

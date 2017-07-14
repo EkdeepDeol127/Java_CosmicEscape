@@ -10,6 +10,7 @@ var core;
     var menu;
     var over;
     var play;
+    var tutorial;
     //asset manifest
     var assetData = [
         { id: "galaxy", src: "../../Assets/images/galaxy.png" },
@@ -18,9 +19,13 @@ var core;
         { id: "mainPage", src: "../../Assets/images/mainMenu.png" },
         //{ id: "enemy", src: "../../Assets/images/enemy.png"},
         { id: "gameOver", src: "../../Assets/images/gameOver.png" },
+        //{ id: "menuButton", src: "../../Assets/images/menuButton.png"},
+        { id: "menuTheme", src: "../../Assets/audio/mainTheme.ogg" },
+        { id: "hit", src: "../../Assets/audio/explode.ogg" }
     ];
     function preload() {
         core.assets = new createjs.LoadQueue();
+        core.assets.installPlugin(createjs.Sound);
         core.assets.on("complete", init, this);
         core.assets.loadManifest(assetData);
     }
@@ -76,6 +81,12 @@ var core;
                 core.stage.removeAllChildren();
                 play = new scenes.Play();
                 currentScene = play;
+                break;
+            // Show the TUTORIAL Scene
+            case config.Scene.TUTORIAL:
+                core.stage.removeAllChildren();
+                tutorial = new scenes.Tutorial();
+                currentScene = tutorial;
                 break;
             // Show the GAME OVER Scene
             case config.Scene.OVER:
