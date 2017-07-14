@@ -22,12 +22,14 @@ let play: scenes.Play;
     
     //asset manifest
    let assetData: objects.Asset[] = [
-{ id: "galaxy", src: "../../Assets/images/galaxy.png"},       
+{ id: "galaxy", src: "../../Assets/images/galaxy.png"}, 
+{ id: "tutorial", src: "../../Assets/images/tutPage.png"},       
 { id: "page", src: "../../Assets/images/spritesheet1.png"},
 { id: "mainPage", src: "../../Assets/images/mainMenu.png"},
 { id: "enemy", src: "../../Assets/images/enemy.png"},
 { id: "gameOver", src: "../../Assets/images/gameOver.png"},
-{ id: "playButton", src: "../../Assets/images/gameOver.png"}
+{ id: "menuButton", src: "../../Assets/images/menuButton.png"},
+
 
 
     ];
@@ -71,7 +73,7 @@ createjs.Ticker.on("tick", gameLoop);
     "playButton": [3],
     "tutButton": [4],
     "enemy":[3],
-    "bullet": [7] 
+    "BUllet": [7] 
 }};
 
 textureAtlas = new createjs.SpriteSheet(atlasData);

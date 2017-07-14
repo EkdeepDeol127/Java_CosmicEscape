@@ -28,14 +28,14 @@ var scenes;
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
             //enemy object
-            this._enemyBullet = new objects.EnemyBullet("bullet");
+            this._enemyBullet = new objects.EnemyBullet("BUllet");
             this.addChild(this._enemyBullet);
             this._enemyShip = new objects.EnemyShip("enemy");
             this.addChild(this._enemyShip);
             //PLAYER
             this._player = new objects.Player("player");
             this.addChild(this._player);
-            this._bullet = new objects.Bullet("bullet");
+            this._bullet = new objects.Bullet("BUllet");
             this.addChild(this._bullet);
             //asteroid array
             this._asteroid = new Array();
@@ -50,7 +50,7 @@ var scenes;
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "#FFFF00", 10, 5, false);
             this.addChild(this._livesLabel);
             //checking purposes
-            this._button = new objects.Button("playButton", 250, 250, true);
+            this._button = new objects.Button("playButton", 550, 550, true);
             this.addChild(this._button);
             //listener
             this._button.on("click", this._buttonClick, this);
@@ -74,7 +74,7 @@ var scenes;
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
             this._collision.check(this._player, this._enemyShip);
-            this._collision.check(this._player, this._enemyBullet);
+            this._collision.check(this._player, this._enemyShip);
             //asteroid update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.update();

@@ -15,4 +15,5 @@
 /// <reference path="../managers/collision.ts"/>
 /// <reference path="../scenes/over.ts"/>
 /// <reference path="../scenes/play.ts"/>
+/// <reference path="../scenes/tutorial.ts"/>
 /// <reference path="../scenes/mainMenu.ts"/>

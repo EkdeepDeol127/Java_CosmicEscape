@@ -1,7 +1,6 @@
 /// <reference path="_reference.ts"/>
 var core;
 (function (core) {
-    //export let pgImg: createjs.SpriteStage;
     var canvas = document.getElementById("canvas");
     //score and lives variables
     core.score = 0;
@@ -14,11 +13,12 @@ var core;
     //asset manifest
     var assetData = [
         { id: "galaxy", src: "../../Assets/images/galaxy.png" },
-        { id: "sheet", src: "../../Assets/images/spritesheet1.png" },
+        { id: "tutorial", src: "../../Assets/images/tutPage.png" },
+        { id: "page", src: "../../Assets/images/spritesheet1.png" },
         { id: "mainPage", src: "../../Assets/images/mainMenu.png" },
-        { id: "gameOver", src: "../../Assets/images/gameOver.png" },
         { id: "enemy", src: "../../Assets/images/enemy.png" },
-        { id: "bullet", src: "../../Assets/images/bullet.png" }
+        { id: "gameOver", src: "../../Assets/images/gameOver.png" },
+        { id: "menuButton", src: "../../Assets/images/menuButton.png" },
     ];
     function preload() {
         core.assets = new createjs.LoadQueue();
@@ -32,29 +32,28 @@ var core;
         createjs.Ticker.on("tick", gameLoop);
         var atlasData = {
             "images": [
-                core.assets.getResult("sheet")
+                core.assets.getResult("page")
             ],
             "frames": [
-                [1, 1, 145, 150, 0, 70, 75],
-                [1, 153, 80, 99, 0, 40, 50],
-                [83, 153, 78, 99, 0, 38, 50],
-                [148, 1, 142, 150, 0, 67, 75],
-                [163, 153, 78, 99, 0, 38, 50],
-                [243, 153, 150, 78, 0, 75, 44],
-                [292, 1, 150, 78, 0, 75, 44],
-                [292, 81, 250, 34, 0, 125, 35],
-                [444, 1, 150, 78, 0, 75, 44],
-                [292, 117, 250, 34, 0, 125, 35],
-                [395, 153, 250, 34, 0, 125, 35],
-                [395, 189, 250, 34, 0, 125, 35]
+                [1, 1, 250, 34, 0, 0, -90],
+                [1, 37, 250, 34, 0, 0, -90],
+                [1, 73, 250, 34, 0, 0, -90],
+                [1, 109, 250, 34, 0, 0, -90],
+                [1, 145, 250, 34, 0, 0, -90],
+                [1, 181, 115, 62, 0, 0, -22],
+                [118, 181, 96, 100, 0, -4, 0],
+                [216, 181, 13, 22, 0, -11, -4],
+                [1, 245, 50, 63, 0, 0, 0]
             ],
             "animations": {
-                "asteroid": [1],
+                "asteroid": [8],
                 "player": [5],
-                "againButton": [7],
-                "backButton": [9],
-                "menuButton": [10],
-                "playButton": [11]
+                "againButton": [0],
+                "backButton": [1],
+                "playButton": [3],
+                "tutButton": [4],
+                "enemy": [3],
+                "BUllet": [7]
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);

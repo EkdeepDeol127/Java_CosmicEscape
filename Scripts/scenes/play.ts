@@ -37,7 +37,7 @@ this.addChild(this._galaxy);
 
 
 //enemy object
-this._enemyBullet = new objects.EnemyBullet("bullet");
+this._enemyBullet = new objects.EnemyBullet("BUllet");
 this.addChild(this._enemyBullet);
 this._enemyShip = new objects.EnemyShip("enemy");
 this.addChild(this._enemyShip);
@@ -46,7 +46,7 @@ this.addChild(this._enemyShip);
 //PLAYER
 this._player = new objects.Player("player");
 this.addChild(this._player);
-this._bullet = new objects.Bullet("bullet");
+this._bullet = new objects.Bullet("BUllet");
 this.addChild(this._bullet);
 
 //asteroid array
@@ -84,13 +84,13 @@ core.changeScene(); }
 
 public Update(): void {
     this._galaxy.update();
-    //this._player.giveData(core.stage.mouseX, core.stage.mouseY);
+    this._player.giveData(core.stage.mouseX, core.stage.mouseY);
     this._player.update();
-    //this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
+    this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
     this._bullet.update();
-    //this._enemyShip.giveData(this._player.x, this._player.y);
+    this._enemyShip.giveData(this._player.x, this._player.y);
     this._enemyShip.update();
-    //this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
+    this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
     this._enemyBullet.update();
 
 this._collision.check(this._player, this._enemyShip);
