@@ -24,6 +24,9 @@ var scenes;
             this._scoreLabel.text = "Score: " + core.score;
         };
         Play.prototype.Start = function () {
+            //galaxy
+            this._galaxy = new objects.Galaxy("galaxy");
+            this.addChild(this._galaxy);
             //enemy object
             this._enemyBullet = new objects.EnemyBullet("bullet");
             this.addChild(this._enemyBullet);
@@ -60,6 +63,7 @@ var scenes;
         };
         Play.prototype.Update = function () {
             var _this = this;
+            this._galaxy.update();
             this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();
             this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);

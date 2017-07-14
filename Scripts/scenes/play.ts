@@ -2,6 +2,7 @@
 module scenes {
 export class Play extends objects.Scene {
 //PRIVATE INSTANCE VARIABLES
+private _galaxy: objects.Galaxy;
 private _player: objects.Player;
 private _asteroid: objects.Asteroid[];
 private _bullet: objects.Bullet;
@@ -30,9 +31,11 @@ private _updateScoreBoard() {
         }
 
 public Start ():void {
+//galaxy
+this._galaxy = new objects.Galaxy("galaxy");
+this.addChild(this._galaxy);
 
 //enemy object
-
 this._enemyBullet = new objects.EnemyBullet("bullet");
 this.addChild(this._enemyBullet);
 this._bullet = new objects.Bullet("bullet");
@@ -76,7 +79,7 @@ core.changeScene(); }
 
 
 public Update(): void {
-
+    this._galaxy.update();
     this._player.giveData(core.stage.mouseX, core.stage.mouseY);
     this._player.update();
     this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);

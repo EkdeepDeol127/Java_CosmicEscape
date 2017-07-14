@@ -13,6 +13,7 @@ var core;
     var play;
     //asset manifest
     var assetData = [
+        { id: "galaxy", src: "../../Assets/images/galaxy.png" },
         { id: "sheet", src: "../../Assets/images/spritesheet1.png" },
         { id: "mainPage", src: "../../Assets/images/mainMenu.png" },
         { id: "gameOver", src: "../../Assets/images/gameOver.png" }
