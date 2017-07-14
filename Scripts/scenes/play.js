@@ -30,7 +30,7 @@ var scenes;
             //enemy object
             this._enemyBullet = new objects.EnemyBullet("BUllet");
             this.addChild(this._enemyBullet);
-            this._enemyShip = new objects.EnemyShip("enemy");
+            this._enemyShip = new objects.EnemyShip("player");
             this.addChild(this._enemyShip);
             //PLAYER
             this._player = new objects.Player("player");
@@ -49,18 +49,7 @@ var scenes;
             this.addChild(this._scoreLabel);
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "#FFFF00", 10, 5, false);
             this.addChild(this._livesLabel);
-            //checking purposes
-            this._button = new objects.Button("playButton", 550, 550, true);
-            this.addChild(this._button);
-            //listener
-            this._button.on("click", this._buttonClick, this);
-            //
             core.stage.addChild(this);
-        };
-        //checking purposes
-        Play.prototype._buttonClick = function (event) {
-            core.scene = config.Scene.OVER;
-            core.changeScene();
         };
         Play.prototype.Update = function () {
             var _this = this;

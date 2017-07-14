@@ -16,9 +16,8 @@ var core;
         { id: "tutorial", src: "../../Assets/images/tutPage.png" },
         { id: "page", src: "../../Assets/images/spritesheet1.png" },
         { id: "mainPage", src: "../../Assets/images/mainMenu.png" },
-        { id: "enemy", src: "../../Assets/images/enemy.png" },
+        //{ id: "enemy", src: "../../Assets/images/enemy.png"},
         { id: "gameOver", src: "../../Assets/images/gameOver.png" },
-        { id: "menuButton", src: "../../Assets/images/menuButton.png" },
     ];
     function preload() {
         core.assets = new createjs.LoadQueue();

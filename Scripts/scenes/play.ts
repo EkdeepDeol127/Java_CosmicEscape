@@ -14,9 +14,6 @@ private _scoreLabel: objects.Label;
 private _livesLabel: objects.Label;
 
 
-//button for checking purposes
-private _button: objects.Button;
-
 SX: number = this._player.x;
 SY: number = this._player.y;
 
@@ -39,7 +36,7 @@ this.addChild(this._galaxy);
 //enemy object
 this._enemyBullet = new objects.EnemyBullet("BUllet");
 this.addChild(this._enemyBullet);
-this._enemyShip = new objects.EnemyShip("enemy");
+this._enemyShip = new objects.EnemyShip("player");
 this.addChild(this._enemyShip);
 
 
@@ -66,20 +63,11 @@ this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "
 this.addChild(this._livesLabel);
 
 
-//checking purposes
-this._button = new objects.Button("playButton",550,550, true);
-this.addChild(this._button);
-//listener
-this._button.on("click", this._buttonClick,this);
-//
 
 core.stage.addChild(this);
 
 }
-//checking purposes
- private _buttonClick(event:createjs.MouseEvent):void {
-core.scene = config.Scene.OVER;
-core.changeScene(); }
+
 
 
 public Update(): void {
