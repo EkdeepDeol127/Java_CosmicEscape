@@ -35,20 +35,24 @@ public Start ():void {
 this._galaxy = new objects.Galaxy("galaxy");
 this.addChild(this._galaxy);
 
+
 //enemy object
 this._enemyBullet = new objects.EnemyBullet("bullet");
 this.addChild(this._enemyBullet);
+this._enemyShip = new objects.EnemyShip("enemy");
+this.addChild(this._enemyShip);
+
+
+//PLAYER
+this._player = new objects.Player("player");
+this.addChild(this._player);
 this._bullet = new objects.Bullet("bullet");
 this.addChild(this._bullet);
-this._enemyShip = new objects.EnemyShip("playerA");
-this.addChild(this._enemyShip);
-this._player = new objects.Player("playerA");
-this.addChild(this._player);
 
 //asteroid array
 this._asteroid = new Array<objects.Asteroid>();
 for (let count = 0; count <3; count++){
-this._asteroid.push(new objects.Asteroid("asteroidA"));
+this._asteroid.push(new objects.Asteroid("asteroid"));
 this.addChild(this._asteroid[count]);
 }
 
@@ -84,8 +88,6 @@ public Update(): void {
     this._player.update();
     this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
     this._bullet.update();
-    //this._asteroid.giveData(this._player.x, this._player.y);
-    //this._asteroid.update();
     this._enemyShip.giveData(this._player.x, this._player.y);
     this._enemyShip.update();
     this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
@@ -99,7 +101,6 @@ this._collision.check(this._player,this._enemyBullet);
 this._asteroid.forEach(asteroid => {
     asteroid.update();
     this._collision.check(this._player, asteroid);
-   // this._collision.playe(this._player, asteroid);
 });
 
 this._updateScoreBoard();

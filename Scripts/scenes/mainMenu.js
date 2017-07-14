@@ -21,7 +21,7 @@ var scenes;
             this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);
             //add button
-            this._startButton = new objects.Button("playButton", 155, 150, true);
+            this._startButton = new objects.Button("playButton", 390, 350, true);
             this.addChild(this._startButton);
             //startbutton event listener
             this._startButton.on("click", this._startButtonClick, this);
