@@ -26,8 +26,6 @@ let play: scenes.Play;
 { id: "sheet", src: "../../Assets/images/spritesheet1.png"},
 { id: "mainPage", src: "../../Assets/images/mainMenu.png"},
 { id: "gameOver", src: "../../Assets/images/gameOver.png"},
-{ id: "enemy", src: "../../Assets/images/enemy.png"},
-{ id: "bullet", src: "../../Assets/images/bullet.png"}
 
     ];
 
@@ -71,7 +69,8 @@ createjs.Ticker.on("tick", gameLoop);
     "againButton": [7],
     "backButton": [9],
     "menuButton": [10],
-    "playButton": [11] 
+    "playButton": [11],
+    "enemy":[3] 
 }};
 
 textureAtlas = new createjs.SpriteSheet(atlasData);

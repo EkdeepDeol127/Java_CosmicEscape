@@ -5,37 +5,31 @@
 ],
 
 "frames": [
-    [1, 1, 145, 150, 0, 70, 75],
-    [1, 153, 80, 99, 0, 40, 50],
-    [83, 153, 78, 99, 0, 38, 50],
-    [148, 1, 142, 150, 0, 67, 75],
-    [163, 153, 78, 99, 0, 38, 50],
-    [243, 153, 150, 78, 0, 75, 44],
-    [292, 1, 150, 78, 0, 75, 44],
-    [292, 81, 250, 34, 0, 125, 35],
-    [444, 1, 150, 78, 0, 75, 44],
-    [292, 117, 250, 34, 0, 125, 35],
-    [395, 153, 250, 34, 0, 125, 35],
-    [395, 189, 250, 34, 0, 125, 35]
+    [1, 1, 250, 34, 0, 0, -90],
+    [1, 37, 250, 34, 0, 0, -90],
+    [1, 73, 250, 34, 0, 0, -90],
+    [1, 109, 250, 34, 0, 0, -90],
+    [1, 145, 250, 34, 0, 0, -90],
+    [1, 181, 115, 62, 0, 0, -22],
+    [118, 181, 96, 100, 0, -4, 0],
+    [216, 181, 13, 22, 0, -11, -4],
+    [1, 245, 50, 63, 0, 0, 0]
 ],
 
 "animations": {
-    "enemyA": { "frames": [0] },
-    "asteroid": { "frames": [1] },
-    "asteroidA": { "frames": [2] },
-    "enemy": { "frames": [3] },
-    "asteroidB": { "frames": [4] },
+    "againButton": { "frames": [0] },
+    "backButton": { "frames": [1] },
+    "menuButton": { "frames": [2] },
+    "playButton": { "frames": [3] },
+    "tutButton": { "frames": [4] },
     "player": { "frames": [5] },
-    "playerA": { "frames": [6] },
-    "againButton": { "frames": [7] },
-    "playerB": { "frames": [8] },
-    "backButton": { "frames": [9] },
-    "menuButton": { "frames": [10] },
-    "playButton": { "frames": [11] }
+    "enemy": { "frames": [6] },
+    "bullet": { "frames": [7] },
+    "asteroid": { "frames": [8] }
 },
 
 "texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:bf093b154ba797c32ead573aa0d7cc83:1c03ce81536d67a0d3a3b1f2bf1cba57:bdd4b1bd95a26fb1dd6c3c9dc46315cb$",
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:c0d3a5b3a7cb371753dfa08ff0b74251:919c8de68a5f82eb8dad8fe6627fc7bb:bdd4b1bd95a26fb1dd6c3c9dc46315cb$",
         "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
 ]
 
