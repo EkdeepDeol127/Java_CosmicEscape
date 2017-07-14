@@ -33,11 +33,6 @@ var scenes;
             core.scene = config.Scene.MENU;
             core.changeScene();
         };
-        Over.prototype._playAgainClick = function (event) {
-            //switch scene
-            core.scene = config.Scene.PLAY;
-            core.changeScene();
-        };
         return Over;
     }(objects.Scene));
     scenes.Over = Over;

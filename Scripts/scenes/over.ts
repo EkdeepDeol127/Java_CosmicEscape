@@ -32,11 +32,6 @@ private _mainMenuClick(event:createjs.MouseEvent):void{
     core.changeScene();
 }
 
-private _playAgainClick(event:createjs.MouseEvent):void {
-    //switch scene
-    core.scene = config.Scene.PLAY;
-    core.changeScene();
-}
 
 }
 
