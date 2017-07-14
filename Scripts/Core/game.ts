@@ -4,7 +4,7 @@ namespace core {
 export let assets: createjs.LoadQueue;
 //declare textureatlas && page img
 export let textureAtlas: createjs.SpriteSheet;
-//export let pgImg: createjs.SpriteStage;
+
 
 let canvas: HTMLElement = document.getElementById("canvas");
 export let stage: createjs.Stage;
@@ -19,16 +19,29 @@ export let scene:number;
 let menu: scenes.Menu;
 let over: scenes.Over;
 let play: scenes.Play;
+let tutorial: scenes.Tutorial;
     
     //asset manifest
    let assetData: objects.Asset[] = [
-{ id: "sheet", src: "../../Assets/images/spritesheet1.png"},
+{ id: "galaxy", src: "../../Assets/images/galaxy.png"}, 
+{ id: "tutorial", src: "../../Assets/images/tutPage.png"},       
+{ id: "page", src: "../../Assets/images/spritesheet1.png"},
 { id: "mainPage", src: "../../Assets/images/mainMenu.png"},
-{ id: "gameOver", src: "../../Assets/images/gameOver.png"}
+//{ id: "enemy", src: "../../Assets/images/enemy.png"},
+{ id: "gameOver", src: "../../Assets/images/gameOver.png"},
+//{ id: "menuButton", src: "../../Assets/images/menuButton.png"},
+{ id: "menuTheme", src: "../../Assets/audio/mainTheme.ogg"},
+{ id: "hit", src: "../../Assets/audio/explode.ogg"}
+
+
+
+
+
     ];
 
  function preload():void{
 assets = new createjs.LoadQueue();
+ assets.installPlugin(createjs.Sound);
 assets.on("complete",init,this);
 assets.loadManifest(assetData);
  }
@@ -41,35 +54,33 @@ createjs.Ticker.on("tick", gameLoop);
 
 
  let atlasData = {  
-"images": [ assets.getResult("sheet") ],
+"images": [
+   assets.getResult("page")
+],
+
 "frames": [
-    [1, 1, 370, 42, 0, -147, -259],
-    [373, 1, 70, 127, 0, -70, -3],
-    [1, 45, 367, 52, 0, -127, -162],
-    [1, 99, 362, 50, 0, -129, -124],
-    [1, 151, 70, 67, 0, 0, -73],
-    [73, 151, 70, 67, 0, -70, -73],
-    [365, 130, 70, 68, 0, 0, -3],
-    [145, 200, 11, 14, 0, -10, -6],
-    [158, 200, 9, 10, 0, -11, -40],
-    [145, 151, 13, 22, 0, -11, -4],
-    [145, 175, 19, 19, 0, -7, -3],
-    [160, 151, 19, 19, 0, -39, -3],
-    [166, 172, 19, 19, 0, -7, -35],
-    [181, 151, 19, 19, 0, -39, -35]
+   [1, 1, 250, 34, 0, 0, -90],
+    [1, 37, 250, 34, 0, 0, -90],
+    [1, 73, 250, 34, 0, 0, -90],
+    [1, 109, 250, 34, 0, 0, -90],
+    [1, 145, 250, 34, 0, 0, -90],
+    [1, 181, 115, 62, 0, 0, -22],
+    [118, 181, 96, 100, 0, -4, 0],
+    [216, 181, 13, 22, 0, -11, -4],
+    [1, 245, 50, 63, 0, 0, 0]
 ],
 
 "animations": {
-    "mainButton": [0] ,
-    "playButton": [2] ,
-    "backButton": [3] ,
-    "playerA": { "frames": [6/*,1,4,5 */], "speed": 0.5 },
-    "star1": [7,8],
-    "bullet": [9],
-    "asteroidA": { "frames": [10/*,11,12,13*/],  "speed": 0.3 }
     
-}
-  };
+    "asteroid":  [8],
+    "player": [5],
+    "againButton": [0],
+    "backButton": [1],
+    "playButton": [3],
+    "tutButton": [4],
+    "enemy":[3],
+    "BUllet": [7] 
+}};
 
 textureAtlas = new createjs.SpriteSheet(atlasData);
 scene = config.Scene.MENU;
@@ -96,6 +107,13 @@ switch (scene) {
                 stage.removeAllChildren();
                 play = new scenes.Play();
                 currentScene = play;
+                break;
+
+                // Show the TUTORIAL Scene
+            case config.Scene.TUTORIAL:
+                stage.removeAllChildren();
+                tutorial = new scenes.Tutorial();
+                currentScene = tutorial;
                 break;
            
            

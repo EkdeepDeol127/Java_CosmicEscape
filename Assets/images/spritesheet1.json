@@ -5,41 +5,31 @@
 ],
 
 "frames": [
-    [1, 1, 370, 42, 0, -147, -259],
-    [373, 1, 70, 127, 0, -70, -3],
-    [1, 45, 367, 52, 0, -127, -162],
-    [1, 99, 362, 50, 0, -129, -124],
-    [1, 151, 70, 67, 0, 0, -73],
-    [73, 151, 70, 67, 0, -70, -73],
-    [365, 130, 70, 68, 0, 0, -3],
-    [145, 200, 11, 14, 0, -10, -6],
-    [158, 200, 9, 10, 0, -11, -40],
-    [145, 151, 13, 22, 0, -11, -4],
-    [145, 175, 19, 19, 0, -7, -3],
-    [160, 151, 19, 19, 0, -39, -3],
-    [166, 172, 19, 19, 0, -7, -35],
-    [181, 151, 19, 19, 0, -39, -35]
+    [1, 1, 250, 34, 0, 0, -90],
+    [1, 37, 250, 34, 0, 0, -90],
+    [1, 73, 250, 34, 0, 0, -90],
+    [1, 109, 250, 34, 0, 0, -90],
+    [1, 145, 250, 34, 0, 0, -90],
+    [1, 181, 115, 62, 0, 0, -22],
+    [118, 181, 96, 100, 0, -4, 0],
+    [216, 181, 13, 22, 0, -11, -4],
+    [1, 245, 50, 63, 0, 0, 0]
 ],
 
 "animations": {
-    "mainButton": { "frames": [0] },
-    "playerb": { "frames": [1] },
-    "playButton": { "frames": [2] },
-    "backButton": { "frames": [3] },
-    "playerc": { "frames": [4] },
-    "playerd": { "frames": [5] },
-    "playerA": { "frames": [6] },
-    "star1": { "frames": [7] },
-    "star2": { "frames": [8] },
-    "bullet": { "frames": [9] },
-    "asteroidA": { "frames": [10] },
-    "asteroidb": { "frames": [11] },
-    "asteroidc": { "frames": [12] },
-    "asteroidd": { "frames": [13] }
+    "againButton": { "frames": [0] },
+    "backButton": { "frames": [1] },
+    "menuButton": { "frames": [2] },
+    "playButton": { "frames": [3] },
+    "tutButton": { "frames": [4] },
+    "player": { "frames": [5] },
+    "enemy": { "frames": [6] },
+    "bullet": { "frames": [7] },
+    "asteroid": { "frames": [8] }
 },
 
 "texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:89f23e71238fb897420b7bec0f52b5c3:73faf267d0d6becefab35e615c159ccf:bdd4b1bd95a26fb1dd6c3c9dc46315cb$",
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:c0d3a5b3a7cb371753dfa08ff0b74251:919c8de68a5f82eb8dad8fe6627fc7bb:bdd4b1bd95a26fb1dd6c3c9dc46315cb$",
         "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
 ]
 
