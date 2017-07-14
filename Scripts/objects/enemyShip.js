@@ -46,25 +46,15 @@ var objects;
                 this._reset();
             }
         };
-        EnemyShip.prototype.checkPlayerLoc = function () {
-            this.HoldplayerX = this.playerX;
-            this.HoldplayerY = this.playerY;
-        };
         EnemyShip.prototype.enemyShipMove = function () {
-            if (this.check == false) {
-                this.checkPlayerLoc();
-                this.check = true;
-            }
-            else {
-                if (this.inRange == false) {
-                    this.rotation = Math.atan2(this.HoldplayerY - this.y, this.HoldplayerX - this.x) * 180 / Math.PI;
-                    this.xSpeed = (this.x - this.playerX) / 3;
-                    this.ySpeed = (this.y - this.playerY) / 3;
-                    this.ySpeed = this.ySpeed * (2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
-                    this.xSpeed = this.xSpeed * (2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
-                    this.x -= this.xSpeed;
-                    this.y -= this.ySpeed;
-                }
+            if (this.inRange == false) {
+                this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
+                this.xSpeed = (this.x - this.playerX) / 3;
+                this.ySpeed = (this.y - this.playerY) / 3;
+                this.ySpeed = this.ySpeed * (2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
+                this.xSpeed = this.xSpeed * (2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
+                this.x -= this.xSpeed; //change
+                this.y -= this.ySpeed;
             }
         };
         EnemyShip.prototype.playerRange = function () {

@@ -96,6 +96,7 @@ this._updateScoreBoard();
 if (core.lives < 1){
     core.scene = config.Scene.OVER;
     core.changeScene();
+    core.lives = 5;
 }
 }
 

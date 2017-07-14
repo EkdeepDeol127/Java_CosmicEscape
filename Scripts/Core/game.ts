@@ -11,7 +11,7 @@ export let stage: createjs.Stage;
 
 //score and lives variables
 export let score: number = 0;
-export let lives: number = 200;
+export let lives: number = 5;
 
 //scene variables
 let currentScene: objects.Scene;
