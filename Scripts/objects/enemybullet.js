@@ -15,7 +15,7 @@ var objects;
         function EnemyBullet(imageString) {
             var _this = _super.call(this, imageString) || this;
             _this.range = false;
-            //speed: number = 3;
+            _this.speed = 30;
             _this.shoot = false;
             _this.timer = 8;
             _this.regX = _this.width * 0.5;
@@ -56,8 +56,9 @@ var objects;
         };
         EnemyBullet.prototype.bulletMove = function () {
             if (this.range == true || this.shoot == true) {
-                this.x -= this.HoldplayerX * 0.05;
-                this.y -= this.HoldplayerY * 0.05;
+                this.radians = this.rotation * (Math.PI / 180);
+                this.x += this.speed * Math.cos(this.radians);
+                this.y += this.speed * Math.sin(this.radians);
             }
         };
         EnemyBullet.prototype.col = function () {

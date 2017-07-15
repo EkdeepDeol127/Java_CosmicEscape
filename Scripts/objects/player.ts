@@ -60,7 +60,7 @@ module objects {
             // player to follow mouse
             this.position = new Vector2(this.x, this.y);
 
-this.rotation = Math.atan2(this.MY - this.y, this.MX - this.x) * 180 / Math.PI;
+            this.rotation = Math.atan2(this.MY - this.y, this.MX - this.x) * 180 / Math.PI;
 
             if(this.moveLeft && this.x >= 0 + 50) {
                 this.x -= this.speed;

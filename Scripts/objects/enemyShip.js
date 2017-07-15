@@ -19,8 +19,7 @@ var objects;
             _this.dead = false;
             _this.health = 20;
             _this.sheild = 30;
-            _this.xSpeed = 0;
-            _this.ySpeed = 0;
+            _this.speed = 3;
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
             _this.Start();
@@ -34,6 +33,7 @@ var objects;
             this._reset();
         };
         EnemyShip.prototype.update = function () {
+            this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
             this.enemtShipDespawn();
             this.playerRange();
             this.enemyShipMove();
@@ -48,17 +48,14 @@ var objects;
         };
         EnemyShip.prototype.enemyShipMove = function () {
             if (this.inRange == false) {
-                this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
-                this.xSpeed = (this.x - this.playerX) / 3;
-                this.ySpeed = (this.y - this.playerY) / 3;
-                this.ySpeed = this.ySpeed * (2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
-                this.xSpeed = this.xSpeed * (2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
-                this.x -= this.xSpeed; //change
-                this.y -= this.ySpeed;
+                this.radians = this.rotation * (Math.PI / 180);
+                this.x += this.speed * Math.cos(this.radians);
+                this.y += this.speed * Math.sin(this.radians);
             }
         };
         EnemyShip.prototype.playerRange = function () {
-            if (this.x <= (this.playerX + 150) && this.y <= (this.playerY + 150)) {
+            this.dist = Math.sqrt(Math.pow((this.x - this.playerX), 2) + Math.pow((this.y - this.playerY), 2));
+            if (this.dist < 150) {
                 this.inRange = true;
             }
             else {

@@ -10,8 +10,9 @@ module objects {
         dead: boolean = false;
         health: number = 20;
         sheild: number = 30;
-        xSpeed: number = 0;
-        ySpeed: number = 0;
+        speed: number = 3;
+        radians: number;
+        dist: number;
 
         constructor(imageString: string) {
             super(imageString)
@@ -32,6 +33,7 @@ module objects {
 
         public update()
         {
+            this.rotation = Math.atan2(this.playerY - this.y,this.playerX - this.x) * 180 / Math.PI;
             this.enemtShipDespawn();
             this.playerRange();
             this.enemyShipMove();
@@ -51,19 +53,16 @@ module objects {
         {
                 if(this.inRange == false)
                 {
-                    this.rotation = Math.atan2(this.playerY - this.y,this.playerX - this.x) * 180 / Math.PI;
-                    this.xSpeed = (this.x - this.playerX) / 3;
-                    this.ySpeed = (this.y - this.playerY) / 3;
-                    this.ySpeed =  this.ySpeed *(2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
-                    this.xSpeed = this.xSpeed *(2.5 / Math.sqrt(this.xSpeed * this.xSpeed + this.ySpeed * this.ySpeed));
-                    this.x -= this.xSpeed;//change
-                    this.y -= this.ySpeed;
+                    this.radians = this.rotation * (Math.PI / 180);
+                    this.x += this.speed * Math.cos(this.radians);
+                    this.y += this.speed * Math.sin(this.radians);
                 }
         }
 
         public playerRange()
         {
-            if (this.x <= (this.playerX + 150) && this.y <= (this.playerY + 150))
+            this.dist = Math.sqrt( Math.pow((this.x - this.playerX), 2) + Math.pow((this.y - this.playerY), 2) );
+            if (this.dist < 150)
             {
                 this.inRange = true;
             }

@@ -2,7 +2,8 @@ module objects {
     export class EnemyBullet extends objects.GameObject {
 
         range: boolean = false;
-        //speed: number = 3;
+        speed: number = 30;
+        radians: number;
         shoot: boolean = false;
         enemyShipX: number;
         enemyShipY: number;
@@ -62,8 +63,9 @@ module objects {
         public bulletMove() {
             if(this.range == true || this.shoot == true)
             {
-                this.x -= this.HoldplayerX * 0.05;
-                this.y -= this.HoldplayerY * 0.05;
+                this.radians = this.rotation * (Math.PI / 180);
+                this.x += this.speed * Math.cos(this.radians);
+                this.y += this.speed * Math.sin(this.radians);
             }
         }
 

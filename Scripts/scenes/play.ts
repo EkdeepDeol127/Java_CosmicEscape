@@ -13,10 +13,6 @@ private _collision: managers.Collision;
 private _scoreLabel: objects.Label;
 private _livesLabel: objects.Label;
 
-
-SX: number = this._player.x;
-SY: number = this._player.y;
-
 //creates an instance of Play
 constructor(){
     super();
@@ -74,7 +70,7 @@ public Update(): void {
     this._galaxy.update();
     this._player.giveData(core.stage.mouseX, core.stage.mouseY);
     this._player.update();
-    this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
+    this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
     this._bullet.update();
     this._enemyShip.giveData(this._player.x, this._player.y);
     this._enemyShip.update();
@@ -103,11 +99,6 @@ if (core.lives < 1){
 
 }
 }
-
-
-
-
-
 
 /*  public Update():void {   
     /*   if (core.lives < 1) {

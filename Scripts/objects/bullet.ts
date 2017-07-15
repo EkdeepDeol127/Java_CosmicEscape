@@ -1,7 +1,7 @@
   module objects {
     export class Bullet extends objects.GameObject {
 
-        speed: number = 3;
+        speed: number = 30;
         shoot: boolean = false;
         MX: number;
         MY: number;
@@ -9,7 +9,6 @@
         HoldMY: number;
         playerX: number;
         playerY: number;
-        HoldRotation: number;
         radians: number;
         delay: boolean = true;//so the first click to start game does not trigger bullet
    
@@ -53,9 +52,7 @@
             {
             this.HoldMX = this.MX;
             this.HoldMY = this.MY;
-            this.HoldRotation = Math.atan2(this.HoldMY - this.y,this.HoldMX - this.x) * 180 / Math.PI;
-            this.rotation = this.HoldRotation;
-            this.radians = this.HoldRotation * (Math.PI / 180);
+            this.rotation = Math.atan2(this.HoldMY - this.y,this.HoldMX - this.x) * 180 / Math.PI;
             this.shoot = true;
             }
             this.delay = false;
@@ -64,8 +61,9 @@
         public bulletMove(posX:number, posY:number): void {
             if(this.shoot == true)
             {
-                this.x = this.speed * Math.cos(this.radians);
-                this.y = -1 * this.speed * Math.sin(this.radians);
+                this.radians = this.rotation * (Math.PI / 180);
+                this.x += this.speed * Math.cos(this.radians);
+                this.y += this.speed * Math.sin(this.radians);
             }
         }
 

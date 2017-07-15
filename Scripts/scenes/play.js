@@ -14,10 +14,7 @@ var scenes;
         __extends(Play, _super);
         //creates an instance of Play
         function Play() {
-            var _this = _super.call(this) || this;
-            _this.SX = _this._player.x;
-            _this.SY = _this._player.y;
-            return _this;
+            return _super.call(this) || this;
         }
         Play.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
@@ -56,7 +53,7 @@ var scenes;
             this._galaxy.update();
             this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();
-            this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
+            this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
             this._bullet.update();
             this._enemyShip.giveData(this._player.x, this._player.y);
             this._enemyShip.update();
