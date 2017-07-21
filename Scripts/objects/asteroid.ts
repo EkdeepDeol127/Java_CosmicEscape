@@ -4,12 +4,15 @@ module objects {
         // PRIVATE INSTANCE VARIABLES 
         private _dy:number;
         private _dx:number;
+        private ran: number;
+        private _collision: managers.Collision;
 
         // CONSTRUCTORS 
         //Creates an instance of asteroid
         
         constructor(imageString: string) {
             super(imageString);
+            this._collision
 
             this.start();
         }
@@ -18,8 +21,26 @@ module objects {
         //Resets the object outside of the viewport and sets the x and y locations
        
         private _reset():void {
-            this._dy = Math.floor((Math.random() * 5) + 5); // vertical speed
-            this._dx = Math.floor((Math.random() * 4) - 2); // horizontal drift
+            this.ran = (Math.random() * 4) + 1;
+            if(this.ran == 1)//top
+                {
+                    this._dy = Math.floor((Math.random() * 5) + 5); // vertical speed
+                    this._dx = Math.floor((Math.random() * 4) - 2); // horizontal drift
+                }
+                if(this.ran == 2)//right
+                {
+                    
+                }
+                if(this.ran == 3)//left
+                {
+                    
+                }
+                if(this.ran == 4)//bottom
+                {
+                    
+                }
+            
+
 
             this.y = -this.height;
 
