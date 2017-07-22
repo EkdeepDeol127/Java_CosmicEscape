@@ -29,7 +29,7 @@ module scenes {
 
 
             //enemy object
-            this._enemyBullet = new objects.EnemyBullet("BUllet");
+            this._enemyBullet = new objects.EnemyBullet("bullet");
             this.addChild(this._enemyBullet);
             this._enemyShip = new objects.EnemyShip("player");
             this.addChild(this._enemyShip);
@@ -38,7 +38,7 @@ module scenes {
             //PLAYER
             this._player = new objects.Player("player");
             this.addChild(this._player);
-            this._bullet = new objects.Bullet("BUllet");
+            this._bullet = new objects.Bullet("bullet");
             this.addChild(this._bullet);
 
             //asteroid array
