@@ -17,8 +17,8 @@ var objects;
             _this.speed = 5;
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
-            _this.playerX = 400;
-            _this.playerY = 300;
+            _this.playerX = 400; //temp
+            _this.playerY = 300; //temp
             _this.start();
             return _this;
         }
@@ -26,19 +26,19 @@ var objects;
             this.ran = Math.floor((Math.random() * 4) + 1);
             switch (this.ran) {
                 case 1://top
-                    this.x = (Math.random() * 780) + 20; // horizontal drift
+                    this.x = (Math.random() * 780) + 20;
                     this.y = -80;
                     break;
                 case 2://right
-                    this.y = (Math.random() * 580) + 20; // vertical speed
+                    this.y = (Math.random() * 580) + 20;
                     this.x = 880;
                     break;
                 case 3://left
-                    this.y = (Math.random() * 580) + 20; // vertical speed
+                    this.y = (Math.random() * 580) + 20;
                     this.x = -80;
                     break;
                 case 4://bottom
-                    this.x = (Math.random() * 780) + 20; // horizontal drift
+                    this.x = (Math.random() * 780) + 20;
                     this.y = 680;
                     break;
             }

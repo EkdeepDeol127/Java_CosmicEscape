@@ -14,6 +14,7 @@ private _backgr: objects.Background;
 //creates an instance of mainMenu
 constructor(){
     super();
+    
 }
 public Start():void{
 //sound

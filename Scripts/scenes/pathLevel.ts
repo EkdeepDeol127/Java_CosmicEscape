@@ -1,6 +1,7 @@
 module scenes {
-    export class Play extends objects.Scene {
-        //PRIVATE INSTANCE VARIABLES
+    export class pathLevel extends objects.Scene {
+
+        private _backgr: objects.Background;
         private _galaxy: objects.Galaxy;
         private _player: objects.Player;
         private _asteroid: objects.Asteroid[];
@@ -11,37 +12,33 @@ module scenes {
         private _collision: managers.Collision;
         private _scoreLabel: objects.Label;
         private _livesLabel: objects.Label;
+        private _backButton: objects.Button;
 
-        //creates an instance of Play
+        //creates an instance on pathLevel
         constructor() {
             super();
         }
-
+        
         private _updateScoreBoard() {
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
         }
 
         public Start(): void {
-            //galaxy
-            this._galaxy = new objects.Galaxy("galaxy");
-            this.addChild(this._galaxy);
+            //adds background
+            this._backgr = new objects.Background("pathLevel");
+            this.addChild(this._backgr);
 
-
-            //enemy object
-            this._enemyBullet = new objects.EnemyBullet("BUllet");
-            this.addChild(this._enemyBullet);
-            this._enemyShip = new objects.EnemyShip("player");
-            this.addChild(this._enemyShip);
-
-
-            //PLAYER
             this._player = new objects.Player("player");
             this.addChild(this._player);
             this._bullet = new objects.Bullet("BUllet");
             this.addChild(this._bullet);
 
-            //asteroid array
+            this._enemyBullet = new objects.EnemyBullet("BUllet");
+            this.addChild(this._enemyBullet);
+            this._enemyShip = new objects.EnemyShip("player");
+            this.addChild(this._enemyShip);
+
             this._asteroid = new Array<objects.Asteroid>();
             for (let count = 0; count < 4; count++) {
                 this._asteroid.push(new objects.Asteroid("asteroid"));
@@ -50,18 +47,18 @@ module scenes {
 
             this._collision = new managers.Collision();
 
-            //score label
             this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "Dock51", "#FFFF00", 350, 5, false);
             this.addChild(this._scoreLabel);
 
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "#FFFF00", 10, 5, false);
             this.addChild(this._livesLabel);
 
-            core.stage.addChild(this);
 
+            core.stage.addChild(this);
         }
 
-        public Update(): void {
+        public Update()
+        {
             this._galaxy.update();
             this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();
@@ -93,12 +90,6 @@ module scenes {
 
 
     }
-}
 
-/*  public Update():void {   
-    /*   if (core.lives < 1) {
-                this._engineSound.stop();
-                core.scene = config.Scene.OVER;
-                core.changeScene();
-            }  
-} */
+
+}
