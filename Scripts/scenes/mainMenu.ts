@@ -10,6 +10,7 @@ private _themeSound: createjs.AbstractSoundInstance;
 //creates an instance of mainMenu
 constructor(){
     super();
+    
 }
 public Start():void{
 //sound

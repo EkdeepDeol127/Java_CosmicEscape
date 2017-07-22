@@ -7,6 +7,7 @@ var config;
         Scene.PLAY = 1;
         Scene.OVER = 2;
         Scene.TUTORIAL = 3;
+        Scene.PATHLEVEL = 4;
         return Scene;
     }());
     config.Scene = Scene;

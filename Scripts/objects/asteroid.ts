@@ -12,8 +12,8 @@ module objects {
             super(imageString);
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this.playerX = 400;
-            this.playerY = 300;
+            this.playerX = 400;//temp
+            this.playerY = 300;//temp
             this.start();
         }
 
@@ -21,22 +21,22 @@ module objects {
             this.ran = Math.floor((Math.random() * 4) + 1);
             switch (this.ran) {
                 case 1://top
-                        this.x = (Math.random() * 780) + 20; // horizontal drift
+                        this.x = (Math.random() * 780) + 20; 
                         this.y = -80;
                     break;
 
                 case 2://right
-                        this.y = (Math.random() * 580) + 20; // vertical speed
+                        this.y = (Math.random() * 580) + 20; 
                         this.x = 880;
                     break;
 
                 case 3://left
-                        this.y = (Math.random() * 580) + 20; // vertical speed
+                        this.y = (Math.random() * 580) + 20; 
                         this.x = -80;
                     break;
 
                 case 4://bottom
-                        this.x = (Math.random() * 780) + 20; // horizontal drift
+                        this.x = (Math.random() * 780) + 20; 
                         this.y = 680;
                     break;
             }
