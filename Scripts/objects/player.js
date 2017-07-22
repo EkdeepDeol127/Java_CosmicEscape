@@ -32,18 +32,6 @@ var objects;
             _this.start();
             return _this;
         }
-        // This method checks if the object has reached its boundaries
-        Player.prototype._checkBounds = function () {
-            // checkbounds to stop player from going outside
-            // check right bounds
-            if (this.x >= (640 - (this.width * 0.5))) {
-                this.x = (640 - (this.width * 0.5));
-            }
-            // check left bounds
-            if (this.x <= (0 + (this.width * 0.5))) {
-                this.x = (0 + (this.width * 0.5));
-            }
-        };
         // PUBLIC METHODS
         // used to initialize public properties 
         Player.prototype.start = function () {
@@ -67,7 +55,6 @@ var objects;
             if (this.moveDown && this.y <= 600 - 50) {
                 this.y += this.speed;
             }
-            this._checkBounds();
         };
         Player.prototype.KeyDown = function (event) {
             switch (event.keyCode) {

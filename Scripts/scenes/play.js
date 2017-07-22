@@ -14,9 +14,7 @@ var scenes;
         __extends(Play, _super);
         //creates an instance of Play
         function Play() {
-            var _this = _super.call(this) || this;
-            _this.timer = 10;
-            return _this;
+            return _super.call(this) || this;
         }
         Play.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
@@ -38,7 +36,7 @@ var scenes;
             this.addChild(this._bullet);
             //asteroid array
             this._asteroid = new Array();
-            for (var count = 0; count < 3; count++) {
+            for (var count = 0; count < 4; count++) {
                 this._asteroid.push(new objects.Asteroid("asteroid"));
                 this.addChild(this._asteroid[count]);
             }

@@ -5,7 +5,7 @@ module objects {
         private dead: boolean;
         private playerX: number;
         private playerY: number;
-        private speed: number = 3;
+        private speed: number = 5;
         private radians: number;
 
         constructor(imageString: string) {
@@ -18,33 +18,29 @@ module objects {
         }
 
         private _reset(): void {
-            this.ran = (Math.random() * 4) + 1;
+            this.ran = Math.floor((Math.random() * 4) + 1);
             switch (this.ran) {
                 case 1://top
-                        this.x = Math.floor((Math.random() * 780) + 20); // horizontal drift
+                        this.x = (Math.random() * 780) + 20; // horizontal drift
                         this.y = -100;
                     break;
 
                 case 2://right
-                        this.y = Math.floor((Math.random() * 580) + 20); // vertical speed
+                        this.y = (Math.random() * 580) + 20; // vertical speed
                         this.x = 900;
                     break;
 
                 case 3://left
-                        this.y = Math.floor((Math.random() * 580) + 20); // vertical speed
+                        this.y = (Math.random() * 580) + 20; // vertical speed
                         this.x = -100;
                     break;
 
                 case 4://bottom
-                        this.x = Math.floor((Math.random() * 780) + 20); // horizontal drift
+                        this.x = (Math.random() * 780) + 20; // horizontal drift
                         this.y = 700;
                     break;
             }
             this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
-            console.log(this.playerY);
-            console.log(this.playerX);
-            console.log(this.y);
-            console.log(this.x);
         }
 
         private asteroidMove() {
@@ -54,9 +50,8 @@ module objects {
         }
 
         private _checkBounds(): void {
-            if (this.x >= 1000 || this.x <= -200 || this.y >= 800 || this.y <= -200 || this.dead == true) {
+            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || this.dead == true) {
                 this._reset();
-                console.log("reset");
             }
         }
 
