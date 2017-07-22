@@ -39,7 +39,7 @@ var objects;
             this.enemyShipMove();
         };
         EnemyShip.prototype.enemtShipDespawn = function () {
-            if (this.x >= 740 || this.x <= -100 || this.y >= 580 || this.y <= -200 || this.dead == true) {
+            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || this.dead == true) {
                 this.check = false;
                 this.inRange = false;
                 this.dead = false;

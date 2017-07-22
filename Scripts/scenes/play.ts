@@ -13,6 +13,8 @@ private _collision: managers.Collision;
 private _scoreLabel: objects.Label;
 private _livesLabel: objects.Label;
 
+private timer = 10;
+
 //creates an instance of Play
 constructor(){
     super();
@@ -64,8 +66,6 @@ core.stage.addChild(this);
 
 }
 
-
-
 public Update(): void {
     this._galaxy.update();
     this._player.giveData(core.stage.mouseX, core.stage.mouseY);
@@ -80,11 +80,11 @@ public Update(): void {
 this._collision.check(this._player, this._enemyShip);
 this._collision.check(this._player,this._enemyShip);
 
-
-//asteroid update
+//asteroids update
 this._asteroid.forEach(asteroid => {
-    asteroid.update();
+    asteroid.giveData(this._player.x, this._player.y);
     this._collision.check(this._player, asteroid);
+    asteroid.update();
 });
 
 this._updateScoreBoard();

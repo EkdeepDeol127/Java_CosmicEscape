@@ -50,8 +50,8 @@ module objects {
         // used to initialize public properties 
         
         public start():void {
-            this.y = 200;
-            this.x = 200;
+            this.y = 300;
+            this.x = 400;
         }
 
         // updates the object's properties every time it's called
@@ -66,14 +66,14 @@ module objects {
                 this.x -= this.speed;
             }
 
-            if (this.moveRight && this.x <= 640 - 50) {
+            if (this.moveRight && this.x <= 800 - 50) {
                 this.x += this.speed;
             }
             if(this.moveUp && this.y >= 0 + 50) {
                 this.y -= this.speed;
             }
 
-            if(this.moveDown && this.y <= 480 - 50) {
+            if(this.moveDown && this.y <= 600 - 50) {
                 this.y += this.speed;
             }
 

@@ -12,38 +12,63 @@ var objects;
 (function (objects) {
     var Asteroid = (function (_super) {
         __extends(Asteroid, _super);
-        // CONSTRUCTORS 
-        //Creates an instance of asteroid
         function Asteroid(imageString) {
             var _this = _super.call(this, imageString) || this;
+            _this.speed = 3;
+            _this.regX = _this.width * 0.5;
+            _this.regY = _this.height * 0.5;
+            _this.playerX = 400;
+            _this.playerY = 300;
             _this.start();
             return _this;
         }
-        // PRIVATE METHODS 
-        //Resets the object outside of the viewport and sets the x and y locations
         Asteroid.prototype._reset = function () {
-            this._dy = Math.floor((Math.random() * 5) + 5); // vertical speed
-            this._dx = Math.floor((Math.random() * 4) - 2); // horizontal drift
-            this.y = -this.height;
-            // get a random x location
-            this.x = Math.floor((Math.random() * (640 - (this.width * 0.5))) + (this.width * 0.5));
+            this.ran = (Math.random() * 4) + 1;
+            switch (this.ran) {
+                case 1://top
+                    this.x = Math.floor((Math.random() * 780) + 20); // horizontal drift
+                    this.y = -100;
+                    break;
+                case 2://right
+                    this.y = Math.floor((Math.random() * 580) + 20); // vertical speed
+                    this.x = 900;
+                    break;
+                case 3://left
+                    this.y = Math.floor((Math.random() * 580) + 20); // vertical speed
+                    this.x = -100;
+                    break;
+                case 4://bottom
+                    this.x = Math.floor((Math.random() * 780) + 20); // horizontal drift
+                    this.y = 700;
+                    break;
+            }
+            this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
+            console.log(this.playerY);
+            console.log(this.playerX);
+            console.log(this.y);
+            console.log(this.x);
+        };
+        Asteroid.prototype.asteroidMove = function () {
+            this.radians = this.rotation * (Math.PI / 180);
+            this.x += this.speed * Math.cos(this.radians);
+            this.y += this.speed * Math.sin(this.radians);
         };
         Asteroid.prototype._checkBounds = function () {
-            if (this.y >= (480 + (this.height * 0.5))) {
+            if (this.x >= 1000 || this.x <= -200 || this.y >= 800 || this.y <= -200 || this.dead == true) {
                 this._reset();
+                console.log("reset");
             }
         };
-        // PUBLIC METHODS 
-        //used to initialize public properties and private instance variables
         Asteroid.prototype.start = function () {
             this._reset();
         };
-        //updates the object's properties every time it's called
         Asteroid.prototype.update = function () {
-            this.position = new objects.Vector2(this.x, this.y);
-            this.y += this._dy;
-            this.x += this._dx;
             this._checkBounds();
+            this.asteroidMove();
+        };
+        Asteroid.prototype.giveData = function (PX, PY) {
+            this.playerX = PX;
+            this.playerY = PY;
         };
         return Asteroid;
     }(objects.GameObject));

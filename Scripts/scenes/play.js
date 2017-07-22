@@ -14,7 +14,9 @@ var scenes;
         __extends(Play, _super);
         //creates an instance of Play
         function Play() {
-            return _super.call(this) || this;
+            var _this = _super.call(this) || this;
+            _this.timer = 10;
+            return _this;
         }
         Play.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
@@ -61,10 +63,11 @@ var scenes;
             this._enemyBullet.update();
             this._collision.check(this._player, this._enemyShip);
             this._collision.check(this._player, this._enemyShip);
-            //asteroid update
+            //asteroids update
             this._asteroid.forEach(function (asteroid) {
-                asteroid.update();
+                asteroid.giveData(_this._player.x, _this._player.y);
                 _this._collision.check(_this._player, asteroid);
+                asteroid.update();
             });
             this._updateScoreBoard();
             if (core.lives < 1) {

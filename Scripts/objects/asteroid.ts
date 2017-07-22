@@ -1,75 +1,77 @@
 module objects {
-   
-    export class Asteroid extends objects.GameObject {
-        // PRIVATE INSTANCE VARIABLES 
-        private _dy:number;
-        private _dx:number;
-        private ran: number;
-        private _collision: managers.Collision;
 
-        // CONSTRUCTORS 
-        //Creates an instance of asteroid
-        
+    export class Asteroid extends objects.GameObject {
+        private ran: number;
+        private dead: boolean;
+        private playerX: number;
+        private playerY: number;
+        private speed: number = 3;
+        private radians: number;
+
         constructor(imageString: string) {
             super(imageString);
-            this._collision
-
+            this.regX = this.width * 0.5;
+            this.regY = this.height * 0.5;
+            this.playerX = 400;
+            this.playerY = 300;
             this.start();
         }
 
-        // PRIVATE METHODS 
-        //Resets the object outside of the viewport and sets the x and y locations
-       
-        private _reset():void {
+        private _reset(): void {
             this.ran = (Math.random() * 4) + 1;
-            if(this.ran == 1)//top
-                {
-                    this._dy = Math.floor((Math.random() * 5) + 5); // vertical speed
-                    this._dx = Math.floor((Math.random() * 4) - 2); // horizontal drift
-                }
-                if(this.ran == 2)//right
-                {
-                    
-                }
-                if(this.ran == 3)//left
-                {
-                    
-                }
-                if(this.ran == 4)//bottom
-                {
-                    
-                }
-            
+            switch (this.ran) {
+                case 1://top
+                        this.x = Math.floor((Math.random() * 780) + 20); // horizontal drift
+                        this.y = -100;
+                    break;
 
+                case 2://right
+                        this.y = Math.floor((Math.random() * 580) + 20); // vertical speed
+                        this.x = 900;
+                    break;
 
-            this.y = -this.height;
+                case 3://left
+                        this.y = Math.floor((Math.random() * 580) + 20); // vertical speed
+                        this.x = -100;
+                    break;
 
-            // get a random x location
-            this.x = Math.floor((Math.random() * (640 - (this.width * 0.5))) + (this.width * 0.5));
+                case 4://bottom
+                        this.x = Math.floor((Math.random() * 780) + 20); // horizontal drift
+                        this.y = 700;
+                    break;
+            }
+            this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
+            console.log(this.playerY);
+            console.log(this.playerX);
+            console.log(this.y);
+            console.log(this.x);
         }
 
-     
-        private _checkBounds():void {
-            if(this.y >= (480 + (this.height * 0.5))) {
+        private asteroidMove() {
+            this.radians = this.rotation * (Math.PI / 180);
+            this.x += this.speed * Math.cos(this.radians);
+            this.y += this.speed * Math.sin(this.radians);
+        }
+
+        private _checkBounds(): void {
+            if (this.x >= 1000 || this.x <= -200 || this.y >= 800 || this.y <= -200 || this.dead == true) {
                 this._reset();
+                console.log("reset");
             }
         }
-        
-        // PUBLIC METHODS 
 
-        //used to initialize public properties and private instance variables
-        
-        public start():void {
+        public start(): void {
             this._reset();
         }
 
-        //updates the object's properties every time it's called
-      
-        public update():void {
-            this.position = new Vector2(this.x, this.y);
-            this.y += this._dy;
-            this.x += this._dx;
+        public update(): void {
             this._checkBounds();
+            this.asteroidMove();
+        }
+
+        public giveData(PX: number, PY: number) {
+            this.playerX = PX;
+            this.playerY = PY;
         }
     }
 }

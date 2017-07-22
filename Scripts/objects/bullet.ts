@@ -40,7 +40,7 @@
         }
 
         public bulletDespawn(): void {
-            if (this.x >= 640 || this.x <= 0 || this.y >= 480 || this.y <= 0) {
+            if (this.x >= 800 || this.x <= 0 || this.y >= 600 || this.y <= 0) {
                 this.shoot = false;
                 this._reset();
             }
