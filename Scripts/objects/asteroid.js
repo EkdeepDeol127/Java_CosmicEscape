@@ -39,7 +39,7 @@ var objects;
                     break;
                 case 4://bottom
                     this.x = (Math.random() * 780) + 20; // horizontal drift
-                    this.y = 780;
+                    this.y = 680;
                     break;
             }
             this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
