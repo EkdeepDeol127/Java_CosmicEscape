@@ -1,110 +1,125 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var objects;
-(function (objects) {
-    var Player = (function (_super) {
-        __extends(Player, _super);
+module objects {
+
+    export class Player extends objects.GameObject {
+        // PRIVATE INSTANCE VARIABLES 
+
+        // PUBLIC PROPERTIES 
+        moveLeft: boolean = false;
+        moveRight: boolean = false;
+        moveUp: boolean = false;
+        moveDown: boolean = false;
+        health: number = 100;
+        sheild: number = 100;
+        speed: number = 5;
+        MX: number;
+        MY: number;
+
+
+
         // CONSTRUCTORS 
         //creates an instance of player
-        function Player(imageString) {
-            var _this = _super.call(this, imageString) || this;
-            // PRIVATE INSTANCE VARIABLES 
-            // PUBLIC PROPERTIES 
-            _this.moveLeft = false;
-            _this.moveRight = false;
-            _this.moveUp = false;
-            _this.moveDown = false;
-            _this.health = 100;
-            _this.sheild = 100;
-            _this.speed = 5;
-            window.addEventListener('keydown', _this.KeyDown.bind(_this), false);
-            window.addEventListener('keyup', _this.KeyUp.bind(_this), false);
-            _this.regX = _this.width * 0.5;
-            _this.regY = _this.height * 0.5;
-            _this.start();
-            return _this;
+        constructor(imageString: string) {
+            super(imageString)
+
+            window.addEventListener('keydown', this.KeyDown.bind(this), false);
+            window.addEventListener('keyup', this.KeyUp.bind(this), false);
+            this.regX = this.width * 0.5;
+            this.regY = this.height * 0.5;
+            this.start();
         }
+
         // PUBLIC METHODS
         // used to initialize public properties 
-        Player.prototype.start = function () {
+
+        public start(): void {
             this.y = 300;
             this.x = 400;
-        };
+        }
+
         // updates the object's properties every time it's called
-        Player.prototype.update = function () {
+
+        public update(): void {
             // player to follow mouse
-            this.position = new objects.Vector2(this.x, this.y);
+            this.position = new Vector2(this.x, this.y);
+
             this.rotation = Math.atan2(this.MY - this.y, this.MX - this.x) * 180 / Math.PI;
+
             if (this.moveLeft && this.x >= 0 + 50) {
                 this.x -= this.speed;
             }
+
             if (this.moveRight && this.x <= 800 - 50) {
                 this.x += this.speed;
             }
             if (this.moveUp && this.y >= 0 + 50) {
                 this.y -= this.speed;
             }
+
             if (this.moveDown && this.y <= 600 - 50) {
                 this.y += this.speed;
             }
-        };
-        Player.prototype.KeyDown = function (event) {
+        }
+
+        public KeyDown(event: KeyboardEvent) {
+
             switch (event.keyCode) {
                 case 38: /*up arrow*/
-                case 87:/* W Key */ 
+                case 87: /* W Key */
                     this.moveUp = true;
                     break;
+
                 case 37: /*left arrow*/
-                case 65:/* A Key */ 
+                case 65: /* A Key */
                     this.moveLeft = true;
                     break;
+
                 case 40: /*down arrow*/
-                case 83:/* S Key */ 
+                case 83: /* S Key */
                     this.moveDown = true;
                     break;
+
                 case 39: /*right arrow*/
-                case 68:/* D Key */ 
+                case 68: /* D Key */
                     this.moveRight = true;
                     break;
-                case 81:/* pause */ 
+
+                case 81: /* pause */
                     console.log("paused");
                     //add paused/suiside
                     break;
             }
-        };
-        Player.prototype.KeyUp = function (event) {
+        }
+
+        public KeyUp(event: KeyboardEvent) {
             switch (event.keyCode) {
                 case 38: /*up arrow*/
-                case 87:/* W Key */ 
+                case 87: /* W Key */
                     this.moveUp = false;
                     break;
+
                 case 37: /*left arrow*/
-                case 65:/* A Key */ 
+                case 65: /* A Key */
                     this.moveLeft = false;
                     break;
+
                 case 40: /*down arrow*/
-                case 83:/* S Key */ 
+                case 83: /* S Key */
                     this.moveDown = false;
                     break;
+
                 case 39: /*right arrow*/
-                case 68:/* D Key */ 
+                case 68: /* D Key */
                     this.moveRight = false;
                     break;
-                case 81:/* pause */ 
+
+                case 81: /* pause */
                     console.log("unpaused");
                     //add paused/suiside
                     break;
             }
-        };
-        Player.prototype.Damage = function (dam) {
+        }
+
+        public Damage(dam: number) {
             if (this.sheild > 0) {
                 this.sheild - dam;
             }
@@ -116,15 +131,16 @@ var objects;
                     //gameover
                 }
             }
-        };
-        Player.prototype.col = function () {
-        };
-        Player.prototype.giveData = function (SX, SY) {
+        }
+
+        public col() {
+
+        }
+
+        public giveData(SX: any, SY: any) {
             this.MX = SX;
             this.MY = SY;
-        };
-        return Player;
-    }(objects.GameObject));
-    objects.Player = Player;
-})(objects || (objects = {}));
-//# sourceMappingURL=player.js.map
+        }
+
+    }
+}

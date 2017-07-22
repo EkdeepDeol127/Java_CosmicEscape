@@ -14,7 +14,7 @@ var objects;
         __extends(Bullet, _super);
         function Bullet(imageString) {
             var _this = _super.call(this, imageString) || this;
-            //speed: number = 3;
+            _this.speed = 30;
             _this.shoot = false;
             _this.delay = true; //so the first click to start game does not trigger bullet
             window.addEventListener('click', _this.bulletFire.bind(_this), false);
@@ -38,7 +38,7 @@ var objects;
             this.bulletMove(this.HoldMX, this.HoldMY);
         };
         Bullet.prototype.bulletDespawn = function () {
-            if (this.x >= 640 || this.x <= 0 || this.y >= 480 || this.y <= 0) {
+            if (this.x >= 800 || this.x <= 0 || this.y >= 600 || this.y <= 0) {
                 this.shoot = false;
                 this._reset();
             }
@@ -54,8 +54,9 @@ var objects;
         };
         Bullet.prototype.bulletMove = function (posX, posY) {
             if (this.shoot == true) {
-                this.x -= this.HoldMX * 0.05;
-                this.y -= this.HoldMY * 0.05;
+                this.radians = this.rotation * (Math.PI / 180);
+                this.x += this.speed * Math.cos(this.radians);
+                this.y += this.speed * Math.sin(this.radians);
             }
         };
         Bullet.prototype.col = function () {

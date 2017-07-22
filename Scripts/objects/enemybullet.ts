@@ -1,31 +1,30 @@
-  module objects {
-    export class Bullet extends objects.GameObject {
+module objects {
+    export class EnemyBullet extends objects.GameObject {
 
+        range: boolean = false;
         speed: number = 30;
+        radians: number;
         shoot: boolean = false;
-        MX: number;
-        MY: number;
-        HoldMX: number;
-        HoldMY: number;
+        enemyShipX: number;
+        enemyShipY: number;
         playerX: number;
         playerY: number;
-        radians: number;
-        delay: boolean = true;//so the first click to start game does not trigger bullet
+        HoldplayerX: number;
+        HoldplayerY: number;
+        timer: number = 8;
    
         constructor(imageString:string) {
             super(imageString)
-
-            window.addEventListener('click', this.bulletFire.bind(this), false);
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            this.start();
+            this.Start();
         }
 
         private _reset(): void {
             if(this.shoot == false)
             {
-                this.x = this.playerX;
-                this.y = this.playerY;
+                this.x = this.enemyShipX;
+                this.y = this.enemyShipY;
             }
         }
 
@@ -34,9 +33,11 @@
         }
 
         public update(): void {
+
             this._reset();
             this.bulletDespawn();
-            this.bulletMove(this.HoldMX, this.HoldMY);
+            this.bulletFire();
+            this.bulletMove();
         }
 
         public bulletDespawn(): void {
@@ -48,18 +49,19 @@
 
         public bulletFire():void
         {
-            if(this.shoot == false && this.delay == false)
+            this.timer -= 0.1;
+            if(this.range == true && this.shoot == false && this.timer <= 0)
             {
-            this.HoldMX = this.MX;
-            this.HoldMY = this.MY;
-            this.rotation = Math.atan2(this.HoldMY - this.y,this.HoldMX - this.x) * 180 / Math.PI;
-            this.shoot = true;
+                 this.timer = 8;
+                 this.shoot = true;
+                 this.HoldplayerX = this.playerX;
+                 this.HoldplayerY = this.playerY;
+                 this.rotation = Math.atan2(this.HoldplayerY - this.y,this.HoldplayerX - this.x) * 180 / Math.PI;
             }
-            this.delay = false;
         }
 
-        public bulletMove(posX:number, posY:number): void {
-            if(this.shoot == true)
+        public bulletMove() {
+            if(this.range == true || this.shoot == true)
             {
                 this.radians = this.rotation * (Math.PI / 180);
                 this.x += this.speed * Math.cos(this.radians);
@@ -69,15 +71,16 @@
 
         public col()
         {
-            
+
         }
 
-        public giveData(SX:any, SY:any, PX:number, PY:number)
+        public giveData(PX:any, PY:any, EX:number, EY:number, IR:boolean)
         {
-            this.MX = SX;
-            this.MY = SY;
+            this.range = IR;
             this.playerX = PX;
             this.playerY = PY;
+            this.enemyShipX = EX;
+            this.enemyShipY = EY;
         }
     }
-} 
+}
