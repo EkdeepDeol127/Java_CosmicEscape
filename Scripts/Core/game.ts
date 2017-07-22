@@ -20,6 +20,7 @@ let menu: scenes.Menu;
 let over: scenes.Over;
 let play: scenes.Play;
 let tutorial: scenes.Tutorial;
+let path: scenes.pathLevel;
     
     //asset manifest
    let assetData: objects.Asset[] = [
@@ -75,7 +76,7 @@ createjs.Ticker.on("tick", gameLoop);
     "playButton": [3],
     "tutButton": [4],
     "enemy":[3],
-    "BUllet": [7] 
+    "bullet": [7] 
 }};
 
 textureAtlas = new createjs.SpriteSheet(atlasData);
@@ -94,7 +95,7 @@ export function changeScene():void{
 switch (scene) {
 
     case config.Scene.MENU:
-    stage.removeAllChildren();
+                stage.removeAllChildren();
                 menu = new scenes.Menu();
                 currentScene = menu;
                 break;
@@ -112,6 +113,12 @@ switch (scene) {
                 currentScene = tutorial;
                 break;
            
+           //PATH level
+           case config.Scene.PATH:
+           stage.removeAllChildren();
+           path = new scenes.pathLevel();
+           currentScene = path;
+           break;
            
             // Show the GAME OVER Scene
             case config.Scene.OVER:

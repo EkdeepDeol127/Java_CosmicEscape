@@ -4,8 +4,12 @@ export class Menu extends objects.Scene {
 //PRIVATE INSTANCE VARIABLES
 private _tutorialButton: objects.Button;
 private _startButton: objects.Button;
+
+//for devlopment only
+private _pathButton: objects.Button;
+
 private _backgr: objects.Background;
-private _themeSound: createjs.AbstractSoundInstance;
+//private _themeSound: createjs.AbstractSoundInstance;
 
 //creates an instance of mainMenu
 constructor(){
@@ -13,8 +17,8 @@ constructor(){
 }
 public Start():void{
 //sound
-this._themeSound = createjs.Sound.play("mainTheme");
-this._themeSound.loop = -1
+//this._themeSound = createjs.Sound.play("mainTheme");
+//this._themeSound.loop = -1
 
 //add background
 this._backgr = new objects.Background("mainPage");
@@ -28,9 +32,15 @@ this._startButton.on("click",this._startButtonClick,this);
 
 //add tutorial button
 this._tutorialButton = new objects.Button("tutButton", 370, 350, true);
-this.addChild(this._startButton);
+this.addChild(this._tutorialButton);
 //tutButton listener
 this._tutorialButton.on("click", this._tutButtonClick, this);
+
+//add development buttin
+this._pathButton = new objects.Button("againButton",370, 375, true);
+this.addChild(this._pathButton);
+//path button listener
+this._pathButton.on("click", this._pathButtonClick, this);
 
 
 //add this scene to GLOBAL scene container
@@ -38,8 +48,6 @@ core.stage.addChild(this);
 }
 
 private _startButtonClick(event:createjs.MouseEvent):void{
-    
-    
     //switch scene
     core.scene = config.Scene.PLAY;
     core.changeScene();
@@ -48,7 +56,11 @@ private _startButtonClick(event:createjs.MouseEvent):void{
 private _tutButtonClick(event:createjs.MouseEvent):void{
 core.scene = config.Scene.TUTORIAL;
 core.changeScene();
+}
 
+private _pathButtonClick(event:createjs.MouseEvent):void{
+core.scene = config.Scene.PLAY;
+core.changeScene();
 }
 
 }

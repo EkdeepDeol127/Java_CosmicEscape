@@ -11,6 +11,7 @@ var core;
     var over;
     var play;
     var tutorial;
+    var path;
     //asset manifest
     var assetData = [
         { id: "galaxy", src: "../../Assets/images/galaxy.png" },
@@ -57,7 +58,7 @@ var core;
                 "playButton": [3],
                 "tutButton": [4],
                 "enemy": [3],
-                "BUllet": [7]
+                "bullet": [7]
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);
@@ -87,6 +88,12 @@ var core;
                 core.stage.removeAllChildren();
                 tutorial = new scenes.Tutorial();
                 currentScene = tutorial;
+                break;
+            //PATH level
+            case config.Scene.PATH:
+                core.stage.removeAllChildren();
+                path = new scenes.pathLevel();
+                currentScene = path;
                 break;
             // Show the GAME OVER Scene
             case config.Scene.OVER:

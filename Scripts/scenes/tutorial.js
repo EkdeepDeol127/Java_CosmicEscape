@@ -17,9 +17,37 @@ var scenes;
             return _super.call(this) || this;
         }
         Tutorial.prototype.Start = function () {
-            //adds background
-            this._backgr = new objects.Background("tutorial");
+            //background
+            this._backgr = new objects.Galaxy("galaxy");
             this.addChild(this._backgr);
+            //player
+            this._player = new objects.Player("player");
+            this.addChild(this._player);
+            //development buttons
+            //add start  button
+            this._menuButton = new objects.Button("backButton", 370, 300, true);
+            this.addChild(this._menuButton);
+            //startbutton event listener
+            this._menuButton.on("click", this._menuButtonClick, this);
+            //add start  button
+            this._playButton = new objects.Button("playButton", 370, 350, true);
+            this.addChild(this._playButton);
+            //startbutton event listener
+            this._playButton.on("click", this._playButtonClick, this);
+            core.stage.addChild(this);
+        };
+        Tutorial.prototype.Update = function () {
+            this._backgr.update();
+            this._player.update();
+        };
+        Tutorial.prototype._menuButtonClick = function (event) {
+            //switch scene
+            core.scene = config.Scene.MENU;
+            core.changeScene();
+        };
+        Tutorial.prototype._playButtonClick = function (event) {
+            core.scene = config.Scene.PATH;
+            core.changeScene();
         };
         return Tutorial;
     }(objects.Scene));

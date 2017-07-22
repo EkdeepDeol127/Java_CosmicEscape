@@ -12,14 +12,15 @@ var scenes;
 (function (scenes) {
     var Menu = (function (_super) {
         __extends(Menu, _super);
+        //private _themeSound: createjs.AbstractSoundInstance;
         //creates an instance of mainMenu
         function Menu() {
             return _super.call(this) || this;
         }
         Menu.prototype.Start = function () {
             //sound
-            this._themeSound = createjs.Sound.play("mainTheme");
-            this._themeSound.loop = -1;
+            //this._themeSound = createjs.Sound.play("mainTheme");
+            //this._themeSound.loop = -1
             //add background
             this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);
@@ -30,9 +31,14 @@ var scenes;
             this._startButton.on("click", this._startButtonClick, this);
             //add tutorial button
             this._tutorialButton = new objects.Button("tutButton", 370, 350, true);
-            this.addChild(this._startButton);
+            this.addChild(this._tutorialButton);
             //tutButton listener
             this._tutorialButton.on("click", this._tutButtonClick, this);
+            //add development buttin
+            this._pathButton = new objects.Button("againButton", 370, 375, true);
+            this.addChild(this._pathButton);
+            //path button listener
+            this._pathButton.on("click", this._pathButtonClick, this);
             //add this scene to GLOBAL scene container
             core.stage.addChild(this);
         };
@@ -43,6 +49,10 @@ var scenes;
         };
         Menu.prototype._tutButtonClick = function (event) {
             core.scene = config.Scene.TUTORIAL;
+            core.changeScene();
+        };
+        Menu.prototype._pathButtonClick = function (event) {
+            core.scene = config.Scene.PLAY;
             core.changeScene();
         };
         return Menu;
