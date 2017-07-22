@@ -27,19 +27,19 @@ var objects;
             switch (this.ran) {
                 case 1://top
                     this.x = (Math.random() * 780) + 20; // horizontal drift
-                    this.y = -100;
+                    this.y = -80;
                     break;
                 case 2://right
                     this.y = (Math.random() * 580) + 20; // vertical speed
-                    this.x = 900;
+                    this.x = 880;
                     break;
                 case 3://left
                     this.y = (Math.random() * 580) + 20; // vertical speed
-                    this.x = -100;
+                    this.x = -80;
                     break;
                 case 4://bottom
                     this.x = (Math.random() * 780) + 20; // horizontal drift
-                    this.y = 700;
+                    this.y = 780;
                     break;
             }
             this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
