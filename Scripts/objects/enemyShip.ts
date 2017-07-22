@@ -60,7 +60,7 @@ module objects {
         public playerRange()
         {
             this.dist = Math.sqrt( Math.pow((this.x - this.playerX), 2) + Math.pow((this.y - this.playerY), 2) );
-            if (this.dist < 150)
+            if (this.dist < 200)
             {
                 this.inRange = true;
             }
