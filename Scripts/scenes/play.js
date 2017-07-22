@@ -14,10 +14,7 @@ var scenes;
         __extends(Play, _super);
         //creates an instance of Play
         function Play() {
-            var _this = _super.call(this) || this;
-            _this.SX = _this._player.x;
-            _this.SY = _this._player.y;
-            return _this;
+            return _super.call(this) || this;
         }
         Play.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
@@ -39,7 +36,7 @@ var scenes;
             this.addChild(this._bullet);
             //asteroid array
             this._asteroid = new Array();
-            for (var count = 0; count < 3; count++) {
+            for (var count = 0; count < 4; count++) {
                 this._asteroid.push(new objects.Asteroid("asteroid"));
                 this.addChild(this._asteroid[count]);
             }
@@ -56,7 +53,7 @@ var scenes;
             this._galaxy.update();
             this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();
-            this._bullet.giveData(this.SX, this.SY, this._player.x, this._player.y);
+            this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
             this._bullet.update();
             this._enemyShip.giveData(this._player.x, this._player.y);
             this._enemyShip.update();
@@ -64,10 +61,11 @@ var scenes;
             this._enemyBullet.update();
             this._collision.check(this._player, this._enemyShip);
             this._collision.check(this._player, this._enemyShip);
-            //asteroid update
+            //asteroids update
             this._asteroid.forEach(function (asteroid) {
-                asteroid.update();
+                asteroid.giveData(_this._player.x, _this._player.y);
                 _this._collision.check(_this._player, asteroid);
+                asteroid.update();
             });
             this._updateScoreBoard();
             if (core.lives < 1) {
