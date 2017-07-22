@@ -65,6 +65,8 @@ var objects;
             this.playerX = PX;
             this.playerY = PY;
         };
+        Asteroid.prototype.col = function () {
+        };
         return Asteroid;
     }(objects.GameObject));
     objects.Asteroid = Asteroid;

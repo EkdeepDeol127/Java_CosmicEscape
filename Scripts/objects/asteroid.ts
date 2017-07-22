@@ -68,5 +68,10 @@ module objects {
             this.playerX = PX;
             this.playerY = PY;
         }
+
+        public col()
+        {
+            
+        }
     }
 }
