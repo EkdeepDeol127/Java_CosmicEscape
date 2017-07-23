@@ -60,7 +60,7 @@ core.changeScene();
 }
 
 private _pathButtonClick(event:createjs.MouseEvent):void{
-core.scene = config.Scene.PLAY;
+core.scene = config.Scene.PATH;
 core.changeScene();
 }
 

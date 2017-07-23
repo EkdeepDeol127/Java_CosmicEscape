@@ -25,7 +25,7 @@ export class pathLevel extends objects.Scene{
         }
 
         public Start(): void {
-            this._galaxy = new objects.galaxyPath("galaxyPath");
+            this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
 
             //adds background
@@ -56,7 +56,7 @@ export class pathLevel extends objects.Scene{
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "#FFFF00", 10, 5, false);
             this.addChild(this._livesLabel);
 
-
+            console.log("PATHLEVEL");
             core.stage.addChild(this);
         }
 

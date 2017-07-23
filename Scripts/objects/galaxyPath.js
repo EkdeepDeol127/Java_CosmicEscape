@@ -15,7 +15,9 @@ var objects;
         function galaxyPath(imageString) {
             var _this = _super.call(this, core.assets.getResult(imageString)) || this;
             _this.width = 800;
-            _this.height = 1280;
+            _this.height = 1422;
+            _this.x = _this.width * 0.5;
+            _this.y = _this.height * 0.5;
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
             _this.start();
@@ -64,9 +66,8 @@ var objects;
             this.galaxyMove();
         };
         galaxyPath.prototype.galaxyMove = function () {
-            console.log(this.rotation);
             this.y += this._dy;
-            this.rotation += this._dy;
+            //this.rotation += this._dy;
         };
         return galaxyPath;
     }(createjs.Bitmap));

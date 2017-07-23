@@ -5,11 +5,12 @@ module objects {
         private _dy:number;
         private timer: number;
         private width: number = 800;
-        private height: number = 1280;
+        private height: number = 1422;
       
         constructor(imageString: string) {
             super(core.assets.getResult(imageString));
-
+            this.x = this.width * 0.5;
+            this.y = this.height * 0.5;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this.start();
@@ -66,9 +67,8 @@ module objects {
 
         public galaxyMove()
         {
-            console.log(this.rotation);
             this.y += this._dy;
-            this.rotation += this._dy;
+            //this.rotation += this._dy;
         }
     }
 }

@@ -21,7 +21,7 @@ var scenes;
             this._scoreLabel.text = "Score: " + core.score;
         };
         pathLevel.prototype.Start = function () {
-            this._galaxy = new objects.galaxyPath("galaxyPath");
+            this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
             //adds background
             this._backgr = new objects.Background("pathLevel");
@@ -44,6 +44,7 @@ var scenes;
             this.addChild(this._scoreLabel);
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "#FFFF00", 10, 5, false);
             this.addChild(this._livesLabel);
+            console.log("PATHLEVEL");
             core.stage.addChild(this);
         };
         pathLevel.prototype.Update = function () {
