@@ -68,7 +68,7 @@ module objects {
         public galaxyMove()
         {
             this.y += this._dy;
-            //this.rotation += this._dy;
+            //this.rotation += 0.01;
         }
     }
 }

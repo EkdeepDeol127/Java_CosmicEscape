@@ -67,7 +67,7 @@ var objects;
         };
         galaxyPath.prototype.galaxyMove = function () {
             this.y += this._dy;
-            //this.rotation += this._dy;
+            //this.rotation += 0.01;
         };
         return galaxyPath;
     }(createjs.Bitmap));

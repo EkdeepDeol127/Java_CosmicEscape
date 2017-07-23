@@ -35,7 +35,7 @@ var scenes;
             //tutButton listener
             this._tutorialButton.on("click", this._tutButtonClick, this);
             //add development buttin
-            this._pathButton = new objects.Button("againButton", 370, 375, true);
+            this._pathButton = new objects.Button("againButton", 370, 400, true);
             this.addChild(this._pathButton);
             //path button listener
             this._pathButton.on("click", this._pathButtonClick, this);
