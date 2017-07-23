@@ -19,7 +19,7 @@ var scenes;
         Play.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
-            this._TimeLabel.text = "Time: " + core.score;
+            this._TimeLabel.text = "Time: " + core.Time;
         };
         Play.prototype.Start = function () {
             //galaxy
