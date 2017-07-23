@@ -58,6 +58,7 @@ var objects;
             this._reset();
         };
         Asteroid.prototype.update = function () {
+            this.position = new objects.Vector2(this.x, this.y); //for collision
             this._checkBounds();
             this.asteroidMove();
         };

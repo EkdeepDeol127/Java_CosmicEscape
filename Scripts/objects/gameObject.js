@@ -94,7 +94,7 @@ var objects;
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
             this.position = new objects.Vector2(this.x, this.y);
-            // this.isColliding = false;
+            this.isColliding = false;
         };
         // used to initialize public properties and private instance variables
         GameObject.prototype.start = function () {

@@ -33,6 +33,7 @@ var objects;
             this._reset();
         };
         EnemyShip.prototype.update = function () {
+            this.position = new objects.Vector2(this.x, this.y); //for collision 
             this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
             this.enemtShipDespawn();
             this.playerRange();
