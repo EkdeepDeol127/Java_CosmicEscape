@@ -49,6 +49,7 @@ var scenes;
             this.addChild(this._livesLabel);
             this._TimeLabel = new objects.Label("Lives: " + core.Time, "40px", "Dock51", "#FFFF00", 510, 5, false);
             this.addChild(this._TimeLabel);
+            console.log("SurviveLEVEL");
             core.stage.addChild(this);
         };
         Play.prototype.Update = function () {
