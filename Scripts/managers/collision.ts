@@ -22,13 +22,13 @@ module managers {
 
                 // if bullet collides with asteroid
                     if(other.name === "asteroid") {
-                       // createjs.Sound.play("yay");
+                        createjs.Sound.play("hit");
                         core.lives -= 1;
                     }
 
                     // if plane collides with island
-                    if(other.name === "enemy") {
-                       // createjs.Sound.play("yay");
+                    if(other.name === "enemyShip") {
+                       createjs.Sound.play("hit");
                         core.lives -= 1;
                     }
 

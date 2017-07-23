@@ -8,7 +8,7 @@ module objects {
         private _name:string;
         private _position:Vector2;
         private _isColliding:boolean;
-       // public sound:createjs.AbstractSoundInstance;
+        public sound:createjs.AbstractSoundInstance;
 
         // PUBLIC PROPERTIES 
 
@@ -81,7 +81,7 @@ module objects {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
             this.position = new Vector2(this.x, this.y);
-           // this.isColliding = false;
+            this.isColliding = false;
         }
 
 

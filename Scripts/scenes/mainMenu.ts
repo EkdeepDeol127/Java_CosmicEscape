@@ -5,21 +5,21 @@ export class Menu extends objects.Scene {
 private _tutorialButton: objects.Button;
 private _startButton: objects.Button;
 
-//for devlopment only
-private _pathButton: objects.Button;
+
+private _pathButton: objects.Button; //for devlopment only
 
 private _backgr: objects.Background;
-//private _themeSound: createjs.AbstractSoundInstance;
+private _themeSound: createjs.AbstractSoundInstance;
 
 //creates an instance of mainMenu
 constructor(){
     super();
-    
+ 
 }
 public Start():void{
-//sound
-//this._themeSound = createjs.Sound.play("mainTheme");
-//this._themeSound.loop = -1
+ //sound
+this._themeSound = createjs.Sound.play("menuTheme");
+this._themeSound.loop = -1  
 
 //add background
 this._backgr = new objects.Background("mainPage");
@@ -49,17 +49,20 @@ core.stage.addChild(this);
 }
 
 private _startButtonClick(event:createjs.MouseEvent):void{
+    this._themeSound.stop();
     //switch scene
     core.scene = config.Scene.PLAY;
     core.changeScene();
 }
 
 private _tutButtonClick(event:createjs.MouseEvent):void{
+        this._themeSound.stop();
 core.scene = config.Scene.TUTORIAL;
 core.changeScene();
 }
 
 private _pathButtonClick(event:createjs.MouseEvent):void{
+        this._themeSound.stop();
 core.scene = config.Scene.PATH;
 core.changeScene();
 }

@@ -17,6 +17,7 @@ export let Time: number = 30;
 //scene variables
 let currentScene: objects.Scene;
 export let scene:number;
+//scenes
 let menu: scenes.Menu;
 let over: scenes.Over;
 let play: scenes.Play;
@@ -29,12 +30,11 @@ let path: scenes.pathLevel;
 { id: "tutorial", src: "../../Assets/images/tutPage.png"},       
 { id: "page", src: "../../Assets/images/spritesheet1.png"},
 { id: "mainPage", src: "../../Assets/images/mainMenu.png"},
-//{ id: "enemy", src: "../../Assets/images/enemy.png"},
+{ id: "enemy", src: "../../Assets/images/enemy.png"},
 { id: "gameOver", src: "../../Assets/images/gameOver.png"},
-//{ id: "menuButton", src: "../../Assets/images/menuButton.png"},
+{ id: "menuButton", src: "../../Assets/images/menuButton.png"},
 { id: "menuTheme", src: "../../Assets/audio/mainTheme.ogg"},
 { id: "hit", src: "../../Assets/audio/explode.ogg"}
-
     ];
 
  function preload():void{

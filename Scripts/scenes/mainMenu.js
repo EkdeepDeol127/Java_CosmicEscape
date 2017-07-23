@@ -12,15 +12,14 @@ var scenes;
 (function (scenes) {
     var Menu = (function (_super) {
         __extends(Menu, _super);
-        //private _themeSound: createjs.AbstractSoundInstance;
         //creates an instance of mainMenu
         function Menu() {
             return _super.call(this) || this;
         }
         Menu.prototype.Start = function () {
             //sound
-            //this._themeSound = createjs.Sound.play("mainTheme");
-            //this._themeSound.loop = -1
+            this._themeSound = createjs.Sound.play("menuTheme");
+            this._themeSound.loop = -1;
             //add background
             this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);
@@ -43,15 +42,18 @@ var scenes;
             core.stage.addChild(this);
         };
         Menu.prototype._startButtonClick = function (event) {
+            this._themeSound.stop();
             //switch scene
             core.scene = config.Scene.PLAY;
             core.changeScene();
         };
         Menu.prototype._tutButtonClick = function (event) {
+            this._themeSound.stop();
             core.scene = config.Scene.TUTORIAL;
             core.changeScene();
         };
         Menu.prototype._pathButtonClick = function (event) {
+            this._themeSound.stop();
             core.scene = config.Scene.PATH;
             core.changeScene();
         };
