@@ -1,8 +1,8 @@
 module scenes{
 export class pathLevel extends objects.Scene{
 
-     private _backgr: objects.Background;
-        private _galaxy: objects.Galaxy;
+        private _backgr: objects.Background;
+        private _galaxy: objects.galaxyPath;
         private _player: objects.Player;
         private _asteroid: objects.Asteroid[];
         private _bullet: objects.Bullet;
@@ -25,6 +25,9 @@ export class pathLevel extends objects.Scene{
         }
 
         public Start(): void {
+            this._galaxy = new objects.galaxyPath("galaxyPath");
+            this.addChild(this._galaxy);
+
             //adds background
             this._backgr = new objects.Background("pathLevel");
             this.addChild(this._backgr);
@@ -70,7 +73,7 @@ export class pathLevel extends objects.Scene{
             this._enemyBullet.update();
 
             this._collision.check(this._player, this._enemyShip);
-            this._collision.check(this._player, this._enemyShip);
+            this._collision.check(this._player, this._enemyBullet);
 
             //asteroids update
             this._asteroid.forEach(asteroid => {

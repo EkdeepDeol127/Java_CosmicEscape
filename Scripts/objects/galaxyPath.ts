@@ -66,6 +66,7 @@ module objects {
 
         public galaxyMove()
         {
+            console.log(this.rotation);
             this.y += this._dy;
             this.rotation += this._dy;
         }

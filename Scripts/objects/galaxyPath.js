@@ -64,6 +64,7 @@ var objects;
             this.galaxyMove();
         };
         galaxyPath.prototype.galaxyMove = function () {
+            console.log(this.rotation);
             this.y += this._dy;
             this.rotation += this._dy;
         };

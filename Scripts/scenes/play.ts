@@ -73,7 +73,7 @@ module scenes {
             this._enemyBullet.update();
 
             this._collision.check(this._player, this._enemyShip);
-            this._collision.check(this._player, this._enemyShip);
+            this._collision.check(this._player, this._enemyBullet);
 
             //asteroids update
             this._asteroid.forEach(asteroid => {
