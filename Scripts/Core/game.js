@@ -5,7 +5,7 @@ var core;
     //score and lives variables
     core.score = 0;
     core.lives = 500;
-    core.Time = 15;
+    core.Time = 30;
     //scene variables
     var currentScene;
     var menu;

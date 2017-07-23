@@ -19,7 +19,7 @@ var scenes;
         Play.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
-            this._TimeLabel.text = "Time: " + core.Time;
+            this._TimeLabel.text = "Time: " + Math.round(core.Time);
         };
         Play.prototype.Start = function () {
             //galaxy
@@ -72,7 +72,7 @@ var scenes;
                 asteroid.update();
             });
             if (core.Time <= 0) {
-                core.Time = 15;
+                core.Time = 30;
                 core.scene = config.Scene.PATH;
                 core.changeScene();
             }
