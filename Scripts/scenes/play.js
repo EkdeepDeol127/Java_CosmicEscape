@@ -70,6 +70,14 @@ var scenes;
                 _this._collision.check(_this._player, asteroid);
                 asteroid.update();
             });
+            if (core.Time <= 0) {
+                core.Time = 15;
+                core.scene = config.Scene.PATH;
+                core.changeScene();
+            }
+            else {
+                core.Time -= 0.1;
+            }
             this._updateScoreBoard();
             if (core.lives < 1) {
                 core.scene = config.Scene.OVER;
