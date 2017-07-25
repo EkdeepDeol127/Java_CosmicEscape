@@ -63,12 +63,16 @@ var scenes;
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
-            this._collision.check(this._player, this._enemyShip);
-            this._collision.check(this._player, this._enemyBullet);
+            //PLAYER COLLISIONS
+            this._collision.checkP(this._player, this._enemyShip);
+            this._collision.checkP(this._player, this._enemyBullet);
+            //BULLET COLLISIONS
+            this._collision.checkB(this._bullet, this._enemyShip);
             //asteroids update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.giveData(_this._player.x, _this._player.y);
-                _this._collision.check(_this._player, asteroid);
+                _this._collision.checkP(_this._player, asteroid);
+                _this._collision.checkB(_this._bullet, asteroid);
                 asteroid.update();
             });
             if (core.Time <= 0) {

@@ -8,20 +8,46 @@ var managers;
         };
         Collision.prototype.update = function () {
         };
-        Collision.prototype.check = function (player, other) {
+        Collision.prototype.checkP = function (player, other) {
             //check to see if object is colliding
             if (objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) {
+                if (!other.isColliding) {
+                    other.isColliding = true;
+                    // if player collides with asteroid
+                    if (other.name === "asteroid") {
+                        // createjs.Sound.play("yay");
+                        core.lives -= 1;
+                    }
+                    // if player collides with enemyShip
+                    if (other.name === "enemyShip") {
+                        // createjs.Sound.play("yay");
+                        core.lives -= 1;
+                    }
+                    // if player collides with enemyBullet
+                    if (other.name === "enemyBullet") {
+                        // createjs.Sound.play("yay");
+                        core.lives -= 1;
+                    }
+                }
+            }
+            else {
+                other.isColliding = false;
+            }
+        };
+        Collision.prototype.checkB = function (bullet, other) {
+            //check to see if object is colliding
+            if (objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) {
                 if (!other.isColliding) {
                     other.isColliding = true;
                     // if bullet collides with asteroid
                     if (other.name === "asteroid") {
                         // createjs.Sound.play("yay");
-                        core.lives -= 1;
+                        core.score += 100;
                     }
-                    // if plane collides with island
-                    if (other.name === "enemy") {
+                    // if bullet collides with island
+                    if (other.name === "enemyShip") {
                         // createjs.Sound.play("yay");
-                        core.lives -= 1;
+                        core.score += 150;
                     }
                 }
             }

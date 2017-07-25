@@ -81,7 +81,7 @@ module objects {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
             this.position = new Vector2(this.x, this.y);
-           // this.isColliding = false;
+            this.isColliding = false;
         }
 
 
