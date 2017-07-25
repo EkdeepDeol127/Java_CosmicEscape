@@ -142,7 +142,7 @@ createjs.Ticker.on("tick", gameLoop);
 };
 
 textureAtlas = new createjs.SpriteSheet(atlasData);
-scene = config.Scene.PLAY;
+scene = config.Scene.MENU;
 changeScene();
 
 }
