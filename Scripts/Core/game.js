@@ -4,8 +4,8 @@ var core;
     var canvas = document.getElementById("canvas");
     //score and lives variables
     core.score = 0;
-    core.lives = 500;
-    core.Time = 700;
+    core.lives = 50;
+    core.Time = 120;
     //scene variables
     var currentScene;
     //scenes
@@ -21,7 +21,7 @@ var core;
         { id: "tutorial", src: "../../Assets/images/tutBackgr.png" },
         { id: "page", src: "../../Assets/images/spritesheet1.png" },
         { id: "mainPage", src: "../../Assets/images/mainMenu.png" },
-        { id: "gameOver", src: "../../Assets/images/gameOver.png" },
+        { id: "over", src: "../../Assets/images/gameOver.png" },
         { id: "gameWon", src: "../../Assets/images/gameWon.png" },
         //sounds
         { id: "menuTheme", src: "../../Assets/audio/mainMenu.ogg" },

@@ -11,9 +11,9 @@ export let stage: createjs.Stage;
 
 //score and lives variables
 export let score: number = 0;
-export let lives: number = 500;
+export let lives: number = 50;
 
-export let Time: number = 700;
+export let Time: number = 120;
 
 //scene variables
 let currentScene: objects.Scene;
@@ -33,7 +33,7 @@ let path: scenes.pathLevel;
 { id: "tutorial", src: "../../Assets/images/tutBackgr.png"},       
 { id: "page", src: "../../Assets/images/spritesheet1.png"},
 { id: "mainPage", src: "../../Assets/images/mainMenu.png"},
-{ id: "gameOver", src: "../../Assets/images/gameOver.png"},
+{ id: "over", src: "../../Assets/images/gameOver.png"},
 { id: "gameWon", src: "../../Assets/images/gameWon.png"},
 
 //sounds

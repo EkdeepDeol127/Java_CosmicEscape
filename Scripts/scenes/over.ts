@@ -12,11 +12,11 @@ constructor(){
 }
 public Start():void{
 //add background
-this._backgr = new objects.Background("gameOver");
+this._backgr = new objects.Background("over");
 this.addChild(this._backgr);
 
 //add Main Menu button
-this._mainMenu = new objects.Button("backButton",370,200, true);
+this._mainMenu = new objects.Button("menuButton",370,200, true);
 this.addChild(this._mainMenu);
 //mainMenu button event listener
 this._mainMenu.on("click",this._mainMenuClick,this);
