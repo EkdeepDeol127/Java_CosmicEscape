@@ -18,7 +18,7 @@ var scenes;
         }
         Tutorial.prototype.Start = function () {
             //background
-            this._backgr = new objects.Galaxy("galaxy");
+            this._backgr = new objects.Galaxy("tutorial");
             this.addChild(this._backgr);
             //player
             this._player = new objects.Player("player");
@@ -38,6 +38,7 @@ var scenes;
         };
         Tutorial.prototype.Update = function () {
             this._backgr.update();
+            this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();
         };
         Tutorial.prototype._menuButtonClick = function (event) {

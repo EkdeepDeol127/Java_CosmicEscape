@@ -15,7 +15,7 @@ super();
 
 public Start():void{
     //background
-this._backgr = new objects.Galaxy("galaxy");
+this._backgr = new objects.Galaxy("tutorial");
 this.addChild(this._backgr);
 
 //player
@@ -41,6 +41,7 @@ core.stage.addChild(this);
 
 public Update():void{
 this._backgr.update();
+ this._player.giveData(core.stage.mouseX, core.stage.mouseY);
 this._player.update();
 
 }

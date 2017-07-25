@@ -24,15 +24,15 @@ var scenes;
             this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
             //adds background
-            this._backgr = new objects.Background("pathLevel");
+            this._backgr = new objects.Background("galaxy");
             this.addChild(this._backgr);
             this._player = new objects.Player("player");
             this.addChild(this._player);
-            this._bullet = new objects.Bullet("bullet");
+            this._bullet = new objects.Bullet("playerBullet");
             this.addChild(this._bullet);
-            this._enemyBullet = new objects.EnemyBullet("bullet");
+            this._enemyBullet = new objects.EnemyBullet("enemyBullet");
             this.addChild(this._enemyBullet);
-            this._enemyShip = new objects.EnemyShip("player");
+            this._enemyShip = new objects.EnemyShip("enemyShip");
             this.addChild(this._enemyShip);
             this._asteroid = new Array();
             for (var count = 0; count < 4; count++) {

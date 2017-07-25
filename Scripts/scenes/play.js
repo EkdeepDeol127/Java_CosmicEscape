@@ -26,14 +26,14 @@ var scenes;
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
             //enemy object
-            this._enemyBullet = new objects.EnemyBullet("bullet");
+            this._enemyBullet = new objects.EnemyBullet("enemyBullet");
             this.addChild(this._enemyBullet);
-            this._enemyShip = new objects.EnemyShip("player");
+            this._enemyShip = new objects.EnemyShip("enemyShip");
             this.addChild(this._enemyShip);
             //PLAYER
             this._player = new objects.Player("player");
             this.addChild(this._player);
-            this._bullet = new objects.Bullet("bullet");
+            this._bullet = new objects.Bullet("playerBullet");
             this.addChild(this._bullet);
             //asteroid array
             this._asteroid = new Array();
@@ -72,7 +72,7 @@ var scenes;
                 asteroid.update();
             });
             if (core.Time <= 0) {
-                core.Time = 30;
+                core.Time = 120;
                 core.scene = config.Scene.PATH;
                 core.changeScene();
             }

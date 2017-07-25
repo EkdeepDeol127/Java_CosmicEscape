@@ -12,7 +12,7 @@ export let stage: createjs.Stage;
 //score and lives variables
 export let score: number = 0;
 export let lives: number = 500;
-export let Time: number = 30;
+export let Time: number = 700;
 
 //scene variables
 let currentScene: objects.Scene;
@@ -85,12 +85,12 @@ createjs.Ticker.on("tick", gameLoop);
     [84,89,19,19,0,94,94],
 
     //bullets
-    [109,88,20,12,0,119,94],
-    [131,88,20,12,0,141,94],
-    [151,88,19,11,0,160,94], 
+    [109,88,20,12,0,0,0],
+    [131,88,20,12,0,0,0],
+    [151,88,19,11,0,0,0], 
 
 //enemyship
-[15,111,143,60,0,56,142],//15
+[15,111,143,60,0,0,0],//15
 //enemyship destroyed
 [160,110,142,59,0,203,140],
 [304,110,135,59,0,365,140],
@@ -103,11 +103,11 @@ createjs.Ticker.on("tick", gameLoop);
 [327,179,133,119,0,390,235],
 
 //player
-[12,332,149,70,0,80,356],
-[170,332,149,71,0,240,365],
-[327,331,148,72,0,300,365],//24
+[12,332,149,72,0,0,0],
+[170,332,149,72,0,0,0],
+[327,331,149,72,0,0,0],//24
 //playerHit
-[490,332,148,70,0,560,365], 
+[490,332,148,70,0,0,0], 
 //player destroyed
 [667,334,148,70,0,740,370],
 [814,332,149,70,0,885,365],
@@ -141,7 +141,7 @@ createjs.Ticker.on("tick", gameLoop);
 };
 
 textureAtlas = new createjs.SpriteSheet(atlasData);
-scene = config.Scene.MENU;
+scene = config.Scene.PATH;
 changeScene();
 
 }
