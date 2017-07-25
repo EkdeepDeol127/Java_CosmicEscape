@@ -18,7 +18,7 @@ var scenes;
         }
         Menu.prototype.Start = function () {
             //sound
-            this._themeSound = createjs.Sound.play("mainTheme");
+            this._themeSound = createjs.Sound.play("menuTheme");
             this._themeSound.loop = -1;
             //console.log("playing music");
             //add background
