@@ -18,8 +18,9 @@ var scenes;
         }
         Menu.prototype.Start = function () {
             //sound
-            this._themeSound = createjs.Sound.play("menuTheme");
+            this._themeSound = createjs.Sound.play("mainTheme");
             this._themeSound.loop = -1;
+            //console.log("playing music");
             //add background
             this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);
@@ -43,7 +44,6 @@ var scenes;
         };
         Menu.prototype._startButtonClick = function (event) {
             this._themeSound.stop();
-            //switch scene
             core.scene = config.Scene.PLAY;
             core.changeScene();
         };

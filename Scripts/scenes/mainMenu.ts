@@ -17,9 +17,10 @@ constructor(){
  
 }
 public Start():void{
- //sound
-this._themeSound = createjs.Sound.play("menuTheme");
-this._themeSound.loop = -1  
+//sound
+this._themeSound = createjs.Sound.play("mainTheme");
+this._themeSound.loop = -1;
+//console.log("playing music");
 
 //add background
 this._backgr = new objects.Background("mainPage");
@@ -44,26 +45,24 @@ this.addChild(this._pathButton);
 //path button listener
 this._pathButton.on("click", this._pathButtonClick, this);
 
-
 //add this scene to GLOBAL scene container
 core.stage.addChild(this);
 }
 
 private _startButtonClick(event:createjs.MouseEvent):void{
     this._themeSound.stop();
-    //switch scene
     core.scene = config.Scene.PLAY;
     core.changeScene();
 }
 
 private _tutButtonClick(event:createjs.MouseEvent):void{
-        this._themeSound.stop();
+this._themeSound.stop();
 core.scene = config.Scene.TUTORIAL;
 core.changeScene();
 }
 
 private _pathButtonClick(event:createjs.MouseEvent):void{
-        this._themeSound.stop();
+this._themeSound.stop();
 core.scene = config.Scene.PATH;
 core.changeScene();
 }

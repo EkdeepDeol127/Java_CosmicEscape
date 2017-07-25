@@ -6,7 +6,6 @@ var core;
     core.score = 0;
     core.lives = 500;
     core.Time = 700;
-    //scene variables
     var currentScene;
     //scenes
     var menu;

@@ -95,7 +95,7 @@ module scenes {
 
             if(core.Time <= 0)
             {
-                core.Time = 120;
+                core.Time = 300;
                 core.scene = config.Scene.PATH;
                 core.changeScene();
             }
