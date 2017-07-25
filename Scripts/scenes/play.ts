@@ -53,13 +53,13 @@ module scenes {
             this._collision = new managers.Collision();
 
             //score label
-            this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "Dock51", "#FFFF00", 260, 5, false);
+            this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
             this.addChild(this._scoreLabel);
 
-            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "#FFFF00", 10, 5, false);
+            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 10, 5, false);
             this.addChild(this._livesLabel);
 
-            this._TimeLabel = new objects.Label("Lives: " + core.Time, "40px", "Dock51", "#FFFF00", 510, 5, false);
+            this._TimeLabel = new objects.Label("Lives: " + core.Time, "40px", "monospace", "#FFFF00", 510, 5, false);
             this.addChild(this._TimeLabel);
 
             console.log("SurviveLEVEL");
