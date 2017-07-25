@@ -22,7 +22,6 @@ var objects;
             return _this;
         }
         Object.defineProperty(GameObject.prototype, "width", {
-            // public sound:createjs.AbstractSoundInstance;
             // PUBLIC PROPERTIES 
             get: function () {
                 return this._width;

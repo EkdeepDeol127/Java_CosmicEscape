@@ -15,17 +15,12 @@ var managers;
                     other.isColliding = true;
                     // if player collides with asteroid
                     if (other.name === "asteroid") {
-                        // createjs.Sound.play("yay");
+                        createjs.Sound.play("hit");
                         core.lives -= 1;
                     }
-                    // if player collides with enemyShip
+                    // if plane collides with island
                     if (other.name === "enemyShip") {
-                        // createjs.Sound.play("yay");
-                        core.lives -= 1;
-                    }
-                    // if player collides with enemyBullet
-                    if (other.name === "enemyBullet") {
-                        // createjs.Sound.play("yay");
+                        createjs.Sound.play("hit");
                         core.lives -= 1;
                     }
                 }

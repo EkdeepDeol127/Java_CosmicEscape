@@ -18,6 +18,7 @@ export let Time: number = 700;
 //scene variables
 let currentScene: objects.Scene;
 export let scene:number;
+//scenes
 let menu: scenes.Menu;
 let over: scenes.Over;
 let play: scenes.Play;

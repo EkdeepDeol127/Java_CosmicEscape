@@ -8,6 +8,7 @@ var core;
     core.Time = 700;
     //scene variables
     var currentScene;
+    //scenes
     var menu;
     var over;
     var play;
