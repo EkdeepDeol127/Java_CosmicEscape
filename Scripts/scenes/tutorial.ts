@@ -44,7 +44,7 @@ this.addChild(this._playerBullet);
 
 //asteroids
 this._asteroid = new Array<objects.Asteroid>();
-for(let count = 0; count<2; count++){
+for(let count = 0; count<1; count++){
 this._asteroid.push(new objects.Asteroid("asteroid"));
 this.addChild(this._asteroid[count]);
 }
@@ -54,7 +54,7 @@ this._collision = new managers.Collision();
 this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
 this.addChild(this._scoreLabel);
 
-this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 10, 5, false);
+this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 20, 5, false);
 this.addChild(this._livesLabel);
 
 
@@ -82,9 +82,11 @@ this._playerBullet.update();
 //asteroid update
 this._asteroid.forEach(asteroid =>{
 asteroid.giveData(this._player.x, this._player.y);
-this._collision.checkP(this._player, asteroid)
+this._collision.checkP(this._player, asteroid);
 this._collision.checkB(this._playerBullet, asteroid);
+if(this._collision.checkB)
 asteroid.update();
+
 })
 
 this._scoreUpdate();

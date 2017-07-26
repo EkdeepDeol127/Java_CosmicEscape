@@ -34,14 +34,14 @@ var scenes;
             this.addChild(this._playerBullet);
             //asteroids
             this._asteroid = new Array();
-            for (var count = 0; count < 2; count++) {
+            for (var count = 0; count < 1; count++) {
                 this._asteroid.push(new objects.Asteroid("asteroid"));
                 this.addChild(this._asteroid[count]);
             }
             this._collision = new managers.Collision();
             this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
             this.addChild(this._scoreLabel);
-            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 10, 5, false);
+            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 20, 5, false);
             this.addChild(this._livesLabel);
             //development buttons
             this._menuButton = new objects.Button("backButton", 370, 300, true);
@@ -66,7 +66,8 @@ var scenes;
                 asteroid.giveData(_this._player.x, _this._player.y);
                 _this._collision.checkP(_this._player, asteroid);
                 _this._collision.checkB(_this._playerBullet, asteroid);
-                asteroid.update();
+                if (_this._collision.checkB)
+                    asteroid.update();
             });
             this._scoreUpdate();
         };
