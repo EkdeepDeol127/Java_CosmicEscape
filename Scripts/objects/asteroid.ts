@@ -1,12 +1,14 @@
 module objects {
 
     export class Asteroid extends objects.GameObject {
-        private ran: number;
-        private dead: boolean;
+        public ran: number;
+        public dead: boolean;
         private playerX: number;
         private playerY: number;
         private speed: number = 5;
         private radians: number;
+        
+        private collision: managers.Collision;
 
         constructor(imageString: string) {
             super(imageString);
@@ -70,9 +72,7 @@ module objects {
             this.playerY = PY;
         }
 
-        public col()
-        {
-            
-        }
+       
+        
     }
 }

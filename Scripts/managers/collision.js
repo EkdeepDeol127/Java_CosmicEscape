@@ -15,7 +15,7 @@ var managers;
                     other.isColliding = true;
                     // if player collides with asteroid
                     if (other.name === "asteroid") {
-                        createjs.Sound.play("hit");
+                        createjs.Sound.play("objHit");
                         core.lives -= 1;
                     }
                     // if plane collides with island
@@ -36,7 +36,7 @@ var managers;
                     other.isColliding = true;
                     // if bullet collides with asteroid
                     if (other.name === "asteroid") {
-                        // createjs.Sound.play("yay");
+                        createjs.Sound.play("objHit");
                         core.score += 100;
                     }
                     // if bullet collides with island
