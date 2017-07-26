@@ -17,19 +17,23 @@ var scenes;
             return _super.call(this) || this;
         }
         Tutorial.prototype.Start = function () {
+            //sound
+            this._sound = createjs.Sound.play("menuTheme");
+            this._sound.loop = -1;
             //background
             this._backgr = new objects.Galaxy("tutorial");
             this.addChild(this._backgr);
             //player
             this._player = new objects.Player("player");
             this.addChild(this._player);
+            //player bullet
+            this._playerBullet = new objects.Bullet("playerBullet");
+            this.addChild(this._playerBullet);
             //development buttons
-            //add start  button
             this._menuButton = new objects.Button("backButton", 370, 300, true);
             this.addChild(this._menuButton);
             //startbutton event listener
             this._menuButton.on("click", this._menuButtonClick, this);
-            //add start  button
             this._playButton = new objects.Button("playButton", 370, 350, true);
             this.addChild(this._playButton);
             //startbutton event listener
@@ -40,6 +44,8 @@ var scenes;
             this._backgr.update();
             this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();
+            this._playerBullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
+            this._playerBullet.update();
         };
         Tutorial.prototype._menuButtonClick = function (event) {
             //switch scene
