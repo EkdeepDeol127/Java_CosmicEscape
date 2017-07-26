@@ -3,9 +3,9 @@ export class pathLevel extends objects.Scene{
 
         private _backgr: objects.Background;
         private _galaxy: objects.galaxyPath;
-        private _player: objects.Player;
-        private _asteroid: objects.Asteroid[];
-        private _bullet: objects.Bullet;
+        private _player: objects.NewPlayer;
+        private _asteroid: objects.NewAsteroid[];
+        private _bullet: objects.NewBullet;
         private _enemyBullet: objects.EnemyBullet;
 
         private _enemyShip: objects.EnemyShip;
@@ -32,9 +32,9 @@ export class pathLevel extends objects.Scene{
             this._backgr = new objects.Background("pathLevel");
             this.addChild(this._backgr);
 
-            this._player = new objects.Player("player");
+            this._player = new objects.NewPlayer("player");
             this.addChild(this._player);
-            this._bullet = new objects.Bullet("bullet");
+            this._bullet = new objects.NewBullet("bullet");
             this.addChild(this._bullet);
 
             this._enemyBullet = new objects.EnemyBullet("bullet");
@@ -42,9 +42,9 @@ export class pathLevel extends objects.Scene{
             this._enemyShip = new objects.EnemyShip("player");
             this.addChild(this._enemyShip);
 
-            this._asteroid = new Array<objects.Asteroid>();
-            for (let count = 0; count < 4; count++) {
-                this._asteroid.push(new objects.Asteroid("asteroid"));
+            this._asteroid = new Array<objects.NewAsteroid>();
+            for (let count = 0; count < 2; count++) {
+                this._asteroid.push(new objects.NewAsteroid("asteroid"));
                 this.addChild(this._asteroid[count]);
             }
 
@@ -62,8 +62,8 @@ export class pathLevel extends objects.Scene{
 
         public Update()
         {
+            this._galaxy.giveData(this._player.rotation);
             this._galaxy.update();
-            this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();
             this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
             this._bullet.update();
@@ -77,7 +77,7 @@ export class pathLevel extends objects.Scene{
 
             //asteroids update
             this._asteroid.forEach(asteroid => {
-                asteroid.giveData(this._player.x, this._player.y);
+                asteroid.giveData(this._player.x, this._player.y, this._player.rotation);
                 this._collision.check(this._player, asteroid);
                 asteroid.update();
             });

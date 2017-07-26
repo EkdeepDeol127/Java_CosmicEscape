@@ -20,8 +20,6 @@ var objects;
             // PUBLIC PROPERTIES 
             _this.moveLeft = false;
             _this.moveRight = false;
-            _this.moveUp = false;
-            _this.moveDown = false;
             _this.health = 100;
             _this.sheild = 100;
             _this.speed = 5;
@@ -42,33 +40,20 @@ var objects;
         NewPlayer.prototype.update = function () {
             // player to follow mouse
             this.position = new objects.Vector2(this.x, this.y);
-            this.rotation = Math.atan2(this.MY - this.y, this.MX - this.x) * 180 / Math.PI;
-            if (this.moveLeft && this.x >= 0 + 50) {
-                this.x -= this.speed;
+            console.log(this.rotation);
+            //this.rotation = Math.atan2(this.MY - this.y, this.MX - this.x) * 180 / Math.PI;
+            if (this.moveLeft) {
+                this.rotation -= this.speed;
             }
-            if (this.moveRight && this.x <= 800 - 50) {
-                this.x += this.speed;
-            }
-            if (this.moveUp && this.y >= 0 + 50) {
-                this.y -= this.speed;
-            }
-            if (this.moveDown && this.y <= 600 - 50) {
-                this.y += this.speed;
+            if (this.moveRight) {
+                this.rotation += this.speed;
             }
         };
         NewPlayer.prototype.KeyDown = function (event) {
             switch (event.keyCode) {
-                case 38: /*up arrow*/
-                case 87:/* W Key */ 
-                    this.moveUp = true;
-                    break;
                 case 37: /*left arrow*/
                 case 65:/* A Key */ 
                     this.moveLeft = true;
-                    break;
-                case 40: /*down arrow*/
-                case 83:/* S Key */ 
-                    this.moveDown = true;
                     break;
                 case 39: /*right arrow*/
                 case 68:/* D Key */ 
@@ -82,17 +67,9 @@ var objects;
         };
         NewPlayer.prototype.KeyUp = function (event) {
             switch (event.keyCode) {
-                case 38: /*up arrow*/
-                case 87:/* W Key */ 
-                    this.moveUp = false;
-                    break;
                 case 37: /*left arrow*/
                 case 65:/* A Key */ 
                     this.moveLeft = false;
-                    break;
-                case 40: /*down arrow*/
-                case 83:/* S Key */ 
-                    this.moveDown = false;
                     break;
                 case 39: /*right arrow*/
                 case 68:/* D Key */ 
@@ -118,10 +95,6 @@ var objects;
             }
         };
         NewPlayer.prototype.col = function () {
-        };
-        NewPlayer.prototype.giveData = function (SX, SY) {
-            this.MX = SX;
-            this.MY = SY;
         };
         return NewPlayer;
     }(objects.GameObject));

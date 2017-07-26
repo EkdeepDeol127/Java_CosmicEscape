@@ -8,9 +8,12 @@
 /// <reference path="../objects/galaxyPath.ts"/>
 /// <reference path="../objects/background.ts"/>
 /// <reference path="../objects/player.ts"/>
+/// <reference path="../objects/newPlayer.ts"/>
 /// <reference path="../objects/bullet.ts"/>
+/// <reference path="../objects/newBullet.ts"/>
 /// <reference path="../objects/enemybullet.ts"/>
 /// <reference path="../objects/asteroid.ts"/>
+/// <reference path="../objects/newAsteroids.ts"/>
 /// <reference path="../objects/enemyShip.ts"/>
 /// <reference path="../managers/collision.ts"/>
 /// <reference path="../scenes/over.ts"/>

@@ -26,17 +26,17 @@ var scenes;
             //adds background
             this._backgr = new objects.Background("pathLevel");
             this.addChild(this._backgr);
-            this._player = new objects.Player("player");
+            this._player = new objects.NewPlayer("player");
             this.addChild(this._player);
-            this._bullet = new objects.Bullet("bullet");
+            this._bullet = new objects.NewBullet("bullet");
             this.addChild(this._bullet);
             this._enemyBullet = new objects.EnemyBullet("bullet");
             this.addChild(this._enemyBullet);
             this._enemyShip = new objects.EnemyShip("player");
             this.addChild(this._enemyShip);
             this._asteroid = new Array();
-            for (var count = 0; count < 4; count++) {
-                this._asteroid.push(new objects.Asteroid("asteroid"));
+            for (var count = 0; count < 2; count++) {
+                this._asteroid.push(new objects.NewAsteroid("asteroid"));
                 this.addChild(this._asteroid[count]);
             }
             this._collision = new managers.Collision();
@@ -49,8 +49,8 @@ var scenes;
         };
         pathLevel.prototype.Update = function () {
             var _this = this;
+            this._galaxy.giveData(this._player.rotation);
             this._galaxy.update();
-            this._player.giveData(core.stage.mouseX, core.stage.mouseY);
             this._player.update();
             this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
             this._bullet.update();
@@ -62,7 +62,7 @@ var scenes;
             this._collision.check(this._player, this._enemyBullet);
             //asteroids update
             this._asteroid.forEach(function (asteroid) {
-                asteroid.giveData(_this._player.x, _this._player.y);
+                asteroid.giveData(_this._player.x, _this._player.y, _this._player.rotation);
                 _this._collision.check(_this._player, asteroid);
                 asteroid.update();
             });
