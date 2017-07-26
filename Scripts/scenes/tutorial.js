@@ -70,6 +70,11 @@ var scenes;
                     asteroid.update();
             });
             this._scoreUpdate();
+            if (core.lives < 1) {
+                core.scene = config.Scene.OVER;
+                core.changeScene();
+                core.lives = 5;
+            }
         };
         Tutorial.prototype._menuButtonClick = function (event) {
             //switch scene

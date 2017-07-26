@@ -90,6 +90,12 @@ asteroid.update();
 })
 
 this._scoreUpdate();
+
+ if (core.lives < 1) {
+                core.scene = config.Scene.OVER;
+                core.changeScene();
+                core.lives = 5;
+            }
 }
 
 private _menuButtonClick(event:createjs.MouseEvent):void{
