@@ -26,8 +26,8 @@ var objects;
             return _this;
         }
         EnemyShip.prototype._reset = function () {
-            this.x = 500; //(Math.random() * 640); //use this to tell where to spawn 
-            this.y = 300;
+            this.x = 800; //(Math.random() * 640); //use this to tell where to spawn 
+            this.y = 600;
         };
         EnemyShip.prototype.Start = function () {
             this._reset();

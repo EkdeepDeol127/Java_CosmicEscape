@@ -21,8 +21,8 @@ module objects {
 
         public _reset()
         {
-            this.x = 500;//(Math.random() * 640); //use this to tell where to spawn 
-            this.y = 300;
+            this.x = 800;//(Math.random() * 640); //use this to tell where to spawn 
+            this.y = 600;
         }
 
         public Start(): void {

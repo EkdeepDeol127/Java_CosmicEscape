@@ -38,10 +38,7 @@ var objects;
         };
         // updates the object's properties every time it's called
         NewPlayer.prototype.update = function () {
-            // player to follow mouse
             this.position = new objects.Vector2(this.x, this.y);
-            console.log(this.rotation);
-            //this.rotation = Math.atan2(this.MY - this.y, this.MX - this.x) * 180 / Math.PI;
             if (this.moveLeft) {
                 this.rotation -= this.speed;
             }

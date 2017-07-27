@@ -38,10 +38,10 @@ module scenes {
 
 
             //PLAYER
-            this._player = new objects.Player("player");
-            this.addChild(this._player);
             this._bullet = new objects.Bullet("playerBullet");
             this.addChild(this._bullet);
+            this._player = new objects.Player("player");
+            this.addChild(this._player);
 
             //asteroid array
             this._asteroid = new Array<objects.Asteroid>();

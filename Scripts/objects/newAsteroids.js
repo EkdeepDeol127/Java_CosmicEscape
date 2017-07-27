@@ -23,21 +23,21 @@ var objects;
             return _this;
         }
         NewAsteroid.prototype._reset = function () {
-            if (Math.sin(this.playerRot) < 0) {
+            if (Math.sin(this.playerRot) <= Math.sin(-45)) {
                 this.ran = 1;
-                console.log(1);
+                console.log(Math.sin(this.playerRot), Math.sin(-45));
             }
-            if (Math.sin(this.playerRot) > 0) {
+            else if (Math.sin(this.playerRot) >= Math.sin(45)) {
                 this.ran = 4;
-                console.log(4);
+                console.log(Math.sin(this.playerRot), Math.sin(45));
             }
-            if (Math.cos(this.playerRot) > 0) {
+            else if (Math.cos(this.playerRot) > Math.cos(-45)) {
                 this.ran = 2;
-                console.log(2);
+                console.log(Math.sin(this.playerRot), Math.cos(-45));
             }
-            if (Math.cos(this.playerRot) < 0) {
+            else if (Math.cos(this.playerRot) < Math.cos(45)) {
                 this.ran = 3;
-                console.log(3);
+                console.log(Math.sin(this.playerRot), Math.cos(45));
             }
             switch (this.ran) {
                 case 1://top

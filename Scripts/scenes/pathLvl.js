@@ -26,14 +26,10 @@ var scenes;
             //adds background
             this._backgr = new objects.Background("galaxy");
             this.addChild(this._backgr);
+            this._bullet = new objects.NewBullet("playerBullet");
+            this.addChild(this._bullet);
             this._player = new objects.NewPlayer("player");
             this.addChild(this._player);
-<<<<<<< HEAD
-            this._bullet = new objects.Bullet("playerBullet");
-=======
-            this._bullet = new objects.NewBullet("bullet");
->>>>>>> settings
-            this.addChild(this._bullet);
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
             this.addChild(this._enemyBullet);
             this._enemyShip = new objects.EnemyShip("enemyShip");
@@ -66,13 +62,8 @@ var scenes;
             this._collision.checkP(this._player, this._enemyBullet);
             //asteroids update
             this._asteroid.forEach(function (asteroid) {
-<<<<<<< HEAD
-                asteroid.giveData(_this._player.x, _this._player.y);
-                _this._collision.checkP(_this._player, asteroid);
-=======
                 asteroid.giveData(_this._player.x, _this._player.y, _this._player.rotation);
-                _this._collision.check(_this._player, asteroid);
->>>>>>> settings
+                //this._collision.check(this._player, asteroid);
                 asteroid.update();
             });
             this._updateScoreBoard();

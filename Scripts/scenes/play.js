@@ -31,10 +31,10 @@ var scenes;
             this._enemyShip = new objects.EnemyShip("enemyShip");
             this.addChild(this._enemyShip);
             //PLAYER
-            this._player = new objects.Player("player");
-            this.addChild(this._player);
             this._bullet = new objects.Bullet("playerBullet");
             this.addChild(this._bullet);
+            this._player = new objects.Player("player");
+            this.addChild(this._player);
             //asteroid array
             this._asteroid = new Array();
             for (var count = 0; count < 4; count++) {

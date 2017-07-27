@@ -32,14 +32,10 @@ export class pathLevel extends objects.Scene{
             this._backgr = new objects.Background("galaxy");
             this.addChild(this._backgr);
 
+            this._bullet = new objects.NewBullet("playerBullet");
+            this.addChild(this._bullet);
             this._player = new objects.NewPlayer("player");
             this.addChild(this._player);
-<<<<<<< HEAD
-            this._bullet = new objects.Bullet("playerBullet");
-=======
-            this._bullet = new objects.NewBullet("bullet");
->>>>>>> settings
-            this.addChild(this._bullet);
 
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
             this.addChild(this._enemyBullet);
@@ -81,13 +77,8 @@ export class pathLevel extends objects.Scene{
 
             //asteroids update
             this._asteroid.forEach(asteroid => {
-<<<<<<< HEAD
-                asteroid.giveData(this._player.x, this._player.y);
-                this._collision.checkP(this._player, asteroid);
-=======
                 asteroid.giveData(this._player.x, this._player.y, this._player.rotation);
-                this._collision.check(this._player, asteroid);
->>>>>>> settings
+                //this._collision.check(this._player, asteroid);
                 asteroid.update();
             });
 
