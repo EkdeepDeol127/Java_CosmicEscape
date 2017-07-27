@@ -32,7 +32,8 @@ var objects;
          * @returns {void}
          */
         galaxyPath.prototype._reset = function () {
-            this.y = -700;
+            this.y = 400;
+            this.x = 300;
         };
         /**
          * This method checks if the object has reached its boundaries
@@ -42,7 +43,7 @@ var objects;
          * @returns {void}
          */
         galaxyPath.prototype._checkBounds = function () {
-            if (this.y >= 0) {
+            if (this.y >= 700 || this.x >= 900 || this.y <= -100 || this.x <= -100) {
                 this._reset();
             }
         };
@@ -57,8 +58,7 @@ var objects;
          */
         galaxyPath.prototype.start = function () {
             this._reset();
-            this.timer = 10;
-            this._dy = .8; // 5px per frame down
+            this.speed = .8; // 5px per frame down
         };
         // This method updates the object's properties every time it's called
         galaxyPath.prototype.update = function () {
@@ -66,8 +66,12 @@ var objects;
             this.galaxyMove();
         };
         galaxyPath.prototype.galaxyMove = function () {
-            this.y += this._dy;
-            //this.rotation += 0.01;
+            this.radians = this.rotation * (Math.PI / 180);
+            this.x -= this.speed * Math.cos(this.radians);
+            this.y -= this.speed * Math.sin(this.radians);
+        };
+        galaxyPath.prototype.giveData = function (rot) {
+            this.rotation = rot;
         };
         return galaxyPath;
     }(createjs.Bitmap));

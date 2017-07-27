@@ -2,10 +2,10 @@ module objects {
     
     export class galaxyPath extends createjs.Bitmap {
 
-        private _dy:number;
-        private timer: number;
+        private speed:number;
         private width: number = 800;
         private height: number = 1422;
+        private radians: number;
       
         constructor(imageString: string) {
             super(core.assets.getResult(imageString));
@@ -26,7 +26,8 @@ module objects {
          */
 
         private _reset():void {
-            this.y = -700;
+            this.y = 400;
+            this.x = 300;
         }
 
         /**
@@ -37,7 +38,7 @@ module objects {
          * @returns {void}
          */
         private _checkBounds():void {
-            if(this.y >= 0) {
+            if(this.y >= 700 || this.x >= 900 || this.y <= -100 || this.x <= -100) {
                 this._reset();
             }
         }
@@ -54,8 +55,7 @@ module objects {
          */
         public start():void {
             this._reset();
-            this.timer = 10;
-            this._dy = .8; // 5px per frame down
+            this.speed = .8; // 5px per frame down
         }
 
         // This method updates the object's properties every time it's called
@@ -67,8 +67,14 @@ module objects {
 
         public galaxyMove()
         {
-            this.y += this._dy;
-            //this.rotation += 0.01;
+            this.radians = this.rotation * (Math.PI / 180);
+            this.x -= this.speed * Math.cos(this.radians);
+            this.y -= this.speed * Math.sin(this.radians);
+        }
+
+        public giveData(rot: number)
+        {
+            this.rotation = rot;
         }
     }
 }
