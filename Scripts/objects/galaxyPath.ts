@@ -9,8 +9,8 @@ module objects {
       
         constructor(imageString: string) {
             super(core.assets.getResult(imageString));
-            this.x = this.width * 0.5;
-            this.y = this.height * 0.5;
+            this.x = 400;
+            this.y = 300;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this.start();
@@ -61,7 +61,7 @@ module objects {
         // This method updates the object's properties every time it's called
      
         public update():void {
-            this._checkBounds();
+            //this._checkBounds();
             this.galaxyMove();
         }
 
