@@ -8,6 +8,8 @@ var config;
         Scene.OVER = 2;
         Scene.TUTORIAL = 3;
         Scene.PATH = 4;
+        Scene.SETTINGS = 5;
+        Scene.CREDITS = 6;
         return Scene;
     }());
     config.Scene = Scene;

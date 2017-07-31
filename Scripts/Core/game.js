@@ -13,6 +13,8 @@ var core;
     var over;
     var play;
     var tutorial;
+    var settings;
+    var credits;
     var path;
     //asset manifest
     var assetData = [
@@ -154,6 +156,16 @@ var core;
                 core.stage.removeAllChildren();
                 over = new scenes.Over();
                 currentScene = over;
+                break;
+            case config.Scene.CREDITS:
+                core.stage.removeAllChildren();
+                credits = new scenes.Credits();
+                currentScene = credits;
+                break;
+            case config.Scene.SETTINGS:
+                core.stage.removeAllChildren();
+                settings = new scenes.Settings();
+                currentScene = settings;
                 break;
         }
     }
