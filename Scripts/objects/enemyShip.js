@@ -26,8 +26,25 @@ var objects;
             return _this;
         }
         EnemyShip.prototype._reset = function () {
-            this.x = 800; //(Math.random() * 640); //use this to tell where to spawn 
-            this.y = 600;
+            this.ran = Math.floor((Math.random() * 4) + 1);
+            switch (this.ran) {
+                case 1://top
+                    this.x = (Math.random() * 780) + 20;
+                    this.y = -80;
+                    break;
+                case 2://right
+                    this.y = (Math.random() * 580) + 20;
+                    this.x = 880;
+                    break;
+                case 3://left
+                    this.y = (Math.random() * 580) + 20;
+                    this.x = -80;
+                    break;
+                case 4://bottom
+                    this.x = (Math.random() * 780) + 20;
+                    this.y = 680;
+                    break;
+            }
         };
         EnemyShip.prototype.Start = function () {
             this._reset();

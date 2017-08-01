@@ -21,45 +21,29 @@ module objects {
         private _reset(): void {
             if(Math.sin(this.playerRot) <= Math.sin(-45))//up
                 {
-                    this.ran = 1;
+                    this.x = (Math.random() * 780) + 20; 
+                    this.y = -80;
                     console.log(Math.sin(this.playerRot), Math.sin(-45));
                 }
             else if(Math.sin(this.playerRot) >= Math.sin(45))//bottom
                 {
-                    this.ran = 4;
+                    this.x = (Math.random() * 780) + 20; 
+                    this.y = 680;
                     console.log(Math.sin(this.playerRot), Math.sin(45));
                 }
             else if(Math.cos(this.playerRot) > Math.cos(-45))//right
                 {
-                    this.ran = 2;
+                    this.y = (Math.random() * 580) + 20; 
+                    this.x = 880;
                     console.log(Math.sin(this.playerRot), Math.cos(-45));
                 }
             else if(Math.cos(this.playerRot) < Math.cos(45))//left
                 {
-                    this.ran = 3;
+                    this.y = (Math.random() * 580) + 20; 
+                    this.x = -80;
                     console.log(Math.sin(this.playerRot), Math.cos(45));
                 }
-            switch (this.ran) {
-                case 1://top
-                        this.x = (Math.random() * 780) + 20; 
-                        this.y = -80;
-                    break;
 
-                case 2://right
-                        this.y = (Math.random() * 580) + 20; 
-                        this.x = 880;
-                    break;
-
-                case 3://left
-                        this.y = (Math.random() * 580) + 20; 
-                        this.x = -80;
-                    break;
-
-                case 4://bottom
-                        this.x = (Math.random() * 780) + 20; 
-                        this.y = 680;
-                    break;
-            }
             this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
         }
 
