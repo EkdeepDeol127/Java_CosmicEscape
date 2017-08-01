@@ -39,7 +39,6 @@ var scenes;
             if (core.SCheck == true) {
                 this._music.stop();
             }
-            this._music.stop();
             core.scene = config.Scene.MENU;
             core.changeScene();
         };
@@ -47,10 +46,13 @@ var scenes;
             if (core.SCheck == false) {
                 console.log("Sound on");
                 core.SCheck = true;
+                this._music = createjs.Sound.play("menuTheme");
+                this._music.loop = -1;
             }
             else {
                 console.log("Sound off");
                 core.SCheck = false;
+                this._music.stop();
             }
         };
         return Settings;

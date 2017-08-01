@@ -64,8 +64,9 @@ module scenes {
 
         private _startButtonClick(event: createjs.MouseEvent): void {
 
-            this._themeSound.stop();
-
+            if (core.SCheck == true) {
+                this._themeSound.stop();
+            }
             core.scene = config.Scene.PLAY;
             core.changeScene();
         }

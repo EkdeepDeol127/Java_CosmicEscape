@@ -54,7 +54,9 @@ var scenes;
             core.stage.addChild(this);
         };
         Menu.prototype._startButtonClick = function (event) {
-            this._themeSound.stop();
+            if (core.SCheck == true) {
+                this._themeSound.stop();
+            }
             core.scene = config.Scene.PLAY;
             core.changeScene();
         };
