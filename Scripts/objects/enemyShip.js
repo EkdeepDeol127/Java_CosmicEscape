@@ -55,12 +55,17 @@ var objects;
             this.enemtShipDespawn();
             this.playerRange();
             this.enemyShipMove();
+            if (core.EnemyHit == true) {
+                this.Damage(20);
+            }
         };
         EnemyShip.prototype.enemtShipDespawn = function () {
             if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || this.dead == true) {
                 this.check = false;
                 this.inRange = false;
                 this.dead = false;
+                this.health = 20;
+                this.sheild = 30;
                 this._reset();
             }
         };
@@ -81,12 +86,13 @@ var objects;
             }
         };
         EnemyShip.prototype.Damage = function (dam) {
+            console.log("sheilds: " + this.sheild);
             if (this.sheild > 0) {
-                this.sheild - dam;
+                this.sheild -= dam;
             }
             else {
                 if (this.health > 0) {
-                    this.health - dam;
+                    this.health -= dam;
                 }
                 else {
                     this.dead = true;

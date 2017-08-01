@@ -7,8 +7,6 @@ module objects {
         private playerY: number;
         private speed: number = 5;
         private radians: number;
-        
-        private collision: managers.Collision;
 
         constructor(imageString: string) {
             super(imageString);

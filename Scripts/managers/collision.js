@@ -2,26 +2,41 @@ var managers;
 (function (managers) {
     var Collision = (function () {
         function Collision() {
+            this.timer = 3;
+            this.collPlayer = false;
             this.start();
         }
         Collision.prototype.start = function () {
         };
         Collision.prototype.update = function () {
+            if (this.timer > 0) {
+                this.timer -= 0.1;
+            }
         };
-        Collision.prototype.checkP = function (player, other) {
+        Collision.prototype.checkPlayer = function (player, other) {
             //check to see if object is colliding
-            if (objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) {
+            if ((objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
                     // if player collides with asteroid
                     if (other.name === "asteroid") {
-                        createjs.Sound.play("objHit");
+                        createjs.Sound.play("hit");
                         core.lives -= 1;
                     }
-                    // if plane collides with island
+                    //if player collides with newAsteroid
+                    if (other.name === "newAsteroids") {
+                        createjs.Sound.play("hit");
+                        core.lives -= 1;
+                    }
+                    // if player collides with enemyShip
                     if (other.name === "enemyShip") {
                         createjs.Sound.play("hit");
                         core.lives -= 1;
+                    }
+                    //if enemyBullet is colliding with player
+                    if (other.name === "enemyBullet") {
+                        createjs.Sound.play("hit");
+                        core.lives -= 5;
                     }
                 }
             }
@@ -29,9 +44,9 @@ var managers;
                 other.isColliding = false;
             }
         };
-        Collision.prototype.checkB = function (bullet, other) {
+        Collision.prototype.checkEnemy = function (bullet, other) {
             //check to see if object is colliding
-            if (objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) {
+            if ((objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
                     // if bullet collides with asteroid
@@ -39,10 +54,14 @@ var managers;
                         createjs.Sound.play("objHit");
                         core.score += 100;
                     }
-                    // if bullet collides with island
+                    // if bullet collides with enemyShip
                     if (other.name === "enemyShip") {
-                        // createjs.Sound.play("yay");
+                        createjs.Sound.play("objHit");
+                        core.EnemyHit = true;
                         core.score += 150;
+                    }
+                    else {
+                        core.EnemyHit = false;
                     }
                 }
             }

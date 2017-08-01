@@ -78,33 +78,36 @@ this._player.giveData(core.stage.mouseX, core.stage.mouseY);
 this._player.update();
 this._playerBullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
 this._playerBullet.update();
+this._collision.update();
 
 //asteroid update
 this._asteroid.forEach(asteroid =>{
 asteroid.giveData(this._player.x, this._player.y);
-this._collision.checkP(this._player, asteroid);
-this._collision.checkB(this._playerBullet, asteroid);
-if(this._collision.checkB)
+this._collision.checkPlayer(this._player, asteroid);
+this._collision.checkEnemy(this._playerBullet, asteroid);
+if(this._collision.checkEnemy)
 asteroid.update();
 
 })
 
 this._scoreUpdate();
 
- if (core.lives < 1) {
+  if (core.lives < 1) {
                 core.scene = config.Scene.OVER;
                 core.changeScene();
-                core.lives = 5;
+                core.lives = 50;
+                core.score = 0;
             }
 }
 
 private _menuButtonClick(event:createjs.MouseEvent):void{
-    //switch scene
+    this._sound.stop();
     core.scene = config.Scene.MENU;
     core.changeScene();
 }
 
 private _playButtonClick(event:createjs.MouseEvent):void{
+this._sound.stop();
 core.scene = config.Scene.PATH;
 core.changeScene();
 }

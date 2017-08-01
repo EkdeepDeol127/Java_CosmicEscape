@@ -15,7 +15,6 @@ var objects;
         __extends(Scene, _super);
         function Scene() {
             var _this = _super.call(this) || this;
-            _this.SCheck = true;
             _this.Start();
             return _this;
         }

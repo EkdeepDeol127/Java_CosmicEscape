@@ -57,6 +57,10 @@ module objects {
             this.enemtShipDespawn();
             this.playerRange();
             this.enemyShipMove();
+            if(core.EnemyHit == true)
+                {
+                    this.Damage(20);
+                }
         }
 
         public enemtShipDespawn(): void {
@@ -64,6 +68,8 @@ module objects {
                 this.check = false;
                 this.inRange = false;
                 this.dead = false;
+                this.health = 20;
+                this.sheild = 30;
                 this._reset();
             }
         }
@@ -94,15 +100,16 @@ module objects {
 
         public Damage(dam:number)
         {
+            console.log("sheilds: " + this.sheild);
             if(this.sheild > 0)
             {
-                this.sheild - dam;
+                this.sheild -= dam;
             }
             else
             {
                 if(this.health > 0)
                 {
-                    this.health - dam;
+                    this.health -= dam;
                 }
                 else
                 {

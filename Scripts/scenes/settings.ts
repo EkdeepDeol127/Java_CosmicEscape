@@ -24,7 +24,7 @@ module scenes {
 
             this._sound = new objects.Button("playButton", 380, 250, true);
             this.addChild(this._sound);
-            this._mainMenu.on("click", this.soundCheck);
+            this._sound.on("click", this.soundCheck, this);
 
             //add this scene to GLOBAL scene container
             core.stage.addChild(this);
@@ -37,13 +37,15 @@ module scenes {
         }
 
         private soundCheck(check:boolean): void {
-            if(this.SCheck == false)
+            if(core.SCheck == false)
                 {
-                    this.SCheck = true;
+                    console.log("Sound on");
+                    core.SCheck = true;
                 }
             else
                 {
-                    this.SCheck = false;
+                    console.log("Sound off"); 
+                    core.SCheck = false;
                 }
         }
     }

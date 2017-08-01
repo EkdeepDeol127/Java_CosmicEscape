@@ -25,6 +25,7 @@ module scenes {
         }
 
         public Start(): void {
+
             //galaxy
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
@@ -64,7 +65,6 @@ module scenes {
 
             console.log("SurviveLEVEL");
             core.stage.addChild(this);
-
         }
 
         public Update(): void {
@@ -77,19 +77,20 @@ module scenes {
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
+            this._collision.update();
 
 //PLAYER COLLISIONS
-            this._collision.checkP(this._player, this._enemyShip);
-            this._collision.checkP(this._player, this._enemyBullet);
+            this._collision.checkPlayer(this._player, this._enemyShip);
+            this._collision.checkPlayer(this._player, this._enemyBullet);
 
             //BULLET COLLISIONS
-            this._collision.checkB(this._bullet, this._enemyShip);
+            this._collision.checkEnemy(this._bullet, this._enemyShip);
 
             //asteroids update
             this._asteroid.forEach(asteroid => {
                 asteroid.giveData(this._player.x, this._player.y);
-                this._collision.checkP(this._player, asteroid);
-                this._collision.checkB(this._bullet, asteroid);
+                this._collision.checkPlayer(this._player, asteroid);
+                this._collision.checkEnemy(this._bullet, asteroid);
                 asteroid.update();
             });
 
@@ -109,7 +110,9 @@ module scenes {
             if (core.lives < 1) {
                 core.scene = config.Scene.OVER;
                 core.changeScene();
-                core.lives = 5;
+                core.lives = 50;
+                core.Time = 120;
+                core.score = 0;
             }
         }
 

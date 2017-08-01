@@ -1,5 +1,9 @@
 module managers {
     export class Collision {
+
+        public timer = 3;
+        public collPlayer: boolean = false;
+
         constructor() {
 
             this.start();
@@ -10,27 +14,37 @@ module managers {
         }
 
         public update() {
-
+            if(this.timer > 0)
+                {
+                    this.timer -= 0.1;
+                }
         }
 
-        public checkP(player: objects.GameObject, other: objects.GameObject) {
+        public checkPlayer(player: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
 
-            if (objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) {
+            if ((objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) && this.timer <=0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
-    
-
-                // if player collides with asteroid
-                    if(other.name === "asteroid") {
-                        createjs.Sound.play("objHit");
+                    // if player collides with asteroid
+                    if (other.name === "asteroid") {
+                        createjs.Sound.play("hit");
                         core.lives -= 1;
                     }
-
-                    // if plane collides with island
-                    if(other.name === "enemyShip") {
-                       createjs.Sound.play("hit");
+                    //if player collides with newAsteroid
+                    if (other.name === "newAsteroids") {
+                        createjs.Sound.play("hit");
                         core.lives -= 1;
+                    }
+                    // if player collides with enemyShip
+                    if (other.name === "enemyShip") {
+                        createjs.Sound.play("hit");
+                        core.lives -= 1;
+                    }
+                    //if enemyBullet is colliding with player
+                    if (other.name === "enemyBullet") {
+                        createjs.Sound.play("hit");
+                        core.lives -= 5;
                     }
                 }
             }
@@ -39,26 +53,26 @@ module managers {
             }
         }
 
-        public checkB(bullet: objects.GameObject, other: objects.GameObject) {
+        public checkEnemy(bullet: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
 
-            if (objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) {
+            if ((objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
-
-                // if bullet collides with asteroid
-                    if(other.name === "asteroid") {
+                    // if bullet collides with asteroid
+                    if (other.name === "asteroid") {
                         createjs.Sound.play("objHit");
                         core.score += 100;
-                
                     }
-
-                    // if bullet collides with island
-                    if(other.name === "enemyShip") {
-                       // createjs.Sound.play("yay");
+                    // if bullet collides with enemyShip
+                    if (other.name === "enemyShip") {
+                        createjs.Sound.play("objHit");
+                        core.EnemyHit = true;
                         core.score += 150;
                     }
-
+                    else{
+                        core.EnemyHit = false;
+                    }
                 }
             }
             else {

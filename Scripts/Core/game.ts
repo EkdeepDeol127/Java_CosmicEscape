@@ -12,7 +12,6 @@ export let stage: createjs.Stage;
 //score and lives variables
 export let score: number = 0;
 export let lives: number = 50;
-
 export let Time: number = 120;
 
 //scene variables
@@ -26,6 +25,8 @@ let tutorial: scenes.Tutorial;
 let settings: scenes.Settings;
 let credits: scenes.Credits;
 let path: scenes.pathLevel;
+export let SCheck: boolean = true;
+export let EnemyHit: boolean = false;
     
     //asset manifest
    let assetData: objects.Asset[] = [
@@ -146,7 +147,7 @@ createjs.Ticker.on("tick", gameLoop);
 };
 
 textureAtlas = new createjs.SpriteSheet(atlasData);
-scene = config.Scene.TUTORIAL;
+scene = config.Scene.MENU;
 changeScene();
 
 }

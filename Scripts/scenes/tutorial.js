@@ -61,27 +61,30 @@ var scenes;
             this._player.update();
             this._playerBullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
             this._playerBullet.update();
+            this._collision.update();
             //asteroid update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.giveData(_this._player.x, _this._player.y);
-                _this._collision.checkP(_this._player, asteroid);
-                _this._collision.checkB(_this._playerBullet, asteroid);
-                if (_this._collision.checkB)
+                _this._collision.checkPlayer(_this._player, asteroid);
+                _this._collision.checkEnemy(_this._playerBullet, asteroid);
+                if (_this._collision.checkEnemy)
                     asteroid.update();
             });
             this._scoreUpdate();
             if (core.lives < 1) {
                 core.scene = config.Scene.OVER;
                 core.changeScene();
-                core.lives = 5;
+                core.lives = 50;
+                core.score = 0;
             }
         };
         Tutorial.prototype._menuButtonClick = function (event) {
-            //switch scene
+            this._sound.stop();
             core.scene = config.Scene.MENU;
             core.changeScene();
         };
         Tutorial.prototype._playButtonClick = function (event) {
+            this._sound.stop();
             core.scene = config.Scene.PATH;
             core.changeScene();
         };

@@ -9,7 +9,6 @@ private _settingsButton: objects.Button;
 
 
 private _pathButton: objects.Button; //for devlopment only
-
 private _backgr: objects.Background;
 private _themeSound: createjs.AbstractSoundInstance;
 
@@ -20,14 +19,10 @@ constructor(){
 }
 public Start():void{
 
-        if(this.SCheck == true)
+        if(core.SCheck == true)
         {
             this._themeSound = createjs.Sound.play("menuTheme");
             this._themeSound.loop = -1;
-        }
-        else
-        {
-            this._themeSound.stop();
         }
 
 //add background
@@ -69,31 +64,46 @@ core.stage.addChild(this);
 }
 
 private _startButtonClick(event:createjs.MouseEvent):void{
-    this._themeSound.stop();
+    if(core.SCheck == true)
+    {
+        this._themeSound.stop();
+    }
     core.scene = config.Scene.PLAY;
     core.changeScene();
 }
 
 private _tutButtonClick(event:createjs.MouseEvent):void{
-this._themeSound.stop();
+    if(core.SCheck == true)
+    {
+        this._themeSound.stop();
+    }
 core.scene = config.Scene.TUTORIAL;
 core.changeScene();
 }
 
 private _settButtonClick(event:createjs.MouseEvent):void{
-this._themeSound.stop();
+    if(core.SCheck == true)
+    {
+        this._themeSound.stop();
+    }
 core.scene = config.Scene.SETTINGS;
 core.changeScene();
 }
 
 private _credButtonClick(event:createjs.MouseEvent):void{
-this._themeSound.stop();
+    if(core.SCheck == true)
+    {
+        this._themeSound.stop();
+    }
 core.scene = config.Scene.CREDITS;
 core.changeScene();
 }
 
 private _pathButtonClick(event:createjs.MouseEvent):void{
-this._themeSound.stop();
+    if(core.SCheck == true)
+    {
+        this._themeSound.stop();
+    }
 core.scene = config.Scene.PATH;
 core.changeScene();
 }

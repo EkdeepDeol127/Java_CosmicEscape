@@ -17,12 +17,9 @@ var scenes;
             return _super.call(this) || this;
         }
         Menu.prototype.Start = function () {
-            if (this.SCheck == true) {
+            if (core.SCheck == true) {
                 this._themeSound = createjs.Sound.play("menuTheme");
                 this._themeSound.loop = -1;
-            }
-            else {
-                this._themeSound.stop();
             }
             //add background
             this._backgr = new objects.Background("mainPage");
@@ -57,27 +54,37 @@ var scenes;
             core.stage.addChild(this);
         };
         Menu.prototype._startButtonClick = function (event) {
-            this._themeSound.stop();
+            if (core.SCheck == true) {
+                this._themeSound.stop();
+            }
             core.scene = config.Scene.PLAY;
             core.changeScene();
         };
         Menu.prototype._tutButtonClick = function (event) {
-            this._themeSound.stop();
+            if (core.SCheck == true) {
+                this._themeSound.stop();
+            }
             core.scene = config.Scene.TUTORIAL;
             core.changeScene();
         };
         Menu.prototype._settButtonClick = function (event) {
-            this._themeSound.stop();
+            if (core.SCheck == true) {
+                this._themeSound.stop();
+            }
             core.scene = config.Scene.SETTINGS;
             core.changeScene();
         };
         Menu.prototype._credButtonClick = function (event) {
-            this._themeSound.stop();
+            if (core.SCheck == true) {
+                this._themeSound.stop();
+            }
             core.scene = config.Scene.CREDITS;
             core.changeScene();
         };
         Menu.prototype._pathButtonClick = function (event) {
-            this._themeSound.stop();
+            if (core.SCheck == true) {
+                this._themeSound.stop();
+            }
             core.scene = config.Scene.PATH;
             core.changeScene();
         };

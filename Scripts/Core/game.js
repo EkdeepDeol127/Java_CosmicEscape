@@ -16,6 +16,8 @@ var core;
     var settings;
     var credits;
     var path;
+    core.SCheck = true;
+    core.EnemyHit = false;
     //asset manifest
     var assetData = [
         //images
@@ -118,7 +120,7 @@ var core;
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);
-        core.scene = config.Scene.TUTORIAL;
+        core.scene = config.Scene.MENU;
         changeScene();
     }
     function gameLoop(event) {

@@ -58,8 +58,9 @@ var scenes;
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
-            this._collision.checkP(this._player, this._enemyShip);
-            this._collision.checkP(this._player, this._enemyBullet);
+            this._collision.update();
+            this._collision.checkPlayer(this._player, this._enemyShip);
+            this._collision.checkPlayer(this._player, this._enemyBullet);
             //asteroids update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.giveData(_this._player.x, _this._player.y, _this._player.rotation);
@@ -70,7 +71,8 @@ var scenes;
             if (core.lives < 1) {
                 core.scene = config.Scene.OVER;
                 core.changeScene();
-                core.lives = 5;
+                core.lives = 50;
+                core.score = 0;
             }
         };
         return pathLevel;
