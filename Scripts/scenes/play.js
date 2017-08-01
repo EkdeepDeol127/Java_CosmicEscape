@@ -22,6 +22,9 @@ var scenes;
             this._TimeLabel.text = "Time: " + Math.round(core.Time);
         };
         Play.prototype.Start = function () {
+            this._sound = createjs.Sound.play("mainTheme");
+            this._sound.loop = -1;
+            //galaxy
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
             //enemy object

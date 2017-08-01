@@ -103,12 +103,8 @@ asteroid.update();
 
 this._scoreUpdate();
 
-<<<<<<< HEAD
-  if (core.lives < 1) {
-=======
  if (core.lives < 1) {
                 this._sound.stop();
->>>>>>> tutorial
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 50;
@@ -117,10 +113,7 @@ this._scoreUpdate();
 }
 
 private _menuButtonClick(event:createjs.MouseEvent):void{
-<<<<<<< HEAD
-=======
     //switch scene
->>>>>>> tutorial
     this._sound.stop();
     core.scene = config.Scene.MENU;
     core.changeScene();
@@ -128,11 +121,7 @@ private _menuButtonClick(event:createjs.MouseEvent):void{
 
 private _playButtonClick(event:createjs.MouseEvent):void{
 this._sound.stop();
-<<<<<<< HEAD
 core.scene = config.Scene.PATH;
-=======
-    core.scene = config.Scene.PATH;
->>>>>>> tutorial
 core.changeScene();
 }
 

@@ -79,6 +79,7 @@ var scenes;
             });
             this._scoreUpdate();
             if (core.lives < 1) {
+                this._sound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 50;
@@ -86,6 +87,7 @@ var scenes;
             }
         };
         Tutorial.prototype._menuButtonClick = function (event) {
+            //switch scene
             this._sound.stop();
             core.scene = config.Scene.MENU;
             core.changeScene();

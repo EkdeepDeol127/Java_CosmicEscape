@@ -91,12 +91,8 @@ export class pathLevel extends objects.Scene{
 
             this._updateScoreBoard();
 
-<<<<<<< HEAD
- if (core.lives < 1) {
-=======
             if (core.lives < 1) {
                 this._sound.stop();
->>>>>>> tutorial
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 50;

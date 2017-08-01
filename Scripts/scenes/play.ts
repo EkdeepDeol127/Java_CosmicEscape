@@ -27,12 +27,9 @@ module scenes {
         }
 
         public Start(): void {
-<<<<<<< HEAD
-=======
             
             this._sound = createjs.Sound.play("mainTheme");
             this._sound.loop = -1;
->>>>>>> tutorial
 
             //galaxy
             this._galaxy = new objects.Galaxy("galaxy");

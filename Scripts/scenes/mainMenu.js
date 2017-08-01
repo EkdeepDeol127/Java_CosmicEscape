@@ -17,10 +17,9 @@ var scenes;
             return _super.call(this) || this;
         }
         Menu.prototype.Start = function () {
-            if (core.SCheck == true) {
-                this._themeSound = createjs.Sound.play("menuTheme");
-                this._themeSound.loop = -1;
-            }
+            this._themeSound = createjs.Sound.play("menuTheme");
+            this._themeSound.loop = -1;
+            //add background
             this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);
             //BUTTONS
@@ -53,9 +52,7 @@ var scenes;
             core.stage.addChild(this);
         };
         Menu.prototype._startButtonClick = function (event) {
-            if (core.SCheck == true) {
-                this._themeSound.stop();
-            }
+            this._themeSound.stop();
             core.scene = config.Scene.PLAY;
             core.changeScene();
         };
