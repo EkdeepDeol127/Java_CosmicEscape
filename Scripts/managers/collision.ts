@@ -50,7 +50,6 @@ module managers {
                     if(other.name === "asteroid") {
                         createjs.Sound.play("objHit");
                         core.score += 100;
-                        console.log("bull and ass");
                 
                     }
 
