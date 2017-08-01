@@ -21,6 +21,8 @@ var scenes;
             this._scoreLabel.text = "Score: " + core.score;
         };
         pathLevel.prototype.Start = function () {
+            this._sound = createjs.Sound.play("mainTheme");
+            this._sound.loop = -1;
             this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
             //adds background
@@ -68,6 +70,7 @@ var scenes;
             });
             this._updateScoreBoard();
             if (core.lives < 1) {
+                this._sound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 5;

@@ -12,7 +12,8 @@ private _enemy: objects.EnemyShip;
 private _collision: managers.Collision;
 private _scoreLabel: objects.Label;
 private _livesLabel: objects.Label;
-private _instLabel: objects.Label;
+private _instrOne: objects.Label;
+private _instrTwo: objects.Label;
 
 //for development purposes
 private _menuButton: objects.Button;
@@ -30,8 +31,9 @@ private _scoreUpdate(){
 
 public Start():void{
  //sound
-this._sound = createjs.Sound.play("menuTheme");
+this._sound = createjs.Sound.play("mainTheme");
 this._sound.loop = -1;
+
 //background
 this._backgr = new objects.Galaxy("tutorial");
 this.addChild(this._backgr);
@@ -51,11 +53,16 @@ this.addChild(this._asteroid[count]);
 
 this._collision = new managers.Collision();
 
+//labels
 this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
 this.addChild(this._scoreLabel);
-
 this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 20, 5, false);
 this.addChild(this._livesLabel);
+
+
+//instructions
+this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px","monospace", "#FFFF00", 100, 40,false);
+this.addChild(this._instrOne);
 
 
 //development buttons
@@ -92,6 +99,7 @@ asteroid.update();
 this._scoreUpdate();
 
  if (core.lives < 1) {
+                this._sound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 5;
@@ -100,15 +108,24 @@ this._scoreUpdate();
 
 private _menuButtonClick(event:createjs.MouseEvent):void{
     //switch scene
+    this._sound.stop();
     core.scene = config.Scene.MENU;
     core.changeScene();
 }
 
 private _playButtonClick(event:createjs.MouseEvent):void{
-core.scene = config.Scene.PATH;
+this._sound.stop();
+    core.scene = config.Scene.PATH;
 core.changeScene();
 }
 
+private func():void{
+    if (this._instrOne.isVisible()){
+this._instrOne.visible = false;
+    }
+else
+    this._instrOne.visible = true;
+}
 
 
 }

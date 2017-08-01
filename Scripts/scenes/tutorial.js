@@ -22,7 +22,7 @@ var scenes;
         };
         Tutorial.prototype.Start = function () {
             //sound
-            this._sound = createjs.Sound.play("menuTheme");
+            this._sound = createjs.Sound.play("mainTheme");
             this._sound.loop = -1;
             //background
             this._backgr = new objects.Galaxy("tutorial");
@@ -39,10 +39,14 @@ var scenes;
                 this.addChild(this._asteroid[count]);
             }
             this._collision = new managers.Collision();
+            //labels
             this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
             this.addChild(this._scoreLabel);
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 20, 5, false);
             this.addChild(this._livesLabel);
+            //instructions
+            this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 40, false);
+            this.addChild(this._instrOne);
             //development buttons
             this._menuButton = new objects.Button("backButton", 370, 300, true);
             this.addChild(this._menuButton);
@@ -71,6 +75,7 @@ var scenes;
             });
             this._scoreUpdate();
             if (core.lives < 1) {
+                this._sound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 5;
@@ -78,12 +83,21 @@ var scenes;
         };
         Tutorial.prototype._menuButtonClick = function (event) {
             //switch scene
+            this._sound.stop();
             core.scene = config.Scene.MENU;
             core.changeScene();
         };
         Tutorial.prototype._playButtonClick = function (event) {
+            this._sound.stop();
             core.scene = config.Scene.PATH;
             core.changeScene();
+        };
+        Tutorial.prototype.func = function () {
+            if (this._instrOne.isVisible()) {
+                this._instrOne.visible = false;
+            }
+            else
+                this._instrOne.visible = true;
         };
         return Tutorial;
     }(objects.Scene));

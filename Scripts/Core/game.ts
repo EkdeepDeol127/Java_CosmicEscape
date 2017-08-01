@@ -26,7 +26,8 @@ let tutorial: scenes.Tutorial;
 let settings: scenes.Settings;
 let credits: scenes.Credits;
 let path: scenes.pathLevel;
-    
+
+
     //asset manifest
    let assetData: objects.Asset[] = [
 
@@ -146,7 +147,7 @@ createjs.Ticker.on("tick", gameLoop);
 };
 
 textureAtlas = new createjs.SpriteSheet(atlasData);
-scene = config.Scene.MENU;
+scene = config.Scene.TUTORIAL;
 changeScene();
 
 }

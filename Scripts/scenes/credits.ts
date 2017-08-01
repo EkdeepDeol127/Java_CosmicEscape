@@ -5,12 +5,17 @@ export class Credits extends objects.Scene{
 private _backButt: objects.Button;
 private _backgr: objects.Background;
 
+private _theSound: createjs.AbstractSoundInstance;
+
 //create an instance of credits
 constructor(){
     super();
 }
 
 public Start():void{
+this._theSound = createjs.Sound.play("menuTheme");
+this._theSound.loop = -1;
+
 //add background 
 this._backgr = new objects.Background("galaxy");
 this.addChild(this._backgr);
@@ -24,6 +29,7 @@ core.stage.addChild(this);
 
 private _buttClick(event:createjs.MouseEvent):void{
     //switch scene
+this._theSound.stop();
 core.scene = config.Scene.MENU;
 core.changeScene();
 }

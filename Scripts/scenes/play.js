@@ -22,6 +22,8 @@ var scenes;
             this._TimeLabel.text = "Time: " + Math.round(core.Time);
         };
         Play.prototype.Start = function () {
+            this._sound = createjs.Sound.play("mainTheme");
+            this._sound.loop = -1;
             //galaxy
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
@@ -76,6 +78,7 @@ var scenes;
                 asteroid.update();
             });
             if (core.Time <= 0) {
+                this._sound.stop();
                 core.Time = 300;
                 core.scene = config.Scene.PATH;
                 core.changeScene();
@@ -85,6 +88,7 @@ var scenes;
             }
             this._updateScoreBoard();
             if (core.lives < 1) {
+                this._sound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 5;

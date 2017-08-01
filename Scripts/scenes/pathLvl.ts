@@ -14,6 +14,8 @@ export class pathLevel extends objects.Scene{
         private _livesLabel: objects.Label;
         private _backButton: objects.Button;
 
+        private _sound: createjs.AbstractSoundInstance;
+
         //creates an instance on pathLevel
         constructor() {
             super();
@@ -25,6 +27,10 @@ export class pathLevel extends objects.Scene{
         }
 
         public Start(): void {
+
+            this._sound = createjs.Sound.play("mainTheme");
+            this._sound.loop = -1;
+
             this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
 
@@ -85,6 +91,7 @@ export class pathLevel extends objects.Scene{
             this._updateScoreBoard();
 
             if (core.lives < 1) {
+                this._sound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 5;

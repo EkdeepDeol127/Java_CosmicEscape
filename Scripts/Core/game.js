@@ -118,7 +118,7 @@ var core;
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);
-        core.scene = config.Scene.MENU;
+        core.scene = config.Scene.TUTORIAL;
         changeScene();
     }
     function gameLoop(event) {

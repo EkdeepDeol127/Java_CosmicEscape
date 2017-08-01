@@ -6,12 +6,16 @@ module scenes {
         private _mainMenu: objects.Button;
         private _sound: objects.Button;
         private _backgr: objects.Background;
+        private _music: createjs.AbstractSoundInstance;
 
         //creates an instance of mainMenu
         constructor() {
             super();
         }
         public Start(): void {
+            this._music = createjs.Sound.play("menuTheme");
+            this._music.loop = -1
+
             //add background
             this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);
@@ -32,6 +36,7 @@ module scenes {
 
         private _mainMenuClick(event: createjs.MouseEvent): void {
             //switch scene
+            this._music.stop();
             core.scene = config.Scene.MENU;
             core.changeScene();
         }

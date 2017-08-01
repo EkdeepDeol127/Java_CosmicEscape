@@ -20,16 +20,9 @@ constructor(){
 }
 public Start():void{
 
-        if(this.SCheck == true)
-        {
-            this._themeSound = createjs.Sound.play("menuTheme");
-            this._themeSound.loop = -1;
-        }
-        else
-        {
-            this._themeSound.stop();
-        }
-
+this._themeSound = createjs.Sound.play("menuTheme");
+this._themeSound.loop = -1;
+      
 //add background
 this._backgr = new objects.Background("mainPage");
 this.addChild(this._backgr);

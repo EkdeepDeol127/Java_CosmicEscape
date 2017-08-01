@@ -17,6 +17,8 @@ var scenes;
             return _super.call(this) || this;
         }
         Over.prototype.Start = function () {
+            this._sound = createjs.Sound.play("gameOver");
+            this._sound.loop = -1;
             //add background
             this._backgr = new objects.Background("over");
             this.addChild(this._backgr);
@@ -25,12 +27,23 @@ var scenes;
             this.addChild(this._mainMenu);
             //mainMenu button event listener
             this._mainMenu.on("click", this._mainMenuClick, this);
+            //play again button
+            this._playAgain = new objects.Button("againButton", 380, 300, true);
+            this.addChild(this._playAgain);
+            this._playAgain.on("click", this._playAgainClick, this);
             //add this scene to GLOBAL scene container
             core.stage.addChild(this);
         };
         Over.prototype._mainMenuClick = function (event) {
             //switch scene
+            this._sound.stop();
             core.scene = config.Scene.MENU;
+            core.changeScene();
+        };
+        Over.prototype._playAgainClick = function (event) {
+            //switch scene
+            this._sound.stop();
+            core.scene = config.Scene.PLAY;
             core.changeScene();
         };
         return Over;
