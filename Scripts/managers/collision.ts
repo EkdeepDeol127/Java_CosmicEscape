@@ -59,6 +59,7 @@ module managers {
             if ((objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
+<<<<<<< HEAD
                     // if bullet collides with asteroid
                     if (other.name === "asteroid") {
                         createjs.Sound.play("objHit");
@@ -73,6 +74,19 @@ module managers {
                     if (other.name === "enemyShip") {
                         createjs.Sound.play("objHit");
                         core.EnemyHit = true;
+=======
+
+                // if bullet collides with asteroid
+                    if(other.name === "asteroid") {
+                       createjs.Sound.play("objHit");
+                        core.score += 100;
+                        
+                    }
+
+                    // if bullet collides with island
+                    if(other.name === "enemyShip") {
+                        createjs.Sound.play("yay");
+>>>>>>> tutorial
                         core.score += 150;
                     }
                     else{

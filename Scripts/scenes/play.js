@@ -22,7 +22,6 @@ var scenes;
             this._TimeLabel.text = "Time: " + Math.round(core.Time);
         };
         Play.prototype.Start = function () {
-            //galaxy
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
             //enemy object
@@ -77,6 +76,7 @@ var scenes;
                 asteroid.update();
             });
             if (core.Time <= 0) {
+                this._sound.stop();
                 core.Time = 300;
                 core.scene = config.Scene.PATH;
                 core.changeScene();
@@ -86,6 +86,7 @@ var scenes;
             }
             this._updateScoreBoard();
             if (core.lives < 1) {
+                this._sound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 50;

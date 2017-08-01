@@ -49,7 +49,6 @@ var managers;
             if ((objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
-                    // if bullet collides with asteroid
                     if (other.name === "asteroid") {
                         createjs.Sound.play("objHit");
                         core.score += 100;

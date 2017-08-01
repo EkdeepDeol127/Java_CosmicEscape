@@ -25,9 +25,14 @@ let tutorial: scenes.Tutorial;
 let settings: scenes.Settings;
 let credits: scenes.Credits;
 let path: scenes.pathLevel;
+<<<<<<< HEAD
 export let SCheck: boolean = true;
 export let EnemyHit: boolean = false;
     
+=======
+
+
+>>>>>>> tutorial
     //asset manifest
    let assetData: objects.Asset[] = [
 

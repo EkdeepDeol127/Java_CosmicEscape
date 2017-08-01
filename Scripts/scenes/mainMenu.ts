@@ -19,12 +19,18 @@ constructor(){
 }
 public Start():void{
 
+<<<<<<< HEAD
         if(core.SCheck == true)
         {
             this._themeSound = createjs.Sound.play("menuTheme");
             this._themeSound.loop = -1;
         }
 
+=======
+this._themeSound = createjs.Sound.play("menuTheme");
+this._themeSound.loop = -1;
+      
+>>>>>>> tutorial
 //add background
 this._backgr = new objects.Background("mainPage");
 this.addChild(this._backgr);

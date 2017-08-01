@@ -18,7 +18,6 @@ var core;
     var path;
     core.SCheck = true;
     core.EnemyHit = false;
-    //asset manifest
     var assetData = [
         //images
         { id: "galaxy", src: "../../Assets/images/lvlBackgr.png" },

@@ -13,6 +13,8 @@ module scenes {
         private _livesLabel: objects.Label;
         private _TimeLabel: objects.Label;
 
+        private _sound: createjs.AbstractSoundInstance;
+
         //creates an instance of Play
         constructor() {
             super();
@@ -25,6 +27,12 @@ module scenes {
         }
 
         public Start(): void {
+<<<<<<< HEAD
+=======
+            
+            this._sound = createjs.Sound.play("mainTheme");
+            this._sound.loop = -1;
+>>>>>>> tutorial
 
             //galaxy
             this._galaxy = new objects.Galaxy("galaxy");
@@ -96,6 +104,7 @@ module scenes {
 
             if(core.Time <= 0)
             {
+                this._sound.stop();
                 core.Time = 300;
                 core.scene = config.Scene.PATH;
                 core.changeScene();
@@ -108,6 +117,7 @@ module scenes {
             this._updateScoreBoard();
 
             if (core.lives < 1) {
+                this._sound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 50;
