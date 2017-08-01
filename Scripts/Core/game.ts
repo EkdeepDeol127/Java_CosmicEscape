@@ -23,6 +23,8 @@ let menu: scenes.Menu;
 let over: scenes.Over;
 let play: scenes.Play;
 let tutorial: scenes.Tutorial;
+let settings: scenes.Settings;
+let credits: scenes.Credits;
 let path: scenes.pathLevel;
     
     //asset manifest
@@ -144,7 +146,7 @@ createjs.Ticker.on("tick", gameLoop);
 };
 
 textureAtlas = new createjs.SpriteSheet(atlasData);
-scene = config.Scene.MENU;
+scene = config.Scene.TUTORIAL;
 changeScene();
 
 }
@@ -189,6 +191,18 @@ switch (scene) {
                 stage.removeAllChildren();
                 over = new scenes.Over();
                 currentScene = over;
+                break;
+
+                case config.Scene.CREDITS:
+                stage.removeAllChildren();
+                credits = new scenes.Credits();
+                currentScene = credits;
+                break;
+
+                case config.Scene.SETTINGS:
+                stage.removeAllChildren();
+                settings = new scenes.Settings();
+                currentScene = settings;
                 break;
 
 }

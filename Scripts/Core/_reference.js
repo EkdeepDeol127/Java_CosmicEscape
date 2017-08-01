@@ -21,4 +21,6 @@
 /// <reference path="../scenes/pathLvl.ts"/>
 /// <reference path="../scenes/tutorial.ts"/>
 /// <reference path="../scenes/mainMenu.ts"/>
+/// <reference path="../scenes/settings.ts"/>
+/// <reference path="../scenes/credits.ts"/>
 //# sourceMappingURL=_reference.js.map

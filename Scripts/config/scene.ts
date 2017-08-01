@@ -5,5 +5,7 @@ module config {
         public static OVER:number = 2;
         public static TUTORIAL:number = 3;
         public static PATH: number = 4;
+        public static SETTINGS: number = 5;
+        public static CREDITS: number = 6;
     }
 }
