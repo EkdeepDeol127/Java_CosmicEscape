@@ -20,22 +20,30 @@ var managers;
                     other.isColliding = true;
                     // if player collides with asteroid
                     if (other.name === "asteroid") {
-                        createjs.Sound.play("hit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
                         core.lives -= 1;
                     }
                     //if player collides with newAsteroid
                     if (other.name === "newAsteroids") {
-                        createjs.Sound.play("hit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
                         core.lives -= 1;
                     }
                     // if player collides with enemyShip
                     if (other.name === "enemyShip") {
-                        createjs.Sound.play("hit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
                         core.lives -= 1;
                     }
                     //if enemyBullet is colliding with player
                     if (other.name === "enemyBullet") {
-                        createjs.Sound.play("hit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
                         core.lives -= 5;
                     }
                 }
@@ -51,17 +59,23 @@ var managers;
                     other.isColliding = true;
                     // if bullet collides with asteroid
                     if (other.name === "asteroid") {
-                        createjs.Sound.play("objHit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
                         core.score += 100;
                     }
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroids") {
-                        createjs.Sound.play("objHit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
                         core.score += 100;
                     }
                     // if bullet collides with enemyShip
                     if (other.name === "enemyShip") {
-                        createjs.Sound.play("objHit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
                         core.EnemyHit = true;
                         core.score += 150;
                     }

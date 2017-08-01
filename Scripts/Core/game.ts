@@ -26,6 +26,7 @@ let settings: scenes.Settings;
 let credits: scenes.Credits;
 let path: scenes.pathLevel;
 export let SCheck: boolean = true;
+export let SECheck: boolean = true;
 export let EnemyHit: boolean = false;
     
     //asset manifest

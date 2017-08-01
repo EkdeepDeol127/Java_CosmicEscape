@@ -5,6 +5,7 @@ module scenes {
 
         private _mainMenu: objects.Button;
         private _sound: objects.Button;
+        private _soundEffect: objects.Button;
         private _backgr: objects.Background;
         private _music: createjs.AbstractSoundInstance;
 
@@ -32,6 +33,10 @@ module scenes {
             this.addChild(this._sound);
             this._sound.on("click", this.soundCheck, this);
 
+            this._soundEffect = new objects.Button("playButton", 380, 300, true);
+            this.addChild(this._sound);
+            this._soundEffect.on("click", this.soundEffects, this);
+
             //add this scene to GLOBAL scene container
             core.stage.addChild(this);
         }
@@ -46,15 +51,26 @@ module scenes {
 
         private soundCheck(check: boolean): void {
             if (core.SCheck == false) {
-                console.log("Sound on");
+                console.log("Music on");
                 core.SCheck = true;
                 this._music = createjs.Sound.play("menuTheme");
                 this._music.loop = -1;
             }
             else {
-                console.log("Sound off");
+                console.log("Music off");
                 core.SCheck = false;
                 this._music.stop();
+            }
+        }
+        private soundEffects()
+        {
+             if (core.SECheck == false) {
+                console.log("Sound Effects on");
+                core.SECheck = true;
+            }
+            else {
+                console.log("Sound Efects off");
+                core.SECheck = false;
             }
         }
     }

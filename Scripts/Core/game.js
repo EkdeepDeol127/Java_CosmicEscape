@@ -17,6 +17,7 @@ var core;
     var credits;
     var path;
     core.SCheck = true;
+    core.SECheck = true;
     core.EnemyHit = false;
     //asset manifest
     var assetData = [

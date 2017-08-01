@@ -14,36 +14,43 @@ module managers {
         }
 
         public update() {
-            if(this.timer > 0)
-                {
-                    this.timer -= 0.1;
-                }
+            if (this.timer > 0) {
+                this.timer -= 0.1;
+            }
         }
 
         public checkPlayer(player: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
 
-            if ((objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) && this.timer <=0) {
+            if ((objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
                     // if player collides with asteroid
                     if (other.name === "asteroid") {
-                        createjs.Sound.play("hit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
                         core.lives -= 1;
                     }
                     //if player collides with newAsteroid
                     if (other.name === "newAsteroids") {
-                        createjs.Sound.play("hit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
                         core.lives -= 1;
                     }
                     // if player collides with enemyShip
                     if (other.name === "enemyShip") {
-                        createjs.Sound.play("hit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
                         core.lives -= 1;
                     }
                     //if enemyBullet is colliding with player
                     if (other.name === "enemyBullet") {
-                        createjs.Sound.play("hit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
                         core.lives -= 5;
                     }
                 }
@@ -61,21 +68,27 @@ module managers {
                     other.isColliding = true;
                     // if bullet collides with asteroid
                     if (other.name === "asteroid") {
-                        createjs.Sound.play("objHit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
                         core.score += 100;
                     }
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroids") {
-                        createjs.Sound.play("objHit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
                         core.score += 100;
                     }
                     // if bullet collides with enemyShip
                     if (other.name === "enemyShip") {
-                        createjs.Sound.play("objHit");
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
                         core.EnemyHit = true;
                         core.score += 150;
                     }
-                    else{
+                    else {
                         core.EnemyHit = false;
                     }
                 }
