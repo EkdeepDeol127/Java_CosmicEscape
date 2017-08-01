@@ -1,5 +1,5 @@
-module scenes{
-export class pathLevel extends objects.Scene{
+module scenes {
+    export class pathLevel extends objects.Scene {
 
         private _backgr: objects.Background;
         private _galaxy: objects.galaxyPath;
@@ -20,7 +20,7 @@ export class pathLevel extends objects.Scene{
         constructor() {
             super();
         }
-        
+
         private _updateScoreBoard() {
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
@@ -28,8 +28,10 @@ export class pathLevel extends objects.Scene{
 
         public Start(): void {
 
-            this._sound = createjs.Sound.play("mainTheme");
-            this._sound.loop = -1;
+            if (core.SCheck == true) {
+                this._sound = createjs.Sound.play("menuTheme");
+                this._sound.loop = -1;
+            }
 
             this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
@@ -66,8 +68,7 @@ export class pathLevel extends objects.Scene{
             core.stage.addChild(this);
         }
 
-        public Update()
-        {
+        public Update() {
             this._galaxy.giveData(this._player.rotation);
             this._galaxy.update();
             this._player.update();
@@ -92,7 +93,9 @@ export class pathLevel extends objects.Scene{
             this._updateScoreBoard();
 
             if (core.lives < 1) {
-                this._sound.stop();
+                if (core.SCheck == true) {
+                    this._sound.stop();
+                }
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 50;
@@ -101,4 +104,5 @@ export class pathLevel extends objects.Scene{
         }
 
 
-}}
+    }
+}

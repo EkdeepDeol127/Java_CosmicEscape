@@ -27,9 +27,11 @@ module scenes {
         }
 
         public Start(): void {
-            
-            this._sound = createjs.Sound.play("mainTheme");
-            this._sound.loop = -1;
+
+            if (core.SCheck == true) {
+                this._sound = createjs.Sound.play("menuTheme");
+                this._sound.loop = -1;
+            }
 
             //galaxy
             this._galaxy = new objects.Galaxy("galaxy");
@@ -84,7 +86,7 @@ module scenes {
             this._enemyBullet.update();
             this._collision.update();
 
-//PLAYER COLLISIONS
+            //PLAYER COLLISIONS
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
 
@@ -99,22 +101,24 @@ module scenes {
                 asteroid.update();
             });
 
-            if(core.Time <= 0)
-            {
-                this._sound.stop();
+            if (core.Time <= 0) {
+                if (core.SCheck == true) {
+                    this._sound.stop();
+                }
                 core.Time = 300;
                 core.scene = config.Scene.PATH;
                 core.changeScene();
             }
-            else
-            {
+            else {
                 core.Time -= 0.1;
             }
 
             this._updateScoreBoard();
 
             if (core.lives < 1) {
-                this._sound.stop();
+                if (core.SCheck == true) {
+                    this._sound.stop();
+                }
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 50;
@@ -126,11 +130,3 @@ module scenes {
 
     }
 }
-
-/*  public Update():void {   
-    /*   if (core.lives < 1) {
-                this._engineSound.stop();
-                core.scene = config.Scene.OVER;
-                core.changeScene();
-            }  
-} */

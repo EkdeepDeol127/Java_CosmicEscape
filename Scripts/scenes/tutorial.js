@@ -22,8 +22,10 @@ var scenes;
         };
         Tutorial.prototype.Start = function () {
             //sound
-            this._sound = createjs.Sound.play("mainTheme");
-            this._sound.loop = -1;
+            if (core.SCheck == true) {
+                this._sound = createjs.Sound.play("menuTheme");
+                this._sound.loop = -1;
+            }
             //background
             this._backgr = new objects.Galaxy("tutorial");
             this.addChild(this._backgr);
@@ -79,7 +81,9 @@ var scenes;
             });
             this._scoreUpdate();
             if (core.lives < 1) {
-                this._sound.stop();
+                if (core.SCheck == true) {
+                    this._sound.stop();
+                }
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 50;
@@ -88,12 +92,16 @@ var scenes;
         };
         Tutorial.prototype._menuButtonClick = function (event) {
             //switch scene
-            this._sound.stop();
+            if (core.SCheck == true) {
+                this._sound.stop();
+            }
             core.scene = config.Scene.MENU;
             core.changeScene();
         };
         Tutorial.prototype._playButtonClick = function (event) {
-            this._sound.stop();
+            if (core.SCheck == true) {
+                this._sound.stop();
+            }
             core.scene = config.Scene.PATH;
             core.changeScene();
         };

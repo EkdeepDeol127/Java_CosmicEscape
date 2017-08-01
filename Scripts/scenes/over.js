@@ -17,8 +17,10 @@ var scenes;
             return _super.call(this) || this;
         }
         Over.prototype.Start = function () {
-            this._sound = createjs.Sound.play("gameOver");
-            this._sound.loop = -1;
+            if (core.SCheck == true) {
+                this._sound = createjs.Sound.play("menuTheme");
+                this._sound.loop = -1;
+            }
             //add background
             this._backgr = new objects.Background("over");
             this.addChild(this._backgr);
@@ -36,13 +38,17 @@ var scenes;
         };
         Over.prototype._mainMenuClick = function (event) {
             //switch scene
-            this._sound.stop();
+            if (core.SCheck == true) {
+                this._sound.stop();
+            }
             core.scene = config.Scene.MENU;
             core.changeScene();
         };
         Over.prototype._playAgainClick = function (event) {
             //switch scene
-            this._sound.stop();
+            if (core.SCheck == true) {
+                this._sound.stop();
+            }
             core.scene = config.Scene.PLAY;
             core.changeScene();
         };

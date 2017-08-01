@@ -1,140 +1,148 @@
-module scenes{
-export class Tutorial extends objects.Scene{
-//PRIVATE VARIABLES
-private _sound: createjs.AbstractSoundInstance;
-private _backgr: objects.Galaxy;
-private _player: objects.Player;
-private _playerBullet: objects.Bullet;
-private _asteroid: objects.Asteroid[];
-private _enemy: objects.EnemyShip;
-//private _portal: objects.Portal;
+module scenes {
+    export class Tutorial extends objects.Scene {
+        //PRIVATE VARIABLES
+        private _sound: createjs.AbstractSoundInstance;
+        private _backgr: objects.Galaxy;
+        private _player: objects.Player;
+        private _playerBullet: objects.Bullet;
+        private _asteroid: objects.Asteroid[];
+        private _enemy: objects.EnemyShip;
+        //private _portal: objects.Portal;
 
-private _collision: managers.Collision;
-private _scoreLabel: objects.Label;
-private _livesLabel: objects.Label;
-private _instrOne: objects.Label;
-private _instrTwo: objects.Label;
+        private _collision: managers.Collision;
+        private _scoreLabel: objects.Label;
+        private _livesLabel: objects.Label;
+        private _instrOne: objects.Label;
+        private _instrTwo: objects.Label;
 
-//for development purposes
-private _menuButton: objects.Button;
-private _playButton: objects.Button;
+        //for development purposes
+        private _menuButton: objects.Button;
+        private _playButton: objects.Button;
 
-//creates an instance on Tutorial
-constructor (){
-super();
-}
+        //creates an instance on Tutorial
+        constructor() {
+            super();
+        }
 
-private _scoreUpdate(){
-    this._scoreLabel.text = "Score: " + core.score;
-    this._livesLabel.text = "Lives: " + core.lives;
-}
+        private _scoreUpdate() {
+            this._scoreLabel.text = "Score: " + core.score;
+            this._livesLabel.text = "Lives: " + core.lives;
+        }
 
-public Start():void{
- //sound
-this._sound = createjs.Sound.play("mainTheme");
-this._sound.loop = -1;
+        public Start(): void {
+            //sound
+            if (core.SCheck == true) {
+                this._sound = createjs.Sound.play("menuTheme");
+                this._sound.loop = -1;
+            }
 
-//background
-this._backgr = new objects.Galaxy("tutorial");
-this.addChild(this._backgr);
+            //background
+            this._backgr = new objects.Galaxy("tutorial");
+            this.addChild(this._backgr);
 
-//portal
-//this._portal = new objects.Portal("bossBullet");
-//this.addChild(this._portal);
+            //portal
+            //this._portal = new objects.Portal("bossBullet");
+            //this.addChild(this._portal);
 
-//player
-this._player = new objects.Player("player");
-this.addChild(this._player);
-this._playerBullet = new objects.Bullet("playerBullet");
-this.addChild(this._playerBullet);
+            //player
+            this._player = new objects.Player("player");
+            this.addChild(this._player);
+            this._playerBullet = new objects.Bullet("playerBullet");
+            this.addChild(this._playerBullet);
 
-//asteroids
-this._asteroid = new Array<objects.Asteroid>();
-for(let count = 0; count<1; count++){
-this._asteroid.push(new objects.Asteroid("asteroid"));
-this.addChild(this._asteroid[count]);
-}
+            //asteroids
+            this._asteroid = new Array<objects.Asteroid>();
+            for (let count = 0; count < 1; count++) {
+                this._asteroid.push(new objects.Asteroid("asteroid"));
+                this.addChild(this._asteroid[count]);
+            }
 
-this._collision = new managers.Collision();
+            this._collision = new managers.Collision();
 
-//labels
-this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
-this.addChild(this._scoreLabel);
-this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 20, 5, false);
-this.addChild(this._livesLabel);
-
-
-//instructions
-this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px","monospace", "#FFFF00", 100, 40,false);
-this.addChild(this._instrOne);
+            //labels
+            this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
+            this.addChild(this._scoreLabel);
+            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 20, 5, false);
+            this.addChild(this._livesLabel);
 
 
-//development buttons
-this._menuButton = new objects.Button("backButton",370,300, true);
-this.addChild(this._menuButton);
-//startbutton event listener
-this._menuButton.on("click",this._menuButtonClick,this);
-this._playButton = new objects.Button("playButton",370,350, true);
-this.addChild(this._playButton);
-//startbutton event listener
-this._playButton.on("click",this._playButtonClick,this);
+            //instructions
+            this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 40, false);
+            this.addChild(this._instrOne);
 
-core.stage.addChild(this);
 
-}
+            //development buttons
+            this._menuButton = new objects.Button("backButton", 370, 300, true);
+            this.addChild(this._menuButton);
+            //startbutton event listener
+            this._menuButton.on("click", this._menuButtonClick, this);
+            this._playButton = new objects.Button("playButton", 370, 350, true);
+            this.addChild(this._playButton);
+            //startbutton event listener
+            this._playButton.on("click", this._playButtonClick, this);
 
-public Update():void{
-this._backgr.update();
-this._player.giveData(core.stage.mouseX, core.stage.mouseY);
-this._player.update();
-this._playerBullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
-this._playerBullet.update();
-this._collision.update();
+            core.stage.addChild(this);
 
-//asteroid update
-this._asteroid.forEach(asteroid =>{
-asteroid.giveData(this._player.x, this._player.y);
-this._collision.checkPlayer(this._player, asteroid);
-this._collision.checkEnemy(this._playerBullet, asteroid);
-if(this._collision.checkEnemy)
-asteroid.update();
+        }
 
-})
+        public Update(): void {
+            this._backgr.update();
+            this._player.giveData(core.stage.mouseX, core.stage.mouseY);
+            this._player.update();
+            this._playerBullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
+            this._playerBullet.update();
+            this._collision.update();
 
-this._scoreUpdate();
+            //asteroid update
+            this._asteroid.forEach(asteroid => {
+                asteroid.giveData(this._player.x, this._player.y);
+                this._collision.checkPlayer(this._player, asteroid);
+                this._collision.checkEnemy(this._playerBullet, asteroid);
+                if (this._collision.checkEnemy)
+                    asteroid.update();
 
- if (core.lives < 1) {
-                this._sound.stop();
+            })
+
+            this._scoreUpdate();
+
+            if (core.lives < 1) {
+                if (core.SCheck == true) {
+                    this._sound.stop();
+                }
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 50;
                 core.score = 0;
             }
-}
+        }
 
-private _menuButtonClick(event:createjs.MouseEvent):void{
-    //switch scene
-    this._sound.stop();
-    core.scene = config.Scene.MENU;
-    core.changeScene();
-}
+        private _menuButtonClick(event: createjs.MouseEvent): void {
+            //switch scene
+            if (core.SCheck == true) {
+                this._sound.stop();
+            }
+            core.scene = config.Scene.MENU;
+            core.changeScene();
+        }
 
-private _playButtonClick(event:createjs.MouseEvent):void{
-this._sound.stop();
-core.scene = config.Scene.PATH;
-core.changeScene();
-}
+        private _playButtonClick(event: createjs.MouseEvent): void {
+            if (core.SCheck == true) {
+                this._sound.stop();
+            }
+            core.scene = config.Scene.PATH;
+            core.changeScene();
+        }
 
-private func():void{
-    if (this._instrOne.isVisible()){
-this._instrOne.visible = false;
+        private func(): void {
+            if (this._instrOne.isVisible()) {
+                this._instrOne.visible = false;
+            }
+            else
+                this._instrOne.visible = true;
+        }
+
+
     }
-else
-    this._instrOne.visible = true;
-}
-
-
-}
 
 
 }

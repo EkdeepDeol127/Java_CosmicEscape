@@ -17,8 +17,10 @@ var scenes;
             return _super.call(this) || this;
         }
         Credits.prototype.Start = function () {
-            this._theSound = createjs.Sound.play("menuTheme");
-            this._theSound.loop = -1;
+            if (core.SCheck == true) {
+                this._theSound = createjs.Sound.play("menuTheme");
+                this._theSound.loop = -1;
+            }
             //add background 
             this._backgr = new objects.Background("galaxy");
             this.addChild(this._backgr);
@@ -30,7 +32,9 @@ var scenes;
         };
         Credits.prototype._buttClick = function (event) {
             //switch scene
-            this._theSound.stop();
+            if (core.SCheck == true) {
+                this._theSound.stop();
+            }
             core.scene = config.Scene.MENU;
             core.changeScene();
         };
