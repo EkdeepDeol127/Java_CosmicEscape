@@ -25,7 +25,7 @@ var scenes;
             this.addChild(this._mainMenu);
             //mainMenu button event listener
             this._mainMenu.on("click", this._mainMenuClick, this);
-            this._sound = new objects.Button("Sound", 380, 250, true);
+            this._sound = new objects.Button("playButton", 380, 250, true);
             this.addChild(this._sound);
             this._mainMenu.on("click", this.soundCheck);
             //add this scene to GLOBAL scene container
