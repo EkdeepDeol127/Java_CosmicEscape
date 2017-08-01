@@ -10,31 +10,42 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var Over = (function (_super) {
-        __extends(Over, _super);
+    var Settings = (function (_super) {
+        __extends(Settings, _super);
         //creates an instance of mainMenu
-        function Over() {
+        function Settings() {
             return _super.call(this) || this;
         }
-        Over.prototype.Start = function () {
+        Settings.prototype.Start = function () {
             //add background
-            this._backgr = new objects.Background("over");
+            this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);
             //add Main Menu button
             this._mainMenu = new objects.Button("backButton", 380, 200, true);
             this.addChild(this._mainMenu);
             //mainMenu button event listener
             this._mainMenu.on("click", this._mainMenuClick, this);
+            this._sound = new objects.Button("Sound", 380, 250, true);
+            this.addChild(this._sound);
+            this._mainMenu.on("click", this.soundCheck);
             //add this scene to GLOBAL scene container
             core.stage.addChild(this);
         };
-        Over.prototype._mainMenuClick = function (event) {
+        Settings.prototype._mainMenuClick = function (event) {
             //switch scene
             core.scene = config.Scene.MENU;
             core.changeScene();
         };
-        return Over;
+        Settings.prototype.soundCheck = function (check) {
+            if (this.SCheck == false) {
+                this.SCheck = true;
+            }
+            else {
+                this.SCheck = false;
+            }
+        };
+        return Settings;
     }(objects.Scene));
-    scenes.Over = Over;
+    scenes.Settings = Settings;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=over.js.map
+//# sourceMappingURL=settings.js.map

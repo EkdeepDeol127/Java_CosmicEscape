@@ -16,11 +16,7 @@ this._backgr = new objects.Background("over");
 this.addChild(this._backgr);
 
 //add Main Menu button
-<<<<<<< HEAD
-this._mainMenu = new objects.Button("menuButton",370,200, true);
-=======
 this._mainMenu = new objects.Button("backButton",380,200, true);
->>>>>>> settings
 this.addChild(this._mainMenu);
 //mainMenu button event listener
 this._mainMenu.on("click",this._mainMenuClick,this);
