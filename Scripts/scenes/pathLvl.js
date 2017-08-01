@@ -22,7 +22,7 @@ var scenes;
         };
         pathLevel.prototype.Start = function () {
             if (core.SCheck == true) {
-                this._sound = createjs.Sound.play("menuTheme");
+                this._sound = createjs.Sound.play("mainTheme");
                 this._sound.loop = -1;
             }
             this._galaxy = new objects.galaxyPath("galaxy");

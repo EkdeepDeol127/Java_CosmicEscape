@@ -18,7 +18,7 @@ var scenes;
         }
         Over.prototype.Start = function () {
             if (core.SCheck == true) {
-                this._sound = createjs.Sound.play("menuTheme");
+                this._sound = createjs.Sound.play("gameOver");
                 this._sound.loop = -1;
             }
             //add background

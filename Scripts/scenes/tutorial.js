@@ -23,7 +23,7 @@ var scenes;
         Tutorial.prototype.Start = function () {
             //sound
             if (core.SCheck == true) {
-                this._sound = createjs.Sound.play("menuTheme");
+                this._sound = createjs.Sound.play("mainTheme");
                 this._sound.loop = -1;
             }
             //background
