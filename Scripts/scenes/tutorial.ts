@@ -7,7 +7,7 @@ private _player: objects.Player;
 private _playerBullet: objects.Bullet;
 private _asteroid: objects.Asteroid[];
 private _enemy: objects.EnemyShip;
-
+//private _portal: objects.Portal;
 
 private _collision: managers.Collision;
 private _scoreLabel: objects.Label;
@@ -37,6 +37,10 @@ this._sound.loop = -1;
 //background
 this._backgr = new objects.Galaxy("tutorial");
 this.addChild(this._backgr);
+
+//portal
+//this._portal = new objects.Portal("bossBullet");
+//this.addChild(this._portal);
 
 //player
 this._player = new objects.Player("player");

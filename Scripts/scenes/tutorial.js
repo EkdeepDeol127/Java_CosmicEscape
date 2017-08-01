@@ -27,6 +27,9 @@ var scenes;
             //background
             this._backgr = new objects.Galaxy("tutorial");
             this.addChild(this._backgr);
+            //portal
+            //this._portal = new objects.Portal("bossBullet");
+            //this.addChild(this._portal);
             //player
             this._player = new objects.Player("player");
             this.addChild(this._player);
