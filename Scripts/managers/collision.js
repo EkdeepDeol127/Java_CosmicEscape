@@ -54,6 +54,11 @@ var managers;
                         createjs.Sound.play("objHit");
                         core.score += 100;
                     }
+                    //if bullet collides with newAsteroids
+                    if (other.name === "newAsteroids") {
+                        createjs.Sound.play("objHit");
+                        core.score += 100;
+                    }
                     // if bullet collides with enemyShip
                     if (other.name === "enemyShip") {
                         createjs.Sound.play("objHit");
