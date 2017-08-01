@@ -33,7 +33,7 @@ var scenes;
             this.addChild(this._sound);
             this._sound.on("click", this.soundCheck, this);
             this._soundEffect = new objects.Button("playButton", 380, 300, true);
-            this.addChild(this._sound);
+            this.addChild(this._soundEffect);
             this._soundEffect.on("click", this.soundEffects, this);
             //add this scene to GLOBAL scene container
             core.stage.addChild(this);
