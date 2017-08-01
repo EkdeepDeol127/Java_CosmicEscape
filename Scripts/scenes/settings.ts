@@ -39,7 +39,7 @@ module scenes {
         private _mainMenuClick(event: createjs.MouseEvent): void {
             if (core.SCheck == true) {
                 this._music.stop();
-            }
+            }           
             core.scene = config.Scene.MENU;
             core.changeScene();
         }
