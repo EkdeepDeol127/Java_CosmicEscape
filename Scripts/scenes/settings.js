@@ -27,7 +27,7 @@ var scenes;
             this._mainMenu.on("click", this._mainMenuClick, this);
             this._sound = new objects.Button("playButton", 380, 250, true);
             this.addChild(this._sound);
-            this._mainMenu.on("click", this.soundCheck);
+            //   this._mainMenu.on("click", this.soundCheck);
             //add this scene to GLOBAL scene container
             core.stage.addChild(this);
         };
@@ -35,14 +35,6 @@ var scenes;
             //switch scene
             core.scene = config.Scene.MENU;
             core.changeScene();
-        };
-        Settings.prototype.soundCheck = function (check) {
-            if (this.SCheck == false) {
-                this.SCheck = true;
-            }
-            else {
-                this.SCheck = false;
-            }
         };
         return Settings;
     }(objects.Scene));
