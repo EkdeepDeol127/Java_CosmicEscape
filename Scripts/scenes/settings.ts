@@ -40,7 +40,7 @@ module scenes {
             if (core.SCheck == true) {
                 this._music.stop();
             }
-            this._music.stop();
+           
             core.scene = config.Scene.MENU;
             core.changeScene();
         }
