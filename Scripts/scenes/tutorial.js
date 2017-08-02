@@ -14,7 +14,10 @@ var scenes;
         __extends(Tutorial, _super);
         //creates an instance on Tutorial
         function Tutorial() {
-            return _super.call(this) || this;
+            var _this = _super.call(this) || this;
+            //private _portal: objects.Portal;
+            _this._time = 5;
+            return _this;
         }
         Tutorial.prototype._scoreUpdate = function () {
             this._scoreLabel.text = "Score: " + core.score;
@@ -50,8 +53,11 @@ var scenes;
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 20, 5, false);
             this.addChild(this._livesLabel);
             //instructions
-            this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 40, false);
+            this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 150, false);
             this.addChild(this._instrOne);
+            createjs.Ticker.addEventListener("tick", handleTick);
+            function handleTick(event) {
+            }
             //development buttons
             this._menuButton = new objects.Button("backButton", 370, 300, true);
             this.addChild(this._menuButton);
@@ -104,13 +110,6 @@ var scenes;
             }
             core.scene = config.Scene.PATH;
             core.changeScene();
-        };
-        Tutorial.prototype.func = function () {
-            if (this._instrOne.isVisible()) {
-                this._instrOne.visible = false;
-            }
-            else
-                this._instrOne.visible = true;
         };
         return Tutorial;
     }(objects.Scene));

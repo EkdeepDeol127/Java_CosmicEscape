@@ -9,6 +9,8 @@ module scenes {
         private _enemy: objects.EnemyShip;
         //private _portal: objects.Portal;
 
+        public _time: number = 5;
+
         private _collision: managers.Collision;
         private _scoreLabel: objects.Label;
         private _livesLabel: objects.Label;
@@ -67,8 +69,12 @@ module scenes {
 
 
             //instructions
-            this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 40, false);
+            this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 150, false);
             this.addChild(this._instrOne);
+            createjs.Ticker.addEventListener("tick",handleTick);
+            function handleTick(event){
+                
+            }
 
 
             //development buttons
@@ -133,13 +139,6 @@ module scenes {
             core.changeScene();
         }
 
-        private func(): void {
-            if (this._instrOne.isVisible()) {
-                this._instrOne.visible = false;
-            }
-            else
-                this._instrOne.visible = true;
-        }
 
 
     }
