@@ -16,7 +16,10 @@ var scenes;
         function Tutorial() {
             var _this = _super.call(this) || this;
             //private _portal: objects.Portal;
-            _this._time = 5;
+            //timers for intructions
+            _this._time = 20;
+            _this._timeTwo = 50;
+            _this._timeThree = 100;
             return _this;
         }
         Tutorial.prototype._scoreUpdate = function () {
@@ -55,7 +58,8 @@ var scenes;
             //instructions
             this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 150, false);
             this.addChild(this._instrOne);
-            console.log("hild added");
+            this._instrTwo = new objects.Label("USE THE MOUSE TO AIM AND SHOOT", "40px", "monospace", "#FFFF00", 50, 150, false);
+            this._instrThree = new objects.Label("AVOID ENEMIES AND BLAST YOUR \n    WAY TO THE PORTAL ", "40px", "monospace", "#FFFF00", 25, 150, false);
             //development buttons
             this._menuButton = new objects.Button("backButton", 370, 300, true);
             this.addChild(this._menuButton);
@@ -92,6 +96,29 @@ var scenes;
                 core.changeScene();
                 core.lives = 50;
                 core.score = 0;
+            }
+            //TIMER FOR FIRST INTRUCTION
+            if (this._time <= 0) {
+                this.removeChild(this._instrOne);
+            }
+            else {
+                this._time -= 0.1;
+            }
+            //TIMER FOR SECOND INSTRUCTION
+            if (this._timeTwo <= 25)
+                this.addChild(this._instrTwo);
+            if (this._timeTwo <= 1)
+                this.removeChild(this._instrTwo);
+            else {
+                this._timeTwo -= 0.1;
+            }
+            //TIMER FOR THIRD INSTRUCTION
+            if (this._timeThree <= 50)
+                this.addChild(this._instrThree);
+            if (this._timeThree <= 1)
+                this.removeChild(this._instrThree);
+            else {
+                this._timeThree -= 0.1;
             }
         };
         Tutorial.prototype._menuButtonClick = function (event) {

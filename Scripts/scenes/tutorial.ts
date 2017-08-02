@@ -9,13 +9,18 @@ module scenes {
         private _enemy: objects.EnemyShip;
         //private _portal: objects.Portal;
 
-        public _time: number = 5;
+        //timers for intructions
+        private _time: number = 20;
+        private _timeTwo: number = 50;
+        private _timeThree: number = 100;
 
         private _collision: managers.Collision;
         private _scoreLabel: objects.Label;
         private _livesLabel: objects.Label;
         private _instrOne: objects.Label;
         private _instrTwo: objects.Label;
+        private _instrThree: objects.Label;
+
 
         //for development purposes
         private _menuButton: objects.Button;
@@ -71,8 +76,10 @@ module scenes {
             //instructions
             this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 150, false);
             this.addChild(this._instrOne);
-           console.log("hild added");
-           
+            this._instrTwo = new objects.Label("USE THE MOUSE TO AIM AND SHOOT", "40px", "monospace", "#FFFF00", 50, 150, false);
+            this._instrThree = new objects.Label("AVOID ENEMIES AND BLAST YOUR \n    WAY TO THE PORTAL ", "40px", 
+            "monospace", "#FFFF00", 25, 150, false);
+
                 
             
             //development buttons
@@ -118,6 +125,38 @@ module scenes {
                 core.changeScene();
                 core.lives = 50;
                 core.score = 0;
+            }
+
+
+            //TIMER FOR FIRST INTRUCTION
+             if (this._time <= 0) {
+                
+                this.removeChild(this._instrOne);
+            }
+            else {
+                this._time -= 0.1;
+            }
+
+            //TIMER FOR SECOND INSTRUCTION
+              if (this._timeTwo <= 25  ) 
+                this.addChild(this._instrTwo);
+            
+             if(this._timeTwo <= 1 )
+              this.removeChild(this._instrTwo);
+
+            else {
+                this._timeTwo -= 0.1;
+            }
+
+             //TIMER FOR THIRD INSTRUCTION
+              if (this._timeThree <= 50  ) 
+                this.addChild(this._instrThree);
+            
+             if(this._timeThree <= 1 )
+              this.removeChild(this._instrThree);
+
+            else {
+                this._timeThree -= 0.1;
             }
         }
 
