@@ -55,9 +55,7 @@ var scenes;
             //instructions
             this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 150, false);
             this.addChild(this._instrOne);
-            createjs.Ticker.addEventListener("tick", handleTick);
-            function handleTick(event) {
-            }
+            console.log("hild added");
             //development buttons
             this._menuButton = new objects.Button("backButton", 370, 300, true);
             this.addChild(this._menuButton);
