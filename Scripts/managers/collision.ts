@@ -33,7 +33,7 @@ module managers {
                         core.lives -= 1;
                     }
                     //if player collides with newAsteroid
-                    if (other.name === "newAsteroids") {
+                    if (other.name === "newAsteroid") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
                         }
@@ -74,7 +74,7 @@ module managers {
                         core.score += 100;
                     }
                     //if bullet collides with newAsteroids
-                    if (other.name === "newAsteroids") {
+                    if (other.name === "newAsteroid") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
