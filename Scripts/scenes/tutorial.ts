@@ -140,10 +140,8 @@ module scenes {
             //TIMER FOR SECOND INSTRUCTION
               if (this._timeTwo <= 25  ) 
                 this.addChild(this._instrTwo);
-            
              if(this._timeTwo <= 1 )
-              this.removeChild(this._instrTwo);
-
+                this.removeChild(this._instrTwo);
             else {
                 this._timeTwo -= 0.1;
             }
@@ -151,10 +149,8 @@ module scenes {
              //TIMER FOR THIRD INSTRUCTION
               if (this._timeThree <= 50  ) 
                 this.addChild(this._instrThree);
-            
              if(this._timeThree <= 1 )
               this.removeChild(this._instrThree);
-
             else {
                 this._timeThree -= 0.1;
             }
