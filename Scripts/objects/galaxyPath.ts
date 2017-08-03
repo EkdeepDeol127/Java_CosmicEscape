@@ -39,8 +39,8 @@ module objects {
         public update():void {
             this._checkBounds();
             this.galaxyMove();
-            this.regX = this.playerX;
-            this.regY = this.playerY;
+            this.regX = 1000;
+            this.regY = 1000;
         }
 
         public galaxyMove()

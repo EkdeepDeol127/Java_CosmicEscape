@@ -38,8 +38,8 @@ var objects;
         galaxyPath.prototype.update = function () {
             this._checkBounds();
             this.galaxyMove();
-            this.regX = this.playerX;
-            this.regY = this.playerY;
+            this.regX = 1000;
+            this.regY = 1000;
         };
         galaxyPath.prototype.galaxyMove = function () {
             if (core.ifSpawnPath == false) {
