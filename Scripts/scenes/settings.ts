@@ -29,11 +29,11 @@ module scenes {
             //mainMenu button event listener
             this._mainMenu.on("click", this._mainMenuClick, this);
 
-            this._sound = new objects.Button("playButton", 380, 250, true);
+            this._sound = new objects.Button("musicButton", 380, 250, true);
             this.addChild(this._sound);
             this._sound.on("click", this.soundCheck, this);
 
-            this._soundEffect = new objects.Button("playButton", 380, 300, true);
+            this._soundEffect = new objects.Button("soundButton", 380, 300, true);
             this.addChild(this._soundEffect);
             this._soundEffect.on("click", this.soundEffects, this);
 
