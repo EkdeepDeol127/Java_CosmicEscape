@@ -30,7 +30,7 @@ var scenes;
             this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
             this._portalPath = new objects.PortalPath("portal");
-            this._arrow = new objects.arrowPath("player"); //temp sprite
+            this._arrow = new objects.arrowPath("arrow");
             this.addChild(this._arrow);
             this._bullet = new objects.NewBullet("playerBullet");
             this.addChild(this._bullet);

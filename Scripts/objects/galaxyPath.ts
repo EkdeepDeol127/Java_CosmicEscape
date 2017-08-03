@@ -47,7 +47,6 @@ module objects {
         {
             if (core.ifSpawnPath == false)
                 {
-                    console.log(this.x + " " + this.y);
                     this.radians = this.rotation * (Math.PI / 180);
                     this.x -= this.speed * Math.cos(this.radians);
                     this.y -= this.speed * Math.sin(this.radians);
