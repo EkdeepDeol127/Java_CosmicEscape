@@ -56,7 +56,7 @@ var objects;
             this.playerRange();
             this.enemyShipMove();
             if (core.EnemyHit == true) {
-                this.Damage(20);
+                this.Damage(1);
             }
         };
         EnemyShip.prototype.enemtShipDespawn = function () {

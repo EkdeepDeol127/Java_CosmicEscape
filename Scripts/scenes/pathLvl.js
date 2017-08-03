@@ -58,7 +58,7 @@ var scenes;
         };
         pathLevel.prototype.Update = function () {
             var _this = this;
-            this._galaxy.giveData(this._player.rotation, this._player.x, this._player.y);
+            this._galaxy.giveData(this._player.rotation);
             this._galaxy.update();
             this._player.update();
             this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);

@@ -94,7 +94,6 @@ module managers {
                     else {
                         core.thisName = false;
                     }
-
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroids") {
                         if (core.SECheck == true) {

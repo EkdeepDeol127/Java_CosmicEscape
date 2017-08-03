@@ -32,7 +32,10 @@ var objects;
         };
         arrowPath.prototype.checkFollow = function () {
             if (this.numChange < 10) {
-                if (Math.sin(this.playerRot) == Math.sin(this.rotation) || Math.sin(-this.playerRot) == Math.sin(this.rotation)) {
+                if (Math.sin(this.playerRot) == Math.sin(this.rotation) ||
+                    Math.sin(-this.playerRot) == Math.sin(this.rotation) ||
+                    Math.cos(this.playerRot) == Math.cos(this.rotation) ||
+                    Math.cos(-this.playerRot) == Math.cos(this.rotation)) {
                     console.log("following");
                     this.timer -= 0.1;
                 }

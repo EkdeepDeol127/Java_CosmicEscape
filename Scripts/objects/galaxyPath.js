@@ -14,7 +14,6 @@ var objects;
         __extends(galaxyPath, _super);
         function galaxyPath(imageString) {
             var _this = _super.call(this, imageString) || this;
-            _this.speed = 3;
             _this.playerX = 400;
             _this.playerY = 300;
             _this.start();
@@ -44,15 +43,14 @@ var objects;
         };
         galaxyPath.prototype.galaxyMove = function () {
             if (core.ifSpawnPath == false) {
+                console.log(this.x + " " + this.y);
                 this.radians = this.rotation * (Math.PI / 180);
                 this.x -= this.speed * Math.cos(this.radians);
                 this.y -= this.speed * Math.sin(this.radians);
             }
         };
-        galaxyPath.prototype.giveData = function (rot, PX, PY) {
+        galaxyPath.prototype.giveData = function (rot) {
             this.rotation = rot;
-            this.playerX = PX;
-            this.playerY = PY;
         };
         return galaxyPath;
     }(objects.GameObject));

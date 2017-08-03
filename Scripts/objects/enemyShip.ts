@@ -59,7 +59,7 @@ module objects {
             this.enemyShipMove();
             if(core.EnemyHit == true)
                 {
-                    this.Damage(20);
+                    this.Damage(1);
                 }
         }
 
