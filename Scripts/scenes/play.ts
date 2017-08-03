@@ -39,12 +39,9 @@ module scenes {
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
 
-<<<<<<< HEAD
             //add portal
             this._portal = new objects.Portal("player");
 
-=======
->>>>>>> addedFeatures
             //enemy object
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
             this.addChild(this._enemyBullet);
@@ -100,16 +97,10 @@ module scenes {
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
             this._collision.update();
-<<<<<<< HEAD
             if(this._portalSpawn == true)
                 {
                     this._portal.update();
                 }
-=======
-         if (this._portalSpawn == true){
-            this._portal.update();
-         } 
->>>>>>> addedFeatures
 
             //PLAYER COLLISIONS
             this._collision.checkPlayer(this._player, this._enemyShip);

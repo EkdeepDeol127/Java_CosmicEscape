@@ -31,7 +31,9 @@ var scenes;
             //galaxy
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
+            //add portal
             this._portal = new objects.Portal("player");
+            //enemy object
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
             this.addChild(this._enemyBullet);
             this._enemyShip = new objects.EnemyShip("enemyShip");
@@ -77,6 +79,7 @@ var scenes;
             if (this._portalSpawn == true) {
                 this._portal.update();
             }
+            //PLAYER COLLISIONS
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
             this._collision.checkPlayer(this._player, this._portal);
