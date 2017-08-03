@@ -17,26 +17,12 @@ module objects {
         }
 
         // PRIVATE METHODS 
-        /**
-         * Resets the object outside of the viewport
-         * 
-         * @private
-         * @method _reset
-         * @returns {void}
-         */
 
         private _reset():void {
             this.y = 400;
             this.x = 300;
         }
 
-        /**
-         * This method checks if the object has reached its boundaries
-         * 
-         * @private
-         * @method _checkBounds
-         * @returns {void}
-         */
         private _checkBounds():void {
             if(this.y >= 700 || this.x >= 900 || this.y <= -100 || this.x <= -100) {
                 this._reset();
@@ -45,14 +31,6 @@ module objects {
         
         // PUBLIC METHODS 
 
-        /**
-         * This method is used to initialize public properties 
-         * and private instance variables
-         * 
-         * @public 
-         * @method start
-         * @returns {void}
-         */
         public start():void {
             this._reset();
             this.speed = .8; // 5px per frame down
