@@ -15,6 +15,7 @@
 /// <reference path="../objects/asteroid.ts"/>
 /// <reference path="../objects/newAsteroids.ts"/>
 /// <reference path="../objects/enemyShip.ts"/>
+/// <reference path="../objects/arrowPath.ts"/>
 /// <reference path="../objects/portal.ts"/>
 /// <reference path="../managers/collision.ts"/>
 /// <reference path="../scenes/over.ts"/>

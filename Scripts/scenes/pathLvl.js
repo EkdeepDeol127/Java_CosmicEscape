@@ -30,6 +30,8 @@ var scenes;
             //adds background
             this._backgr = new objects.Background("galaxy");
             this.addChild(this._backgr);
+            this._arrow = new objects.arrowPath("player"); //temp sprite
+            this.addChild(this._arrow);
             this._bullet = new objects.NewBullet("playerBullet");
             this.addChild(this._bullet);
             this._player = new objects.NewPlayer("player");
@@ -62,6 +64,7 @@ var scenes;
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
+            this._arrow.update();
             this._collision.update();
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
