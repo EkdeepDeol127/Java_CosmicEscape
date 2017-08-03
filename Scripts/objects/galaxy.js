@@ -25,7 +25,6 @@ var objects;
         Galaxy.prototype._checkBounds = function () {
             if (this.y >= 0 && core.ifSpawn == false) {
                 this._reset();
-                console.log("working");
             }
         };
         Galaxy.prototype.start = function () {

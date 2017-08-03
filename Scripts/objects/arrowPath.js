@@ -15,7 +15,6 @@ var objects;
         function arrowPath(imageString) {
             var _this = _super.call(this, imageString) || this;
             _this.timer = 10;
-            _this.change = false;
             _this.numChange = 0;
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
@@ -33,7 +32,7 @@ var objects;
         };
         arrowPath.prototype.checkFollow = function () {
             if (this.numChange < 10) {
-                if (Math.sin(this.playerRot) == Math.sin(this.rotation)) {
+                if (Math.sin(this.playerRot) == Math.sin(this.rotation) || Math.sin(-this.playerRot) == Math.sin(this.rotation)) {
                     console.log("following");
                     this.timer -= 0.1;
                 }
@@ -48,20 +47,18 @@ var objects;
         };
         arrowPath.prototype.changeArrow = function () {
             if (this.timer <= 0) {
-                this.change = true;
-                this.timer = 10;
-            }
-            if (this.change == true) {
-                this.hold = Math.random();
+                this.hold = Math.round(Math.random());
                 switch (this.hold) {
                     case 0:
-                        this.rotation += (Math.random() * 180) + 90;
+                        console.log("right");
+                        this.rotation += 90;
                         break;
                     case 1:
-                        this.rotation -= (Math.random() * 180) + 90;
+                        console.log("left");
+                        this.rotation -= 90;
                         break;
                 }
-                this.change = false;
+                this.timer = 10;
                 this.numChange++;
             }
         };

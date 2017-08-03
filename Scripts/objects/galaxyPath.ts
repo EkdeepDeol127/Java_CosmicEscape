@@ -2,7 +2,7 @@ module objects {
     
     export class galaxyPath extends objects.GameObject {
 
-        private speed:number;
+        private speed:number = 3;
         private radians: number;
         private playerX: number = 400;
         private playerY: number = 300;

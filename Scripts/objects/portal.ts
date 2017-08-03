@@ -3,9 +3,9 @@ module objects {
 
                 constructor(imageString: string) {
                         super(imageString)
-                        this.start();
                         this.regX = this.width * 0.5;
                         this.regY = this.height * 0.5;
+                        this.start();
                 }
 
                 public start() {

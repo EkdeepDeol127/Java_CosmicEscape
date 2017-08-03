@@ -7,7 +7,6 @@ module objects {
         // CONSTRUCTORS 
         constructor(imageString: string) {
             super(core.assets.getResult(imageString));
-            
             this.start();
         }
 
@@ -19,7 +18,6 @@ module objects {
         private _checkBounds(): void {
             if (this.y >= 0 && core.ifSpawn == false) {
                 this._reset();
-                console.log("working");
             }
         }
 

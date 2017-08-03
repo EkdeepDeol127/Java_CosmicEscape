@@ -91,7 +91,6 @@ module managers {
                         }
                         core.score += 100;
                         core.thisName = true;
-
                     }
                     else {
                         core.thisName = false;

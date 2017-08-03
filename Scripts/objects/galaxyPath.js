@@ -14,6 +14,7 @@ var objects;
         __extends(galaxyPath, _super);
         function galaxyPath(imageString) {
             var _this = _super.call(this, imageString) || this;
+            _this.speed = 3;
             _this.playerX = 400;
             _this.playerY = 300;
             _this.start();

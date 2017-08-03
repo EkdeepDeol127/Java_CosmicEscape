@@ -67,8 +67,11 @@ var scenes;
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
+            this._arrow.giveData(this._player.rotation);
             this._arrow.update();
-            this._portalPath.update();
+            if (this._portalSpawn == true) {
+                this._portalPath.update();
+            }
             this._collision.update();
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
