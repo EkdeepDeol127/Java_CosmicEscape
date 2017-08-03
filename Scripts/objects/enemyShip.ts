@@ -100,7 +100,7 @@ module objects {
 
         public Damage(dam:number)
         {
-            console.log("sheilds: " + this.sheild);
+           // console.log("sheilds: " + this.sheild);
             if(this.sheild > 0)
             {
                 this.sheild -= dam;

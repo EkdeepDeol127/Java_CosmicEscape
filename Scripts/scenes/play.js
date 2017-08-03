@@ -14,7 +14,9 @@ var scenes;
         __extends(Play, _super);
         //creates an instance of Play
         function Play() {
-            return _super.call(this) || this;
+            var _this = _super.call(this) || this;
+            _this._portalSpawn = false;
+            return _this;
         }
         Play.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
@@ -29,6 +31,8 @@ var scenes;
             //galaxy
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
+            //add portal
+            this._portal = new objects.Portal("player");
             //enemy object
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
             this.addChild(this._enemyBullet);
@@ -43,7 +47,9 @@ var scenes;
             this._asteroid = new Array();
             for (var count = 0; count < 4; count++) {
                 this._asteroid.push(new objects.Asteroid("asteroid"));
+                this._asteroid[count].id = count;
                 this.addChild(this._asteroid[count]);
+                console.log(this._asteroid[count]);
             }
             this._collision = new managers.Collision();
             //score label
@@ -68,6 +74,7 @@ var scenes;
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
             this._collision.update();
+            this._portal.update();
             //PLAYER COLLISIONS
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
@@ -80,16 +87,18 @@ var scenes;
                 _this._collision.checkEnemy(_this._bullet, asteroid);
                 asteroid.update();
             });
-            if (core.Time <= 0) {
+            if (core.Time <= 0 && this._portalSpawn == false) {
                 if (core.SCheck == true) {
                     this._sound.stop();
                 }
-                core.Time = 300;
-                core.scene = config.Scene.PATH;
-                core.changeScene();
+                this.addChild(this._portal);
+                this._portalSpawn = true;
+                console.log("ship launched");
             }
             else {
-                core.Time -= 0.1;
+                if (this._portalSpawn == false) {
+                    core.Time -= 0.1;
+                }
             }
             this._updateScoreBoard();
             if (core.lives < 1) {
@@ -98,7 +107,7 @@ var scenes;
                 }
                 core.scene = config.Scene.OVER;
                 core.changeScene();
-                core.lives = 50;
+                core.lives = 100;
                 core.Time = 120;
                 core.score = 0;
             }

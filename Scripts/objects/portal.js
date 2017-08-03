@@ -12,10 +12,27 @@ var objects;
 (function (objects) {
     var Portal = (function (_super) {
         __extends(Portal, _super);
-        //private variables
-        function Portal(imageString, e) {
-            return _super.call(this, imageString) || this;
+        function Portal(imageString) {
+            var _this = _super.call(this, imageString) || this;
+            _this.start();
+            _this.regX = _this.width * 0.5;
+            _this.regY = _this.height * 0.5;
+            return _this;
         }
+        Portal.prototype.start = function () {
+            this.y = -200;
+            this.x = 400;
+        };
+        Portal.prototype.update = function () {
+            this.checkBounds();
+        };
+        Portal.prototype.checkBounds = function () {
+            if (this.y == 300)
+                core.ifSpawn = true;
+            else {
+                this.y += 1;
+            }
+        };
         return Portal;
     }(objects.GameObject));
     objects.Portal = Portal;
