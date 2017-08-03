@@ -6,7 +6,6 @@ var core;
     core.score = 0;
     core.lives = 5000;
     core.Time = 30;
-    core.thisName = false;
     core.ifSpawn = false;
     core.ifSpawnPath = false;
     //scene variables
@@ -23,6 +22,7 @@ var core;
     core.SCheck = true;
     core.SECheck = true;
     core.EnemyHit = false;
+    core.AstHit = false;
     //asset manifest
     var assetData = [
         //images

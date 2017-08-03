@@ -13,7 +13,6 @@ export let stage: createjs.Stage;
 export let score: number = 0;
 export let lives: number = 5000;
 export let Time: number = 30;
-export let thisName: boolean = false;
 export let ifSpawn: boolean = false;
 export let ifSpawnPath: boolean = false;
 
@@ -32,6 +31,7 @@ let gameWon: scenes.gameWon;
 export let SCheck: boolean = true;
 export let SECheck: boolean = true;
 export let EnemyHit: boolean = false;
+export let AstHit: boolean = false;
 
     
     //asset manifest

@@ -80,10 +80,10 @@ module managers {
                             createjs.Sound.play("objHit");
                         }
                         core.score += 100;
-                        core.thisName = true;
+                        core.AstHit = true;
                     }
                     else {
-                        core.thisName = false;
+                        core.AstHit = false;
                     }
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroids") {
