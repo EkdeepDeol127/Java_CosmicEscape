@@ -13,7 +13,7 @@ var objects;
     var galaxyPath = (function (_super) {
         __extends(galaxyPath, _super);
         function galaxyPath(imageString) {
-            var _this = _super.call(this, imageString) || this;
+            var _this = _super.call(this, core.assets.getResult(imageString)) || this;
             _this.playerX = 400;
             _this.playerY = 300;
             _this.start();
@@ -53,7 +53,7 @@ var objects;
             this.rotation = rot;
         };
         return galaxyPath;
-    }(objects.GameObject));
+    }(createjs.Bitmap));
     objects.galaxyPath = galaxyPath;
 })(objects || (objects = {}));
 //# sourceMappingURL=galaxyPath.js.map

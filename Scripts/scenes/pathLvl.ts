@@ -1,7 +1,6 @@
 module scenes {
     export class pathLevel extends objects.Scene {
 
-        private _backgr: objects.Background;
         private _galaxy: objects.galaxyPath;
         private _arrow: objects.arrowPath;
         private _player: objects.NewPlayer;

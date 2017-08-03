@@ -1,6 +1,6 @@
 module objects {
     
-    export class galaxyPath extends objects.GameObject {
+    export class galaxyPath extends createjs.Bitmap {
 
         private speed:number;
         private radians: number;
@@ -8,9 +8,11 @@ module objects {
         private playerY: number = 300;
       
         constructor(imageString: string) {
-            super(imageString);
+            super(core.assets.getResult(imageString));
+
             this.start();
         }
+
 
         // PRIVATE METHODS 
 
