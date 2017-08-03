@@ -43,7 +43,7 @@ export let AstHit: boolean = false;
 { id: "page", src: "../../Assets/images/spritesheet1.png"},
 { id: "mainPage", src: "../../Assets/images/mainMenu.png"},
 { id: "over", src: "../../Assets/images/gameOver.png"},
-{ id: "gameWon", src: "../../Assets/images/gameWon.png"},
+{ id: "gamWon", src: "../../Assets/images/gameWon.png"},
 
 //sounds
 { id: "menuTheme", src: "../../Assets/audio/mainMenu.ogg"},
@@ -51,7 +51,7 @@ export let AstHit: boolean = false;
 { id: "explode", src: "../../Assets/audio/explode.ogg"},
 { id: "gameOver", src: "../../Assets/audio/gameOver.ogg"},
 { id: "gameWon", src: "../../Assets/audio/gameWon.ogg"},
-{ id: "gamOver", src: "../../Assets/audio/gamOver.ogg"}, //other sound option
+{ id: "gaOver", src: "../../Assets/audio/gamOver.ogg"}, //other sound option
 { id: "mainTheme", src: "../../Assets/audio/mainTheme.ogg"},
 { id: "objDest", src: "../../Assets/audio/objDestroyed.ogg"},
 { id: "objHit", src: "../../Assets/audio/objectHit.ogg"},
