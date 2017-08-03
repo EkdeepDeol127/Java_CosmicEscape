@@ -7,7 +7,6 @@ module objects {
         // CONSTRUCTORS 
         constructor(imageString: string) {
             super(core.assets.getResult(imageString));
-
             this.start();
         }
 

@@ -18,7 +18,7 @@ module objects {
         }
 
         public _reset(): void {
-            this.ran = Math.floor((Math.random() * 4) + 1);
+            this.ran = Math.round((Math.random() * 4) + 1);
             switch (this.ran) {
                 case 1://top
                         this.x = (Math.random() * 780) + 20; 

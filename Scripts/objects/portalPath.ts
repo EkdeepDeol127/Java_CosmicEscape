@@ -1,11 +1,11 @@
 module objects {
-        export class Portal extends objects.GameObject {
+        export class PortalPath extends objects.GameObject {
 
                 constructor(imageString: string) {
                         super(imageString)
+                        this.start();
                         this.regX = this.width * 0.5;
                         this.regY = this.height * 0.5;
-                        this.start();
                 }
 
                 public start() {
@@ -19,10 +19,13 @@ module objects {
 
                 public checkBounds() {
                         if (this.y == 300)
-                                core.ifSpawn = true;
-                        else {
+                            {
+                                core.ifSpawnPath = true;
+                            }
+                        else 
+                            {
                                 this.y += 1;
-                        }
+                            }
                 }
         }
 }

@@ -54,6 +54,7 @@ module managers {
                         core.lives -= 5;
                     }
                 }
+                //collistion with portal in play
                 if (other.name === "player") {
                     if (core.SECheck == true) {
                         createjs.Sound.play("hit");
@@ -61,7 +62,15 @@ module managers {
                     console.log("changescene");
                     core.scene = config.Scene.PATH;
                     core.changeScene();
-
+                }
+                //collision with portalPath in PathLevel
+                if (other.name === "player") {
+                    if (core.SECheck == true) {
+                        createjs.Sound.play("hit");
+                    }
+                    console.log("changescene");
+                    core.scene = config.Scene.OVER;//change to win
+                    core.changeScene();
                 }
             }
             else {
@@ -71,7 +80,6 @@ module managers {
 
         public checkEnemy(bullet: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
-
             if ((objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
@@ -82,12 +90,10 @@ module managers {
                         }
                         core.score += 100;
                         core.thisName = true;
-
                     }
                     else {
                         core.thisName = false;
                     }
-
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroids") {
                         if (core.SECheck == true) {

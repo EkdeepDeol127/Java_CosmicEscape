@@ -8,6 +8,8 @@ module scenes {
         private _asteroid: objects.NewAsteroid[];
         private _bullet: objects.NewBullet;
         private _enemyBullet: objects.EnemyBullet;
+        private _portalPath: objects.PortalPath;
+        private _portalSpawn: boolean = false;
 
         private _enemyShip: objects.EnemyShip;
         private _collision: managers.Collision;
@@ -36,6 +38,8 @@ module scenes {
 
             this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
+
+            this._portalPath = new objects.PortalPath("player");
 
             //adds background
             this._backgr = new objects.Background("galaxy");
@@ -82,18 +86,33 @@ module scenes {
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
+            this._arrow.giveData(this._player.rotation);
             this._arrow.update();
+            if(this._portalSpawn == true)
+                {
+                    this._portalPath.update();
+                }
             this._collision.update();
 
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
+            this._collision.checkEnemy(this._bullet, this._enemyShip);
 
             //asteroids update
             this._asteroid.forEach(asteroid => {
                 asteroid.giveData(this._player.x, this._player.y, this._player.rotation);
-                //this._collision.check(this._player, asteroid);
+                this._collision.checkPlayer(this._player, asteroid);
+                this._collision.checkEnemy(this._bullet, asteroid);
                 asteroid.update();
             });
+
+            if (this._portalSpawn == false && this._arrow.numChange == 10) {
+                if (core.SCheck == true) {
+                    this._sound.stop();
+                }
+                this.addChild(this._portalPath);
+                this._portalSpawn = true;
+            }
 
             this._updateScoreBoard();
 
@@ -107,7 +126,5 @@ module scenes {
                 core.score = 0;
             }
         }
-
-
     }
 }

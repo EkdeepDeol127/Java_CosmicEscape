@@ -23,25 +23,25 @@ module objects {
                 {
                     this.x = (Math.random() * 780) + 20; 
                     this.y = -80;
-                    console.log(Math.sin(this.playerRot), Math.sin(-45));
+                    //console.log(Math.sin(this.playerRot), Math.sin(-45));
                 }
             else if(Math.sin(this.playerRot) >= Math.sin(45))//bottom
                 {
                     this.x = (Math.random() * 780) + 20; 
                     this.y = 680;
-                    console.log(Math.sin(this.playerRot), Math.sin(45));
+                    //console.log(Math.sin(this.playerRot), Math.sin(45));
                 }
             else if(Math.cos(this.playerRot) > Math.cos(-45))//right
                 {
                     this.y = (Math.random() * 580) + 20; 
                     this.x = 880;
-                    console.log(Math.sin(this.playerRot), Math.cos(-45));
+                    //console.log(Math.sin(this.playerRot), Math.cos(-45));
                 }
             else if(Math.cos(this.playerRot) < Math.cos(45))//left
                 {
                     this.y = (Math.random() * 580) + 20; 
                     this.x = -80;
-                    console.log(Math.sin(this.playerRot), Math.cos(45));
+                    //console.log(Math.sin(this.playerRot), Math.cos(45));
                 }
 
             this.rotation = Math.atan2(this.playerY - this.y, this.playerX - this.x) * 180 / Math.PI;
@@ -64,6 +64,7 @@ module objects {
         }
 
         public update(): void {
+            this.position = new Vector2(this.x, this.y); //for collision
             this._checkBounds();
             this.asteroidMove();
         }
