@@ -39,7 +39,7 @@ module scenes {
             this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
 
-            this._portalPath = new objects.PortalPath("player");
+            this._portalPath = new objects.PortalPath("portal");
 
             this._arrow = new objects.arrowPath("player");//temp sprite
             this.addChild(this._arrow);

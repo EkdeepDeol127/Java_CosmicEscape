@@ -53,10 +53,8 @@ module scenes {
             this._player = new objects.Player("player");
             this.addChild(this._player);
 
-
             //add portal
               this._portal = new objects.Portal("portal");
-
 
             //asteroid array
             this._asteroid = new Array<objects.Asteroid>();
