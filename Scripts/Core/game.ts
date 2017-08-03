@@ -11,8 +11,8 @@ export let stage: createjs.Stage;
 
 //score and lives variables
 export let score: number = 0;
-export let lives: number = 1000;
-export let Time: number = 120;
+export let lives: number = 5000;
+export let Time: number = 30;
 export let thisName: boolean = false;
 export let ifSpawn: boolean = false;
 export let ifSpawnPath: boolean = false;
@@ -28,6 +28,7 @@ let tutorial: scenes.Tutorial;
 let settings: scenes.Settings;
 let credits: scenes.Credits;
 let path: scenes.pathLevel;
+let gameWon: scenes.gameWon;
 export let SCheck: boolean = true;
 export let SECheck: boolean = true;
 export let EnemyHit: boolean = false;
@@ -108,7 +109,7 @@ createjs.Ticker.on("tick", gameLoop);
 [450,110,111,59,0,500,140], 
 
 //boss
-[14,179,150,118,0,85,240],
+[14,179,150,118,0,0,0],
 //boss destroyed
 [172,179,150,118,0,240,235],
 [327,179,133,119,0,390,235],
@@ -209,6 +210,12 @@ switch (scene) {
                 stage.removeAllChildren();
                 settings = new scenes.Settings();
                 currentScene = settings;
+                break;
+                
+                case config.Scene.GAMEWON:
+                stage.removeAllChildren();
+                gameWon = new scenes.gameWon();
+                currentScene = gameWon;
                 break;
 
 }

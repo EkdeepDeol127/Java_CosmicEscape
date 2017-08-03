@@ -26,3 +26,4 @@
 /// <reference path="../scenes/mainMenu.ts"/>
 /// <reference path="../scenes/settings.ts"/>
 /// <reference path="../scenes/credits.ts"/>
+/// <reference path="../scenes/gameWon.ts"/>

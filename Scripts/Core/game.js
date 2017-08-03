@@ -4,8 +4,8 @@ var core;
     var canvas = document.getElementById("canvas");
     //score and lives variables
     core.score = 0;
-    core.lives = 1000;
-    core.Time = 120;
+    core.lives = 5000;
+    core.Time = 30;
     core.thisName = false;
     core.ifSpawn = false;
     core.ifSpawnPath = false;
@@ -19,6 +19,7 @@ var core;
     var settings;
     var credits;
     var path;
+    var gameWon;
     core.SCheck = true;
     core.SECheck = true;
     core.EnemyHit = false;
@@ -85,7 +86,7 @@ var core;
                 [304, 110, 135, 59, 0, 365, 140],
                 [450, 110, 111, 59, 0, 500, 140],
                 //boss
-                [14, 179, 150, 118, 0, 85, 240],
+                [14, 179, 150, 118, 0, 0, 0],
                 //boss destroyed
                 [172, 179, 150, 118, 0, 240, 235],
                 [327, 179, 133, 119, 0, 390, 235],
@@ -172,6 +173,11 @@ var core;
                 core.stage.removeAllChildren();
                 settings = new scenes.Settings();
                 currentScene = settings;
+                break;
+            case config.Scene.GAMEWON:
+                core.stage.removeAllChildren();
+                gameWon = new scenes.gameWon();
+                currentScene = gameWon;
                 break;
         }
     }

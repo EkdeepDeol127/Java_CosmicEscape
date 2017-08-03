@@ -10,6 +10,7 @@ var config;
         Scene.PATH = 4;
         Scene.SETTINGS = 5;
         Scene.CREDITS = 6;
+        Scene.GAMEWON = 7;
         return Scene;
     }());
     config.Scene = Scene;

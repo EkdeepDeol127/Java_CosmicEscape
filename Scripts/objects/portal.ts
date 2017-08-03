@@ -14,6 +14,7 @@ module objects {
                 }
 
                 public update() {
+                        this.position = new Vector2(this.x, this.y); //for collision
                         this.checkBounds();
                 }
 

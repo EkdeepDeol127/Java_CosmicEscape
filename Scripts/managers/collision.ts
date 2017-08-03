@@ -59,7 +59,6 @@ module managers {
                     if (core.SECheck == true) {
                         createjs.Sound.play("hit");
                     }
-                    console.log("changescene");
                     core.scene = config.Scene.PATH;
                     core.changeScene();
                 }

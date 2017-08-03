@@ -13,6 +13,7 @@ module scenes {
         private _time: number = 20;
         private _timeTwo: number = 50;
         private _timeThree: number = 100;
+        private _timeFour: number = 150;
 
         private _collision: managers.Collision;
         private _scoreLabel: objects.Label;
@@ -47,10 +48,6 @@ module scenes {
             this._backgr = new objects.Galaxy("tutorial");
             this.addChild(this._backgr);
 
-            //portal
-            //this._portal = new objects.Portal("bossBullet");
-            //this.addChild(this._portal);
-
             //player
             this._playerBullet = new objects.Bullet("playerBullet");
             this.addChild(this._playerBullet);
@@ -77,19 +74,17 @@ module scenes {
             this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 150, false);
             this.addChild(this._instrOne);
             this._instrTwo = new objects.Label("USE THE MOUSE TO AIM AND SHOOT", "40px", "monospace", "#FFFF00", 50, 150, false);
-            this._instrThree = new objects.Label(" AVOID ENEMIES AND BLAST YOUR \n    WAY TO THE PORTAL ", "40px", 
+            this._instrThree = new objects.Label(" AVOID ENEMIES AND BLAST YOUR \n       WAY TO THE PORTAL ", "40px", 
             "monospace", "#FFFF00", 25, 150, false);
 
                 
             
             //development buttons
-            this._menuButton = new objects.Button("backButton", 370, 300, true);
-            this.addChild(this._menuButton);
+            this._menuButton = new objects.Button("menuButton", 125, 450, true);
             //startbutton event listener
             this._menuButton.on("click", this._menuButtonClick, this);
-            this._playButton = new objects.Button("playButton", 370, 350, true);
-            this.addChild(this._playButton);
-            //startbutton event listener
+            this._playButton = new objects.Button("playButton", 650, 450, true);
+            //playbutton event listener
             this._playButton.on("click", this._playButtonClick, this);
 
             core.stage.addChild(this);
@@ -154,6 +149,18 @@ module scenes {
             else {
                 this._timeThree -= 0.1;
             }
+ //TIMER FOR BUTTONS INSTRUCTION
+              if (this._timeFour <= 50  ) 
+              {
+           this.addChild(this._playButton);
+            this.addChild(this._menuButton);
+              }
+        else{
+            this._timeFour -=0.1;
+        }
+
+
+
         }
 
         private _menuButtonClick(event: createjs.MouseEvent): void {

@@ -20,6 +20,7 @@ var scenes;
             _this._time = 20;
             _this._timeTwo = 50;
             _this._timeThree = 100;
+            _this._timeFour = 150;
             return _this;
         }
         Tutorial.prototype._scoreUpdate = function () {
@@ -35,9 +36,6 @@ var scenes;
             //background
             this._backgr = new objects.Galaxy("tutorial");
             this.addChild(this._backgr);
-            //portal
-            //this._portal = new objects.Portal("bossBullet");
-            //this.addChild(this._portal);
             //player
             this._playerBullet = new objects.Bullet("playerBullet");
             this.addChild(this._playerBullet);
@@ -59,15 +57,13 @@ var scenes;
             this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 150, false);
             this.addChild(this._instrOne);
             this._instrTwo = new objects.Label("USE THE MOUSE TO AIM AND SHOOT", "40px", "monospace", "#FFFF00", 50, 150, false);
-            this._instrThree = new objects.Label(" AVOID ENEMIES AND BLAST YOUR \n    WAY TO THE PORTAL ", "40px", "monospace", "#FFFF00", 25, 150, false);
+            this._instrThree = new objects.Label(" AVOID ENEMIES AND BLAST YOUR \n       WAY TO THE PORTAL ", "40px", "monospace", "#FFFF00", 25, 150, false);
             //development buttons
-            this._menuButton = new objects.Button("backButton", 370, 300, true);
-            this.addChild(this._menuButton);
+            this._menuButton = new objects.Button("menuButton", 125, 450, true);
             //startbutton event listener
             this._menuButton.on("click", this._menuButtonClick, this);
-            this._playButton = new objects.Button("playButton", 370, 350, true);
-            this.addChild(this._playButton);
-            //startbutton event listener
+            this._playButton = new objects.Button("playButton", 650, 450, true);
+            //playbutton event listener
             this._playButton.on("click", this._playButtonClick, this);
             core.stage.addChild(this);
         };
@@ -119,6 +115,14 @@ var scenes;
                 this.removeChild(this._instrThree);
             else {
                 this._timeThree -= 0.1;
+            }
+            //TIMER FOR BUTTONS INSTRUCTION
+            if (this._timeFour <= 50) {
+                this.addChild(this._playButton);
+                this.addChild(this._menuButton);
+            }
+            else {
+                this._timeFour -= 0.1;
             }
         };
         Tutorial.prototype._menuButtonClick = function (event) {
