@@ -22,7 +22,7 @@ module scenes {
             this._backgr = new objects.Background("galaxy");
             this.addChild(this._backgr);
             //add button
-            this._backButt = new objects.Button("backButton", 370, 200, true);
+            this._backButt = new objects.Button("backButton", 370, 500, true);
             this.addChild(this._backButt);
             this._backButt.on("click", this._buttClick, this);
 
