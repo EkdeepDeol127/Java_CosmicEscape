@@ -41,10 +41,6 @@ module scenes {
 
             this._portalPath = new objects.PortalPath("player");
 
-            //adds background
-            this._backgr = new objects.Background("galaxy");
-            this.addChild(this._backgr);
-
             this._arrow = new objects.arrowPath("player");//temp sprite
             this.addChild(this._arrow);
 
@@ -80,7 +76,7 @@ module scenes {
             this._galaxy.giveData(this._player.rotation);
             this._galaxy.update();
             this._player.update();
-            this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
+            this._bullet.giveData(this._player.rotation, this._player.x, this._player.y);
             this._bullet.update();
             this._enemyShip.giveData(this._player.x, this._player.y);
             this._enemyShip.update();

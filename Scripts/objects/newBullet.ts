@@ -3,10 +3,7 @@
 
         speed: number = 30;
         shoot: boolean = false;
-        MX: number;
-        MY: number;
-        HoldMX: number;
-        HoldMY: number;
+        HoldRot:number;
         playerX: number;
         playerY: number;
         radians: number;
@@ -36,7 +33,7 @@
         public update(): void {
             this._reset();
             this.bulletDespawn();
-            this.bulletMove(this.HoldMX, this.HoldMY);
+            this.bulletMove(this.playerX, this.playerY);
         }
 
         public bulletDespawn(): void {
@@ -50,9 +47,7 @@
         {
             if(this.shoot == false && this.delay == false)
             {
-            this.HoldMX = this.MX;
-            this.HoldMY = this.MY;
-            this.rotation = Math.atan2(this.HoldMY - this.y,this.HoldMX - this.x) * 180 / Math.PI;
+            this.rotation = this.HoldRot;
             this.shoot = true;
             }
             this.delay = false;
@@ -72,12 +67,11 @@
             
         }
 
-        public giveData(SX:any, SY:any, PX:number, PY:number)
+        public giveData(rot: number, PX:number, PY:number)
         {
-            this.MX = SX;
-            this.MY = SY;
             this.playerX = PX;
             this.playerY = PY;
+            this.HoldRot = rot;
         }
     }
 } 

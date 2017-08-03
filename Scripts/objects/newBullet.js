@@ -35,7 +35,7 @@ var objects;
         NewBullet.prototype.update = function () {
             this._reset();
             this.bulletDespawn();
-            this.bulletMove(this.HoldMX, this.HoldMY);
+            this.bulletMove(this.playerX, this.playerY);
         };
         NewBullet.prototype.bulletDespawn = function () {
             if (this.x >= 800 || this.x <= 0 || this.y >= 600 || this.y <= 0) {
@@ -45,9 +45,7 @@ var objects;
         };
         NewBullet.prototype.bulletFire = function () {
             if (this.shoot == false && this.delay == false) {
-                this.HoldMX = this.MX;
-                this.HoldMY = this.MY;
-                this.rotation = Math.atan2(this.HoldMY - this.y, this.HoldMX - this.x) * 180 / Math.PI;
+                this.rotation = this.HoldRot;
                 this.shoot = true;
             }
             this.delay = false;
@@ -61,11 +59,10 @@ var objects;
         };
         NewBullet.prototype.col = function () {
         };
-        NewBullet.prototype.giveData = function (SX, SY, PX, PY) {
-            this.MX = SX;
-            this.MY = SY;
+        NewBullet.prototype.giveData = function (rot, PX, PY) {
             this.playerX = PX;
             this.playerY = PY;
+            this.HoldRot = rot;
         };
         return NewBullet;
     }(objects.GameObject));
