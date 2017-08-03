@@ -86,7 +86,7 @@ var objects;
             }
         };
         EnemyShip.prototype.Damage = function (dam) {
-            console.log("sheilds: " + this.sheild);
+            // console.log("sheilds: " + this.sheild);
             if (this.sheild > 0) {
                 this.sheild -= dam;
             }

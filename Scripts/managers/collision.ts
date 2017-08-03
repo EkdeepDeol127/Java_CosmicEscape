@@ -1,3 +1,4 @@
+
 module managers {
     export class Collision {
 
@@ -54,7 +55,17 @@ module managers {
                         core.lives -= 5;
                     }
                 }
+                if (other.name === "player"){
+                 if (core.SECheck == true) {
+                  createjs.Sound.play("hit");
+                        }
+                console.log("changescene");
+                core.scene = config.Scene.PATH;
+                core.changeScene();
+
+                }
             }
+
             else {
                 other.isColliding = false;
             }
@@ -72,7 +83,14 @@ module managers {
                             createjs.Sound.play("objHit");
                         }
                         core.score += 100;
+                        core.thisName = true;
+                        
                     }
+                    else {
+                            core.thisName = false;
+                    }
+                 
+                        
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroids") {
                         if (core.SECheck == true) {

@@ -59,7 +59,7 @@ var scenes;
             this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 150, false);
             this.addChild(this._instrOne);
             this._instrTwo = new objects.Label("USE THE MOUSE TO AIM AND SHOOT", "40px", "monospace", "#FFFF00", 50, 150, false);
-            this._instrThree = new objects.Label("AVOID ENEMIES AND BLAST YOUR \n    WAY TO THE PORTAL ", "40px", "monospace", "#FFFF00", 25, 150, false);
+            this._instrThree = new objects.Label(" AVOID ENEMIES AND BLAST YOUR \n    WAY TO THE PORTAL ", "40px", "monospace", "#FFFF00", 25, 150, false);
             //development buttons
             this._menuButton = new objects.Button("backButton", 370, 300, true);
             this.addChild(this._menuButton);
@@ -94,7 +94,7 @@ var scenes;
                 }
                 core.scene = config.Scene.OVER;
                 core.changeScene();
-                core.lives = 50;
+                core.lives = 100;
                 core.score = 0;
             }
             //TIMER FOR FIRST INTRUCTION

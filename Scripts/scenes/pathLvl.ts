@@ -98,7 +98,7 @@ module scenes {
                 }
                 core.scene = config.Scene.OVER;
                 core.changeScene();
-                core.lives = 50;
+                core.lives = 100;
                 core.score = 0;
             }
         }

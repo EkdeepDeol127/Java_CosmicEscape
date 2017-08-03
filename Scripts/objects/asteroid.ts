@@ -17,7 +17,7 @@ module objects {
             this.start();
         }
 
-        private _reset(): void {
+        public _reset(): void {
             this.ran = Math.floor((Math.random() * 4) + 1);
             switch (this.ran) {
                 case 1://top
@@ -50,7 +50,7 @@ module objects {
         }
 
         private _checkBounds(): void {
-            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || this.dead == true) {
+            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || core.thisName == true) {
                 this._reset();
             }
         }
