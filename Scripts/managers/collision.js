@@ -56,7 +56,7 @@ var managers;
                     core.changeScene();
                 }
                 //collision with portalPath in PathLevel
-                if (other.name === "player") {
+                if (other.name === "bossShip") {
                     if (core.SECheck == true) {
                         createjs.Sound.play("hit");
                     }
