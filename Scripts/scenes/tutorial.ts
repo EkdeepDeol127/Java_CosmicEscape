@@ -176,7 +176,7 @@ module scenes {
             if (core.SCheck == true) {
                 this._sound.stop();
             }
-            core.scene = config.Scene.PATH;
+            core.scene = config.Scene.PLAY;
             core.changeScene();
         }
 
