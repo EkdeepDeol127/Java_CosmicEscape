@@ -33,6 +33,7 @@ var objects;
             this._reset();
         };
         NewBullet.prototype.update = function () {
+            this.position = new objects.Vector2(this.x, this.y); //for collision
             this._reset();
             this.bulletDespawn();
             this.bulletMove(this.playerX, this.playerY);

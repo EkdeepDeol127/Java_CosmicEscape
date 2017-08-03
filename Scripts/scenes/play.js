@@ -57,7 +57,7 @@ var scenes;
             this.addChild(this._scoreLabel);
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 10, 5, false);
             this.addChild(this._livesLabel);
-            this._TimeLabel = new objects.Label("Lives: " + core.Time, "40px", "monospace", "#FFFF00", 510, 5, false);
+            this._TimeLabel = new objects.Label("Time: " + core.Time, "40px", "monospace", "#FFFF00", 510, 5, false);
             this.addChild(this._TimeLabel);
             console.log("SurviveLEVEL");
             core.stage.addChild(this);

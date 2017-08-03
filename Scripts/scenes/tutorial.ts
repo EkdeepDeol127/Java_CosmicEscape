@@ -56,7 +56,7 @@ module scenes {
 
             //asteroids
             this._asteroid = new Array<objects.Asteroid>();
-            for (let count = 0; count < 1; count++) {
+            for (let count = 0; count < 4; count++) {
                 this._asteroid.push(new objects.Asteroid("asteroid"));
                 this.addChild(this._asteroid[count]);
             }

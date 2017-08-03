@@ -31,6 +31,7 @@
         }
 
         public update(): void {
+            this.position = new Vector2(this.x, this.y); //for collision
             this._reset();
             this.bulletDespawn();
             this.bulletMove(this.playerX, this.playerY);

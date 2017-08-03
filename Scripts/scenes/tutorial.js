@@ -43,7 +43,7 @@ var scenes;
             this.addChild(this._player);
             //asteroids
             this._asteroid = new Array();
-            for (var count = 0; count < 1; count++) {
+            for (var count = 0; count < 4; count++) {
                 this._asteroid.push(new objects.Asteroid("asteroid"));
                 this.addChild(this._asteroid[count]);
             }
