@@ -53,16 +53,16 @@ module managers {
                         }
                         core.lives -= 5;
                     }
-                }
-                if (other.name === "player") {
+                      
+                 if (other.name === "bossShip") {
                     if (core.SECheck == true) {
                         createjs.Sound.play("hit");
                     }
-                    console.log("changescene");
                     core.scene = config.Scene.PATH;
                     core.changeScene();
-
-                }
+                
+                }}
+        
             }
             else {
                 other.isColliding = false;

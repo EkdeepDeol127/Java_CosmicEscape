@@ -24,6 +24,7 @@ var objects;
             this.x = 400;
         };
         Portal.prototype.update = function () {
+            this.position = new objects.Vector2(this.x, this.y); //for collision
             this.checkBounds();
         };
         Portal.prototype.checkBounds = function () {

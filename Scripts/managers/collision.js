@@ -46,14 +46,13 @@ var managers;
                         }
                         core.lives -= 5;
                     }
-                }
-                if (other.name === "player") {
-                    if (core.SECheck == true) {
-                        createjs.Sound.play("hit");
+                    if (other.name === "bossShip") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
+                        core.scene = config.Scene.PATH;
+                        core.changeScene();
                     }
-                    console.log("changescene");
-                    core.scene = config.Scene.PATH;
-                    core.changeScene();
                 }
             }
             else {
