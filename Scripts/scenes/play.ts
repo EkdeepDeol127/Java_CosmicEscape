@@ -39,8 +39,6 @@ module scenes {
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
 
-            //add portal
-            this._portal = new objects.Portal("player");
 
             //enemy object
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
@@ -57,7 +55,7 @@ module scenes {
 
 
             //add portal
-              this._portal = new objects.Portal("bossShip");
+              this._portal = new objects.Portal("portal");
 
 
             //asteroid array

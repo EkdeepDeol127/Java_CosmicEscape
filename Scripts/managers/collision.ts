@@ -55,7 +55,7 @@ module managers {
                     }
                 }
                 //collistion with portal in play
-                if (other.name === "bossShip") {
+                if (other.name === "portal") {
                     if (core.SECheck == true) {
                         createjs.Sound.play("hit");
                     }

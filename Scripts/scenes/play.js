@@ -31,8 +31,6 @@ var scenes;
             //galaxy
             this._galaxy = new objects.Galaxy("galaxy");
             this.addChild(this._galaxy);
-            //add portal
-            this._portal = new objects.Portal("player");
             //enemy object
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
             this.addChild(this._enemyBullet);
@@ -44,7 +42,7 @@ var scenes;
             this._player = new objects.Player("player");
             this.addChild(this._player);
             //add portal
-            this._portal = new objects.Portal("bossShip");
+            this._portal = new objects.Portal("portal");
             //asteroid array
             this._asteroid = new Array();
             for (var count = 0; count < 4; count++) {

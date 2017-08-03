@@ -25,14 +25,14 @@ var scenes;
             this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);
             //add Main Menu button
-            this._mainMenu = new objects.Button("backButton", 380, 200, true);
+            this._mainMenu = new objects.Button("backButton", 380, 250, true);
             this.addChild(this._mainMenu);
             //mainMenu button event listener
             this._mainMenu.on("click", this._mainMenuClick, this);
-            this._sound = new objects.Button("musicButton", 380, 250, true);
+            this._sound = new objects.Button("musicButton", 380, 400, true);
             this.addChild(this._sound);
             this._sound.on("click", this.soundCheck, this);
-            this._soundEffect = new objects.Button("soundButton", 380, 300, true);
+            this._soundEffect = new objects.Button("soundButton", 380, 450, true);
             this.addChild(this._soundEffect);
             this._soundEffect.on("click", this.soundEffects, this);
             //add this scene to GLOBAL scene container
