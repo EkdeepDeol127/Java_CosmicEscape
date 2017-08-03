@@ -27,6 +27,7 @@ let tutorial: scenes.Tutorial;
 let settings: scenes.Settings;
 let credits: scenes.Credits;
 let path: scenes.pathLevel;
+let gameWon: scenes.gameWon;
 export let SCheck: boolean = true;
 export let SECheck: boolean = true;
 export let EnemyHit: boolean = false;
@@ -208,6 +209,12 @@ switch (scene) {
                 stage.removeAllChildren();
                 settings = new scenes.Settings();
                 currentScene = settings;
+                break;
+                
+                case config.Scene.GAMEWON:
+                stage.removeAllChildren();
+                gameWon = new scenes.gameWon();
+                currentScene = gameWon;
                 break;
 
 }

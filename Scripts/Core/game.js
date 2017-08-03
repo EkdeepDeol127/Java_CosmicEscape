@@ -18,6 +18,7 @@ var core;
     var settings;
     var credits;
     var path;
+    var gameWon;
     core.SCheck = true;
     core.SECheck = true;
     core.EnemyHit = false;
@@ -171,6 +172,11 @@ var core;
                 core.stage.removeAllChildren();
                 settings = new scenes.Settings();
                 currentScene = settings;
+                break;
+            case config.Scene.GAMEWON:
+                core.stage.removeAllChildren();
+                gameWon = new scenes.gameWon();
+                currentScene = gameWon;
                 break;
         }
     }

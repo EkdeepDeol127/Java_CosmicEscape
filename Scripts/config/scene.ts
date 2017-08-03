@@ -7,5 +7,6 @@ module config {
         public static PATH: number = 4;
         public static SETTINGS: number = 5;
         public static CREDITS: number = 6;
+        public static GAMEWON: number = 7;
     }
 }
