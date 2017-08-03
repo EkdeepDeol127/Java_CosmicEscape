@@ -39,10 +39,10 @@ var scenes;
             //this._portal = new objects.Portal("bossBullet");
             //this.addChild(this._portal);
             //player
-            this._player = new objects.Player("player");
-            this.addChild(this._player);
             this._playerBullet = new objects.Bullet("playerBullet");
             this.addChild(this._playerBullet);
+            this._player = new objects.Player("player");
+            this.addChild(this._player);
             //asteroids
             this._asteroid = new Array();
             for (var count = 0; count < 1; count++) {

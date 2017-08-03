@@ -80,7 +80,6 @@ module managers {
 
         public checkEnemy(bullet: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
-
             if ((objects.Vector2.distance(bullet.position, other.position) < (bullet.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;

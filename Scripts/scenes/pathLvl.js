@@ -75,10 +75,12 @@ var scenes;
             this._collision.update();
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
+            this._collision.checkEnemy(this._bullet, this._enemyShip);
             //asteroids update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.giveData(_this._player.x, _this._player.y, _this._player.rotation);
-                //this._collision.check(this._player, asteroid);
+                _this._collision.checkPlayer(_this._player, asteroid);
+                _this._collision.checkEnemy(_this._bullet, asteroid);
                 asteroid.update();
             });
             if (this._portalSpawn == false && this._arrow.numChange == 10) {

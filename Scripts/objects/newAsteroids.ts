@@ -64,6 +64,7 @@ module objects {
         }
 
         public update(): void {
+            this.position = new Vector2(this.x, this.y); //for collision
             this._checkBounds();
             this.asteroidMove();
         }

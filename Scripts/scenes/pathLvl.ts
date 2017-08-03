@@ -96,11 +96,13 @@ module scenes {
 
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
+            this._collision.checkEnemy(this._bullet, this._enemyShip);
 
             //asteroids update
             this._asteroid.forEach(asteroid => {
                 asteroid.giveData(this._player.x, this._player.y, this._player.rotation);
-                //this._collision.check(this._player, asteroid);
+                this._collision.checkPlayer(this._player, asteroid);
+                this._collision.checkEnemy(this._bullet, asteroid);
                 asteroid.update();
             });
 
