@@ -3,6 +3,10 @@ module objects {
     export class arrowPath extends objects.GameObject {
 
         public playerRot:number;
+        public timer: number = 10;
+        public change: boolean = false;
+        public hold: number;
+        public numChange: number = 0;
 
         constructor(imageString: string)
         {
@@ -21,26 +25,54 @@ module objects {
 
         public update()
         {
-
+            this.checkFollow();
+            this.changeArrow();
         }
 
         public checkFollow()
         {
-            if(Math.sin(this.playerRot) <= Math.sin(this.rotation))//up
+            if(this.numChange < 10)
                 {
-                    console.log(Math.sin(this.playerRot), Math.sin(this.rotation));
+                    if(Math.sin(this.playerRot) == Math.sin(this.rotation))
+                    {
+                        console.log("following");
+                        this.timer -= 0.1;
+                    }
+                    else
+                    {
+                        this.timer = 10;
+                        console.log("NOT following");
+                    }
                 }
-            else if(Math.sin(this.playerRot) >= Math.sin(this.rotation))//bottom
-                {   
-                    console.log(Math.sin(this.playerRot), Math.sin(this.rotation));
+            else
+                {
+                    this.visible = false;
                 }
-            else if(Math.cos(this.playerRot) > Math.cos(this.rotation))//right
-                {  
-                    console.log(Math.sin(this.playerRot), Math.cos(this.rotation));
+           
+        }
+
+        public changeArrow()
+        {
+            if(this.timer <= 0)
+                {
+                    this.change = true;
+                    this.timer = 10;
                 }
-            else if(Math.cos(this.playerRot) < Math.cos(this.rotation))//left
-                {    
-                    console.log(Math.sin(this.playerRot), Math.cos(this.rotation));
+            if(this.change == true)
+                {
+                    this.hold = Math.random();
+                    switch(this.hold)
+                    {
+                        case 0:
+                        this.rotation += (Math.random() * 180) + 90;
+                        break;
+
+                        case 1:
+                        this.rotation -= (Math.random() * 180) + 90;
+                        break;
+                    }
+                    this.change = false;
+                    this.numChange++;
                 }
         }
 

@@ -93,7 +93,6 @@ var scenes;
                 }
                 this.addChild(this._portal);
                 this._portalSpawn = true;
-                console.log("ship launched");
             }
             else {
                 if (this._portalSpawn == false) {

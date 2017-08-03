@@ -17,6 +17,7 @@
 /// <reference path="../objects/enemyShip.ts"/>
 /// <reference path="../objects/arrowPath.ts"/>
 /// <reference path="../objects/portal.ts"/>
+/// <reference path="../objects/portalPath.ts"/>
 /// <reference path="../managers/collision.ts"/>
 /// <reference path="../scenes/over.ts"/>
 /// <reference path="../scenes/play.ts"/>

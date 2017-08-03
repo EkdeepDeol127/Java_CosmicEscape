@@ -54,6 +54,7 @@ module managers {
                         core.lives -= 5;
                     }
                 }
+                //collistion with portal in play
                 if (other.name === "player") {
                     if (core.SECheck == true) {
                         createjs.Sound.play("hit");
@@ -61,7 +62,15 @@ module managers {
                     console.log("changescene");
                     core.scene = config.Scene.PATH;
                     core.changeScene();
-
+                }
+                //collision with portalPath in PathLevel
+                if (other.name === "player") {
+                    if (core.SECheck == true) {
+                        createjs.Sound.play("hit");
+                    }
+                    console.log("changescene");
+                    core.scene = config.Scene.OVER;//change to win
+                    core.changeScene();
                 }
             }
             else {

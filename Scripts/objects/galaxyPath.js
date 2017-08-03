@@ -13,68 +13,48 @@ var objects;
     var galaxyPath = (function (_super) {
         __extends(galaxyPath, _super);
         function galaxyPath(imageString) {
-            var _this = _super.call(this, core.assets.getResult(imageString)) || this;
-            _this.width = 800;
-            _this.height = 1422;
-            _this.x = 400;
-            _this.y = 300;
-            _this.regX = _this.width * 0.5;
-            _this.regY = _this.height * 0.5;
+            var _this = _super.call(this, imageString) || this;
+            _this.playerX = 400;
+            _this.playerY = 300;
             _this.start();
             return _this;
         }
         // PRIVATE METHODS 
-        /**
-         * Resets the object outside of the viewport
-         *
-         * @private
-         * @method _reset
-         * @returns {void}
-         */
         galaxyPath.prototype._reset = function () {
             this.y = 400;
             this.x = 300;
         };
-        /**
-         * This method checks if the object has reached its boundaries
-         *
-         * @private
-         * @method _checkBounds
-         * @returns {void}
-         */
         galaxyPath.prototype._checkBounds = function () {
-            if (this.y >= 700 || this.x >= 900 || this.y <= -100 || this.x <= -100) {
+            if (this.y >= 700 || this.x >= 900 || this.y <= -100 || this.x <= -100 && core.ifSpawnPath == false) {
                 this._reset();
             }
         };
         // PUBLIC METHODS 
-        /**
-         * This method is used to initialize public properties
-         * and private instance variables
-         *
-         * @public
-         * @method start
-         * @returns {void}
-         */
         galaxyPath.prototype.start = function () {
             this._reset();
             this.speed = .8; // 5px per frame down
         };
         // This method updates the object's properties every time it's called
         galaxyPath.prototype.update = function () {
-            //this._checkBounds();
+            this._checkBounds();
             this.galaxyMove();
+            this.regX = this.playerX;
+            this.regY = this.playerY;
         };
         galaxyPath.prototype.galaxyMove = function () {
-            this.radians = this.rotation * (Math.PI / 180);
-            this.x -= this.speed * Math.cos(this.radians);
-            this.y -= this.speed * Math.sin(this.radians);
+            if (core.ifSpawnPath == false) {
+                this.radians = this.rotation * (Math.PI / 180);
+                this.x -= this.speed * Math.cos(this.radians);
+                this.y -= this.speed * Math.sin(this.radians);
+            }
         };
-        galaxyPath.prototype.giveData = function (rot) {
+        galaxyPath.prototype.giveData = function (rot, PX, PY) {
             this.rotation = rot;
+            this.playerX = PX;
+            this.playerY = PY;
         };
         return galaxyPath;
-    }(createjs.Bitmap));
+    }(objects.GameObject));
     objects.galaxyPath = galaxyPath;
 })(objects || (objects = {}));
 //# sourceMappingURL=galaxyPath.js.map

@@ -40,7 +40,7 @@ module scenes {
             this.addChild(this._galaxy);
 
             //add portal
-              this._portal = new objects.Portal("player");
+            this._portal = new objects.Portal("player");
 
             //enemy object
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
@@ -62,7 +62,7 @@ module scenes {
                 this._asteroid[count].id = count;
                 this.addChild(this._asteroid[count]);
                 console.log(this._asteroid[count]);
-        
+
             }
 
             this._collision = new managers.Collision();
@@ -92,7 +92,7 @@ module scenes {
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
             this._collision.update();
-          this._portal.update();
+            this._portal.update();
 
             //PLAYER COLLISIONS
             this._collision.checkPlayer(this._player, this._enemyShip);
@@ -109,20 +109,17 @@ module scenes {
                 asteroid.update();
             });
 
-            if (core.Time <= 0 && this._portalSpawn==false) {
+            if (core.Time <= 0 && this._portalSpawn == false) {
                 if (core.SCheck == true) {
                     this._sound.stop();
                 }
-                  
-                    this.addChild(this._portal);
-                   this._portalSpawn = true;
-                    console.log("ship launched");
+                this.addChild(this._portal);
+                this._portalSpawn = true;
             }
             else {
-                if(this._portalSpawn==false){
+                if (this._portalSpawn == false) {
                     core.Time -= 0.1;
                 }
-
             }
 
             this._updateScoreBoard();
@@ -136,7 +133,7 @@ module scenes {
                 core.lives = 100;
                 core.Time = 120;
                 core.score = 0;
-                
+
             }
         }
 

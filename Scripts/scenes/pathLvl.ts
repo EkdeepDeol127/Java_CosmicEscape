@@ -8,6 +8,8 @@ module scenes {
         private _asteroid: objects.NewAsteroid[];
         private _bullet: objects.NewBullet;
         private _enemyBullet: objects.EnemyBullet;
+        private _portalPath: objects.PortalPath;
+        private _portalSpawn: boolean = false;
 
         private _enemyShip: objects.EnemyShip;
         private _collision: managers.Collision;
@@ -36,6 +38,8 @@ module scenes {
 
             this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
+
+            this._portalPath = new objects.PortalPath("player");
 
             //adds background
             this._backgr = new objects.Background("galaxy");
@@ -73,7 +77,7 @@ module scenes {
         }
 
         public Update() {
-            this._galaxy.giveData(this._player.rotation);
+            this._galaxy.giveData(this._player.rotation, this._player.x, this._player.y);
             this._galaxy.update();
             this._player.update();
             this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
@@ -83,6 +87,7 @@ module scenes {
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
             this._arrow.update();
+            this._portalPath.update();
             this._collision.update();
 
             this._collision.checkPlayer(this._player, this._enemyShip);
@@ -94,6 +99,14 @@ module scenes {
                 //this._collision.check(this._player, asteroid);
                 asteroid.update();
             });
+
+            if (this._portalSpawn == false && this._arrow.numChange == 10) {
+                if (core.SCheck == true) {
+                    this._sound.stop();
+                }
+                this.addChild(this._portalPath);
+                this._portalSpawn = true;
+            }
 
             this._updateScoreBoard();
 

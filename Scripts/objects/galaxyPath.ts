@@ -1,18 +1,14 @@
 module objects {
     
-    export class galaxyPath extends createjs.Bitmap {
+    export class galaxyPath extends objects.GameObject {
 
         private speed:number;
-        private width: number = 800;
-        private height: number = 1422;
         private radians: number;
+        private playerX: number = 400;
+        private playerY: number = 300;
       
         constructor(imageString: string) {
-            super(core.assets.getResult(imageString));
-            this.x = 400;
-            this.y = 300;
-            this.regX = this.width * 0.5;
-            this.regY = this.height * 0.5;
+            super(imageString);
             this.start();
         }
 
@@ -24,7 +20,7 @@ module objects {
         }
 
         private _checkBounds():void {
-            if(this.y >= 700 || this.x >= 900 || this.y <= -100 || this.x <= -100) {
+            if(this.y >= 700 || this.x >= 900 || this.y <= -100 || this.x <= -100 && core.ifSpawnPath == false) {
                 this._reset();
             }
         }
@@ -39,20 +35,27 @@ module objects {
         // This method updates the object's properties every time it's called
      
         public update():void {
-            //this._checkBounds();
+            this._checkBounds();
             this.galaxyMove();
+            this.regX = this.playerX;
+            this.regY = this.playerY;
         }
 
         public galaxyMove()
         {
-            this.radians = this.rotation * (Math.PI / 180);
-            this.x -= this.speed * Math.cos(this.radians);
-            this.y -= this.speed * Math.sin(this.radians);
+            if (core.ifSpawnPath == false)
+                {
+                    this.radians = this.rotation * (Math.PI / 180);
+                    this.x -= this.speed * Math.cos(this.radians);
+                    this.y -= this.speed * Math.sin(this.radians);
+                }
         }
 
-        public giveData(rot: number)
+        public giveData(rot: number, PX: number, PY: number)
         {
             this.rotation = rot;
+            this.playerX = PX;
+            this.playerY = PY;
         }
     }
 }

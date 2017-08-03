@@ -14,6 +14,9 @@ var objects;
         __extends(arrowPath, _super);
         function arrowPath(imageString) {
             var _this = _super.call(this, imageString) || this;
+            _this.timer = 10;
+            _this.change = false;
+            _this.numChange = 0;
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
             _this.start();
@@ -25,19 +28,41 @@ var objects;
             this.rotation = -90;
         };
         arrowPath.prototype.update = function () {
+            this.checkFollow();
+            this.changeArrow();
         };
         arrowPath.prototype.checkFollow = function () {
-            if (Math.sin(this.playerRot) <= Math.sin(this.rotation)) {
-                console.log(Math.sin(this.playerRot), Math.sin(this.rotation));
+            if (this.numChange < 10) {
+                if (Math.sin(this.playerRot) == Math.sin(this.rotation)) {
+                    console.log("following");
+                    this.timer -= 0.1;
+                }
+                else {
+                    this.timer = 10;
+                    console.log("NOT following");
+                }
             }
-            else if (Math.sin(this.playerRot) >= Math.sin(this.rotation)) {
-                console.log(Math.sin(this.playerRot), Math.sin(this.rotation));
+            else {
+                this.visible = false;
             }
-            else if (Math.cos(this.playerRot) > Math.cos(this.rotation)) {
-                console.log(Math.sin(this.playerRot), Math.cos(this.rotation));
+        };
+        arrowPath.prototype.changeArrow = function () {
+            if (this.timer <= 0) {
+                this.change = true;
+                this.timer = 10;
             }
-            else if (Math.cos(this.playerRot) < Math.cos(this.rotation)) {
-                console.log(Math.sin(this.playerRot), Math.cos(this.rotation));
+            if (this.change == true) {
+                this.hold = Math.random();
+                switch (this.hold) {
+                    case 0:
+                        this.rotation += (Math.random() * 180) + 90;
+                        break;
+                    case 1:
+                        this.rotation -= (Math.random() * 180) + 90;
+                        break;
+                }
+                this.change = false;
+                this.numChange++;
             }
         };
         arrowPath.prototype.giveData = function (rot) {
