@@ -19,25 +19,25 @@ module objects {
         }
 
         private _reset(): void {
-            if(Math.sin(this.playerRot) <= Math.sin(-45))//up
+            if(Math.sin(this.playerRot) <= Math.sin(45))//up
                 {
                     this.x = (Math.random() * 780) + 20; 
                     this.y = -80;
                     //console.log(Math.sin(this.playerRot), Math.sin(-45));
                 }
-            else if(Math.sin(this.playerRot) >= Math.sin(45))//bottom
+            else if(Math.sin(this.playerRot) >= Math.sin(225))//bottom
                 {
                     this.x = (Math.random() * 780) + 20; 
                     this.y = 680;
                     //console.log(Math.sin(this.playerRot), Math.sin(45));
                 }
-            else if(Math.cos(this.playerRot) > Math.cos(-45))//right
+            else if(Math.cos(this.playerRot) > Math.cos(45))//right
                 {
                     this.y = (Math.random() * 580) + 20; 
                     this.x = 880;
                     //console.log(Math.sin(this.playerRot), Math.cos(-45));
                 }
-            else if(Math.cos(this.playerRot) < Math.cos(45))//left
+            else if(Math.cos(this.playerRot) < Math.cos(135))//left
                 {
                     this.y = (Math.random() * 580) + 20; 
                     this.x = -80;
@@ -54,7 +54,7 @@ module objects {
         }
 
         private _checkBounds(): void {
-            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || this.dead == true) {
+            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || core.newAstHit == true) {
                 this._reset();
             }
         }
@@ -73,11 +73,6 @@ module objects {
             this.playerX = PX;
             this.playerY = PY;
             this.playerRot = rot;
-        }
-
-        public col()
-        {
-            
         }
     }
 }

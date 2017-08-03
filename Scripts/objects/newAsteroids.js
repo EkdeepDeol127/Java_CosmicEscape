@@ -23,22 +23,22 @@ var objects;
             return _this;
         }
         NewAsteroid.prototype._reset = function () {
-            if (Math.sin(this.playerRot) <= Math.sin(-45)) {
+            if (Math.sin(this.playerRot) <= Math.sin(45)) {
                 this.x = (Math.random() * 780) + 20;
                 this.y = -80;
                 //console.log(Math.sin(this.playerRot), Math.sin(-45));
             }
-            else if (Math.sin(this.playerRot) >= Math.sin(45)) {
+            else if (Math.sin(this.playerRot) >= Math.sin(225)) {
                 this.x = (Math.random() * 780) + 20;
                 this.y = 680;
                 //console.log(Math.sin(this.playerRot), Math.sin(45));
             }
-            else if (Math.cos(this.playerRot) > Math.cos(-45)) {
+            else if (Math.cos(this.playerRot) > Math.cos(45)) {
                 this.y = (Math.random() * 580) + 20;
                 this.x = 880;
                 //console.log(Math.sin(this.playerRot), Math.cos(-45));
             }
-            else if (Math.cos(this.playerRot) < Math.cos(45)) {
+            else if (Math.cos(this.playerRot) < Math.cos(135)) {
                 this.y = (Math.random() * 580) + 20;
                 this.x = -80;
                 //console.log(Math.sin(this.playerRot), Math.cos(45));
@@ -51,7 +51,7 @@ var objects;
             this.y += this.speed * Math.sin(this.radians);
         };
         NewAsteroid.prototype._checkBounds = function () {
-            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || this.dead == true) {
+            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || core.newAstHit == true) {
                 this._reset();
             }
         };
@@ -67,8 +67,6 @@ var objects;
             this.playerX = PX;
             this.playerY = PY;
             this.playerRot = rot;
-        };
-        NewAsteroid.prototype.col = function () {
         };
         return NewAsteroid;
     }(objects.GameObject));

@@ -32,6 +32,7 @@ export let SCheck: boolean = true;
 export let SECheck: boolean = true;
 export let EnemyHit: boolean = false;
 export let AstHit: boolean = false;
+export let newAstHit: boolean = false;
 
     
     //asset manifest

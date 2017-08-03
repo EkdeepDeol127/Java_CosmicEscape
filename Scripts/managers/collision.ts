@@ -99,6 +99,10 @@ module managers {
                             createjs.Sound.play("objHit");
                         }
                         core.score += 100;
+                        core.newAstHit = true;
+                    }
+                    else {
+                        core.newAstHit = false;
                     }
                     //if bullet collides with enemyShip
                     if (other.name === "enemyShip") {

@@ -55,7 +55,7 @@ var scenes;
         };
         pathLevel.prototype.Update = function () {
             var _this = this;
-            this._galaxy.giveData(this._player.rotation);
+            this._galaxy.giveData(this._player.rotation, this._portalSpawn);
             this._galaxy.update();
             this._player.update();
             this._bullet.giveData(this._player.rotation, this._player.x, this._player.y);

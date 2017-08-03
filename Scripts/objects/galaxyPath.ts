@@ -53,9 +53,12 @@ module objects {
                 }
         }
 
-        public giveData(rot: number)
+        public giveData(rot: number, checkSpawn: boolean)
         {
-            this.rotation = rot;
+             if (checkSpawn == false)
+                {
+                    this.rotation = rot;
+                }
         }
     }
 }

@@ -23,6 +23,7 @@ var core;
     core.SECheck = true;
     core.EnemyHit = false;
     core.AstHit = false;
+    core.newAstHit = false;
     //asset manifest
     var assetData = [
         //images

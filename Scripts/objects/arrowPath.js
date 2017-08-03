@@ -39,10 +39,6 @@ var objects;
                     console.log("following");
                     this.timer -= 0.1;
                 }
-                else {
-                    this.timer = 10;
-                    console.log("NOT following");
-                }
             }
             else {
                 this.visible = false;

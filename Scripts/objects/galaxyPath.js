@@ -48,8 +48,10 @@ var objects;
                 this.y -= this.speed * Math.sin(this.radians);
             }
         };
-        galaxyPath.prototype.giveData = function (rot) {
-            this.rotation = rot;
+        galaxyPath.prototype.giveData = function (rot, checkSpawn) {
+            if (checkSpawn == false) {
+                this.rotation = rot;
+            }
         };
         return galaxyPath;
     }(createjs.Bitmap));
