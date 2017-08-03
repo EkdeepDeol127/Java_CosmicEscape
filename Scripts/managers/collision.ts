@@ -62,6 +62,14 @@ module managers {
                     core.scene = config.Scene.PATH;
                     core.changeScene();
                 }
+
+                if (other.name === "portalPath") {
+                    if (core.SECheck == true) {
+                        createjs.Sound.play("hit");
+                    }
+                    core.scene = config.Scene.GAMEWON;
+                    core.changeScene();
+                }
            
             }
             else {
@@ -92,7 +100,7 @@ module managers {
                         }
                         core.score += 100;
                     }
-                    // if bullet collides with enemyShip
+                    //if bullet collides with enemyShip
                     if (other.name === "enemyShip") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");

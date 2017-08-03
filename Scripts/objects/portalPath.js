@@ -24,6 +24,7 @@ var objects;
             this.x = 400;
         };
         PortalPath.prototype.update = function () {
+            this.position = new objects.Vector2(this.x, this.y);
             this.checkBounds();
         };
         PortalPath.prototype.checkBounds = function () {
