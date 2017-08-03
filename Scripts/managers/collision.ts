@@ -22,7 +22,6 @@ module managers {
 
         public checkPlayer(player: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
-
             if ((objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
@@ -55,17 +54,16 @@ module managers {
                         core.lives -= 5;
                     }
                 }
-                if (other.name === "player"){
-                 if (core.SECheck == true) {
-                  createjs.Sound.play("hit");
-                        }
-                console.log("changescene");
-                core.scene = config.Scene.PATH;
-                core.changeScene();
+                if (other.name === "player") {
+                    if (core.SECheck == true) {
+                        createjs.Sound.play("hit");
+                    }
+                    console.log("changescene");
+                    core.scene = config.Scene.PATH;
+                    core.changeScene();
 
                 }
             }
-
             else {
                 other.isColliding = false;
             }
@@ -84,13 +82,12 @@ module managers {
                         }
                         core.score += 100;
                         core.thisName = true;
-                        
+
                     }
                     else {
-                            core.thisName = false;
+                        core.thisName = false;
                     }
-                 
-                        
+
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroids") {
                         if (core.SECheck == true) {
