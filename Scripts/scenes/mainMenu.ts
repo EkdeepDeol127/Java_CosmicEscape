@@ -51,13 +51,12 @@ module scenes {
             //startbutton event listener
             this._creditsButton.on("click", this._credButtonClick, this);
 
-/*
             //add development buttin
             this._pathButton = new objects.Button("againButton", 150, 450, true);
             this.addChild(this._pathButton);
             //path button listener
             this._pathButton.on("click", this._pathButtonClick, this);
-*/
+
             //add this scene to GLOBAL scene container
             core.stage.addChild(this);
         }
