@@ -61,10 +61,10 @@ module scenes {
 
             this._collision = new managers.Collision();
 
-            this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "Dock51", "#FFFF00", 350, 5, false);
+            this._scoreLabel = new objects.Label("Score: " + core.score, "50px", "monospace", "#F3B600", 350, 5, false);
             this.addChild(this._scoreLabel);
 
-            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Dock51", "#FFFF00", 10, 5, false);
+            this._livesLabel = new objects.Label("Lives: " + core.lives, "50px", "monospace", "#F3B600", 10, 5, false);
             this.addChild(this._livesLabel);
 
             console.log("PATHLEVEL");

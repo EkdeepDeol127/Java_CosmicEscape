@@ -140,7 +140,7 @@ namespace core {
                 [746, 506, 139, 129, 0, 0, 0],
 
                 //arrow
-                [12, 650, 75, 60, 0, 0, 0],
+                [12, 650, 77, 62, 0, 0, 0],
                 [95, 650, 75, 60, 0, 0, 0]
 
 
@@ -190,7 +190,7 @@ namespace core {
         };
 
         textureAtlas = new createjs.SpriteSheet(atlasData);
-        scene = config.Scene.GAMEWON;
+        scene = config.Scene.PATH;
         changeScene();
 
     }

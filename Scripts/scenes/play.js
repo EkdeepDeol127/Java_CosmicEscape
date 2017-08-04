@@ -55,11 +55,11 @@ var scenes;
             }
             this._collision = new managers.Collision();
             //score label
-            this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
+            this._scoreLabel = new objects.Label("Score: " + core.score, "50px", "monospace", "#F3B600", 260, 5, false);
             this.addChild(this._scoreLabel);
-            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#FFFF00", 10, 5, false);
+            this._livesLabel = new objects.Label("Lives: " + core.lives, "50px", "monospace", "#F3B600", 10, 5, false);
             this.addChild(this._livesLabel);
-            this._TimeLabel = new objects.Label("Time: " + core.Time, "40px", "monospace", "#FFFF00", 510, 5, false);
+            this._TimeLabel = new objects.Label("Time: " + core.Time, "50px", "monospace", "#F3B600", 510, 5, false);
             this.addChild(this._TimeLabel);
             console.log("SurviveLEVEL");
             core.stage.addChild(this);

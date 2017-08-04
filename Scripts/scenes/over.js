@@ -25,15 +25,15 @@ var scenes;
             this._backgr = new objects.Background("uiBackgr");
             this.addChild(this._backgr);
             //label
-            this._label = new objects.Label("OH NO!! \n YOU'VE LOST!!", "76px", "georgia", "#F3B600", 400, 250, false);
+            this._label = new objects.Label("OH NO!! \n YOU'VE LOST!!", "76px", "georgia", "#F3B600", 15, 160, false);
             this.addChild(this._label);
             //add Main Menu button
-            this._mainMenu = new objects.Button("backButton", 380, 200, true);
+            this._mainMenu = new objects.Button("menuButton", 370, 350, true);
             this.addChild(this._mainMenu);
             //mainMenu button event listener
             this._mainMenu.on("click", this._mainMenuClick, this);
             //play again button
-            this._playAgain = new objects.Button("againButton", 380, 300, true);
+            this._playAgain = new objects.Button("againButton", 370, 450, true);
             this.addChild(this._playAgain);
             this._playAgain.on("click", this._playAgainClick, this);
             //add this scene to GLOBAL scene container

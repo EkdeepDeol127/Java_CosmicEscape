@@ -113,7 +113,7 @@ var core;
                 [601, 499, 135, 131, 0, 0, 0],
                 [746, 506, 139, 129, 0, 0, 0],
                 //arrow
-                [12, 650, 75, 60, 0, 0, 0],
+                [12, 650, 77, 62, 0, 0, 0],
                 [95, 650, 75, 60, 0, 0, 0]
             ],
             "animations": {
@@ -157,7 +157,7 @@ var core;
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);
-        core.scene = config.Scene.GAMEWON;
+        core.scene = config.Scene.PATH;
         changeScene();
     }
     function gameLoop(event) {
