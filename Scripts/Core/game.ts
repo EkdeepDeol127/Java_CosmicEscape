@@ -159,6 +159,10 @@ namespace core {
                     "frames": [7, 8, 9],
                     "speed": 0.3
                 },
+                "newAsteroid": {
+                    "frames": [7, 8, 9],
+                    "speed": 0.3
+                },
                 "astDest": { "frames": [10, 11] },
                 "bossBullet": { "frames": [12] },
                 "playerBullet": { "frames": [13] },

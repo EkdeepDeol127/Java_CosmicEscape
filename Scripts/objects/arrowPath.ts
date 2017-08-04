@@ -26,7 +26,7 @@ module objects {
         }
 
         public checkFollow() {
-            if (this.numChange < 10) {
+            if (this.numChange < 3) {
                 if (Math.sin(this.playerRot) == Math.sin(this.rotation) || 
                     Math.sin(-this.playerRot) == Math.sin(this.rotation) || 
                     Math.cos(this.playerRot) == Math.cos(this.rotation) || 

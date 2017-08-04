@@ -88,6 +88,7 @@ animations: [start, end, "nxt", speed]
     "backButton": { "frames": [5] },
     "againButton": { "frames": [6] },
     "asteroid": {"frames": [7,8,9]},
+    "newAsteroid": {"frames": [7,8,9]},
     "astDest": {"frames": [10,11]},
     "bossBullet": {"frames":[12]},
     "playerBullet": {"frames": [13]},

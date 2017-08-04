@@ -55,7 +55,7 @@ module scenes {
 
             this._asteroid = new Array<objects.NewAsteroid>();
             for (let count = 0; count < 2; count++) {
-                this._asteroid.push(new objects.NewAsteroid("asteroid"));
+                this._asteroid.push(new objects.NewAsteroid("newAsteroid"));
                 this.addChild(this._asteroid[count]);
             }
 
@@ -103,7 +103,7 @@ module scenes {
                 asteroid.update();
             });
 
-            if (this._portalSpawn == false && this._arrow.numChange == 10) {
+            if (this._portalSpawn == false && this._arrow.numChange == 3) {
                 if (core.SCheck == true) {
                     this._sound.stop();
                 }

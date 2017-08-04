@@ -6,7 +6,7 @@ module objects {
         private playerX: number;
         private playerY: number;
         private playerRot: number;
-        private speed: number = 5;
+        private speed: number = 2;
         private radians: number;
 
         constructor(imageString: string) {

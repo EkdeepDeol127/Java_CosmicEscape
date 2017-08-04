@@ -14,7 +14,7 @@ var objects;
         __extends(NewAsteroid, _super);
         function NewAsteroid(imageString) {
             var _this = _super.call(this, imageString) || this;
-            _this.speed = 5;
+            _this.speed = 2;
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
             _this.playerX = 400; //temp
