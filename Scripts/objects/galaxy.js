@@ -21,6 +21,7 @@ var objects;
         // PRIVATE METHODS 
         Galaxy.prototype._reset = function () {
             this.y = -700;
+            // this.x = 0;
         };
         Galaxy.prototype._checkBounds = function () {
             if (this.y >= 0 && core.ifSpawn == false) {
@@ -29,7 +30,7 @@ var objects;
         };
         Galaxy.prototype.start = function () {
             this._reset();
-            this._dy = .8; // 5px per frame down
+            this._dy = .4; // 5px per frame down
         };
         // This method updates the object's properties every time it's called
         Galaxy.prototype.update = function () {

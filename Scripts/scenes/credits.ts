@@ -28,7 +28,7 @@ module scenes {
             this._text2 = new objects.Label("Ekdeep Deol............Software Engineer", "25px", "monospace", "#FFFF00", 120, 450, false);
             this.addChild(this._text2);
             //add button
-            this._backButt = new objects.Button("backButton", 370, 500, true);
+            this._backButt = new objects.Button("backButton", 360, 480, true);
             this.addChild(this._backButt);
             this._backButt.on("click", this._buttClick, this);
 

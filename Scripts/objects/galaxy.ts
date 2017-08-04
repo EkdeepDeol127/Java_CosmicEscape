@@ -13,6 +13,7 @@ module objects {
         // PRIVATE METHODS 
         private _reset(): void {
             this.y = -700;
+           // this.x = 0;
         }
 
         private _checkBounds(): void {
@@ -23,7 +24,7 @@ module objects {
 
         public start(): void {
             this._reset();
-            this._dy = .8; // 5px per frame down
+            this._dy = .4; // 5px per frame down
         }
 
         // This method updates the object's properties every time it's called

@@ -36,7 +36,9 @@ module scenes {
             }
 
             //galaxy
-            this._galaxy = new objects.Galaxy("galaxy");
+            this._galaxy = new objects.Galaxy("wormhole");
+            this._galaxy.y = -300;
+            this._galaxy.x = -100;
             this.addChild(this._galaxy);
 
 

@@ -5,7 +5,7 @@ var core;
     //score and lives variables
     core.score = 0;
     core.lives = 100;
-    core.Time = 120;
+    core.Time = 100;
     core.ifSpawn = false;
     core.ifSpawnPath = false;
     //scene variables
@@ -28,11 +28,11 @@ var core;
     var assetData = [
         //images
         { id: "galaxy", src: "../../Assets/images/lvlBackgr.png" },
+        { id: "wormhole", src: "../../Assets/images/wormhole.png" },
         { id: "tutorial", src: "../../Assets/images/tutBackgr.png" },
         { id: "page", src: "../../Assets/images/spritesheet1.png" },
         { id: "mainPage", src: "../../Assets/images/mainMenu.png" },
-        { id: "over", src: "../../Assets/images/gameOver.png" },
-        { id: "gamWon", src: "../../Assets/images/gameWon.png" },
+        { id: "uiBackgr", src: "../../Assets/images/uiBackgr.png" },
         //sounds
         { id: "menuTheme", src: "../../Assets/audio/mainMenu.ogg" },
         { id: "bossTheme", src: "../../Assets/audio/bossTheme.ogg" },
@@ -153,11 +153,11 @@ var core;
                     "frames": [32, 33, 34, 35, 36, 37],
                     "speed": 0.2
                 },
-                "arrow": { "frames": [38, 39] }
+                "arrow": { "frames": [38] }
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);
-        core.scene = config.Scene.MENU;
+        core.scene = config.Scene.GAMEWON;
         changeScene();
     }
     function gameLoop(event) {

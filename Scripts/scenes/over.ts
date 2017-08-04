@@ -5,6 +5,8 @@ module scenes {
         private _playAgain: objects.Button;
         private _mainMenu: objects.Button;
         private _backgr: objects.Background;
+        private _label: objects.Label;
+
 
         private _sound: createjs.AbstractSoundInstance;
 
@@ -20,8 +22,13 @@ module scenes {
             }
 
             //add background
-            this._backgr = new objects.Background("over");
+            this._backgr = new objects.Background("uiBackgr");
             this.addChild(this._backgr);
+
+            //label
+ this._label = new objects.Label("OH NO!! \n YOU'VE LOST!!", "76px",
+             "georgia", "#F3B600",400, 250, false);
+            this.addChild(this._label);
 
             //add Main Menu button
             this._mainMenu = new objects.Button("backButton", 380, 200, true);

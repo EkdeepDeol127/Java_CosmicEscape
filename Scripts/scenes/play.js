@@ -29,7 +29,9 @@ var scenes;
                 this._sound.loop = -1;
             }
             //galaxy
-            this._galaxy = new objects.Galaxy("galaxy");
+            this._galaxy = new objects.Galaxy("wormhole");
+            this._galaxy.y = -300;
+            this._galaxy.x = -100;
             this.addChild(this._galaxy);
             //enemy object
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");

@@ -12,7 +12,7 @@ namespace core {
     //score and lives variables
     export let score: number = 0;
     export let lives: number = 100;
-    export let Time: number = 120;
+    export let Time: number = 100;
     export let ifSpawn: boolean = false;
     export let ifSpawnPath: boolean = false;
 
@@ -40,11 +40,11 @@ namespace core {
 
         //images
         { id: "galaxy", src: "../../Assets/images/lvlBackgr.png" },
+        { id: "wormhole", src: "../../Assets/images/wormhole.png" },
         { id: "tutorial", src: "../../Assets/images/tutBackgr.png" },
         { id: "page", src: "../../Assets/images/spritesheet1.png" },
         { id: "mainPage", src: "../../Assets/images/mainMenu.png" },
-        { id: "over", src: "../../Assets/images/gameOver.png" },
-        { id: "gamWon", src: "../../Assets/images/gameWon.png" },
+        { id: "uiBackgr", src: "../../Assets/images/uiBackgr.png" },
 
         //sounds
         { id: "menuTheme", src: "../../Assets/audio/mainMenu.ogg" },
@@ -184,13 +184,13 @@ namespace core {
                     "frames": [32, 33, 34, 35, 36, 37],
                     "speed": 0.2
                 },
-                "arrow": { "frames": [38, 39] }
+                "arrow": { "frames": [38] }
 
             }
         };
 
         textureAtlas = new createjs.SpriteSheet(atlasData);
-        scene = config.Scene.MENU;
+        scene = config.Scene.GAMEWON;
         changeScene();
 
     }

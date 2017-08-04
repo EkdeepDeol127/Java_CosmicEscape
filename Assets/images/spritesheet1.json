@@ -104,6 +104,6 @@ animations: [start, end, "nxt", speed]
     "soundButton": {"frames": [31]},
     "portal": {"frames": [32,33,34,35,36,37]},
     "portalPath": {"frames": [32,33,34,35,36,37]},
-    "arrow": {"frames": [38,39]}
+    "arrow": {"frames": [38]}
 }
 }
