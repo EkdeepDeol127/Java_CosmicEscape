@@ -72,6 +72,7 @@ var scenes;
             this._collision.update();
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
+            this._collision.checkPlayer(this._player, this._portalPath);
             this._collision.checkEnemy(this._bullet, this._enemyShip);
             //asteroids update
             this._asteroid.forEach(function (asteroid) {
@@ -80,7 +81,7 @@ var scenes;
                 _this._collision.checkEnemy(_this._bullet, asteroid);
                 asteroid.update();
             });
-            if (this._portalSpawn == false && this._arrow.numChange == 0) {
+            if (this._portalSpawn == false && this._arrow.numChange == 10) {
                 if (core.SCheck == true) {
                     this._sound.stop();
                 }

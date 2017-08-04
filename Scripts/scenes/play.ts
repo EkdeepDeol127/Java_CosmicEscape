@@ -139,10 +139,7 @@ module scenes {
                 core.lives = 100;
                 core.Time = 120;
                 core.score = 0;
-
             }
         }
-
-
     }
 }

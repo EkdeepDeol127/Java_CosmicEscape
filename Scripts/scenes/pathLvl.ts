@@ -91,6 +91,8 @@ module scenes {
 
             this._collision.checkPlayer(this._player, this._enemyShip);
             this._collision.checkPlayer(this._player, this._enemyBullet);
+            this._collision.checkPlayer(this._player, this._portalPath);
+
             this._collision.checkEnemy(this._bullet, this._enemyShip);
 
             //asteroids update
@@ -101,7 +103,7 @@ module scenes {
                 asteroid.update();
             });
 
-            if (this._portalSpawn == false && this._arrow.numChange == 0) {
+            if (this._portalSpawn == false && this._arrow.numChange == 10) {
                 if (core.SCheck == true) {
                     this._sound.stop();
                 }

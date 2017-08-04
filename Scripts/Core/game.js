@@ -4,8 +4,8 @@ var core;
     var canvas = document.getElementById("canvas");
     //score and lives variables
     core.score = 0;
-    core.lives = 5000;
-    core.Time = 30;
+    core.lives = 100;
+    core.Time = 120;
     core.ifSpawn = false;
     core.ifSpawnPath = false;
     //scene variables

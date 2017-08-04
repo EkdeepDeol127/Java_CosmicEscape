@@ -61,6 +61,9 @@ var managers;
                     }
                     core.scene = config.Scene.GAMEWON;
                     core.changeScene();
+                    core.lives = 100;
+                    core.Time = 120;
+                    core.score = 0;
                 }
             }
             else {
