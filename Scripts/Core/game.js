@@ -124,8 +124,10 @@ var core;
                 "setButton": { "frames": [4] },
                 "backButton": { "frames": [5] },
                 "againButton": { "frames": [6] },
-                "asteroid": { "frames": [7, 8, 9],
-                    "speed": 0.3 },
+                "asteroid": {
+                    "frames": [7, 8, 9],
+                    "speed": 0.3
+                },
                 "astDest": { "frames": [10, 11] },
                 "bossBullet": { "frames": [12] },
                 "playerBullet": { "frames": [13] },
@@ -139,8 +141,14 @@ var core;
                 "playerDest": { "frames": [26, 27, 28, 29] },
                 "musicButton": { "frames": [30] },
                 "soundButton": { "frames": [31] },
-                "portal": { "frames": [32, 33, 34, 35, 36, 37],
-                    "speed": 0.2 },
+                "portal": {
+                    "frames": [32, 33, 34, 35, 36, 37],
+                    "speed": 0.2
+                },
+                "portalPath": {
+                    "frames": [32, 33, 34, 35, 36, 37],
+                    "speed": 0.2
+                },
                 "arrow": { "frames": [38, 39] }
             }
         };

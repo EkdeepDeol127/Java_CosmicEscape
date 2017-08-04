@@ -38,8 +38,6 @@ module scenes {
             this._galaxy = new objects.galaxyPath("galaxy");
             this.addChild(this._galaxy);
 
-            this._portalPath = new objects.PortalPath("portal");
-
             this._arrow = new objects.arrowPath("arrow");
             this.addChild(this._arrow);
 
@@ -47,6 +45,8 @@ module scenes {
             this.addChild(this._bullet);
             this._player = new objects.NewPlayer("player");
             this.addChild(this._player);
+
+            this._portalPath = new objects.PortalPath("portalPath");
 
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
             this.addChild(this._enemyBullet);
@@ -101,7 +101,7 @@ module scenes {
                 asteroid.update();
             });
 
-            if (this._portalSpawn == false && this._arrow.numChange == 10) {
+            if (this._portalSpawn == false && this._arrow.numChange == 0) {
                 if (core.SCheck == true) {
                     this._sound.stop();
                 }
