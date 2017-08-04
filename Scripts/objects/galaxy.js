@@ -30,7 +30,7 @@ var objects;
         };
         Galaxy.prototype.start = function () {
             this._reset();
-            this._dy = .4; // 5px per frame down
+            this._dy = .2; // 5px per frame down
         };
         // This method updates the object's properties every time it's called
         Galaxy.prototype.update = function () {

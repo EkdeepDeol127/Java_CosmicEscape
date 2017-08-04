@@ -37,7 +37,7 @@ module scenes {
 
             //galaxy
             this._galaxy = new objects.Galaxy("wormhole");
-            this._galaxy.y = -300;
+            this._galaxy.y = -500;
             this._galaxy.x = -100;
             this.addChild(this._galaxy);
 
@@ -71,13 +71,13 @@ module scenes {
             this._collision = new managers.Collision();
 
             //score label
-            this._scoreLabel = new objects.Label("Score: " + core.score, "50px", "monospace", "#F3B600", 260, 5, false);
+            this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#F3B600", 260, 5, false);
             this.addChild(this._scoreLabel);
 
-            this._livesLabel = new objects.Label("Lives: " + core.lives, "50px", "monospace", "#F3B600", 10, 5, false);
+            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#F3B600", 10, 5, false);
             this.addChild(this._livesLabel);
 
-            this._TimeLabel = new objects.Label("Time: " + core.Time, "50px", "monospace", "#F3B600", 510, 5, false);
+            this._TimeLabel = new objects.Label("Time: " + core.Time, "40px", "monospace", "#F3B600", 510, 5, false);
             this.addChild(this._TimeLabel);
 
             console.log("SurviveLEVEL");
