@@ -31,7 +31,7 @@ module scenes {
             this.addChild(this._label);
 
             //add Main Menu button
-            this._mainMenu = new objects.Button("menuButton", 370, 350, true);
+            this._mainMenu = new objects.Button("menuButton", 370, 375, true);
             this.addChild(this._mainMenu);
             //mainMenu button event listener
             this._mainMenu.on("click", this._mainMenuClick, this);
