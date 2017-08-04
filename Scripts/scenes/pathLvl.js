@@ -96,6 +96,7 @@ var scenes;
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 100;
+                core.Time = 120;
                 core.score = 0;
             }
         };
