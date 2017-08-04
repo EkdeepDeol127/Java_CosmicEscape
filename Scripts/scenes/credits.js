@@ -24,9 +24,9 @@ var scenes;
             //add background 
             this._backgr = new objects.Background("mainPage");
             this.addChild(this._backgr);
-            this._text1 = new objects.Label("Emanuela Sklarzyk............Producer", "25px", "monospace", "#FFFF00", 10, 400, false);
+            this._text1 = new objects.Label("Emanuela Sklarzyk......Producer", "25px", "monospace", "#FFFF00", 120, 400, false);
             this.addChild(this._text1);
-            this._text2 = new objects.Label("Ekdeep Deol............Software Engineer", "25px", "monospace", "#FFFF00", 10, 450, false);
+            this._text2 = new objects.Label("Ekdeep Deol............Software Engineer", "25px", "monospace", "#FFFF00", 120, 450, false);
             this.addChild(this._text2);
             //add button
             this._backButt = new objects.Button("backButton", 370, 500, true);
