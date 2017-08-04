@@ -52,7 +52,7 @@ module scenes {
             this._creditsButton.on("click", this._credButtonClick, this);
 
             //add development buttin
-            this._pathButton = new objects.Button("againButton", 150, 450, true);
+            this._pathButton = new objects.Button("againButton", 130, 460, true);
             this.addChild(this._pathButton);
             //path button listener
             this._pathButton.on("click", this._pathButtonClick, this);
