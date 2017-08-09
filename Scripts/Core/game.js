@@ -4,7 +4,7 @@ var core;
     var canvas = document.getElementById("canvas");
     //score and lives variables
     core.score = 0;
-    core.lives = 100;
+    core.lives = 50;
     core.Time = 100;
     core.ifSpawn = false;
     core.ifSpawnPath = false;

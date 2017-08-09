@@ -29,16 +29,18 @@ module managers {
                     if (other.name === "asteroid") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
-                            player.gotoAndPlay("playerHit");
+                            //player.gotoAndPlay("playerHit");
                             
                         }
                         core.lives -= 1;
+                       // player.gotoAndPlay("player");
+
                     }
                     //if player collides with newAsteroid
                     if (other.name === "newAsteroid") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
-                            player.gotoAndPlay("playerHit");
+                           
                         }
                         core.lives -= 1;
                     }
@@ -46,17 +48,19 @@ module managers {
                     if (other.name === "enemyShip") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
-                            player.gotoAndPlay("playerHit");
+                          
                         }
                         core.lives -= 1;
+                       
                     }
                     //if enemyBullet is colliding with player
                     if (other.name === "enemyBullet") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
-                            player.gotoAndPlay("playerHit");
+                           
                         }
                         core.lives -= 5;
+                        
                     }
                 }
                 //collistion with portal in play
@@ -94,7 +98,6 @@ module managers {
                     if (other.name === "asteroid0") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
-                            other.gotoAndPlay("astDest");
                         
                         }
                         console.log("asteroid0");
@@ -111,7 +114,6 @@ module managers {
                     if (other.name === "asteroid1") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
-                            other.gotoAndPlay("astDest");
                         }
                         console.log("asteroid1")
                         core.score += 100;
@@ -127,7 +129,6 @@ module managers {
                     if (other.name === "asteroid2") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
-                            other.gotoAndPlay("astDest");
                         }
                         console.log("asteroid2");
                         core.score += 100;
@@ -142,7 +143,6 @@ module managers {
                     if (other.name === "asteroid3") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
-                            other.gotoAndPlay("astDest");
                         }
                         console.log("asteroid3");
                         core.score += 100;
@@ -157,7 +157,6 @@ module managers {
                     if (other.name === "newAsteroid") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
-                            other.gotoAndPlay("astDest");
                         }
                         core.score += 100;
                         core.newAstHit = true;
@@ -171,7 +170,6 @@ module managers {
                     if (other.name === "enemyShip") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
-                            other.gotoAndPlay("enemyHit");
                         }
                         core.EnemyHit = true;
                         core.bullDesp = true;
