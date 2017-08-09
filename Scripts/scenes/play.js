@@ -43,8 +43,6 @@ var scenes;
             this.addChild(this._bullet);
             this._player = new objects.Player("player");
             this.addChild(this._player);
-            //add portal
-            this._portal = new objects.Portal("portal");
             //asteroid array
             this._asteroid = new Array();
             for (var count = 0; count < 4; count++) {
@@ -52,6 +50,8 @@ var scenes;
                 this._asteroid[count].name = ("asteroid" + count);
                 this.addChild(this._asteroid[count]);
             }
+            //add portal
+            this._portal = new objects.Portal("portal");
             this._collision = new managers.Collision();
             //score label
             this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#F3B600", 260, 5, false);
@@ -101,6 +101,7 @@ var scenes;
             else {
                 if (this._portalSpawn == false) {
                     core.Time -= 0.1;
+                    core.ifSpawn = false;
                 }
             }
             if (core.AstHit0 == true) {

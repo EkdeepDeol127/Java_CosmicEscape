@@ -89,6 +89,11 @@ var scenes;
                 this.addChild(this._portalPath);
                 this._portalSpawn = true;
             }
+            else {
+                if (this._portalSpawn == false) {
+                    core.ifSpawnPath = false;
+                }
+            }
             if (core.newAstHit0 == true) {
                 this._asteroid[0]._reset();
             }

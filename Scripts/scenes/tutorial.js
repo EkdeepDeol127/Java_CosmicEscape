@@ -15,12 +15,17 @@ var scenes;
         //creates an instance on Tutorial
         function Tutorial() {
             var _this = _super.call(this) || this;
+            _this._portalSpawn = false;
             //private _portal: objects.Portal;
             //timers for intructions
             _this._time = 20;
-            _this._timeTwo = 50;
-            _this._timeThree = 100;
-            _this._timeFour = 150;
+            _this.MoveCheck = false;
+            _this.MouseClickCheck = false;
+            _this.int2Check = false;
+            _this.int1Check = false;
+            _this.timeTickCheck = false;
+            window.addEventListener('keydown', _this.KeyDown.bind(_this), false);
+            window.addEventListener('keyup', _this.KeyUp.bind(_this), false);
             return _this;
         }
         Tutorial.prototype._scoreUpdate = function () {
@@ -45,8 +50,10 @@ var scenes;
             this._asteroid = new Array();
             for (var count = 0; count < 4; count++) {
                 this._asteroid.push(new objects.Asteroid("asteroid"));
+                this._asteroid[count].name = ("asteroid" + count);
                 this.addChild(this._asteroid[count]);
             }
+            this._portal = new objects.Portal("portal");
             this._collision = new managers.Collision();
             //labels
             this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
@@ -57,14 +64,11 @@ var scenes;
             this._instrOne = new objects.Label("USE THE ARROW KEYS TO MOVE", "40px", "monospace", "#FFFF00", 100, 150, false);
             this.addChild(this._instrOne);
             this._instrTwo = new objects.Label("USE THE MOUSE TO AIM AND SHOOT", "40px", "monospace", "#FFFF00", 50, 150, false);
-            this._instrThree = new objects.Label(" AVOID ENEMIES AND BLAST YOUR \n       WAY TO THE PORTAL ", "40px", "monospace", "#FFFF00", 25, 150, false);
+            this._instrThree = new objects.Label(" AVOID ENEMIES AND BLAST YOUR \n\n       WAY TO THE PORTAL ", "40px", "monospace", "#FFFF00", 25, 150, false);
             //development buttons
             this._menuButton = new objects.Button("menuButton", 125, 450, true);
             //startbutton event listener
             this._menuButton.on("click", this._menuButtonClick, this);
-            this._playButton = new objects.Button("playButton", 650, 450, true);
-            //playbutton event listener
-            this._playButton.on("click", this._playButtonClick, this);
             core.stage.addChild(this);
         };
         Tutorial.prototype.Update = function () {
@@ -75,6 +79,9 @@ var scenes;
             this._playerBullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
             this._playerBullet.update();
             this._collision.update();
+            if (this._portalSpawn == true) {
+                this._portal.update();
+            }
             //asteroid update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.giveData(_this._player.x, _this._player.y);
@@ -83,6 +90,18 @@ var scenes;
                 if (_this._collision.checkEnemy)
                     asteroid.update();
             });
+            if (core.AstHit0 == true) {
+                this._asteroid[0]._reset();
+            }
+            if (core.AstHit1 == true) {
+                this._asteroid[1]._reset();
+            }
+            if (core.AstHit2 == true) {
+                this._asteroid[2]._reset();
+            }
+            if (core.AstHit3 == true) {
+                this._asteroid[3]._reset();
+            }
             this._scoreUpdate();
             if (core.lives < 1) {
                 if (core.SCheck == true) {
@@ -93,36 +112,41 @@ var scenes;
                 core.lives = 100;
                 core.score = 0;
             }
-            //TIMER FOR FIRST INTRUCTION
-            if (this._time <= 0) {
-                this.removeChild(this._instrOne);
-            }
-            else {
+            if (this.timeTickCheck == false) {
                 this._time -= 0.1;
             }
-            //TIMER FOR SECOND INSTRUCTION
-            if (this._timeTwo <= 25)
+            //TIMER FOR FIRST INTRUCTION
+            if (this._time <= 0 && this.MoveCheck == true && this.int1Check == false) {
+                this.removeChild(this._instrOne);
                 this.addChild(this._instrTwo);
-            if (this._timeTwo <= 1)
+                window.addEventListener('click', this.MouseClick.bind(this), false);
+                this._time = 20;
+                this.int1Check = true;
+            }
+            //TIMER FOR SECOND INSTRUCTION
+            if (this._time <= 0 && this.MouseClickCheck == true && this.int2Check == false) {
                 this.removeChild(this._instrTwo);
-            else {
-                this._timeTwo -= 0.1;
+                this.addChild(this._instrThree);
+                this._time = 20;
+                this.int2Check = true;
             }
             //TIMER FOR THIRD INSTRUCTION
-            if (this._timeThree <= 50)
-                this.addChild(this._instrThree);
-            if (this._timeThree <= 1)
+            if (this._time <= 0 && this.int1Check == true && this.int2Check == true) {
                 this.removeChild(this._instrThree);
-            else {
-                this._timeThree -= 0.1;
+                this.timeTickCheck = true;
             }
-            //TIMER FOR BUTTONS INSTRUCTION
-            if (this._timeFour <= 50) {
-                this.addChild(this._playButton);
+            if (this.timeTickCheck == true && this._portalSpawn == false) {
+                if (core.SCheck == true) {
+                    this._sound.stop();
+                }
+                this.addChild(this._portal);
                 this.addChild(this._menuButton);
+                this._portalSpawn = true;
             }
             else {
-                this._timeFour -= 0.1;
+                if (this._portalSpawn == false) {
+                    core.ifSpawn = false;
+                }
             }
         };
         Tutorial.prototype._menuButtonClick = function (event) {
@@ -132,6 +156,8 @@ var scenes;
             }
             core.scene = config.Scene.MENU;
             core.changeScene();
+            core.lives = 100;
+            core.score = 0;
         };
         Tutorial.prototype._playButtonClick = function (event) {
             if (core.SCheck == true) {
@@ -139,6 +165,51 @@ var scenes;
             }
             core.scene = config.Scene.PLAY;
             core.changeScene();
+            core.lives = 100;
+            core.score = 0;
+        };
+        Tutorial.prototype.KeyDown = function (event) {
+            switch (event.keyCode) {
+                case 38: /*up arrow*/
+                case 87:/* W Key */ 
+                    this.MoveCheck = true;
+                    break;
+                case 37: /*left arrow*/
+                case 65:/* A Key */ 
+                    this.MoveCheck = true;
+                    break;
+                case 40: /*down arrow*/
+                case 83:/* S Key */ 
+                    this.MoveCheck = true;
+                    break;
+                case 39: /*right arrow*/
+                case 68:/* D Key */ 
+                    this.MoveCheck = true;
+                    break;
+            }
+        };
+        Tutorial.prototype.KeyUp = function (event) {
+            switch (event.keyCode) {
+                case 38: /*up arrow*/
+                case 87:/* W Key */ 
+                    this.MoveCheck = false;
+                    break;
+                case 37: /*left arrow*/
+                case 65:/* A Key */ 
+                    this.MoveCheck = false;
+                    break;
+                case 40: /*down arrow*/
+                case 83:/* S Key */ 
+                    this.MoveCheck = false;
+                    break;
+                case 39: /*right arrow*/
+                case 68:/* D Key */ 
+                    this.MoveCheck = false;
+                    break;
+            }
+        };
+        Tutorial.prototype.MouseClick = function (event) {
+            this.MouseClickCheck = true;
         };
         return Tutorial;
     }(objects.Scene));

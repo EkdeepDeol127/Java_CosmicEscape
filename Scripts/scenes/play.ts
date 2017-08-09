@@ -55,9 +55,6 @@ module scenes {
             this._player = new objects.Player("player");
             this.addChild(this._player);
 
-            //add portal
-              this._portal = new objects.Portal("portal");
-
             //asteroid array
             this._asteroid = new Array<objects.Asteroid>();
             for (let count = 0; count < 4; count++) {
@@ -65,6 +62,9 @@ module scenes {
                 this._asteroid[count].name = ("asteroid" + count);
                 this.addChild(this._asteroid[count]);
             }
+
+            //add portal
+            this._portal = new objects.Portal("portal");
 
             this._collision = new managers.Collision();
 
@@ -125,6 +125,7 @@ module scenes {
             else {
                 if (this._portalSpawn == false) {
                     core.Time -= 0.1;
+                    core.ifSpawn = false;
                 }
             }
 
