@@ -8,6 +8,7 @@ var core;
     core.Time = 100;
     core.ifSpawn = false;
     core.ifSpawnPath = false;
+    core.bullDesp = false;
     //scene variables
     var currentScene;
     //scenes
@@ -160,7 +161,7 @@ var core;
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);
-        core.scene = config.Scene.MENU;
+        core.scene = config.Scene.PLAY;
         changeScene();
     }
     function gameLoop(event) {

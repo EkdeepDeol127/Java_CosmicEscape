@@ -15,6 +15,7 @@ namespace core {
     export let Time: number = 100;
     export let ifSpawn: boolean = false;
     export let ifSpawnPath: boolean = false;
+    export let bullDesp: boolean = false;
 
     //scene variables
     let currentScene: objects.Scene;
@@ -193,7 +194,7 @@ namespace core {
         };
 
         textureAtlas = new createjs.SpriteSheet(atlasData);
-        scene = config.Scene.MENU;
+        scene = config.Scene.PLAY;
         changeScene();
 
     }

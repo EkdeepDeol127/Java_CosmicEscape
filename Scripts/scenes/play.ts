@@ -108,6 +108,11 @@ module scenes {
 
             //BULLET COLLISIONS
             this._collision.checkEnemy(this._bullet, this._enemyShip);
+           
+           
+            if(core.bullDesp == true){
+                this._bullet.shoot = false;
+            }
 
             //asteroids update
             this._asteroid.forEach(asteroid => {

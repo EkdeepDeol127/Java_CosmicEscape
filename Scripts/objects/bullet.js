@@ -25,6 +25,7 @@ var objects;
         }
         Bullet.prototype._reset = function () {
             if (this.shoot == false) {
+                core.bullDesp = false;
                 this.x = this.playerX;
                 this.y = this.playerY;
             }
@@ -59,8 +60,6 @@ var objects;
                 this.x += this.speed * Math.cos(this.radians);
                 this.y += this.speed * Math.sin(this.radians);
             }
-        };
-        Bullet.prototype.col = function () {
         };
         Bullet.prototype.giveData = function (SX, SY, PX, PY) {
             this.MX = SX;

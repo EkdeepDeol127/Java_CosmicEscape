@@ -22,6 +22,7 @@ var managers;
                     if (other.name === "asteroid") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
+                            player.gotoAndPlay("playerHit");
                         }
                         core.lives -= 1;
                     }
@@ -29,6 +30,7 @@ var managers;
                     if (other.name === "newAsteroid") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
+                            player.gotoAndPlay("playerHit");
                         }
                         core.lives -= 1;
                     }
@@ -36,6 +38,7 @@ var managers;
                     if (other.name === "enemyShip") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
+                            player.gotoAndPlay("playerHit");
                         }
                         core.lives -= 1;
                     }
@@ -43,6 +46,7 @@ var managers;
                     if (other.name === "enemyBullet") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
+                            player.gotoAndPlay("playerHit");
                         }
                         core.lives -= 5;
                     }
@@ -79,68 +83,86 @@ var managers;
                     if (other.name === "asteroid0") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
+                            other.gotoAndPlay("astDest");
                         }
                         console.log("asteroid0");
                         core.score += 100;
                         core.AstHit0 = true;
+                        core.bullDesp = true;
                     }
                     else {
                         core.AstHit0 = false;
+                        core.bullDesp = false;
                     }
                     if (other.name === "asteroid1") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
+                            other.gotoAndPlay("astDest");
                         }
                         console.log("asteroid1");
                         core.score += 100;
                         core.AstHit1 = true;
+                        core.bullDesp = true;
                     }
                     else {
                         core.AstHit1 = false;
+                        core.bullDesp = false;
                     }
                     if (other.name === "asteroid2") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
+                            other.gotoAndPlay("astDest");
                         }
                         console.log("asteroid2");
                         core.score += 100;
                         core.AstHit2 = true;
+                        core.bullDesp = true;
                     }
                     else {
                         core.AstHit2 = false;
+                        core.bullDesp = true;
                     }
                     if (other.name === "asteroid3") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
+                            other.gotoAndPlay("astDest");
                         }
                         console.log("asteroid3");
                         core.score += 100;
                         core.AstHit3 = true;
+                        core.bullDesp = true;
                     }
                     else {
                         core.AstHit3 = false;
+                        core.bullDesp = false;
                     }
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroid") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
+                            other.gotoAndPlay("astDest");
                         }
                         core.score += 100;
                         core.newAstHit = true;
+                        core.bullDesp = true;
                     }
                     else {
                         core.newAstHit = false;
+                        core.bullDesp = false;
                     }
                     //if bullet collides with enemyShip
                     if (other.name === "enemyShip") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
+                            other.gotoAndPlay("enemDest");
                         }
                         core.EnemyHit = true;
+                        core.bullDesp = true;
                         core.score += 150;
                     }
                     else {
                         core.EnemyHit = false;
+                        core.bullDesp = false;
                     }
                 }
             }

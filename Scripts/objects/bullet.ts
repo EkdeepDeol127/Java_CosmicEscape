@@ -21,9 +21,10 @@
             this.start();
         }
 
-        private _reset(): void {
+        public _reset(): void {
             if(this.shoot == false)
             {
+                core.bullDesp = false;
                 this.x = this.playerX;
                 this.y = this.playerY;
             }
@@ -66,11 +67,6 @@
                 this.x += this.speed * Math.cos(this.radians);
                 this.y += this.speed * Math.sin(this.radians);
             }
-        }
-
-        public col()
-        {
-            
         }
 
         public giveData(SX:any, SY:any, PX:number, PY:number)

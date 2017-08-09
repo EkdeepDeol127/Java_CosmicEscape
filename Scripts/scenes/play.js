@@ -85,6 +85,9 @@ var scenes;
             this._collision.checkPlayer(this._player, this._portal);
             //BULLET COLLISIONS
             this._collision.checkEnemy(this._bullet, this._enemyShip);
+            if (core.bullDesp == true) {
+                this._bullet.shoot = false;
+            }
             //asteroids update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.giveData(_this._player.x, _this._player.y);
