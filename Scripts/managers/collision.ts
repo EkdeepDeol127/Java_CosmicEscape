@@ -30,6 +30,7 @@ module managers {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
                             player.gotoAndPlay("playerHit");
+                            
                         }
                         core.lives -= 1;
                     }
@@ -170,7 +171,7 @@ module managers {
                     if (other.name === "enemyShip") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
-                            other.gotoAndPlay("enemDest");
+                            other.gotoAndPlay("enemyHit");
                         }
                         core.EnemyHit = true;
                         core.bullDesp = true;
@@ -184,6 +185,7 @@ module managers {
             }
             else {
                 other.isColliding = false;
+                
             }
         }
 

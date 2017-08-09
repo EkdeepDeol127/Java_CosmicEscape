@@ -154,7 +154,7 @@ var managers;
                     if (other.name === "enemyShip") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
-                            other.gotoAndPlay("enemDest");
+                            other.gotoAndPlay("enemyHit");
                         }
                         core.EnemyHit = true;
                         core.bullDesp = true;

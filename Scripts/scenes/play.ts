@@ -17,6 +17,7 @@ module scenes {
 
         private _sound: createjs.AbstractSoundInstance;
 
+
         //creates an instance of Play
         constructor() {
             super();
@@ -158,12 +159,13 @@ module scenes {
                 if (core.SCheck == true) {
                     this._sound.stop();
                 }
+                
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 100;
                 core.Time = 120;
                 core.score = 0;
+                }
             }
         }
     }
-}
