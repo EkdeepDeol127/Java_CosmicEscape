@@ -22,7 +22,10 @@ var core;
     core.SCheck = true;
     core.SECheck = true;
     core.EnemyHit = false;
-    core.AstHit = false;
+    core.AstHit0 = false;
+    core.AstHit1 = false;
+    core.AstHit2 = false;
+    core.AstHit3 = false;
     core.newAstHit = false;
     //asset manifest
     var assetData = [

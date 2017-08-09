@@ -86,15 +86,52 @@ module managers {
                 if (!other.isColliding) {
                     other.isColliding = true;
                     // if bullet collides with asteroid
-                    if (other.name === "asteroid") {
+                    if (other.name === "asteroid0") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
+                        console.log("asteroid0");
                         core.score += 100;
-                        core.AstHit = true;
+                        core.AstHit0 = true;
                     }
                     else {
-                        core.AstHit = false;
+                        core.AstHit0 = false;
+                    }
+
+                    if (other.name === "asteroid1") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
+                        console.log("asteroid1")
+                        core.score += 100;
+                        core.AstHit1 = true;
+                    }
+                    else {
+                        core.AstHit1 = false;
+                    }
+
+                    if (other.name === "asteroid2") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
+                        console.log("asteroid2")
+                        core.score += 100;
+                        core.AstHit2 = true;
+                    }
+                    else {
+                        core.AstHit2 = false;
+                    }
+
+                    if (other.name === "asteroid3") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
+                        console.log("asteroid3")
+                        core.score += 100;
+                        core.AstHit3 = true;
+                    }
+                    else {
+                        core.AstHit3 = false;
                     }
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroid") {

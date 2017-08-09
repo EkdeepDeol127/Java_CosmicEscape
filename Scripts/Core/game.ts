@@ -31,8 +31,11 @@ namespace core {
     export let SCheck: boolean = true;
     export let SECheck: boolean = true;
     export let EnemyHit: boolean = false;
-    export let AstHit: boolean = false;
-    export let newAstHit: boolean = false;
+    export let AstHit0: boolean = false;
+    export let AstHit1: boolean = false;
+    export let AstHit2: boolean = false;
+    export let AstHit3: boolean = false;
+    export let newAstHit: boolean = false; 
 
 
     //asset manifest
