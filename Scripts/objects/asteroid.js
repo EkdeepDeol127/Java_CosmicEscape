@@ -50,7 +50,7 @@ var objects;
             this.y += this.speed * Math.sin(this.radians);
         };
         Asteroid.prototype._checkBounds = function () {
-            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || core.AstHit == true) {
+            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100) {
                 this._reset();
             }
         };
