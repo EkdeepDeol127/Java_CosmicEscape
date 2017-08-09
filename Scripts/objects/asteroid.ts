@@ -50,7 +50,7 @@ module objects {
         }
 
         private _checkBounds(): void {
-            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || core.AstHit == true) {
+            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100) {
                 this._reset();
             }
         }

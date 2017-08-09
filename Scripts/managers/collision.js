@@ -3,7 +3,6 @@ var managers;
     var Collision = (function () {
         function Collision() {
             this.timer = 3;
-            this.collPlayer = false;
             this.start();
         }
         Collision.prototype.start = function () {
@@ -121,15 +120,25 @@ var managers;
                         core.AstHit3 = false;
                     }
                     //if bullet collides with newAsteroids
-                    if (other.name === "newAsteroid") {
+                    if (other.name === "newAsteroid0") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
                         core.score += 100;
-                        core.newAstHit = true;
+                        core.newAstHit0 = true;
                     }
                     else {
-                        core.newAstHit = false;
+                        core.newAstHit0 = false;
+                    }
+                    if (other.name === "newAsteroid1") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
+                        core.score += 100;
+                        core.newAstHit1 = true;
+                    }
+                    else {
+                        core.newAstHit1 = false;
                     }
                     //if bullet collides with enemyShip
                     if (other.name === "enemyShip") {
@@ -138,6 +147,7 @@ var managers;
                         }
                         core.EnemyHit = true;
                         core.score += 150;
+                        console.log("HIT ONCE");
                     }
                     else {
                         core.EnemyHit = false;

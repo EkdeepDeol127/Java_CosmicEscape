@@ -56,6 +56,7 @@ module scenes {
             this._asteroid = new Array<objects.NewAsteroid>();
             for (let count = 0; count < 2; count++) {
                 this._asteroid.push(new objects.NewAsteroid("newAsteroid"));
+                this._asteroid[count].name = ("newAsteroid" + count);
                 this.addChild(this._asteroid[count]);
             }
 
@@ -110,6 +111,15 @@ module scenes {
                 this.addChild(this._portalPath);
                 this._portalSpawn = true;
             }
+
+            if (core.newAstHit0 == true)
+                {
+                    this._asteroid[0]._reset();
+                }
+            if (core.newAstHit1 == true)
+                {
+                    this._asteroid[1]._reset();
+                }
 
             this._updateScoreBoard();
 

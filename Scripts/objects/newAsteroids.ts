@@ -18,7 +18,7 @@ module objects {
             this.start();
         }
 
-        private _reset(): void {
+        public _reset(): void {
             if(Math.sin(this.playerRot) <= Math.sin(45))//up
                 {
                     this.x = (Math.random() * 780) + 20; 

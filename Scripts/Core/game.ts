@@ -35,7 +35,8 @@ namespace core {
     export let AstHit1: boolean = false;
     export let AstHit2: boolean = false;
     export let AstHit3: boolean = false;
-    export let newAstHit: boolean = false; 
+    export let newAstHit0: boolean = false;
+    export let newAstHit1: boolean = false; 
 
 
     //asset manifest

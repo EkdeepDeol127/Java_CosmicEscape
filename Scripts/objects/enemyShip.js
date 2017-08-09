@@ -18,7 +18,7 @@ var objects;
             _this.inRange = false;
             _this.dead = false;
             _this.health = 20;
-            _this.sheild = 30;
+            _this.sheild = 40;
             _this.speed = 3;
             _this.regX = _this.width * 0.5;
             _this.regY = _this.height * 0.5;
@@ -55,9 +55,6 @@ var objects;
             this.enemtShipDespawn();
             this.playerRange();
             this.enemyShipMove();
-            if (core.EnemyHit == true) {
-                this.Damage(1);
-            }
         };
         EnemyShip.prototype.enemtShipDespawn = function () {
             if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || this.dead == true) {
@@ -86,7 +83,6 @@ var objects;
             }
         };
         EnemyShip.prototype.Damage = function (dam) {
-            // console.log("sheilds: " + this.sheild);
             if (this.sheild > 0) {
                 this.sheild -= dam;
             }

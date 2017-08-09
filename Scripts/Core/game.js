@@ -26,7 +26,8 @@ var core;
     core.AstHit1 = false;
     core.AstHit2 = false;
     core.AstHit3 = false;
-    core.newAstHit = false;
+    core.newAstHit0 = false;
+    core.newAstHit1 = false;
     //asset manifest
     var assetData = [
         //images

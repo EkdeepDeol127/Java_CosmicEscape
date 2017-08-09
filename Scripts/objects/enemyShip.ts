@@ -7,7 +7,7 @@ module objects {
         inRange:boolean = false;
         dead: boolean = false;
         health: number = 20;
-        sheild: number = 30;
+        sheild: number = 40;
         speed: number = 3;
         radians: number;
         dist: number;
@@ -57,10 +57,6 @@ module objects {
             this.enemtShipDespawn();
             this.playerRange();
             this.enemyShipMove();
-            if(core.EnemyHit == true)
-                {
-                    this.Damage(1);
-                }
         }
 
         public enemtShipDespawn(): void {
@@ -100,7 +96,6 @@ module objects {
 
         public Damage(dam:number)
         {
-           // console.log("sheilds: " + this.sheild);
             if(this.sheild > 0)
             {
                 this.sheild -= dam;

@@ -43,6 +43,7 @@ var scenes;
             this._asteroid = new Array();
             for (var count = 0; count < 2; count++) {
                 this._asteroid.push(new objects.NewAsteroid("newAsteroid"));
+                this._asteroid[count].name = ("newAsteroid" + count);
                 this.addChild(this._asteroid[count]);
             }
             this._collision = new managers.Collision();
@@ -87,6 +88,12 @@ var scenes;
                 }
                 this.addChild(this._portalPath);
                 this._portalSpawn = true;
+            }
+            if (core.newAstHit0 == true) {
+                this._asteroid[0]._reset();
+            }
+            if (core.newAstHit1 == true) {
+                this._asteroid[1]._reset();
             }
             this._updateScoreBoard();
             if (core.lives < 1) {

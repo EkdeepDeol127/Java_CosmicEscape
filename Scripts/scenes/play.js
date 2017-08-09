@@ -51,7 +51,6 @@ var scenes;
                 this._asteroid.push(new objects.Asteroid("asteroid"));
                 this._asteroid[count].name = ("asteroid" + count);
                 this.addChild(this._asteroid[count]);
-                console.log(this._asteroid[count]);
             }
             this._collision = new managers.Collision();
             //score label
@@ -115,6 +114,9 @@ var scenes;
             }
             if (core.AstHit3 == true) {
                 this._asteroid[3]._reset();
+            }
+            if (core.EnemyHit == true) {
+                this._enemyShip.Damage(20);
             }
             this._updateScoreBoard();
             if (core.lives < 1) {
