@@ -53,7 +53,7 @@ var scenes;
                 this._asteroid[count].name = ("asteroid" + count);
                 this.addChild(this._asteroid[count]);
             }
-            this._portal = new objects.Portal("portal");
+            this._portal = new objects.Portal("portaltut");
             this._collision = new managers.Collision();
             //labels
             this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#FFFF00", 260, 5, false);
@@ -82,6 +82,7 @@ var scenes;
             if (this._portalSpawn == true) {
                 this._portal.update();
             }
+            this._collision.checkPlayer(this._player, this._portal);
             //asteroid update
             this._asteroid.forEach(function (asteroid) {
                 asteroid.giveData(_this._player.x, _this._player.y);

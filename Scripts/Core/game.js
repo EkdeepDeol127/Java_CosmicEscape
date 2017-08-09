@@ -157,6 +157,10 @@ var core;
                     "frames": [32, 33, 34, 35, 36, 37],
                     "speed": 0.2
                 },
+                "portaltut": {
+                    "frames": [32, 33, 34, 35, 36, 37],
+                    "speed": 0.2
+                },
                 "arrow": { "frames": [38] }
             }
         };

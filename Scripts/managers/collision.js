@@ -18,14 +18,38 @@ var managers;
                 if (!other.isColliding) {
                     other.isColliding = true;
                     // if player collides with asteroid
-                    if (other.name === "asteroid") {
+                    if (other.name === "asteroid0") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
+                        core.lives -= 1;
+                    }
+                    if (other.name === "asteroid1") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
+                        core.lives -= 1;
+                    }
+                    if (other.name === "asteroid2") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
+                        core.lives -= 1;
+                    }
+                    if (other.name === "asteroid3") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
                         }
                         core.lives -= 1;
                     }
                     //if player collides with newAsteroid
-                    if (other.name === "newAsteroid") {
+                    if (other.name === "newAsteroid0") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("hit");
+                        }
+                        core.lives -= 1;
+                    }
+                    if (other.name === "newAsteroid1") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("hit");
                         }
@@ -62,6 +86,15 @@ var managers;
                     core.changeScene();
                     core.lives = 100;
                     core.Time = 120;
+                    core.score = 0;
+                }
+                if (other.name === "portaltut") {
+                    if (core.SECheck == true) {
+                        createjs.Sound.play("hit");
+                    }
+                    core.scene = config.Scene.PLAY;
+                    core.changeScene();
+                    core.lives = 100;
                     core.score = 0;
                 }
             }

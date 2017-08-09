@@ -67,7 +67,7 @@ module scenes {
                 this.addChild(this._asteroid[count]);
             }
 
-            this._portal = new objects.Portal("portal");
+            this._portal = new objects.Portal("portaltut");
 
             this._collision = new managers.Collision();
 
@@ -104,6 +104,8 @@ module scenes {
                     this._portal.update();
                 }
 
+            this._collision.checkPlayer(this._player, this._portal);
+
             //asteroid update
             this._asteroid.forEach(asteroid => {
                 asteroid.giveData(this._player.x, this._player.y);
@@ -111,7 +113,6 @@ module scenes {
                 this._collision.checkEnemy(this._playerBullet, asteroid);
                 if (this._collision.checkEnemy)
                     asteroid.update();
-
             })
 
             if (core.AstHit0 == true) {
