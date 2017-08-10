@@ -84,7 +84,7 @@ namespace core {
 
             "frames": [
                 //buttons
-                [12, 11, 246, 31, 0, 0, -90],
+                [12, 11, 246, 31, 0, 0, 0],
                 [271, 11, 246, 32, 0, 0, -90],
                 [527, 11, 247, 31, 0, 0, -90],
                 [785, 11, 246, 32, 0, 0, -90],
@@ -172,12 +172,16 @@ namespace core {
                 "playerBullet": { "frames": [13] },
                 "enemyBullet": { "frames": [14] },
                 "enemyShip": { "frames": [15] },
-                "enemyHit": {"frames": [16,15,16]},
+                "enemyHit": {"frames": [16,15,16],
+                             next: "enemyShip",
+                            speed: 0.5},
                 "enemDest": { "frames": [16, 17, 18] },
                 "bossShip": { "frames": [19] },
                 "bossDest": { "frames": [20, 21] },
-                "player": { "frames": [22, 23, 24] },
-                "playerHit": { "frames": [25,24,25], "speed": 1 },
+                "player": { "frames": [ 22, 23, 24] },
+                "playerHit": { "frames": [25] ,
+                                next: "player",
+                                speed:0.4},
                 "playerDest": { "frames": [26, 27, 28, 29] }, //add speed
                 "musicButton": { "frames": [30] },
                 "soundButton": { "frames": [31] },

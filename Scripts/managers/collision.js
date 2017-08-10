@@ -18,14 +18,51 @@ var managers;
             if ((objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
+                    player.gotoAndPlay("playerHit");
                     // if player collides with asteroid
-                    if (other.name === "asteroid") {
+                    if (other.name === "asteroid0") {
                         if (core.SECheck == true) {
-                            createjs.Sound.play("hit");
-                            //player.gotoAndPlay("playerHit");
+                            createjs.Sound.play("objHit");
                         }
-                        core.lives -= 1;
-                        // player.gotoAndPlay("player");
+                        console.log("asteroid0");
+                        core.score += 100;
+                        core.AstHit0 = true;
+                    }
+                    else {
+                        core.AstHit0 = false;
+                    }
+                    if (other.name === "asteroid1") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
+                        console.log("asteroid1");
+                        core.score += 100;
+                        core.AstHit1 = true;
+                    }
+                    else {
+                        core.AstHit1 = false;
+                    }
+                    if (other.name === "asteroid2") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
+                        console.log("asteroid2");
+                        core.score += 100;
+                        core.AstHit2 = true;
+                    }
+                    else {
+                        core.AstHit2 = false;
+                    }
+                    if (other.name === "asteroid3") {
+                        if (core.SECheck == true) {
+                            createjs.Sound.play("objHit");
+                        }
+                        console.log("asteroid3");
+                        core.score += 100;
+                        core.AstHit3 = true;
+                    }
+                    else {
+                        core.AstHit3 = false;
                     }
                     //if player collides with newAsteroid
                     if (other.name === "newAsteroid") {
@@ -85,11 +122,9 @@ var managers;
                         console.log("asteroid0");
                         core.score += 100;
                         core.AstHit0 = true;
-                        core.bullDesp = true;
                     }
                     else {
                         core.AstHit0 = false;
-                        core.bullDesp = false;
                     }
                     if (other.name === "asteroid1") {
                         if (core.SECheck == true) {
@@ -98,11 +133,9 @@ var managers;
                         console.log("asteroid1");
                         core.score += 100;
                         core.AstHit1 = true;
-                        core.bullDesp = true;
                     }
                     else {
                         core.AstHit1 = false;
-                        core.bullDesp = false;
                     }
                     if (other.name === "asteroid2") {
                         if (core.SECheck == true) {
@@ -111,11 +144,9 @@ var managers;
                         console.log("asteroid2");
                         core.score += 100;
                         core.AstHit2 = true;
-                        core.bullDesp = true;
                     }
                     else {
                         core.AstHit2 = false;
-                        core.bullDesp = true;
                     }
                     if (other.name === "asteroid3") {
                         if (core.SECheck == true) {
@@ -124,11 +155,9 @@ var managers;
                         console.log("asteroid3");
                         core.score += 100;
                         core.AstHit3 = true;
-                        core.bullDesp = true;
                     }
                     else {
                         core.AstHit3 = false;
-                        core.bullDesp = false;
                     }
                     //if bullet collides with newAsteroids
                     if (other.name === "newAsteroid") {
@@ -148,6 +177,7 @@ var managers;
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
+                        other.gotoAndPlay("enemyHit");
                         core.EnemyHit = true;
                         core.bullDesp = true;
                         core.score += 150;
