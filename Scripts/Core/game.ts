@@ -11,7 +11,7 @@ namespace core {
 
     //score and lives variables
     export let score: number = 0;
-    export let lives: number = 100;
+    export let lives: number = 10000;
     export let Time: number = 100;
     export let ifSpawn: boolean = false;
     export let ifSpawnPath: boolean = false;

@@ -128,7 +128,6 @@ module managers {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                        console.log("asteroid0");
                         core.score += 100;
                         core.AstHit0 = true;
                     }
@@ -140,7 +139,6 @@ module managers {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                        console.log("asteroid1")
                         core.score += 100;
                         core.AstHit1 = true;
                     }
@@ -152,7 +150,6 @@ module managers {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                        console.log("asteroid2")
                         core.score += 100;
                         core.AstHit2 = true;
                     }
@@ -164,7 +161,6 @@ module managers {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                        console.log("asteroid3")
                         core.score += 100;
                         core.AstHit3 = true;
                     }

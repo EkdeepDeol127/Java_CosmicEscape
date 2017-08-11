@@ -125,6 +125,10 @@ module scenes {
                 {
                     this._asteroid[1]._reset();
                 }
+            if(core.EnemyHit == true)
+                {
+                    this._enemyShip.Damage(20);
+                }
 
             this._updateScoreBoard();
 
