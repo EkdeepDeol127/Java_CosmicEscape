@@ -150,8 +150,10 @@ var core;
                 "enemyShip": { "frames": [15] },
                 "enemyHit": { "frames": [16, 15, 16],
                     next: "enemyShip",
-                    speed: 0.5 },
-                "enemDest": { "frames": [16, 17, 18] },
+                    speed: 0.4 },
+                "enemDest": { "frames": [16, 17, 18],
+                    next: "enemyShip",
+                    speed: .1 },
                 "bossShip": { "frames": [19] },
                 "bossDest": { "frames": [20, 21] },
                 "player": { "frames": [22, 23, 24] },
@@ -182,7 +184,7 @@ var core;
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);
-        core.scene = config.Scene.PLAY;
+        core.scene = config.Scene.MENU;
         changeScene();
     }
     function gameLoop(event) {

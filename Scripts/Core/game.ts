@@ -184,8 +184,10 @@ namespace core {
                 "enemyShip": { "frames": [15] },
                 "enemyHit": {"frames": [16,15,16],
                              next: "enemyShip",
-                            speed: 0.5},
-                "enemDest": { "frames": [16, 17, 18] },
+                            speed: 0.4},
+                "enemDest": { "frames": [16, 17, 18],
+                                next:"enemyShip",
+                                speed:.1 },
                 "bossShip": { "frames": [19] },
                 "bossDest": { "frames": [20, 21] },
                 "player": { "frames": [ 22, 23, 24] },
@@ -218,7 +220,7 @@ namespace core {
         };
 
         textureAtlas = new createjs.SpriteSheet(atlasData);
-        scene = config.Scene.PLAY;
+        scene = config.Scene.MENU;
         changeScene();
 
     }

@@ -213,7 +213,8 @@ module managers {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                            core.EnemyHit = true;
+                        other.gotoAndPlay("enemDest");
+                        setTimeout(function(){core.EnemyHit = true}, 400);
                             core.score += 150;
                     }
                     else {
