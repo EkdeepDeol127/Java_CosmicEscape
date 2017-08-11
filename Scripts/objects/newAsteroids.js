@@ -23,6 +23,7 @@ var objects;
             return _this;
         }
         NewAsteroid.prototype._reset = function () {
+            this.gotoAndPlay("asteroid");
             if (Math.sin(this.playerRot) <= Math.sin(45)) {
                 this.x = (Math.random() * 780) + 20;
                 this.y = -80;
@@ -51,7 +52,7 @@ var objects;
             this.y += this.speed * Math.sin(this.radians);
         };
         NewAsteroid.prototype._checkBounds = function () {
-            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || core.newAstHit == true) {
+            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100) {
                 this._reset();
             }
         };

@@ -8,6 +8,7 @@ var core;
     core.Time = 100;
     core.ifSpawn = false;
     core.ifSpawnPath = false;
+    core.bullDesp = false;
     //scene variables
     var currentScene;
     //scenes
@@ -19,8 +20,8 @@ var core;
     var credits;
     var path;
     var gameWon;
-    core.SCheck = true;
-    core.SECheck = true;
+    core.SCheck = false;
+    core.SECheck = false;
     core.EnemyHit = false;
     core.AstHit0 = false;
     core.AstHit1 = false;
@@ -66,7 +67,7 @@ var core;
             ],
             "frames": [
                 //buttons
-                [12, 11, 246, 31, 0, 0, -90],
+                [12, 11, 246, 31, 0, 0, 0],
                 [271, 11, 246, 32, 0, 0, -90],
                 [527, 11, 247, 31, 0, 0, -90],
                 [785, 11, 246, 32, 0, 0, -90],
@@ -87,9 +88,9 @@ var core;
                 //enemyship
                 [15, 111, 143, 60, 0, 0, 0],
                 //enemyship destroyed
-                [160, 110, 142, 59, 0, 203, 140],
-                [304, 110, 135, 59, 0, 365, 140],
-                [450, 110, 111, 59, 0, 500, 140],
+                [160, 110, 142, 59, 0, 0, 0],
+                [304, 110, 135, 59, 0, 0, 0],
+                [450, 110, 111, 59, 0, 0, 0],
                 //boss
                 [14, 179, 150, 118, 0, 85, 240],
                 //boss destroyed
@@ -100,12 +101,12 @@ var core;
                 [170, 332, 149, 72, 0, 0, 0],
                 [327, 331, 149, 72, 0, 0, 0],
                 //playerHit
-                [490, 332, 148, 70, 0, 560, 365],
+                [490, 332, 148, 70, 0, 0, 0],
                 //player destroyed
-                [667, 334, 148, 70, 0, 740, 370],
-                [814, 332, 149, 70, 0, 885, 365],
-                [964, 333, 147, 70, 0, 1035, 370],
-                [1114, 334, 149, 71, 0, 1185, 370],
+                [667, 334, 148, 70, 0, 0, 0],
+                [814, 332, 149, 70, 0, 0, 0],
+                [964, 333, 147, 70, 0, 0, 0],
+                [1114, 334, 149, 71, 0, 0, 0],
                 //toggle buttons
                 [12, 429, 245, 31, 0, 0, 0],
                 [268, 429, 245, 31, 0, 0, 0],
@@ -118,7 +119,13 @@ var core;
                 [746, 506, 139, 129, 0, 0, 0],
                 //arrow
                 [12, 650, 77, 62, 0, 0, 0],
-                [95, 650, 75, 60, 0, 0, 0]
+                [95, 650, 75, 60, 0, 0, 0],
+                //asteroid destroyes
+                [643, 140, 51, 50, 0, 0, 0],
+                [722, 140, 51, 50, 0, 0, 0],
+                [795, 141, 52, 51, 0, 0, 0],
+                [866, 141, 52, 51, 0, 0, 0],
+                [927, 142, 52, 51, 0, 0, 0]
             ],
             "animations": {
                 "tutorialButton": { "frames": [0] },
@@ -136,16 +143,22 @@ var core;
                     "frames": [7, 8, 9],
                     "speed": 0.3
                 },
-                "astDest": { "frames": [10, 11] },
+                "test": { "frames": [10, 11] },
                 "bossBullet": { "frames": [12] },
                 "playerBullet": { "frames": [13] },
                 "enemyBullet": { "frames": [14] },
                 "enemyShip": { "frames": [15] },
+                "enemyHit": { "frames": [16, 15, 16],
+                    next: "enemyShip",
+                    speed: 0.5 },
                 "enemDest": { "frames": [16, 17, 18] },
                 "bossShip": { "frames": [19] },
                 "bossDest": { "frames": [20, 21] },
                 "player": { "frames": [22, 23, 24] },
-                "playerHit": { "frames": [24, 25, 24, 25] },
+                "playerHit": { "frames": [25],
+                    next: "player",
+                    speed: 0.4
+                },
                 "playerDest": { "frames": [26, 27, 28, 29] },
                 "musicButton": { "frames": [30] },
                 "soundButton": { "frames": [31] },
@@ -161,11 +174,15 @@ var core;
                     "frames": [32, 33, 34, 35, 36, 37],
                     "speed": 0.2
                 },
-                "arrow": { "frames": [38] }
+                "arrow": { "frames": [38] },
+                "astDest": { "frames": [40, 41, 42, 43, 44],
+                    //   next:"asteroid",
+                    speed: 0.1
+                }
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);
-        core.scene = config.Scene.MENU;
+        core.scene = config.Scene.PLAY;
         changeScene();
     }
     function gameLoop(event) {

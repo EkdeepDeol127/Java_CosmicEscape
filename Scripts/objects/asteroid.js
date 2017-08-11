@@ -23,6 +23,7 @@ var objects;
             return _this;
         }
         Asteroid.prototype._reset = function () {
+            this.gotoAndPlay("asteroid");
             this.ran = Math.round((Math.random() * 4) + 1);
             switch (this.ran) {
                 case 1://top

@@ -9,6 +9,7 @@ module objects {
         private _position:Vector2;
         private _isColliding:boolean;
         public sound:createjs.AbstractSoundInstance;
+        public anim:createjs.SpriteSheetAnimation;
 
         // PUBLIC PROPERTIES 
 

@@ -17,6 +17,8 @@ module scenes {
 
         private _sound: createjs.AbstractSoundInstance;
 
+        private _delay:void;
+
         //creates an instance of Play
         constructor() {
             super();
@@ -88,10 +90,13 @@ module scenes {
             this._player.update();
             this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
             this._bullet.update();
+            
             this._enemyShip.giveData(this._player.x, this._player.y);
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
+
+
             this._collision.update();
             if(this._portalSpawn == true)
                 {
@@ -106,6 +111,11 @@ module scenes {
 
             //BULLET COLLISIONS
             this._collision.checkEnemy(this._bullet, this._enemyShip);
+           
+           
+            if(core.bullDesp == true){
+                this._bullet.shoot = false;
+            }
 
             //asteroids update
             this._asteroid.forEach(asteroid => {
@@ -129,21 +139,27 @@ module scenes {
                 }
             }
 
+           
             if (core.AstHit0 == true)
                 {
-                    this._asteroid[0]._reset();
+                
+                 this._asteroid[0]._reset();
                 }
+
             if (core.AstHit1 == true)
-                {
-                    this._asteroid[1]._reset();
-                }
+               {
+                 
+                this._asteroid[1]._reset();
+               }
             if (core.AstHit2 == true)
-                {
-                    this._asteroid[2]._reset();
+               {
+              
+            this._asteroid[2]._reset();
                 }
             if (core.AstHit3 == true)
                 {
-                    this._asteroid[3]._reset();
+                   
+               this._asteroid[3]._reset();
                 }
             if(core.EnemyHit == true)
                 {
@@ -156,12 +172,13 @@ module scenes {
                 if (core.SCheck == true) {
                     this._sound.stop();
                 }
+                
                 core.scene = config.Scene.OVER;
                 core.changeScene();
                 core.lives = 100;
                 core.Time = 120;
                 core.score = 0;
+                }
             }
         }
     }
-}

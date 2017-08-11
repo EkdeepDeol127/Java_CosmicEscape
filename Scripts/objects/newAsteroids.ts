@@ -19,6 +19,7 @@ module objects {
         }
 
         public _reset(): void {
+            this.gotoAndPlay("asteroid");
             if(Math.sin(this.playerRot) <= Math.sin(45))//up
                 {
                     this.x = (Math.random() * 780) + 20; 
@@ -54,7 +55,7 @@ module objects {
         }
 
         private _checkBounds(): void {
-            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 || core.newAstHit == true) {
+            if (this.x >= 900 || this.x <= -100 || this.y >= 700 || this.y <= -100 ) {
                 this._reset();
             }
         }

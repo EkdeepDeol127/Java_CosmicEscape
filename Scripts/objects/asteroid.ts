@@ -18,6 +18,8 @@ module objects {
         }
 
         public _reset(): void {
+         
+            this.gotoAndPlay("asteroid");
             this.ran = Math.round((Math.random() * 4) + 1);
             switch (this.ran) {
                 case 1://top
