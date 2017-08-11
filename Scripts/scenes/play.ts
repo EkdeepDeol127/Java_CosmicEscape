@@ -5,11 +5,11 @@ module scenes {
         private _player: objects.Player;
         public _asteroid: objects.Asteroid[];
         private _bullet: objects.Bullet;
-        private _enemyBullet: objects.EnemyBullet;
+       // private _enemyBullet: objects.EnemyBullet;
         private _portal: objects.Portal;
         private _portalSpawn: boolean = false;
 
-        private _enemyShip: objects.EnemyShip;
+      //  private _enemyShip: objects.EnemyShip;
         private _collision: managers.Collision;
         private _scoreLabel: objects.Label;
         private _livesLabel: objects.Label;
@@ -17,6 +17,7 @@ module scenes {
 
         private _sound: createjs.AbstractSoundInstance;
 
+        private _delay:void;
 
         //creates an instance of Play
         constructor() {
@@ -41,7 +42,7 @@ module scenes {
             this._galaxy.y = -500;
             this._galaxy.x = -100;
             this.addChild(this._galaxy);
-
+/*
 
             //enemy object
             this._enemyBullet = new objects.EnemyBullet("enemyBullet");
@@ -49,7 +50,7 @@ module scenes {
             this._enemyShip = new objects.EnemyShip("enemyShip");
             this.addChild(this._enemyShip);
 
-
+*/
             //PLAYER
             this._bullet = new objects.Bullet("playerBullet");
             this.addChild(this._bullet);
@@ -91,10 +92,13 @@ module scenes {
             this._player.update();
             this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
             this._bullet.update();
+            /*
             this._enemyShip.giveData(this._player.x, this._player.y);
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
+*/
+
             this._collision.update();
             if(this._portalSpawn == true)
                 {
@@ -102,13 +106,13 @@ module scenes {
                 }
 
             //PLAYER COLLISIONS
-            this._collision.checkPlayer(this._player, this._enemyShip);
-            this._collision.checkPlayer(this._player, this._enemyBullet);
+          //  this._collision.checkPlayer(this._player, this._enemyShip);
+          //  this._collision.checkPlayer(this._player, this._enemyBullet);
             this._collision.checkPlayer(this._player, this._portal);
 
 
             //BULLET COLLISIONS
-            this._collision.checkEnemy(this._bullet, this._enemyShip);
+          ///  this._collision.checkEnemy(this._bullet, this._enemyShip);
            
            
             if(core.bullDesp == true){
@@ -136,23 +140,45 @@ module scenes {
                 }
             }
 
+           
             if (core.AstHit0 == true)
                 {
-                    this._asteroid[0]._reset();
+                
+                 this._asteroid[0]._reset();
                 }
+
             if (core.AstHit1 == true)
-                {
-                    this._asteroid[1]._reset();
-                }
+               {
+                 
+                this._asteroid[1]._reset();
+               }
             if (core.AstHit2 == true)
-                {
-                    this._asteroid[2]._reset();
+               {
+              
+            this._asteroid[2]._reset();
                 }
             if (core.AstHit3 == true)
                 {
-                    this._asteroid[3]._reset();
+                   
+               this._asteroid[3]._reset();
                 }
+/*
+            do {
+                this._asteroid[0].gotoAndPlay("astDest");
+            } while (core.AstHit0 = true);
 
+
+            do {
+                this._asteroid[1].gotoAndPlay("astDest");
+            } while (core.AstHit1 = true);
+
+
+            do {
+                this._asteroid[2].gotoAndPlay("astDest");
+            } while (core.AstHit2 = true);
+
+
+*/
             this._updateScoreBoard();
 
             if (core.lives < 1) {

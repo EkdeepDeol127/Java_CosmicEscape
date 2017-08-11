@@ -4,7 +4,7 @@ var core;
     var canvas = document.getElementById("canvas");
     //score and lives variables
     core.score = 0;
-    core.lives = 50;
+    core.lives = 1000;
     core.Time = 100;
     core.ifSpawn = false;
     core.ifSpawnPath = false;
@@ -118,7 +118,13 @@ var core;
                 [746, 506, 139, 129, 0, 0, 0],
                 //arrow
                 [12, 650, 77, 62, 0, 0, 0],
-                [95, 650, 75, 60, 0, 0, 0]
+                [95, 650, 75, 60, 0, 0, 0],
+                //asteroid destroyes
+                [643, 140, 51, 50, 0, 0, 0],
+                [722, 140, 51, 50, 0, 0, 0],
+                [795, 141, 52, 51, 0, 0, 0],
+                [866, 141, 52, 51, 0, 0, 0],
+                [927, 142, 52, 51, 0, 0, 0]
             ],
             "animations": {
                 "tutorialButton": { "frames": [0] },
@@ -136,7 +142,7 @@ var core;
                     "frames": [7, 8, 9],
                     "speed": 0.3
                 },
-                "astDest": { "frames": [10, 11] },
+                "test": { "frames": [10, 11] },
                 "bossBullet": { "frames": [12] },
                 "playerBullet": { "frames": [13] },
                 "enemyBullet": { "frames": [14] },
@@ -150,7 +156,8 @@ var core;
                 "player": { "frames": [22, 23, 24] },
                 "playerHit": { "frames": [25],
                     next: "player",
-                    speed: 0.4 },
+                    speed: 0.4
+                },
                 "playerDest": { "frames": [26, 27, 28, 29] },
                 "musicButton": { "frames": [30] },
                 "soundButton": { "frames": [31] },
@@ -162,7 +169,11 @@ var core;
                     "frames": [32, 33, 34, 35, 36, 37],
                     "speed": 0.2
                 },
-                "arrow": { "frames": [38] }
+                "arrow": { "frames": [38] },
+                "astDest": { "frames": [40, 41, 42, 43, 44],
+                    //   next:"asteroid",
+                    speed: 0.5
+                }
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);

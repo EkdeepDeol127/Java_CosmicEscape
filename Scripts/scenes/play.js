@@ -33,11 +33,15 @@ var scenes;
             this._galaxy.y = -500;
             this._galaxy.x = -100;
             this.addChild(this._galaxy);
-            //enemy object
-            this._enemyBullet = new objects.EnemyBullet("enemyBullet");
-            this.addChild(this._enemyBullet);
-            this._enemyShip = new objects.EnemyShip("enemyShip");
-            this.addChild(this._enemyShip);
+            /*
+            
+                        //enemy object
+                        this._enemyBullet = new objects.EnemyBullet("enemyBullet");
+                        this.addChild(this._enemyBullet);
+                        this._enemyShip = new objects.EnemyShip("enemyShip");
+                        this.addChild(this._enemyShip);
+            
+            */
             //PLAYER
             this._bullet = new objects.Bullet("playerBullet");
             this.addChild(this._bullet);
@@ -71,20 +75,22 @@ var scenes;
             this._player.update();
             this._bullet.giveData(core.stage.mouseX, core.stage.mouseY, this._player.x, this._player.y);
             this._bullet.update();
+            /*
             this._enemyShip.giveData(this._player.x, this._player.y);
             this._enemyShip.update();
             this._enemyBullet.giveData(this._player.x, this._player.y, this._enemyShip.x, this._enemyShip.y, this._enemyShip.inRange);
             this._enemyBullet.update();
+*/
             this._collision.update();
             if (this._portalSpawn == true) {
                 this._portal.update();
             }
             //PLAYER COLLISIONS
-            this._collision.checkPlayer(this._player, this._enemyShip);
-            this._collision.checkPlayer(this._player, this._enemyBullet);
+            //  this._collision.checkPlayer(this._player, this._enemyShip);
+            //  this._collision.checkPlayer(this._player, this._enemyBullet);
             this._collision.checkPlayer(this._player, this._portal);
             //BULLET COLLISIONS
-            this._collision.checkEnemy(this._bullet, this._enemyShip);
+            ///  this._collision.checkEnemy(this._bullet, this._enemyShip);
             if (core.bullDesp == true) {
                 this._bullet.shoot = false;
             }
@@ -119,6 +125,23 @@ var scenes;
             if (core.AstHit3 == true) {
                 this._asteroid[3]._reset();
             }
+            /*
+                        do {
+                            this._asteroid[0].gotoAndPlay("astDest");
+                        } while (core.AstHit0 = true);
+            
+            
+                        do {
+                            this._asteroid[1].gotoAndPlay("astDest");
+                        } while (core.AstHit1 = true);
+            
+            
+                        do {
+                            this._asteroid[2].gotoAndPlay("astDest");
+                        } while (core.AstHit2 = true);
+            
+            
+            */
             this._updateScoreBoard();
             if (core.lives < 1) {
                 if (core.SCheck == true) {

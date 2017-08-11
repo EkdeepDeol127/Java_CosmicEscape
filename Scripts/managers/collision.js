@@ -24,45 +24,28 @@ var managers;
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                        console.log("asteroid0");
-                        core.score += 100;
-                        core.AstHit0 = true;
-                    }
-                    else {
-                        core.AstHit0 = false;
+                        core.lives -= 1;
                     }
                     if (other.name === "asteroid1") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
                         console.log("asteroid1");
-                        core.score += 100;
-                        core.AstHit1 = true;
-                    }
-                    else {
-                        core.AstHit1 = false;
+                        core.lives -= 1;
                     }
                     if (other.name === "asteroid2") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
                         console.log("asteroid2");
-                        core.score += 100;
-                        core.AstHit2 = true;
-                    }
-                    else {
-                        core.AstHit2 = false;
+                        core.lives -= 1;
                     }
                     if (other.name === "asteroid3") {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
                         console.log("asteroid3");
-                        core.score += 100;
-                        core.AstHit3 = true;
-                    }
-                    else {
-                        core.AstHit3 = false;
+                        core.lives -= 1;
                     }
                     //if player collides with newAsteroid
                     if (other.name === "newAsteroid") {
@@ -177,7 +160,6 @@ var managers;
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                        other.gotoAndPlay("enemyHit");
                         core.EnemyHit = true;
                         core.bullDesp = true;
                         core.score += 150;

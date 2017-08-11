@@ -11,7 +11,7 @@ namespace core {
 
     //score and lives variables
     export let score: number = 0;
-    export let lives: number = 50;
+    export let lives: number = 1000;
     export let Time: number = 100;
     export let ifSpawn: boolean = false;
     export let ifSpawnPath: boolean = false;
@@ -145,7 +145,16 @@ namespace core {
 
                 //arrow
                 [12, 650, 77, 62, 0, 0, 0],
-                [95, 650, 75, 60, 0, 0, 0]
+                [95, 650, 75, 60, 0, 0, 0],
+
+                //asteroid destroyes
+                [643, 140, 51, 50, 0, 0, 0], //40
+                [722, 140, 51, 50, 0, 0, 0],
+                [795, 141, 52, 51, 0, 0, 0],
+                [866, 141, 52, 51, 0, 0, 0],
+                [927, 142, 52, 51, 0, 0, 0]
+
+
 
 
 
@@ -167,7 +176,7 @@ namespace core {
                     "frames": [7, 8, 9],
                     "speed": 0.3
                 },
-                "astDest": { "frames": [10, 11] },
+                "test": { "frames": [10, 11] },
                 "bossBullet": { "frames": [12] },
                 "playerBullet": { "frames": [13] },
                 "enemyBullet": { "frames": [14] },
@@ -181,7 +190,8 @@ namespace core {
                 "player": { "frames": [ 22, 23, 24] },
                 "playerHit": { "frames": [25] ,
                                 next: "player",
-                                speed:0.4},
+                                speed:0.4
+                            },
                 "playerDest": { "frames": [26, 27, 28, 29] }, //add speed
                 "musicButton": { "frames": [30] },
                 "soundButton": { "frames": [31] },
@@ -193,7 +203,11 @@ namespace core {
                     "frames": [32, 33, 34, 35, 36, 37],
                     "speed": 0.2
                 },
-                "arrow": { "frames": [38] }
+                "arrow": { "frames": [38] },
+                "astDest": {"frames":[40,41,42,43,44],
+                             //   next:"asteroid",
+                            speed:0.5
+                        }
 
             }
         };

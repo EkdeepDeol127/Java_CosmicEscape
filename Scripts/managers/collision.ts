@@ -20,26 +20,21 @@ module managers {
             }
         }
 
+     
         public checkPlayer(player: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
             if ((objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) && this.timer <= 0) {
                 if (!other.isColliding) {
                     other.isColliding = true;
                     player.gotoAndPlay("playerHit");
+                    
                     // if player collides with asteroid
                     if (other.name === "asteroid0") {
 
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                     
-                        console.log("asteroid0");
-                        core.score += 100;
-                        core.AstHit0 = true;
-                        
-                    }
-                    else {
-                        core.AstHit0 = false;
+                 core.lives -= 1;
                     }
  
                     if (other.name === "asteroid1") {
@@ -48,14 +43,7 @@ module managers {
                             createjs.Sound.play("objHit");
                         }
                         console.log("asteroid1")
-                        core.score += 100;
-                        core.AstHit1 = true;
-                        
-
-                    }
-                    
-                    else {
-                        core.AstHit1 = false;
+                   core.lives-=1;
                     }
 
                     if (other.name === "asteroid2") {
@@ -63,11 +51,7 @@ module managers {
                             createjs.Sound.play("objHit");
                         }
                         console.log("asteroid2");
-                        core.score += 100;
-                        core.AstHit2 = true;
-                    }
-                    else {
-                        core.AstHit2 = false;
+                   core.lives -=1;
                     }
 
                     if (other.name === "asteroid3") {
@@ -75,11 +59,7 @@ module managers {
                             createjs.Sound.play("objHit");
                         }
                         console.log("asteroid3");
-                        core.score += 100;
-                        core.AstHit3 = true;
-                    }
-                    else {
-                        core.AstHit3 = false;
+                        core.lives -=1;
                     }
 
                     //if player collides with newAsteroid
@@ -145,6 +125,7 @@ module managers {
                     other.isColliding = true;
                     // if bullet collides with asteroid
                     if (other.name === "asteroid0") {
+                       
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         
@@ -159,6 +140,7 @@ module managers {
                     }
 
                     if (other.name === "asteroid1") {
+                      
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
@@ -169,9 +151,11 @@ module managers {
                     }
                     else {
                         core.AstHit1 = false;
+                        
                     }
 
                     if (other.name === "asteroid2") {
+                       
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
@@ -184,6 +168,7 @@ module managers {
                     }
 
                     if (other.name === "asteroid3") {
+                       
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
@@ -212,7 +197,6 @@ module managers {
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                         other.gotoAndPlay("enemyHit");
                         core.EnemyHit = true;
                         core.bullDesp = true;
                         core.score += 150;

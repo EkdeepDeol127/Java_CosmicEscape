@@ -19,6 +19,7 @@ module objects {
         }
 
         private _reset(): void {
+            this.gotoAndPlay("asteroid");
             if(Math.sin(this.playerRot) <= Math.sin(45))//up
                 {
                     this.x = (Math.random() * 780) + 20; 

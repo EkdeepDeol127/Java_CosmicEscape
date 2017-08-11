@@ -23,6 +23,7 @@ var objects;
             return _this;
         }
         NewAsteroid.prototype._reset = function () {
+            this.gotoAndPlay("asteroid");
             if (Math.sin(this.playerRot) <= Math.sin(45)) {
                 this.x = (Math.random() * 780) + 20;
                 this.y = -80;
