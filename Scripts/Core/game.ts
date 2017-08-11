@@ -29,8 +29,8 @@ namespace core {
     let credits: scenes.Credits;
     let path: scenes.pathLevel;
     let gameWon: scenes.gameWon;
-    export let SCheck: boolean = true;
-    export let SECheck: boolean = true;
+    export let SCheck: boolean = false;
+    export let SECheck: boolean = false;
     export let EnemyHit: boolean = false;
     export let AstHit0: boolean = false;
     export let AstHit1: boolean = false;
@@ -206,7 +206,7 @@ namespace core {
                 "arrow": { "frames": [38] },
                 "astDest": {"frames":[40,41,42,43,44],
                              //   next:"asteroid",
-                            speed:0.5
+                            speed:0.1
                         }
 
             }

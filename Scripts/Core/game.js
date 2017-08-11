@@ -20,8 +20,8 @@ var core;
     var credits;
     var path;
     var gameWon;
-    core.SCheck = true;
-    core.SECheck = true;
+    core.SCheck = false;
+    core.SECheck = false;
     core.EnemyHit = false;
     core.AstHit0 = false;
     core.AstHit1 = false;
@@ -172,7 +172,7 @@ var core;
                 "arrow": { "frames": [38] },
                 "astDest": { "frames": [40, 41, 42, 43, 44],
                     //   next:"asteroid",
-                    speed: 0.5
+                    speed: 0.1
                 }
             }
         };

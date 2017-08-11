@@ -125,56 +125,52 @@ module managers {
                     other.isColliding = true;
                     // if bullet collides with asteroid
                     if (other.name === "asteroid0") {
-                       
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
-                        
                         }
                         console.log("asteroid0");
                         core.score += 100;
-                        core.AstHit0 = true;
-                        
+                        other.gotoAndPlay("astDest");
+                        setTimeout(function(){core.AstHit0 = true}, 800);
                     }
                     else {
                         core.AstHit0 = false;
                     }
 
                     if (other.name === "asteroid1") {
-                      
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
                         console.log("asteroid1")
                         core.score += 100;
-                        core.AstHit1 = true;
-
+                       other.gotoAndPlay("astDest");
+                        setTimeout(function(){core.AstHit1 = true}, 800);
                     }
                     else {
                         core.AstHit1 = false;
-                        
                     }
 
                     if (other.name === "asteroid2") {
-                       
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
                         console.log("asteroid2");
                         core.score += 100;
-                        core.AstHit2 = true;
+                       other.gotoAndPlay("astDest");
+                        setTimeout(function(){core.AstHit2 = true}, 800);
                     }
                     else {
                         core.AstHit2 = false;
                     }
 
                     if (other.name === "asteroid3") {
-                       
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
                         console.log("asteroid3");
                         core.score += 100;
-                        core.AstHit3 = true;
+                        other.gotoAndPlay("astDest");
+                        setTimeout(function(){core.AstHit3 = true}, 800);
                     }
                     else {
                         core.AstHit3 = false;

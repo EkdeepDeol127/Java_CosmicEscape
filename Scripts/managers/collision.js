@@ -104,7 +104,8 @@ var managers;
                         }
                         console.log("asteroid0");
                         core.score += 100;
-                        core.AstHit0 = true;
+                        other.gotoAndPlay("astDest");
+                        setTimeout(function () { core.AstHit0 = true; }, 800);
                     }
                     else {
                         core.AstHit0 = false;
@@ -115,7 +116,8 @@ var managers;
                         }
                         console.log("asteroid1");
                         core.score += 100;
-                        core.AstHit1 = true;
+                        other.gotoAndPlay("astDest");
+                        setTimeout(function () { core.AstHit1 = true; }, 800);
                     }
                     else {
                         core.AstHit1 = false;
@@ -126,7 +128,8 @@ var managers;
                         }
                         console.log("asteroid2");
                         core.score += 100;
-                        core.AstHit2 = true;
+                        other.gotoAndPlay("astDest");
+                        setTimeout(function () { core.AstHit2 = true; }, 800);
                     }
                     else {
                         core.AstHit2 = false;
@@ -137,7 +140,8 @@ var managers;
                         }
                         console.log("asteroid3");
                         core.score += 100;
-                        core.AstHit3 = true;
+                        other.gotoAndPlay("astDest");
+                        setTimeout(function () { core.AstHit3 = true; }, 800);
                     }
                     else {
                         core.AstHit3 = false;
