@@ -113,11 +113,6 @@ module objects {
             }
         }
 
-        public col()
-        {
-            
-        }
-
         public giveData(PX:number, PY:number)
         {
             this.playerX = PX;

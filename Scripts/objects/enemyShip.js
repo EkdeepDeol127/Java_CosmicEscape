@@ -95,8 +95,6 @@ var objects;
                 }
             }
         };
-        EnemyShip.prototype.col = function () {
-        };
         EnemyShip.prototype.giveData = function (PX, PY) {
             this.playerX = PX;
             this.playerY = PY;

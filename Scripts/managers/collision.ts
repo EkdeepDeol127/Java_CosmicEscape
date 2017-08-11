@@ -196,7 +196,6 @@ module managers {
                         }
                             core.EnemyHit = true;
                             core.score += 150;
-                            console.log("HIT ONCE");
                     }
                     else {
                         core.EnemyHit = false;
