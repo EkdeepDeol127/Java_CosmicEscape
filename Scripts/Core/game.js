@@ -20,8 +20,8 @@ var core;
     var credits;
     var path;
     var gameWon;
-    core.SCheck = false;
-    core.SECheck = false;
+    core.SCheck = true;
+    core.SECheck = true;
     core.EnemyHit = false;
     core.AstHit0 = false;
     core.AstHit1 = false;
@@ -182,7 +182,7 @@ var core;
             }
         };
         core.textureAtlas = new createjs.SpriteSheet(atlasData);
-        core.scene = config.Scene.PLAY;
+        core.scene = config.Scene.MENU;
         changeScene();
     }
     function gameLoop(event) {

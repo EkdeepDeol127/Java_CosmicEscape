@@ -29,8 +29,8 @@ namespace core {
     let credits: scenes.Credits;
     let path: scenes.pathLevel;
     let gameWon: scenes.gameWon;
-    export let SCheck: boolean = false;
-    export let SECheck: boolean = false;
+    export let SCheck: boolean = true;
+    export let SECheck: boolean = true;
     export let EnemyHit: boolean = false;
     export let AstHit0: boolean = false;
     export let AstHit1: boolean = false;
@@ -218,7 +218,7 @@ namespace core {
         };
 
         textureAtlas = new createjs.SpriteSheet(atlasData);
-        scene = config.Scene.PLAY;
+        scene = config.Scene.MENU;
         changeScene();
 
     }
