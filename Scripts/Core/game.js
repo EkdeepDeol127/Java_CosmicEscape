@@ -5,7 +5,7 @@ var core;
     //score and lives variables
     core.score = 0;
     core.lives = 10000;
-    core.Time = 100;
+    core.Time = 40;
     core.ifSpawn = false;
     core.ifSpawnPath = false;
     core.bullDesp = false;
@@ -20,8 +20,8 @@ var core;
     var credits;
     var path;
     var gameWon;
-    core.SCheck = false;
-    core.SECheck = false;
+    core.SCheck = true;
+    core.SECheck = true;
     core.EnemyHit = false;
     core.AstHit0 = false;
     core.AstHit1 = false;
@@ -68,12 +68,12 @@ var core;
             "frames": [
                 //buttons
                 [12, 11, 246, 31, 0, 0, 0],
-                [271, 11, 246, 32, 0, 0, -90],
-                [527, 11, 247, 31, 0, 0, -90],
-                [785, 11, 246, 32, 0, 0, -90],
-                [11, 50, 247, 32, 0, 0, -90],
-                [271, 50, 245, 32, 0, 0, -90],
-                [528, 50, 245, 32, 0, 0, -90],
+                [271, 11, 246, 32, 0, 0, 0],
+                [527, 11, 247, 31, 0, 0, 0],
+                [785, 11, 246, 32, 0, 0, 0],
+                [11, 50, 247, 32, 0, 0, 0],
+                [271, 50, 245, 32, 0, 0, 0],
+                [528, 50, 245, 32, 0, 0, 0],
                 //asteroid
                 [643, 233, 45, 45, 0, 0, 0],
                 [757, 233, 45, 45, 0, 0, 0],

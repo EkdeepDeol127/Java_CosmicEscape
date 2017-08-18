@@ -12,7 +12,7 @@ namespace core {
     //score and lives variables
     export let score: number = 0;
     export let lives: number = 10000;
-    export let Time: number = 100;
+    export let Time: number = 40;
     export let ifSpawn: boolean = false;
     export let ifSpawnPath: boolean = false;
     export let bullDesp: boolean = false;
@@ -29,8 +29,8 @@ namespace core {
     let credits: scenes.Credits;
     let path: scenes.pathLevel;
     let gameWon: scenes.gameWon;
-    export let SCheck: boolean = false;
-    export let SECheck: boolean = false;
+    export let SCheck: boolean = true;
+    export let SECheck: boolean = true;
     export let EnemyHit: boolean = false;
     export let AstHit0: boolean = false;
     export let AstHit1: boolean = false;
@@ -86,12 +86,12 @@ namespace core {
             "frames": [
                 //buttons
                 [12, 11, 246, 31, 0, 0, 0],
-                [271, 11, 246, 32, 0, 0, -90],
-                [527, 11, 247, 31, 0, 0, -90],
-                [785, 11, 246, 32, 0, 0, -90],
-                [11, 50, 247, 32, 0, 0, -90],
-                [271, 50, 245, 32, 0, 0, -90],
-                [528, 50, 245, 32, 0, 0, -90],
+                [271, 11, 246, 32, 0, 0, 0],
+                [527, 11, 247, 31, 0, 0, 0],
+                [785, 11, 246, 32, 0, 0, 0],
+                [11, 50, 247, 32, 0, 0, 0],
+                [271, 50, 245, 32, 0, 0, 0],
+                [528, 50, 245, 32, 0, 0, 0],
 
 
                 //asteroid
