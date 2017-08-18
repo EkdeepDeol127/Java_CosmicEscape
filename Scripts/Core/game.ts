@@ -12,7 +12,7 @@ namespace core {
     //score and lives variables
     export let score: number = 0;
     export let lives: number = 10000;
-    export let Time: number = 100;
+    export let Time: number = 40;
     export let ifSpawn: boolean = false;
     export let ifSpawnPath: boolean = false;
     export let bullDesp: boolean = false;
@@ -86,12 +86,12 @@ namespace core {
             "frames": [
                 //buttons
                 [12, 11, 246, 31, 0, 0, 0],
-                [271, 11, 246, 32, 0, 0, -90],
-                [527, 11, 247, 31, 0, 0, -90],
-                [785, 11, 246, 32, 0, 0, -90],
-                [11, 50, 247, 32, 0, 0, -90],
-                [271, 50, 245, 32, 0, 0, -90],
-                [528, 50, 245, 32, 0, 0, -90],
+                [271, 11, 246, 32, 0, 0, 0],
+                [527, 11, 247, 31, 0, 0, 0],
+                [785, 11, 246, 32, 0, 0, 0],
+                [11, 50, 247, 32, 0, 0, 0],
+                [271, 50, 245, 32, 0, 0, 0],
+                [528, 50, 245, 32, 0, 0, 0],
 
 
                 //asteroid
@@ -184,8 +184,10 @@ namespace core {
                 "enemyShip": { "frames": [15] },
                 "enemyHit": {"frames": [16,15,16],
                              next: "enemyShip",
-                            speed: 0.5},
-                "enemDest": { "frames": [16, 17, 18] },
+                            speed: 0.4},
+                "enemDest": { "frames": [16, 17, 18],
+                                next:"enemyShip",
+                                speed:.1 },
                 "bossShip": { "frames": [19] },
                 "bossDest": { "frames": [20, 21] },
                 "player": { "frames": [ 22, 23, 24] },

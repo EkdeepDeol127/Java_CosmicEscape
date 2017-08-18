@@ -5,7 +5,7 @@ var core;
     //score and lives variables
     core.score = 0;
     core.lives = 10000;
-    core.Time = 100;
+    core.Time = 40;
     core.ifSpawn = false;
     core.ifSpawnPath = false;
     core.bullDesp = false;
@@ -68,12 +68,12 @@ var core;
             "frames": [
                 //buttons
                 [12, 11, 246, 31, 0, 0, 0],
-                [271, 11, 246, 32, 0, 0, -90],
-                [527, 11, 247, 31, 0, 0, -90],
-                [785, 11, 246, 32, 0, 0, -90],
-                [11, 50, 247, 32, 0, 0, -90],
-                [271, 50, 245, 32, 0, 0, -90],
-                [528, 50, 245, 32, 0, 0, -90],
+                [271, 11, 246, 32, 0, 0, 0],
+                [527, 11, 247, 31, 0, 0, 0],
+                [785, 11, 246, 32, 0, 0, 0],
+                [11, 50, 247, 32, 0, 0, 0],
+                [271, 50, 245, 32, 0, 0, 0],
+                [528, 50, 245, 32, 0, 0, 0],
                 //asteroid
                 [643, 233, 45, 45, 0, 0, 0],
                 [757, 233, 45, 45, 0, 0, 0],
@@ -150,8 +150,10 @@ var core;
                 "enemyShip": { "frames": [15] },
                 "enemyHit": { "frames": [16, 15, 16],
                     next: "enemyShip",
-                    speed: 0.5 },
-                "enemDest": { "frames": [16, 17, 18] },
+                    speed: 0.4 },
+                "enemDest": { "frames": [16, 17, 18],
+                    next: "enemyShip",
+                    speed: .1 },
                 "bossShip": { "frames": [19] },
                 "bossDest": { "frames": [20, 21] },
                 "player": { "frames": [22, 23, 24] },

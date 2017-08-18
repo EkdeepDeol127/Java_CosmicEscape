@@ -162,7 +162,8 @@ var managers;
                             createjs.Sound.play("objHit");
                         }
                         core.score += 100;
-                        core.newAstHit0 = true;
+                        other.gotoAndPlay("astDest");
+                        setTimeout(function () { core.newAstHit0 = true; }, 800);
                     }
                     else {
                         core.newAstHit0 = false;
@@ -172,7 +173,8 @@ var managers;
                             createjs.Sound.play("objHit");
                         }
                         core.score += 100;
-                        core.newAstHit1 = true;
+                        other.gotoAndPlay("astDest");
+                        setTimeout(function () { core.newAstHit1 = true; }, 800);
                     }
                     else {
                         core.newAstHit1 = false;
@@ -182,7 +184,8 @@ var managers;
                         if (core.SECheck == true) {
                             createjs.Sound.play("objHit");
                         }
-                        core.EnemyHit = true;
+                        other.gotoAndPlay("enemDest");
+                        setTimeout(function () { core.EnemyHit = true; }, 400);
                         core.score += 150;
                     }
                     else {

@@ -19,7 +19,7 @@ var scenes;
             return _this;
         }
         Play.prototype._updateScoreBoard = function () {
-            this._livesLabel.text = "Lives: " + core.lives;
+            this._livesLabel.text = "Hull % " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
             this._TimeLabel.text = "Time: " + Math.round(core.Time);
         };
@@ -54,11 +54,11 @@ var scenes;
             this._portal = new objects.Portal("portal");
             this._collision = new managers.Collision();
             //score label
-            this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "#F3B600", 260, 5, false);
+            this._scoreLabel = new objects.Label("Score: " + core.score, "40px", "monospace", "green", 450, 550, false);
             this.addChild(this._scoreLabel);
-            this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "monospace", "#F3B600", 10, 5, false);
+            this._livesLabel = new objects.Label("Hull % " + core.lives, "40px", "monospace", "#F3B600", 10, 5, false);
             this.addChild(this._livesLabel);
-            this._TimeLabel = new objects.Label("Time: " + core.Time, "40px", "monospace", "#F3B600", 510, 5, false);
+            this._TimeLabel = new objects.Label("Time: " + core.Time, "40px", "monospace", "#F3B600", 10, 550, false);
             this.addChild(this._TimeLabel);
             console.log("SurviveLEVEL");
             core.stage.addChild(this);

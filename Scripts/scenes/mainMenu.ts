@@ -31,32 +31,35 @@ module scenes {
 
             //BUTTONS
             //add start  button
-            this._startButton = new objects.Button("playButton", 370, 280, true);
+            this._startButton = new objects.Button("playButton", 370, 400, true);
             this.addChild(this._startButton);
             //startbutton event listener
             this._startButton.on("click", this._startButtonClick, this);
+           
+             //add tutorial button
+             this._tutorialButton = new objects.Button("tutorialButton", 370, 450, true);
+             this.addChild(this._tutorialButton);
+             //tutButton listener
+             this._tutorialButton.on("click", this._tutButtonClick, this);
+           
             //add settings  button
-            this._settingsButton = new objects.Button("setButton", 370, 340, true);
+            this._settingsButton = new objects.Button("setButton", 370, 500, true);
             this.addChild(this._settingsButton);
             //startbutton event listener
             this._settingsButton.on("click", this._settButtonClick, this);
-            //add tutorial button
-            this._tutorialButton = new objects.Button("tutorialButton", 370, 400, true);
-            this.addChild(this._tutorialButton);
-            //tutButton listener
-            this._tutorialButton.on("click", this._tutButtonClick, this);
+           
             //add credits  button
-            this._creditsButton = new objects.Button("creditsButton", 370, 460, true);
+            this._creditsButton = new objects.Button("creditsButton", 370, 550, true);
             this.addChild(this._creditsButton);
             //startbutton event listener
             this._creditsButton.on("click", this._credButtonClick, this);
-
+/*
             //add development buttin
             this._pathButton = new objects.Button("againButton", 130, 460, true);
             this.addChild(this._pathButton);
             //path button listener
             this._pathButton.on("click", this._pathButtonClick, this);
-
+*/
             //add this scene to GLOBAL scene container
             core.stage.addChild(this);
         }
